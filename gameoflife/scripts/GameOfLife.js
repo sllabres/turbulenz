@@ -7,7 +7,8 @@ TurbulenzEngine.onload = function onload() {
 		camera = Camera.create(mathsDevice),
 		floor = Floor.create(graphicsDevice, mathsDevice),
 		inputDeviceOptions = {},
-		inputDevice = TurbulenzEngine.createInputDevice(inputDeviceOptions);
+		inputDevice = TurbulenzEngine.createInputDevice(inputDeviceOptions),
+		cameraController = CameraController.create(graphicsDevice, inputDevice, camera);
 
 	camera.lookAt(mathsDevice.v3BuildZero(),
 	              mathsDevice.v3Build(0, 1, 0),
@@ -23,6 +24,7 @@ TurbulenzEngine.onload = function onload() {
         }
 
         inputDevice.update();
+        cameraController.update();
     }
 
     TurbulenzEngine.setInterval(tick, 1000 / 60);
