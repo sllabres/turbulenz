@@ -24101,7 +24101,9 @@ TurbulenzEngine.onload = function onload() {
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 		mathsDevice = TurbulenzEngine.createMathDevice({}),
 		camera = Camera.create(mathsDevice),
-		floor = Floor.create(graphicsDevice, mathsDevice);
+		floor = Floor.create(graphicsDevice, mathsDevice),
+		inputDeviceOptions = {},
+		inputDevice = TurbulenzEngine.createInputDevice(inputDeviceOptions);
 
 	camera.lookAt(mathsDevice.v3BuildZero(),
 	              mathsDevice.v3Build(0, 1, 0),
