@@ -29,7 +29,7 @@ task :makehtml do
 
 	game_files = "scripts/GameOfLife.js"
 
-	Dir["scripts/*.js"].peach do |file|
+	Dir["scripts/*.js"].each do |file|
 		if file != "scripts/GameOfLife.js"			
 			game_files = game_files + " " + file	
 		end
