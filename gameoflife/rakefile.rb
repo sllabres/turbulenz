@@ -3,23 +3,25 @@ require 'peach'
 
 task :default => [:build, :git_commit_and_push]
 
-task :build => [:javascript_test, :jslint, :makehtml]
+multitask :build => [:javascript_test, :jslint, :makehtml]
 
 # set path value for phantomjs
 task :javascript_test do
-	Dir["tests/*.htm"].each do |file|
-		phantom_result = `phantomjs resources/run-qunit.js #{file}`
-		puts phantom_result if !phantom_result.include? '0 failed'
-		fail "Javascript test failure" if !phantom_result.include? '0 failed'
+	phantom_result = ""
+	Dir["tests/*.htm"].peach do |file|
+		phantom_result += `phantomjs resources/run-qunit.js #{file}`		
+	end	
+
+	if !phantom_result.include? '0 failed'
+		puts phantom_result
+		fail "Javascript test failure"
 	end	
 end
 
-task :jslint do
-	Dir["scripts/*.js"].each do |file|
-		if file != "scripts/CellFactory.js"			
-			jslint_result = `cscript resources/jslint.js #{file} //nologo`
-			puts jslint_result	if jslint_result.include? 'JSLINT'			
-			fail "JSLint failure" if jslint_result.include? 'JSLINT'	
+task :jslint do	
+	Dir["scripts/*.js"].peach do |file|
+		if file != "scripts/CellFactory.js"						
+			`cscript resources/jslint.js #{file} //nologo`
 		end
 	end
 end

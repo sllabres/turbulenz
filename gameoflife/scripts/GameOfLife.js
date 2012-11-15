@@ -12,5 +12,5 @@ TurbulenzEngine.onload = function onloadFn() {
         }
     }
 
-    TurbulenzEngine.setInterval(tick, 1000/60);
+    TurbulenzEngine.setInterval(tick, 1000 / 60);
 };
