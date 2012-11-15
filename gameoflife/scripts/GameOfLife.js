@@ -1,5 +1,5 @@
 /*{{ javascript('jslib/camera.js') }}*/
- /*{{ javascript("scripts/htmlcontrols.js") }}*/
+ /*{{ javascript("jslib/htmlcontrols.js") }}*/
 /*jslint browser: true*/
 /*global TurbulenzEngine,HTMLControls*/
 TurbulenzEngine.onload = function onload() {
