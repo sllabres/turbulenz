@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>
-        Cell
+        GameOfLife
     </title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
     <style type="text/css">
@@ -25,7 +25,7 @@ html, body, div, span, object, iframe, h1, h2, p, a, img, ul, li, fieldset, form
         <strong style="font-size:24px;line-height:64px;margin:16px;">
             <!-- block tz_app_title_name -->
             
-            Cell
+            GameOfLife
             
             <!-- end tz_app_title_name -->
         </strong>
@@ -76,6 +76,7 @@ html, body, div, span, object, iframe, h1, h2, p, a, img, ul, li, fieldset, form
 
     <!-- begin 'tz_include_js' variable -->
     <script type="text/javascript" src="jslib/vmath.js"></script>
+<script type="text/javascript" src="jslib/camera.js"></script>
     <!-- end 'tz_include_js' variable -->
 
     <script type="text/javascript">
@@ -84,6 +85,21 @@ html, body, div, span, object, iframe, h1, h2, p, a, img, ul, li, fieldset, form
       // Supplied by 'tz_startup_code' variable.
       // ----------------------------------------
       
+/*jslint browser: true*/
+/*global TurbulenzEngine*/
+TurbulenzEngine.onload = function onloadFn() {
+    "use strict";
+    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({});
+
+    function tick() {
+        if (graphicsDevice.beginFrame()) {
+            graphicsDevice.clear([0.0, 0.0, 0.0, 1.0], 1.0, 0.0);
+            graphicsDevice.endFrame();
+        }
+    }
+
+    TurbulenzEngine.setInterval(tick, 1000 / 60);
+};
 function LiveCell(cellFactory, rule, drawService) {
     "use strict";
     var neighbourCount = 0;
