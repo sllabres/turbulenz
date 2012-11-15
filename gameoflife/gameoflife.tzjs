@@ -6408,13 +6408,7 @@ HTMLControls.create = function htmlControlsCreateFn()
 /*global TurbulenzEngine,HTMLControls*/
 TurbulenzEngine.onload = function onload() {
     "use strict";
-    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-		htmlControls = HTMLControls.create();
-
-    htmlControls.addCheckboxControl({
-        id: "checkbox01",
-        value: "doBlend"
-    });
+    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({});
 
     htmlControls.register();
 
