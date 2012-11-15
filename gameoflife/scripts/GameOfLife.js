@@ -8,7 +8,8 @@ TurbulenzEngine.onload = function onload() {
 		htmlControls = HTMLControls.create();
 
     htmlControls.addCheckboxControl({
-        id: "checkbox01"
+        id: "checkbox01",
+        value: "doBlend"
     });
 
     htmlControls.register();
