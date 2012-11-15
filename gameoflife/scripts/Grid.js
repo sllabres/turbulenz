@@ -31,7 +31,6 @@ function Grid(seed, neighbourhoodWatch) {
 
     return {
         update : update,
-        notifyNeighbours : notifyNeighbours,
-        draw : draw
+        notifyNeighbours : notifyNeighbours
     };
 }
