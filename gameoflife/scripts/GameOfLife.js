@@ -1,15 +1,16 @@
 /*{{ javascript('jslib/camera.js') }}*/
  /*{{ javascript("scripts/htmlcontrols.js") }}*/
 /*jslint browser: true*/
-/*global TurbulenzEngine*/
-TurbulenzEngine.onload = function onloadFn() {
+/*global TurbulenzEngine,HTMLControls*/
+TurbulenzEngine.onload = function onload() {
     "use strict";
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-    	htmlControls = HTMLControls.create();
-    
+		htmlControls = HTMLControls.create();
+
     htmlControls.addCheckboxControl({
         id: "checkbox01"
     });
+
     htmlControls.register();
 
     function tick() {
@@ -18,9 +19,6 @@ TurbulenzEngine.onload = function onloadFn() {
             graphicsDevice.endFrame();
         }
     }
-
-    // Controls
-    
 
     TurbulenzEngine.setInterval(tick, 1000 / 60);
 };
