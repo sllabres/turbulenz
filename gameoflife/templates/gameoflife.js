@@ -25,5 +25,6 @@
 /*{{ javascript("jslib/services/mappingtable.js") }}*/
 /*{{ javascript("jslib/services/turbulenzbridge.js") }}*/
 /*{{ javascript("jslib/floor.js") }}*/
+/*{{ javascript("jslib/inputdevice.js") }}*/
 
 /*{{ javascript("scripts/gameoflife.js") }}*/
