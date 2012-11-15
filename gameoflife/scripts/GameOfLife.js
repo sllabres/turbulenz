@@ -19,6 +19,9 @@ TurbulenzEngine.onload = function onload() {
     function tick() {
         if (graphicsDevice.beginFrame()) {
             graphicsDevice.clear([0.0, 0.0, 0.0, 1.0], 1.0, 0.0);
+            camera.updateViewMatrix();
+			camera.updateViewProjectionMatrix();
+			floor.render(graphicsDevice, camera);
             graphicsDevice.endFrame();
         }
     }
