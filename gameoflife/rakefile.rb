@@ -38,7 +38,7 @@ task :makehtml do
 		end
 	end
 
-	puts `maketzjs -t templates . -o gameoflife.tzjs gameoflife.js`
+	puts `maketzjs -t templates -t . -o gameoflife.tzjs gameoflife.js`
 	puts `makehtml -t templates -t . --code #{game_files} -o gameoflife.plugin.debug.html gameoflife.html`
 end
 
