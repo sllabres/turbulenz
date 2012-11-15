@@ -38,7 +38,7 @@ task :makehtml do
 	end
 
 	puts `maketzjs -t . -o gameoflife.plugin.debug.tzjs #{game_files} --use-strict`
-	puts `makehtml -t templates -t . --code #{game_files} -o gameoflife.plugin.debug.html gameoflife.js gameolife.html`
+	puts `makehtml -t templates -t . --code #{game_files} -o gameoflife.plugin.debug.html gameoflife.js gameoflife.html`
 end
 
 task :git_commit_and_push do
