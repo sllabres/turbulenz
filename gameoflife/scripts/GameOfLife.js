@@ -12,5 +12,12 @@ TurbulenzEngine.onload = function onloadFn() {
         }
     }
 
+    // Controls
+    var htmlControls = HTMLControls.create();
+    htmlControls.addCheckboxControl({
+        id: "checkbox01"
+    });
+    htmlControls.register();
+
     TurbulenzEngine.setInterval(tick, 1000 / 60);
 };
