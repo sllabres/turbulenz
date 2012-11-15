@@ -26,8 +26,3 @@
 /*{{ javascript("jslib/services/turbulenzbridge.js") }}*/
 
 /*{{ javascript("scripts/gameoflife.js") }}*/
-
-/*{% if tz_development and not tz_canvas %}*/
-/*{# Include JSON implementation for browsers without native support #}*/
-/*{{ javascript("scripts/json2.js") }}*/
-/*{% endif %}*/
