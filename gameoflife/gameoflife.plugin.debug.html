@@ -1,53 +1,23 @@
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-    <title>
-        GameOfLife
-    </title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-    <style type="text/css">
-html, body, div, span, object, iframe, h1, h2, p, a, img, ul, li, fieldset, form, label, legend, table, thead, tbody, tfoot, tr, th, td {
-    border: 0;
-    font-size: 100%;
-    margin: 0;
-    outline: 0;
-    padding: 0;
-    vertical-align: baseline;
-}
-    </style>
-    <!-- block tz_app_header -->
-    
-    <!-- end tz_app_header -->
-</head>
-<body style="background:#B4B4B4;font:normal normal normal 13px/1.231 Helvetica,Arial,sans-serif;text-shadow:1px 1px #F9F8F8;">
-    <div id="titlebar" style="position:fixed;height:65px;top:0;right:0;left:0;">
-        <strong style="font-size:24px;line-height:64px;margin:16px;">
-            <!-- block tz_app_title_name -->
-            
-            GameOfLife
-            
-            <!-- end tz_app_title_name -->
-        </strong>
-        <div id="titlelogo"
-             style="float:right;width:27px;height:27px;margin:18px 24px;">
-        </div>
-    </div>
-    <div id="sidebar"
-         style="background:#B4B4B4;position:fixed;width:303px;top:65px;left:0;">
-        <!-- block tz_app_html_controls -->
-        
-        
-        <!-- end tz_app_html_controls -->
-    </div>
-    <div id="engine" style="background:#939393;position:fixed;top:65px;
-                            bottom:0;right:0;left:303px;
-                            border-left:1px solid #898989;">
-        <!--
-          HTML to create a plugin or canvas instance.
-          Supplied by 'tz_engine_div' variable.
-        -->
-        
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="css/sampleapp.css">
+        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            <div id="play" class="feature">
+                <h1 id="title-header"></h1>
+                <div id="app-object">
+                    <div id="engine-object">
+                        <div id="engine-wrapper">
+                            <!--
+                              HTML to create a plugin or canvas instance.
+                              Supplied by 'tz_engine_div' variable.
+                            -->
+                            
         <script type="text/javascript">
             if (window.ActiveXObject)
             {
@@ -72,13 +42,77 @@ html, body, div, span, object, iframe, h1, h2, p, a, img, ul, li, fieldset, form
             }
             var TurbulenzEngine = {};
         </script>
-    </div>
+
+                            <script type="text/javascript">
+                                var pw = $('#engine-object').width();
+                                // Calculate aspect ratio
+                                var ph = pw * 9 / 16;
+
+                                // Resize element for plugin or canvas to fill
+                                $('#engine-wrapper').css({
+                                    height: ph,
+                                    width: pw
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <p id="game-details" class="game-info">
+                </p>
+                <span id="versions" class="game-info">
+                    <span class="sdk">
+                        SDK version: <span id="sdk_version"></span>
+                        <span id="sdk_alert"></span>
+                    </span>
+                    <span class="engine">
+                        Engine version: <span id="engine_version">0.0.0</span>
+                        <span id="engine_alert"></span>
+                    </span>
+                </span>
+                <span class="copyright game-info">Turbulenz Engine &copy; Copyright Turbulenz Limited. 2010-2011</span>
+                <span class="clear"></span>
+            </div>
+
+        </div>
+    <script>
+        var config =
+        {
+            title: "Game Of Life",
+            version: "0.1",
+            sdk_version: "0.23.1.0",
+            language: "English",
+            allowAlerts: false
+        };
+        document.title = config.title + " powered By Turbulenz";
+        document.getElementById("sdk_version").innerHTML = config.sdk_version;
+        document.getElementById("game-details").innerHTML = config.title + " | v" + config.version + " | " + config.language;
+    </script>
 
     <!-- begin 'tz_include_js' variable -->
     <script type="text/javascript" src="jslib/vmath.js"></script>
+<script type="text/javascript" src="jslib/aabbtree.js"></script>
 <script type="text/javascript" src="jslib/camera.js"></script>
-<script type="text/javascript" src="jslib/htmlcontrols.js"></script>
-<script type="text/javascript" src="jslib/floor.js"></script>
+<script type="text/javascript" src="jslib/geometry.js"></script>
+<script type="text/javascript" src="jslib/material.js"></script>
+<script type="text/javascript" src="jslib/light.js"></script>
+<script type="text/javascript" src="jslib/scenenode.js"></script>
+<script type="text/javascript" src="jslib/scene.js"></script>
+<script type="text/javascript" src="jslib/effectmanager.js"></script>
+<script type="text/javascript" src="jslib/shadermanager.js"></script>
+<script type="text/javascript" src="jslib/texturemanager.js"></script>
+<script type="text/javascript" src="jslib/renderingcommon.js"></script>
+<script type="text/javascript" src="jslib/defaultrendering.js"></script>
+<script type="text/javascript" src="jslib/resourceloader.js"></script>
+<script type="text/javascript" src="jslib/observer.js"></script>
+<script type="text/javascript" src="jslib/utilities.js"></script>
+<script type="text/javascript" src="jslib/vertexbuffermanager.js"></script>
+<script type="text/javascript" src="jslib/indexbuffermanager.js"></script>
+<script type="text/javascript" src="jslib/requesthandler.js"></script>
+<script type="text/javascript" src="jslib/services/turbulenzservices.js"></script>
+<script type="text/javascript" src="jslib/services/gamesession.js"></script>
+<script type="text/javascript" src="jslib/services/mappingtable.js"></script>
+<script type="text/javascript" src="jslib/services/turbulenzbridge.js"></script>
+<script type="text/javascript" src="scripts/gameoflife.js"></script>
     <!-- end 'tz_include_js' variable -->
 
     <script type="text/javascript">
@@ -87,35 +121,6 @@ html, body, div, span, object, iframe, h1, h2, p, a, img, ul, li, fieldset, form
       // Supplied by 'tz_startup_code' variable.
       // ----------------------------------------
       
- 
- 
-
-
-/*jslint browser: true*/
-/*global TurbulenzEngine,Camera,Floor*/
-TurbulenzEngine.onload = function onload() {
-    "use strict";
-    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-		mathsDevice = TurbulenzEngine.createMathDevice({}),
-		camera = Camera.create(mathsDevice),
-		floor = Floor.create(graphicsDevice, mathsDevice);
-
-	camera.lookAt(mathsDevice.v3BuildZero(),
-	              mathsDevice.v3Build(0, 1, 0),
-	              mathsDevice.v3Build(0, 20, 100));
-
-    function tick() {
-        if (graphicsDevice.beginFrame()) {
-            graphicsDevice.clear([0.0, 0.0, 0.0, 1.0], 1.0, 0.0);
-            camera.updateViewMatrix();
-			camera.updateViewProjectionMatrix();
-			floor.render(graphicsDevice, camera);
-            graphicsDevice.endFrame();
-        }
-    }
-
-    TurbulenzEngine.setInterval(tick, 1000 / 60);
-};
 function LiveCell(cellFactory, rule, drawService) {
     "use strict";
     var neighbourCount = 0;
@@ -308,6 +313,34 @@ function DeadCellRule() {
     };
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // Engine startup
         window.onload = function ()
         {
@@ -463,5 +496,5 @@ function DeadCellRule() {
         };  // window.onload()
     </script>
 
-</body>
+    </body>
 </html>
