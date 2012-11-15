@@ -1,19 +1,21 @@
 require 'albacore'
 require 'peach'
 
-task :default => [:git_commit_and_push]
+task :default => [:build, :git_commit_and_push]
+
+multitask :build => [:javascript_test, :jslint, :makehtml]
 
 # set path value for phantomjs
 task :javascript_test do
-	Dir["tests/*.htm"].peach do |file|
+	Dir["tests/*.htm"].each do |file|
 		phantom_result = `phantomjs resources/run-qunit.js #{file}`
 		puts phantom_result if !phantom_result.include? '0 failed'
 		fail "Javascript test failure" if !phantom_result.include? '0 failed'
 	end	
 end
 
-task :jslint => :javascript_test do
-	Dir["scripts/*.js"].peach do |file|
+task :jslint do
+	Dir["scripts/*.js"].each do |file|
 		if file != "scripts/CellFactory.js"			
 			jslint_result = `cscript resources/jslint.js #{file} //nologo`
 			puts jslint_result	if jslint_result.include? 'JSLINT'			
@@ -23,7 +25,7 @@ task :jslint => :javascript_test do
 end
 
 # using python.exe in the turbulenz env/script directory, added to the windows path environmental variable
-task :makehtml => :jslint do
+task :makehtml do
 
 	game_files = "scripts/GameOfLife.js"
 
@@ -37,7 +39,7 @@ task :makehtml => :jslint do
 	puts `makehtml -t . #{game_files} -o gameoflife.plugin.debug.html --use-strict`
 end
 
-task :git_commit_and_push => :makehtml  do
+task :git_commit_and_push do
 	puts "Committing changes."
 	puts `git add .`	
 	puts `git commit -m "Automated Commit"`
