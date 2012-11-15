@@ -21,7 +21,7 @@ end
 task :jslint do	
 	Dir["scripts/*.js"].peach do |file|
 		if file != "scripts/CellFactory.js"						
-			`cscript resources/jslint.js #{file} //nologo //I`
+			`cscript resources/jslint.js #{file} //nologo`
 		end
 	end
 end
@@ -45,5 +45,5 @@ task :git_commit_and_push do
 	puts "Committing changes."
 	puts `git add .`	
 	puts `git commit -m "Automated Commit"`
-	puts `git push origin master`
+	#puts `git push origin master`
 end
