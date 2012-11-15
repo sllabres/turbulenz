@@ -19,6 +19,8 @@ TurbulenzEngine.onload = function onload() {
 			floor.render(graphicsDevice, camera);
             graphicsDevice.endFrame();
         }
+
+        inputDevice.update();
     }
 
     TurbulenzEngine.setInterval(tick, 1000 / 60);
