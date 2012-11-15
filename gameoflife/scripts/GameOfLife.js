@@ -2,12 +2,12 @@
 /*global TurbulenzEngine*/
 TurbulenzEngine.onload = function onloadFn() {
     "use strict";
-    var gd = TurbulenzEngine.createGraphicsDevice({});
+    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({});
 
     function tick() {
-        if (gd.beginFrame()) {
-            gd.clear([0.0, 0.0, 0.0, 1.0], 1.0, 0.0);
-            gd.endFrame();
+        if (graphicsDevice.beginFrame()) {
+            graphicsDevice.clear([0.0, 0.0, 0.0, 1.0], 1.0, 0.0);
+            graphicsDevice.endFrame();
         }
     }
 
