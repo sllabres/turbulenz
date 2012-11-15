@@ -1,14 +1,15 @@
 aspect_ratio: '16:9'
-canvas_main: ''
+canvas_main: H:\github\turbulenz\gameoflife\gameoflife.plugin.debug.html
 cover_art: ''
-deploy_files: []
+deploy_files:
+- H:\github\turbulenz\gameoflife\gameoflife.plugin.debug.html
 deployed: Never
 engine_version: 0.23.1
 flash_main: ''
 is_multiplayer: false
 is_temp: false
 mapping_table: ''
-modified: 09:41 | 15/11/2012
+modified: 12:33 | 15/11/2012
 path: H:\github\turbulenz\gameoflife
 plugin_main: ''
 slug: game-of-life
