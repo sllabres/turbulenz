@@ -1,6 +1,6 @@
 aspect_ratio: '16:9'
 canvas_main: H:\github\turbulenz\gameoflife\gameoflife.plugin.debug.html
-cover_art: ''
+cover_art: 'cover_art.png'
 deploy_files:
 - H:\github\turbulenz\gameoflife\gameoflife.plugin.debug.tzjs
 - H:\github\turbulenz\gameoflife\gameoflife.plugin.debug.html
