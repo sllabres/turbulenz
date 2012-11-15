@@ -12,8 +12,9 @@ task :javascript_test do
 		phantom_result += `phantomjs resources/run-qunit.js #{file}`		
 	end	
 
-	if !phantom_result.include? '0 failed'
-		puts phantom_result
+	puts phantom_result
+
+	if !phantom_result.include? '0 failed'		
 		fail "Javascript test failure"
 	end	
 end
