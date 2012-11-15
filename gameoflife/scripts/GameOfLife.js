@@ -4,7 +4,13 @@
 /*global TurbulenzEngine*/
 TurbulenzEngine.onload = function onloadFn() {
     "use strict";
-    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({});
+    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
+    	htmlControls = HTMLControls.create();
+    
+    htmlControls.addCheckboxControl({
+        id: "checkbox01"
+    });
+    htmlControls.register();
 
     function tick() {
         if (graphicsDevice.beginFrame()) {
@@ -14,11 +20,7 @@ TurbulenzEngine.onload = function onloadFn() {
     }
 
     // Controls
-    var htmlControls = HTMLControls.create();
-    htmlControls.addCheckboxControl({
-        id: "checkbox01"
-    });
-    htmlControls.register();
+    
 
     TurbulenzEngine.setInterval(tick, 1000 / 60);
 };
