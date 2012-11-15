@@ -21,10 +21,10 @@ function Grid(seed, neighbourhoodWatch) {
     function update() {
         notifyNeighbours(cells);
         checkRules();
-    }   
+    }
 
     function draw() {
-        cells.forEach(function (cell, index) { 
+        cells.forEach(function (cell, index) {
             cell.draw(index);
         });
     }
