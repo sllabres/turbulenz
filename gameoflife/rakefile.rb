@@ -1,9 +1,9 @@
 require 'albacore'
 require 'peach'
 
-task :default => [:javascript, :makehtml, :git_commit_and_push]
+task :default => [:build, :git_commit_and_push]
 
-multitask :javascript => [:javascript_test, :jslint]
+multitask :build => [:javascript_test, :jslint, :makehtml]
 
 # set path value for phantomjs
 task :javascript_test do
