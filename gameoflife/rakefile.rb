@@ -3,7 +3,7 @@ require 'peach'
 
 task :default => [:build, :git_commit_and_push]
 
-multitask :build => [:javascript_test, :jslint, :makehtml]
+task :build => [:javascript_test, :jslint, :makehtml]
 
 # set path value for phantomjs
 task :javascript_test do
