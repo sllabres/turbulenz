@@ -1,5 +1,5 @@
 /*jslint browser: true*/
-/*global TurbulenzEngine,Camera,Floor*/
+/*global TurbulenzEngine,Camera,Floor,CameraController*/
 TurbulenzEngine.onload = function onload() {
     "use strict";
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
@@ -26,6 +26,15 @@ TurbulenzEngine.onload = function onload() {
         inputDevice.update();
         cameraController.update();
     }
+
+    TurbulenzEngine.onunload = function gameOnunload() {
+		floor = null;
+		camera = null;
+		mathsDevice = null;
+		graphicsDevice = null;
+		cameraController = null;
+		inputDevice = null;
+	};
 
     TurbulenzEngine.setInterval(tick, 1000 / 60);
 };
