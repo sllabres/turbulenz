@@ -99,15 +99,47 @@
 			"file": "rakefile.rb",
 			"settings":
 			{
-				"buffer_size": 1170,
+				"buffer_size": 1282,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/H/Turbulenz/SDK/0.23.1/env/Scripts/makehtml.bat",
+			"file": "/H/github/turbulenz/_blank/manifest.yaml",
 			"settings":
 			{
-				"buffer_size": 143,
+				"buffer_size": 297,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/H/github/turbulenz/_blank/tests/_blank.htm",
+			"settings":
+			{
+				"buffer_size": 321,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/H/github/turbulenz/_blank/rakefile.rb",
+			"settings":
+			{
+				"buffer_size": 1234,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/H/github/turbulenz/_blank/tests/_blank.js",
+			"settings":
+			{
+				"buffer_size": 77,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/H/sllabres/rakefile.rb",
+			"settings":
+			{
+				"buffer_size": 942,
 				"line_ending": "Windows"
 			}
 		}
@@ -152,6 +184,8 @@
 	},
 	"file_history":
 	[
+		"/H/sllabres/rakefile.rb",
+		"/H/Turbulenz/SDK/0.23.1/env/Scripts/makehtml.bat",
 		"/H/Turbulenz/SDK/0.23.1/env/Scripts/activate.bat",
 		"/H/Turbulenz/SDK/0.23.1/run_env.bat",
 		"/C/Users/Sebastian/AppData/Roaming/Sublime Text 2/Packages/User/rake.sublime-build",
@@ -171,7 +205,6 @@
 		"/H/github/turbulenz/gameoflife/scripts/LiveCell.js",
 		"/H/github/turbulenz/gameoflife/tests/GameOfLife.htm",
 		"/H/github/turbulenz/gameoflife/scripts/DeadCell.js",
-		"/H/sllabres/rakefile.rb",
 		"/H/github/turbulenz/gameoflife/scripts/Grid.js",
 		"/H/github/turbulenz/gameoflife/myfirstapp.debug.html",
 		"/H/github/turbulenz/gameoflife/game.debug.html",
@@ -333,7 +366,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -367,15 +400,15 @@
 					"file": "rakefile.rb",
 					"settings":
 					{
-						"buffer_size": 1170,
+						"buffer_size": 1282,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1084,
-								1084
+								1043,
+								1043
 							]
 						],
 						"settings":
@@ -391,23 +424,132 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/H/Turbulenz/SDK/0.23.1/env/Scripts/makehtml.bat",
+					"file": "/H/github/turbulenz/_blank/manifest.yaml",
 					"settings":
 					{
-						"buffer_size": 143,
+						"buffer_size": 297,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								143,
-								143
+								281,
+								281
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Batch File/Batch File.tmLanguage"
+							"syntax": "Packages/YAML/YAML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/H/github/turbulenz/_blank/tests/_blank.htm",
+					"settings":
+					{
+						"buffer_size": 321,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								53,
+								53
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/H/github/turbulenz/_blank/rakefile.rb",
+					"settings":
+					{
+						"buffer_size": 1234,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								339,
+								339
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/H/github/turbulenz/_blank/tests/_blank.js",
+					"settings":
+					{
+						"buffer_size": 77,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								77,
+								77
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/H/sllabres/rakefile.rb",
+					"settings":
+					{
+						"buffer_size": 942,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19,
+								23
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
