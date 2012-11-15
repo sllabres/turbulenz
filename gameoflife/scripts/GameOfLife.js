@@ -1,12 +1,10 @@
 /*{{ javascript('jslib/camera.js') }}*/
  /*{{ javascript("jslib/htmlcontrols.js") }}*/
 /*jslint browser: true*/
-/*global TurbulenzEngine,HTMLControls*/
+/*global TurbulenzEngine*/
 TurbulenzEngine.onload = function onload() {
     "use strict";
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({});
-
-    htmlControls.register();
 
     function tick() {
         if (graphicsDevice.beginFrame()) {
