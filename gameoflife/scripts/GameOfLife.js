@@ -1,8 +1,3 @@
-/*{{ javascript('jslib/camera.js') }}*/
- /*{{ javascript("jslib/htmlcontrols.js") }}*/
- /*{{ javascript('jslib/camera.js') }}*/
-/*{{ javascript('jslib/floor.js') }}*/
-
 /*jslint browser: true*/
 /*global TurbulenzEngine,Camera,Floor*/
 TurbulenzEngine.onload = function onload() {

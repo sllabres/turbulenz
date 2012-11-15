@@ -24,5 +24,6 @@
 /*{{ javascript("jslib/services/gamesession.js") }}*/
 /*{{ javascript("jslib/services/mappingtable.js") }}*/
 /*{{ javascript("jslib/services/turbulenzbridge.js") }}*/
+/*{{ javascript("jslib/floor.js") }}*/
 
 /*{{ javascript("scripts/gameoflife.js") }}*/
