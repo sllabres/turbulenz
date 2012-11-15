@@ -21,7 +21,7 @@ end
 task :jslint do	
 	Dir["scripts/*.js"].peach do |file|
 		if file != "scripts/CellFactory.js"						
-			`cscript resources/jslint.js #{file} //nologo`
+			`cscript resources/jslint.js #{file} //nologo //I`
 		end
 	end
 end
