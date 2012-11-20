@@ -11,7 +11,7 @@ function CellDrawing(context, gridWidth, cellWidth) {
 
     function draw(isAlive, index) {
         var xCoordinate = (index % gridWidth) * cellWidth,
-            yCoordinate = Math.round(index / gridWidth);
+            yCoordinate = (Math.round(index / gridWidth)) * cellWidth;
 
         context.fillStyle = getCellColour(isAlive);
         context.fillRect(xCoordinate, yCoordinate, 10, 10);

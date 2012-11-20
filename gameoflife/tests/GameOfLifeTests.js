@@ -163,6 +163,21 @@ test("When cell drawing for cell at index 1 with cell width of 10, then x coordi
     equal(xCoordinate, 10);
 });
 
+test("When cell drawing for cell at index 3 with cell width of 10, then y coordinate is 10", function() {
+    var cellIndex = 3,
+        gridWidth = 3,
+        cellWidth = 10,
+        yCoordinate,
+        context = { fillRect : function (x, y, width, height) {
+            yCoordinate = y;
+        } },
+        cellDrawing = new CellDrawing(context, gridWidth, cellWidth);
+
+        cellDrawing.draw(true, cellIndex);
+
+    equal(yCoordinate, 10);
+});
+
 module("Live Cell Rules");
 var liveCellRule = new LiveCellRule();
 test("Live cell with fewer than two neighbours dies", function() {    
