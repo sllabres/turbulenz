@@ -48842,8 +48842,8 @@ TurbulenzEngine.onload = function onload() {
 		drawing = Draw2D.create({ graphicsDevice : graphicsDevice }),
 		gridWidth = 50,
 		cellWidth = 10,
-		gameWidth = graphicsDevice.width,
-		gameHeight = graphicsDevice.height,
+		gameWidth = 500,
+		gameHeight = 500,
 		viewport = mathsDevice.v4Build(0, 0, gameWidth, gameHeight),
 		configureParams = {
 			scaleMode : undefined,
