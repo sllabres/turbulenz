@@ -26,5 +26,6 @@
 /*{{ javascript("jslib/services/turbulenzbridge.js") }}*/
 /*{{ javascript("jslib/floor.js") }}*/
 /*{{ javascript("jslib/inputdevice.js") }}*/
+/*{{ javascript("jslib/canvas.js") }}*/
 
 /*{{ javascript("scripts/gameoflife.js") }}*/

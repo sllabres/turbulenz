@@ -69,6 +69,16 @@ function FakeNeighbourhoodWatch() {
     }
 }
 
+/*module("Cell drawer");
+test("Draw service called from live cell", function() {
+    var cellDrawing = new CellDrawing({
+        draw: function() { }
+    });
+
+    cellDrawing
+    equal(isCellAlive, true);
+});*/
+
 module("Live Cell Rules");
 var liveCellRule = new LiveCellRule();
 test("Live cell with fewer than two neighbours dies", function() {    
