@@ -39,6 +39,7 @@ TurbulenzEngine.onload = function onload() {
     }
 
     TurbulenzEngine.onunload = function gameOnunload() {
+    	alert('test');
 	};
 
     TurbulenzEngine.setInterval(update, 1000 / 60);
