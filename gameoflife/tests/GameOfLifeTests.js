@@ -70,13 +70,13 @@ function FakeNeighbourhoodWatch() {
 }
 
 function CellDrawing(context) {
-    function draw(colour) {
-        if(colour) {
+
+    function draw(isAlive) {
+        if(isAlive) {
             context.fillStyle = '#FFFFFF';
         } else {
             context.fillStyle = '#000000';
         }
-
     }
 
     return { draw : draw };
