@@ -26506,6 +26506,10 @@ TurbulenzEngine.onload = function onload() {
     TurbulenzEngine.onunload = function gameOnunload() {
 		graphicsDevice = null;
 		mathsDevice = null;
+		grid = null;
+		drawing = null;
+		viewport = null;
+		configureParams = null;
 	};
 
     TurbulenzEngine.setInterval(update, 1000 / 60);
