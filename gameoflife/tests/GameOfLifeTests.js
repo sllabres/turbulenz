@@ -72,7 +72,8 @@ function FakeNeighbourhoodWatch() {
 function CellDrawing(context) {
 
     function draw(isAlive) {
-        context.fillStyle = getCellColour(isAlive);       
+        context.fillStyle = getCellColour(isAlive);
+        context.fillRect(0,0);
     }
 
     function getCellColour(isAlive) {
@@ -83,9 +84,9 @@ function CellDrawing(context) {
 }
 
 module("Cell drawing");
-test("When draw service called for live cell, then cell is white", function() {
+test("When cell drawing called for live cell, then cell is white", function() {
     var liveCellColour = '#FFFFFF',
-        context = {},
+        context = { fillRect : function() {} },
         cellDrawing = new CellDrawing(context);
 
     cellDrawing.draw(true);
@@ -93,14 +94,40 @@ test("When draw service called for live cell, then cell is white", function() {
     equal(context.fillStyle, liveCellColour);
 });
 
-test("When draw service called for dead cell, then cell is black", function() {
+test("When cell drawing called for dead cell, then cell is black", function() {
     var deadCellColour = '#000000',
-        context = {},
+        context = { fillRect : function() {} },
         cellDrawing = new CellDrawing(context);
 
     cellDrawing.draw(false);
 
     equal(context.fillStyle, deadCellColour);
+});
+
+test("When cell drawing called for cell at index 0, then cell x coordinate is 0", function() {
+    var cellIndex = 0,
+        xCoordinate,
+        context = { fillRect : function (x, y, width, height) {
+            xCoordinate = x;
+        } },
+        cellDrawing = new CellDrawing(context);
+
+        cellDrawing.draw();
+
+    equal(xCoordinate, 0);
+});
+
+test("When cell drawing called for cell at index 0, then cell y coordinate is 0", function() {
+    var cellIndex = 0,
+        yCoordinate,
+        context = { fillRect : function (x, y, width, height) {
+            yCoordinate = y;
+        } },
+        cellDrawing = new CellDrawing(context);
+
+        cellDrawing.draw();
+
+    equal(yCoordinate, 0);
 });
 
 module("Live Cell Rules");
