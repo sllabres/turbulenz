@@ -7,6 +7,7 @@ TurbulenzEngine.onload = function onload() {
 		canvas = Canvas.create(graphicsDevice, mathsDevice),
 		context = canvas.getContext('2d'),
 		drawOnce = true;
+		alert('onload');
 
     function update() {
 		var deviceWidth, deviceHeight;
