@@ -26,9 +26,9 @@ TurbulenzEngine.onload = function onload() {
 			}
 
 			context.beginFrame();		
-			
-			grid.update();
+						
 			grid.draw();			
+			grid.update();
 
 			context.endFrame();
 			graphicsDevice.endFrame();
