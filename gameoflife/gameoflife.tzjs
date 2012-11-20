@@ -29612,7 +29612,7 @@ TurbulenzEngine.onload = function onload() {
 		context = canvas.getContext('2d'),
 		gridWidth = 10,
 		cellwidth = 10,
-		grid = new Grid(new RandomSeedGenerator(new CellDrawing(context)).generateSeed(), new NeighbourhoodWatch(gridWidth));
+		grid = new Grid(new RandomSeedGenerator(new CellDrawing(context)).generateSeed(	), new NeighbourhoodWatch(gridWidth));
 
     function update() {
 		var deviceWidth, deviceHeight;
@@ -29645,6 +29645,209 @@ TurbulenzEngine.onload = function onload() {
 
     TurbulenzEngine.setInterval(update, 1000 / 60);
 };
+function LiveCell (cellFactory, rule, drawService) {
+    
+    var neighbourCount = 0;
+
+    function checkRule() {
+        if (rule.isAlive(neighbourCount)) {
+            return cellFactory.createLiveCell();
+        } else {
+            return cellFactory.createDeadCell();
+        }
+    }
+
+    function notify() {
+        neighbourCount += 1;
+    }
+
+    function notifyNeighbours(neighbours) {
+        neighbours.forEach(function (neighbour) {
+            neighbour.notify();
+        });
+    }
+
+    function draw(index) {
+        drawService.draw(true, index);
+    }
+
+    return {
+        checkRule : checkRule,
+        notify : notify,
+        notifyNeighbours : notifyNeighbours,
+        draw : draw
+    };
+}
+
+function DeadCell(cellFactory, rule, drawService) {
+    
+    var neighbourCount = 0;
+
+    function checkRule() {
+        if (rule.isAlive(neighbourCount)) {
+            return cellFactory.createLiveCell();
+        } else {
+            return cellFactory.createDeadCell();
+        }
+    }
+
+    function notify() {
+        neighbourCount += 1;
+    }
+
+    // don't notify neighbours, I'm dead
+    // dead code??
+    function notifyNeighbours(neighbours) { }
+
+    function draw(index) {
+        drawService.draw(false, index);
+    }
+
+    return {
+        checkRule : checkRule,
+        notify : notify,
+        notifyNeighbours : notifyNeighbours,
+        draw : draw
+    };
+}
+function CellDrawing(context, gridWidth, cellWidth) {
+    
+
+    if(cellWidth == undefined) {
+        cellWidth = 1;
+    }
+
+    function getCellColour(isAlive) {
+        return isAlive ? '#FFFFFF' : '#000000';
+    }
+
+    function draw(isAlive, index) {
+        var xCoordinate = (index % gridWidth) * cellWidth,
+            yCoordinate = (Math.round(index / gridWidth)) * cellWidth;
+
+        context.fillStyle = getCellColour(isAlive);
+        context.fillRect(xCoordinate, yCoordinate, 10, 10);
+    }
+
+    return { draw : draw };
+}
+function CellFactory(liveCellRule, deadCellRule, drawService) {    
+    
+    function createLiveCell() {
+        return new LiveCell(this, liveCellRule, drawService);
+    }
+
+    function createDeadCell() {
+        return new DeadCell(this, deadCellRule, drawService);
+    }
+
+    return {
+        createLiveCell : createLiveCell,
+        createDeadCell : createDeadCell
+    };
+}
+function NeighbourhoodWatch(gridWidth) {
+    
+
+    function getStartIndex(cellIndex) {
+        var startIndex = cellIndex - gridWidth - 1;
+
+        if (startIndex < 0) {
+            startIndex = 0;
+        }
+
+        return startIndex;
+    }
+
+    function getEndIndex(cellIndex, maxIndex) {
+        var endIndex = cellIndex + gridWidth + 1;
+
+        if (endIndex >= maxIndex) {
+            endIndex = maxIndex - 1;
+        }
+
+        return endIndex;
+    }
+
+    function isCellWithinBounds(cellIndex, currentIndex) {
+        var cellX = cellIndex % gridWidth,
+            cellY = Math.floor(cellIndex / gridWidth),
+            currX = currentIndex % gridWidth,
+            currY = Math.floor(currentIndex / gridWidth),
+            x = cellX - currX,
+            y = cellY - currY;
+
+        return (x >= -1 && x <= 1) && (y >= -1 && y <= 1) && (cellIndex !== currentIndex);
+    }
+
+    function getNeighbours(cells, cellIndex) {
+        var neighbours = [],
+            startIndex = getStartIndex(cellIndex),
+            endIndex = getEndIndex(cellIndex, cells.length),
+            currentIndex = startIndex;
+
+        for (currentIndex; currentIndex <= endIndex; currentIndex += 1) {
+            if (isCellWithinBounds(cellIndex, currentIndex)) {
+                neighbours.push(cells[currentIndex]);
+            }
+        }
+
+        return neighbours;
+    }
+
+    return {
+        getNeighbours : getNeighbours
+    };
+}
+/*global CellFactory,LiveCellRule, DeadCellRule*/
+function RandomSeedGenerator(cellDrawing, gridWidth) {
+    
+    var gridSize = gridWidth * gridWidth;
+    
+    function generate(gridSize) {
+        var cellFactory = new CellFactory(new LiveCellRule(), new DeadCellRule(), cellDrawing),
+            cells = [],
+            liveCell,
+            i = 0;
+
+        for (i; i < gridSize; i += 1) {
+            liveCell = Math.floor((Math.random() * 100) + 1);
+
+            if (liveCell > 50) {
+                cells.push(cellFactory.createLiveCell());
+            } else {
+                cells.push(cellFactory.createDeadCell());
+            }
+        }
+
+        return cells;
+    }
+
+    return {
+        generate : generate
+    };
+}
+function LiveCellRule() {
+    
+    function isAlive(noNeighbours) {
+        return noNeighbours > 1 && noNeighbours < 4;
+    }
+
+    return {
+        isAlive : isAlive
+    };
+}
+
+function DeadCellRule() {
+    
+    function isAlive(noNeighbours) {
+        return noNeighbours === 3;
+    }
+
+    return {
+        isAlive : isAlive
+    };
+}
 
     if (!TurbulenzEngine.onload)
     {

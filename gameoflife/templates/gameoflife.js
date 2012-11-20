@@ -28,4 +28,10 @@
 /*{{ javascript("jslib/inputdevice.js") }}*/
 /*{{ javascript("jslib/canvas.js") }}*/
 
-/*{{ javascript("scripts/gameoflife.js") }}*/
+/*{{ javascript("scripts/GameOfLife.js") }}*/
+/*{{ javascript("scripts/Cell.js") }}*/
+/*{{ javascript("scripts/CellDrawing.js") }}*/
+/*{{ javascript("scripts/CellFactory.js") }}*/
+/*{{ javascript("scripts/NeighbourhoodWatch.js") }}*/
+/*{{ javascript("scripts/RandomSeedGenerator.js") }}*/
+/*{{ javascript("scripts/Rules.js") }}*/
