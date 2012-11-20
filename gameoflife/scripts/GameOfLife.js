@@ -17,9 +17,9 @@ TurbulenzEngine.onload = function onload() {
 		};
 
     function update() {
-		drawing.configure(configureParams);
-		drawing.setBackBuffer();
-		drawing.clear();
+		//drawing.configure(configureParams);
+		//drawing.setBackBuffer();
+		//drawing.clear();
 		graphicsDevice.beginFrame();
 		drawing.begin();
 		drawing.draw({ destinationRectangle : [0, 0, 10, 10] });
