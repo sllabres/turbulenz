@@ -29603,14 +29603,33 @@ Canvas.create = function canvasCreateFn(gd, md)
 
 
 /*jslint browser: true*/
-/*global TurbulenzEngine*/
+/*global TurbulenzEngine,Canvas*/
 TurbulenzEngine.onload = function onload() {
     
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-    	canvas = TurbulenzEngine.canvas;
-
+		mathsDevice = TurbulenzEngine.createMathDevice({}),
+		canvas = Canvas.create(graphicsDevice, mathsDevice),
+		context = canvas.getContext('2d');
 
     function update() {
+		var deviceWidth, deviceHeight;
+
+		if (graphicsDevice.beginFrame()) {
+			deviceWidth = graphicsDevice.width;
+			deviceHeight = graphicsDevice.height;
+
+			if (canvas.width !== deviceWidth) {
+				canvas.width = deviceWidth;
+			}
+
+			if (canvas.height !== deviceHeight) {
+				canvas.height = deviceHeight;
+			}
+			
+			context.beginFrame();
+			context.endFrame();
+			graphicsDevice.endFrame();
+		}
     }
 
     TurbulenzEngine.onunload = function gameOnunload() {
