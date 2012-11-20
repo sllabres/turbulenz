@@ -7,8 +7,7 @@ TurbulenzEngine.onload = function onload() {
 		camera = Camera.create(mathsDevice),
 		floor = Floor.create(graphicsDevice, mathsDevice),
 		inputDeviceOptions = {},
-		inputDevice = TurbulenzEngine.createInputDevice(inputDeviceOptions),
-		cameraController = CameraController.create(graphicsDevice, inputDevice, camera);
+		inputDevice = TurbulenzEngine.createInputDevice(inputDeviceOptions);
 
 	camera.lookAt(mathsDevice.v3BuildZero(),
 	              mathsDevice.v3Build(0, 1, 0),
@@ -24,7 +23,6 @@ TurbulenzEngine.onload = function onload() {
         }
 
         inputDevice.update();
-        cameraController.update();
     }
 
     TurbulenzEngine.onunload = function gameOnunload() {
@@ -32,7 +30,6 @@ TurbulenzEngine.onload = function onload() {
 		camera = null;
 		mathsDevice = null;
 		graphicsDevice = null;
-		cameraController = null;
 		inputDevice = null;
 	};
 
