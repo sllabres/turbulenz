@@ -6,7 +6,7 @@ TurbulenzEngine.onload = function onload() {
 		mathsDevice = TurbulenzEngine.createMathDevice({}),
 		canvas = Canvas.create(graphicsDevice, mathsDevice),
 		context = canvas.getContext('2d'),
-		gridWidth = 20,
+		gridWidth = 10,
 		cellWidth = 10,
 		grid = new Grid(new RandomSeedGenerator(new CellDrawing(context, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth));
 
@@ -27,7 +27,7 @@ TurbulenzEngine.onload = function onload() {
 
 			context.beginFrame();		
 			
-			grid.update();
+			grid.draw();
 
 			context.endFrame();
 			graphicsDevice.endFrame();
@@ -42,4 +42,5 @@ TurbulenzEngine.onload = function onload() {
 	};
 
     TurbulenzEngine.setInterval(update, 1000 / 60);
+    TurbulenzEngine.setInterval(grid.update, 200 );
 };

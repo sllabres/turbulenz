@@ -375,13 +375,6 @@ test("Checks rule for cell", function() {
     equal(fakeCell.ruleCheck, true);
 });
 
-test("Draw is called on fake cell after update", function() {      
-    var fakeCell = new FakeCell();
-    var grid = new Grid(new Array(fakeCell), new FakeNeighbourhoodWatch());
-    grid.update();
-    equal(fakeCell.drawCalled, true);
-})
-
 module("NeighbourhoodWatch");
 
 // x
