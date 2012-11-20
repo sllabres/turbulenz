@@ -19,7 +19,7 @@ TurbulenzEngine.onload = function onload() {
     function update() {
 		graphicsDevice.beginFrame();
 		drawing.begin();
-		drawing.draw({ destinationRectangle : [0, 0, 10, 10] });
+		grid.draw();
 		drawing.end();
 		graphicsDevice.endFrame();
     }
@@ -30,4 +30,5 @@ TurbulenzEngine.onload = function onload() {
 	};
 
     TurbulenzEngine.setInterval(update, 1000 / 60);
+    TurbulenzEngine.setInterval(grid.update, 250);
 };
