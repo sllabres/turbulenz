@@ -91,55 +91,31 @@
 			"file": "scripts/GameOfLife.js",
 			"settings":
 			{
-				"buffer_size": 376,
+				"buffer_size": 1293,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "rakefile.rb",
+			"file": "/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/inputapp.js",
 			"settings":
 			{
-				"buffer_size": 1282,
+				"buffer_size": 52201,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/H/github/turbulenz/_blank/manifest.yaml",
+			"file": "/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/point.js",
 			"settings":
 			{
-				"buffer_size": 297,
+				"buffer_size": 362,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/H/github/turbulenz/_blank/tests/_blank.htm",
+			"file": "/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameThree.js",
 			"settings":
 			{
-				"buffer_size": 321,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/H/github/turbulenz/_blank/rakefile.rb",
-			"settings":
-			{
-				"buffer_size": 1234,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/H/github/turbulenz/_blank/tests/_blank.js",
-			"settings":
-			{
-				"buffer_size": 77,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/H/sllabres/rakefile.rb",
-			"settings":
-			{
-				"buffer_size": 942,
+				"buffer_size": 2986,
 				"line_ending": "Windows"
 			}
 		}
@@ -147,9 +123,13 @@
 	"build_system": "Packages/User/rake.sublime-build",
 	"command_palette":
 	{
-		"height": 58.0,
+		"height": 81.0,
 		"selected_items":
 		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -167,7 +147,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 416.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -184,14 +164,45 @@
 	},
 	"file_history":
 	[
+		"/H/github/turbulenz/gameoflife/templates/GameOfLife.js",
+		"/G/jjffe/ffewin.cfg",
+		"/H/Turbulenz/SDK/0.23.1/assets/shaders/generic3D.cgfx",
+		"/H/github/turbulenz/gameoflife/jslib/geometry.js",
+		"/H/Turbulenz/SDK/0.23.1/samples/animation.tzjs",
+		"/H/Turbulenz/SDK/0.23.1/samples/basic_loop.canvas.js",
+		"/H/github/turbulenz/gameoflife/jslib/utilities.js",
+		"/H/github/turbulenz/gameoflife/jslib/camera.js",
+		"/H/github/turbulenz/gameoflife/rakefile.rb",
+		"/H/github/turbulenz/gameoflife/templates/gameoflife.html",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameThree.js",
+		"/H/github/turbulenz/gameoflife/jslib/floor.js",
+		"/H/Turbulenz/SDK/0.23.1/samples/templates/animation.html",
+		"/H/github/turbulenz/gameoflife/scripts/NeighbourhoodWatch.js",
+		"/H/github/turbulenz/gameoflife/scripts/Grid.js",
+		"/H/github/turbulenz/gameoflife/tests/GameOfLifeTests.js",
+		"/H/github/turbulenz/gameoflife/gameoflife.plugin.debug.tzjs",
+		"/H/Turbulenz/SDK/0.23.1/apps/templateapp/templates/templateapp.js",
+		"/H/Turbulenz/SDK/0.23.1/apps/templateapp/scripts/app.js",
+		"/H/github/turbulenz/gameoflife/mapping_table.json",
+		"/H/github/turbulenz/gameoflife/templates/gameoflife.js",
+		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/manifest.yaml",
+		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/templates/sampleapp.html",
+		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/templates/sampleapp.js",
+		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/mapping_table.json",
+		"/H/github/turbulenz/gameoflife/scripts/GameOfLife.js",
+		"/H/Turbulenz/SDK/0.23.1/samples/mapping_table.json",
 		"/H/sllabres/rakefile.rb",
+		"/H/github/turbulenz/gameoflife/manifest.yaml",
+		"/H/github/turbulenz/_blank/manifest.yaml",
+		"/H/github/turbulenz/_blank/tests/_blank.htm",
+		"/H/github/turbulenz/_blank/rakefile.rb",
+		"/H/github/turbulenz/_blank/tests/_blank.js",
 		"/H/Turbulenz/SDK/0.23.1/env/Scripts/makehtml.bat",
 		"/H/Turbulenz/SDK/0.23.1/env/Scripts/activate.bat",
 		"/H/Turbulenz/SDK/0.23.1/run_env.bat",
 		"/C/Users/Sebastian/AppData/Roaming/Sublime Text 2/Packages/User/rake.sublime-build",
 		"/H/Turbulenz/SDK/0.23.1/env/Lib/site-packages/turbulenz-0.23.1-py2.7.egg/turbulenz/tools/makehtml.py",
 		"/H/Turbulenz/SDK/0.23.1/env/Lib/site-packages/turbulenz-0.23.1-py2.7.egg/EGG-INFO/scripts/makehtml.bat",
-		"/H/github/turbulenz/gameoflife/rakefile.rb",
 		"/H/github/turbulenz/gameoflife/game.plugin.debug.html",
 		"/H/github/turbulenz/gameoflife/scripts/Game.js",
 		"/H/github/turbulenz/gameoflife/resources/run-qunit.js",
@@ -200,12 +211,10 @@
 		"/H/Turbulenz/SDK/0.23.1/env/Scripts/activate_this.py",
 		"/H/github/turbulenz/gameoflife/scripts/Cell.js",
 		"/H/github/turbulenz/gameoflife/scripts/CellFactory.js",
-		"/H/github/turbulenz/gameoflife/scripts/NeighbourhoodWatch.js",
 		"/H/github/turbulenz/gameoflife/scripts/Rules.js",
 		"/H/github/turbulenz/gameoflife/scripts/LiveCell.js",
 		"/H/github/turbulenz/gameoflife/tests/GameOfLife.htm",
 		"/H/github/turbulenz/gameoflife/scripts/DeadCell.js",
-		"/H/github/turbulenz/gameoflife/scripts/Grid.js",
 		"/H/github/turbulenz/gameoflife/myfirstapp.debug.html",
 		"/H/github/turbulenz/gameoflife/game.debug.html",
 		"/H/github/turbulenz/gameoflife/scripts/cell.js",
@@ -214,7 +223,6 @@
 		"/H/github/turbulenz/gameoflife/scripts/core.js",
 		"/H/github/turbulenz/taxi/manifest.yaml",
 		"/H/github/turbulenz/taxi/rakefile.rb",
-		"/H/github/turbulenz/gameoflife/tests/GameOfLifeTests.js",
 		"/H/CaptureTheFlag-sdk/examples.py",
 		"/H/python/example.py",
 		"/H/CaptureTheFlag-sdk/simulate.bat",
@@ -236,7 +244,6 @@
 		"/H/sllabres/sllabres.web/Scripts/tests/TaxiGame.htm",
 		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/Play/Game.js",
 		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/Core.js",
-		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameThree.js",
 		"/H/sllabres/sllabres.web/Scripts/Taxi/Core.js",
 		"/H/sllabres/sllabres.web/Areas/WebGl/Views/Home/GameOfLifeThree.spark",
 		"/H/sllabres/sllabres.web/Scripts/tests/GameOfLife.htm",
@@ -284,13 +291,7 @@
 		"/H/sllabres/sllabres.web/obj/Release/Sllabres.Web.csproj.FileListAbsolute.txt",
 		"/H/sllabres/sllabres.web/Properties/AssemblyInfo.cs",
 		"/H/sllabres/sllabres.web/sllabres.web.csproj",
-		"/H/sllabres/sllabres.web/sllabres.web.csproj.user",
-		"/H/sllabres/TestResult.xml",
-		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/Boids/Specs/Boid.js",
-		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/Boids/Specs/Rules.js",
-		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/Boids/Rules.js",
-		"/H/sllabres/sllabres.web/Views/Home/Index.spark",
-		"/H/sllabres/sllabres.web/Views/Shared/Application.spark"
+		"/H/sllabres/sllabres.web/sllabres.web.csproj.user"
 	],
 	"find":
 	{
@@ -309,6 +310,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"inputDeviceParameters",
+			"inputDevice",
 			"():",
 			"stats",
 			"THREEx",
@@ -366,7 +369,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -374,15 +377,15 @@
 					"file": "scripts/GameOfLife.js",
 					"settings":
 					{
-						"buffer_size": 376,
+						"buffer_size": 1293,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								376,
-								376
+								896,
+								902
 							]
 						],
 						"settings":
@@ -397,125 +400,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "rakefile.rb",
+					"file": "/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/inputapp.js",
 					"settings":
 					{
-						"buffer_size": 1282,
+						"buffer_size": 52201,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1043,
-								1043
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/H/github/turbulenz/_blank/manifest.yaml",
-					"settings":
-					{
-						"buffer_size": 297,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								281,
-								281
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/YAML/YAML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/H/github/turbulenz/_blank/tests/_blank.htm",
-					"settings":
-					{
-						"buffer_size": 321,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								53,
-								53
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/H/github/turbulenz/_blank/rakefile.rb",
-					"settings":
-					{
-						"buffer_size": 1234,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								339,
-								339
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/H/github/turbulenz/_blank/tests/_blank.js",
-					"settings":
-					{
-						"buffer_size": 77,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								77,
-								77
+								21845,
+								21862
 							]
 						],
 						"settings":
@@ -525,34 +421,63 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 45.0,
+						"translation.y": 9423.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "/H/sllabres/rakefile.rb",
+					"buffer": 2,
+					"file": "/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/point.js",
 					"settings":
 					{
-						"buffer_size": 942,
+						"buffer_size": 362,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19,
-								23
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameThree.js",
+					"settings":
+					{
+						"buffer_size": 2986,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2114,
+								2033
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 765.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -593,7 +518,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 100.0
+		"height": 195.0
 	},
 	"output.jslint_result_view":
 	{
