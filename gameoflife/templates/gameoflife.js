@@ -32,6 +32,7 @@
 /*{{ javascript("scripts/Cell.js") }}*/
 /*{{ javascript("scripts/CellDrawing.js") }}*/
 /*{{ javascript("scripts/CellFactory.js") }}*/
+/*{{ javascript("scripts/Grid.js") }}*/
 /*{{ javascript("scripts/NeighbourhoodWatch.js") }}*/
 /*{{ javascript("scripts/RandomSeedGenerator.js") }}*/
 /*{{ javascript("scripts/Rules.js") }}*/
