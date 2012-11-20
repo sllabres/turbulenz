@@ -21,8 +21,12 @@ TurbulenzEngine.onload = function onload() {
 			if (canvas.height !== deviceHeight) {
 				canvas.height = deviceHeight;
 			}
-			
+
 			context.beginFrame();
+
+			context.fillStyle = '#FF0000';
+			context.fillRect(0, 0, deviceWidth, deviceHeight);
+
 			context.endFrame();
 			graphicsDevice.endFrame();
 		}
