@@ -96,6 +96,14 @@
 			}
 		},
 		{
+			"file": "/H/Library/JsLint/jsl.default.conf",
+			"settings":
+			{
+				"buffer_size": 6062,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/inputapp.js",
 			"settings":
 			{
@@ -164,6 +172,7 @@
 	},
 	"file_history":
 	[
+		"/H/Library/JsLint/jsl-sample.bat",
 		"/H/github/turbulenz/gameoflife/templates/GameOfLife.js",
 		"/G/jjffe/ffewin.cfg",
 		"/H/Turbulenz/SDK/0.23.1/assets/shaders/generic3D.cgfx",
@@ -290,8 +299,7 @@
 		"/H/sllabres/sllabres.web/obj/Debug/sllabres.web.csproj.FileListAbsolute.txt",
 		"/H/sllabres/sllabres.web/obj/Release/Sllabres.Web.csproj.FileListAbsolute.txt",
 		"/H/sllabres/sllabres.web/Properties/AssemblyInfo.cs",
-		"/H/sllabres/sllabres.web/sllabres.web.csproj",
-		"/H/sllabres/sllabres.web/sllabres.web.csproj.user"
+		"/H/sllabres/sllabres.web/sllabres.web.csproj"
 	],
 	"find":
 	{
@@ -369,7 +377,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -384,8 +392,8 @@
 						"selection":
 						[
 							[
-								896,
-								902
+								1235,
+								1235
 							]
 						],
 						"settings":
@@ -400,6 +408,32 @@
 				},
 				{
 					"buffer": 1,
+					"file": "/H/Library/JsLint/jsl.default.conf",
+					"settings":
+					{
+						"buffer_size": 6062,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/inputapp.js",
 					"settings":
 					{
@@ -427,7 +461,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/point.js",
 					"settings":
 					{
@@ -455,7 +489,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameThree.js",
 					"settings":
 					{

@@ -20,11 +20,7 @@ task :javascript_test do
 end
 
 task :jslint do	
-	Dir["scripts/*.js"].peach do |file|
-		if file != "scripts/CellFactory.js"						
-			`cscript resources/jslint.js #{file} //nologo`
-		end
-	end
+	puts `jsl -conf resources/jsl.default.conf`
 end
 
 # using python.exe in the turbulenz env/script directory, added to the windows path environmental variable
