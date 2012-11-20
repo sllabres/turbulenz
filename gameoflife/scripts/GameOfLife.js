@@ -6,7 +6,7 @@ TurbulenzEngine.onload = function onload() {
 		mathsDevice = TurbulenzEngine.createMathDevice({}),
 		canvas = Canvas.create(graphicsDevice, mathsDevice),
 		context = canvas.getContext('2d'),
-		gridWidth = 20,
+		gridWidth = 30,
 		cellWidth = 10,
 		grid = new Grid(new RandomSeedGenerator(new CellDrawing(context, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth));
 
