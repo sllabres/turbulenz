@@ -25,7 +25,7 @@ TurbulenzEngine.onload = function onload() {
 			context.beginFrame();
 
 			context.fillStyle = '#FF0000';
-			context.fillRect(0, 0, deviceWidth, deviceHeight);
+			context.fillRect(0, 0, 10, 10);
 
 			context.endFrame();
 			graphicsDevice.endFrame();
