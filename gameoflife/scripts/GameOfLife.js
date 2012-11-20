@@ -19,7 +19,7 @@ TurbulenzEngine.onload = function onload() {
     function update() {
 		drawing.configure(configureParams);
 		drawing.setBackBuffer();
-		drawing.clear();
+		//drawing.clear();
 		drawing.begin();
 		drawing.draw({ texture : null,
 			sourceRectangle : [0, 0, 10, 10],
