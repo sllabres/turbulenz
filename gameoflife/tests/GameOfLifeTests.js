@@ -69,15 +69,39 @@ function FakeNeighbourhoodWatch() {
     }
 }
 
-/*module("Cell drawer");
-test("Draw service called from live cell", function() {
-    var cellDrawing = new CellDrawing({
-        draw: function() { }
-    });
+function CellDrawing(context) {
+    function draw(colour) {
+        if(colour) {
+            context.fillStyle = '#FFFFFF';
+        } else {
+            context.fillStyle = '#000000';
+        }
 
-    cellDrawing
-    equal(isCellAlive, true);
-});*/
+    }
+
+    return { draw : draw };
+}
+
+module("Cell drawing");
+test("When draw service called for live cell, then cell is white", function() {
+    var liveCellColour = '#FFFFFF',
+        context = {},
+        cellDrawing = new CellDrawing(context);
+
+    cellDrawing.draw(true);
+
+    equal(context.fillStyle, liveCellColour);
+});
+
+test("When draw service called for dead cell, then cell is black", function() {
+    var deadCellColour = '#000000',
+        context = {},
+        cellDrawing = new CellDrawing(context);
+
+    cellDrawing.draw(false);
+
+    equal(context.fillStyle, deadCellColour);
+});
 
 module("Live Cell Rules");
 var liveCellRule = new LiveCellRule();

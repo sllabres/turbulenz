@@ -29628,18 +29628,7 @@ TurbulenzEngine.onload = function onload() {
 			}
 
 			context.beginFrame();
-
-			context.fillStyle = '#FFFFFF';
-			context.fillRect(0, 0, 10, 10);
-
-			if (drawOnce) {
-				drawOnce = false;
-				context.fillRect(10, 10, 10, 10);
-			}
-			else {				
-				context.fillStyle = '#000000';
-				context.fillRect(10, 10, 10, 10);
-			}
+			
 
 			context.endFrame();
 			graphicsDevice.endFrame();
