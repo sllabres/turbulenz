@@ -22,7 +22,7 @@ TurbulenzEngine.onload = function onload() {
 		drawing.clear();
 		drawing.begin();
 		drawing.draw({ destinationRectangle : [0, 0, 10, 10] });		
-		drawing.draw({ destinationRectangle : [10, 10, 10, 10] });
+		drawing.draw({ destinationRectangle : [10, 10, 20, 20] });
 		drawing.end();
 		graphicsDevice.endFrame();
     }
