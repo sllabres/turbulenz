@@ -28,7 +28,7 @@ TurbulenzEngine.onload = function onload() {
 			context.fillStyle = '#FFFFFF';
 			context.fillRect(0, 0, 10, 10);
 
-			if(drawOnce) {
+			if (drawOnce) {
 				drawOnce = false;
 				context.fillRect(10, 10, 10, 10);
 			}
@@ -39,7 +39,10 @@ TurbulenzEngine.onload = function onload() {
     }
 
     TurbulenzEngine.onunload = function gameOnunload() {
-    	alert('test');
+		graphicsDevice = null;
+		mathsDevice = null;
+		canvas = null;
+		context = null;
 	};
 
     TurbulenzEngine.setInterval(update, 1000 / 60);
