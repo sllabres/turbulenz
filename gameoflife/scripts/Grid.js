@@ -11,6 +11,7 @@ function Grid(seed, neighbourhoodWatch) {
     function checkRules() {
         var newCells = [];
         cells.forEach(function (cell, index) {
+            cell.notifyNeighbours(neighbourhoodWatch.getNeighbours(cells, index));
             cell.draw(index);
             newCells.push(cell.checkRule());
         });
@@ -19,7 +20,7 @@ function Grid(seed, neighbourhoodWatch) {
     }
 
     function update() {
-        notifyNeighbours(cells);
+        //notifyNeighbours(cells);
         checkRules();
     }
 
