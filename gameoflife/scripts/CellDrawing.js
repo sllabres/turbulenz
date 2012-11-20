@@ -10,7 +10,7 @@ function CellDrawing(boxDrawing, gridWidth, cellWidth) {
             var xCoordinate = (index % gridWidth) * cellWidth,
                 yCoordinate = (Math.round(index / gridWidth)) * cellWidth;
 
-            boxDrawing.draw({ destinationRectangle : [xCoordinate, yCoordinate, cellWidth, cellWidth] });
+            boxDrawing.draw({ destinationRectangle : [xCoordinate, yCoordinate, xCoordinate + cellWidth, yCoordinate + cellWidth] });
         }
     }
 
