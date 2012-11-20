@@ -1,6 +1,8 @@
 /*global CellFactory,LiveCellRule, DeadCellRule*/
-function RandomSeedGenerator(cellDrawing) {
+function RandomSeedGenerator(cellDrawing, gridWidth) {
     "use strict";
+    var gridSize = gridWidth * gridWidth;
+    
     function generate(gridSize) {
         var cellFactory = new CellFactory(new LiveCellRule(), new DeadCellRule(), cellDrawing),
             cells = [],

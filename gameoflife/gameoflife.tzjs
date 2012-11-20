@@ -29610,7 +29610,9 @@ TurbulenzEngine.onload = function onload() {
 		mathsDevice = TurbulenzEngine.createMathDevice({}),
 		canvas = Canvas.create(graphicsDevice, mathsDevice),
 		context = canvas.getContext('2d'),
-		drawOnce = true;
+		gridWidth = 10,
+		cellwidth = 10,
+		grid = new Grid(new RandomSeedGenerator(new CellDrawing(context)).generateSeed(), new NeighbourhoodWatch(gridWidth));
 
     function update() {
 		var deviceWidth, deviceHeight;
