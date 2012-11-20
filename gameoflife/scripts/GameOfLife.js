@@ -6,7 +6,7 @@ TurbulenzEngine.onload = function onload() {
 		mathsDevice = TurbulenzEngine.createMathDevice({}),
 		canvas = Canvas.create(graphicsDevice, mathsDevice),
 		context = canvas.getContext('2d'),
-		drawOnce = true;		
+		drawOnce = true;
 
     function update() {
 		var deviceWidth, deviceHeight;
@@ -32,10 +32,13 @@ TurbulenzEngine.onload = function onload() {
 				drawOnce = false;
 				context.fillRect(10, 10, 10, 10);
 			}
-			else {
-				context.fillStyle = '#000000';
-				context.fillRect(10, 10, 10, 10);
-			}
+			/*else {				
+				//context.fillStyle = '#000000';
+				//context.fillRect(10, 10, 10, 10);
+			}*/
+
+			context.restore();
+			context.save();
 
 			context.endFrame();
 			graphicsDevice.endFrame();
