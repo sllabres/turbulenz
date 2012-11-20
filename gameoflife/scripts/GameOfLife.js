@@ -8,7 +8,7 @@ TurbulenzEngine.onload = function onload() {
 		context = canvas.getContext('2d');
 
     function update() {
-		var deviceWidth, deviceHeight;
+		var deviceWidth, deviceHeight, drawOnce = true;
 
 		if (graphicsDevice.beginFrame()) {
 			deviceWidth = graphicsDevice.width;
@@ -26,7 +26,11 @@ TurbulenzEngine.onload = function onload() {
 
 			context.fillStyle = '#FFFFFF';
 			context.fillRect(0, 0, 10, 10);
-			context.fillRect(10, 10, 10, 10);
+
+			if(drawOnce) {
+				drawOnce = false;
+				context.fillRect(10, 10, 10, 10);
+			}
 
 			context.endFrame();
 			graphicsDevice.endFrame();
