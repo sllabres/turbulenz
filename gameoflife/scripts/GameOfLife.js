@@ -8,7 +8,7 @@ TurbulenzEngine.onload = function onload() {
 		context = canvas.getContext('2d'),
 		gridWidth = 10,
 		cellwidth = 10,
-		grid = new Grid(new RandomSeedGenerator(new CellDrawing(context)).generate(), new NeighbourhoodWatch(gridWidth));
+		grid = new Grid(new RandomSeedGenerator(new CellDrawing(context), gridWidth).generate(), new NeighbourhoodWatch(gridWidth));
 
     function update() {
 		var deviceWidth, deviceHeight;
@@ -26,6 +26,7 @@ TurbulenzEngine.onload = function onload() {
 			}
 
 			context.beginFrame();
+			
 			grid.update();
 			grid.draw();
 
