@@ -1,23 +1,23 @@
 aspect_ratio: '16:9'
-canvas_main: gameoflife.plugin.debug.html
+canvas_main: gameoflife.canvas.tzjs
 cover_art: cover_art.png
 deploy_files:
-- gameoflife.tzjs
-- gameoflife.plugin.debug.html
+- gameoflife.plugin.tzjs
+- gameoflife.canvas.tzjs
 - mapping_table.json
 - css/*
 - img/*
 - js/*
 - staticmax/*
-deployed: 20:51 | 20/11/2012
+deployed: 20:56 | 20/11/2012
 engine_version: 0.23.1
 flash_main: ''
 is_multiplayer: false
 is_temp: false
 mapping_table: mapping_table.json
-modified: 20:51 | 20/11/2012
+modified: 20:56 | 20/11/2012
 path: H:\github\turbulenz\gameoflife
-plugin_main: gameoflife.tzjs
+plugin_main: gameoflife.plugin.tzjs
 slug: game-of-life
 title: Game Of Life
 title_logo: ''
