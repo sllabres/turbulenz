@@ -1,47 +1,34 @@
 /*jslint browser: true*/
-/*global TurbulenzEngine,Canvas*/
+// grid = new Grid(new RandomSeedGenerator(new CellDrawing(context, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth)),
+/*global TurbulenzEngine,Canvas,Draw2D,Grid,RandomSeedGenerator,CellDrawing,NeighbourhoodWatch*/
 TurbulenzEngine.onload = function onload() {
     "use strict";
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 		mathsDevice = TurbulenzEngine.createMathDevice({}),
-		canvas = Canvas.create(graphicsDevice, mathsDevice),
-		context = canvas.getContext('2d'),
+		drawing = Draw2D.create({ graphicsDevice : graphicsDevice }),
 		gridWidth = 20,
 		cellWidth = 10,
-		grid = new Grid(new RandomSeedGenerator(new CellDrawing(context, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth));
+		gameWidth = graphicsDevice.width,
+		gameHeight = graphicsDevice.height,
+		viewport = mathsDevice.v4Build(0, 0, gameWidth, gameHeight),
+		configureParams = {
+			scaleMode : undefined,
+			viewportRectangle : viewport
+		};
 
     function update() {
-		var deviceWidth, deviceHeight;
-
-		if (graphicsDevice.beginFrame()) {
-			deviceWidth = graphicsDevice.width;
-			deviceHeight = graphicsDevice.height;
-
-			if (canvas.width !== deviceWidth) {
-				canvas.width = deviceWidth;
-			}
-
-			if (canvas.height !== deviceHeight) {
-				canvas.height = deviceHeight;
-			}
-
-			context.beginFrame();		
-						
-			grid.draw();			
-			grid.update();
-
-			context.endFrame();
-			graphicsDevice.endFrame();
-		}
+		drawing.configure(configureParams);
+		drawing.setBackBuffer();
+		drawing.clear();
+		//drawing.draw(sprite)
+		drawing.end();
+		graphicsDevice.endFrame();
     }
 
     TurbulenzEngine.onunload = function gameOnunload() {
 		graphicsDevice = null;
 		mathsDevice = null;
-		canvas = null;
-		context = null;
 	};
 
     TurbulenzEngine.setInterval(update, 1000 / 60);
-    //TurbulenzEngine.setInterval(grid.update, 100 );
 };
