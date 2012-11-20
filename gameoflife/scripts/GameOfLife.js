@@ -28,6 +28,7 @@ TurbulenzEngine.onload = function onload() {
 			context.fillRect(0, 0, 10, 10);
 
 			if(drawOnce) {
+				alert('test');
 				drawOnce = false;
 				context.fillRect(10, 10, 10, 10);
 			}
