@@ -7,16 +7,14 @@ TurbulenzEngine.onload = function onload() {
 		drawing = Draw2D.create({ graphicsDevice : graphicsDevice }),
 		gridWidth = 50,
 		cellWidth = 10,
-		gameWidth = 500,
-		gameHeight = 500,
+		gameWidth = graphicsDevice.width,
+		gameHeight = graphicsDevice.height,
 		viewport = mathsDevice.v4Build(0, 0, gameWidth, gameHeight),
 		configureParams = {
 			scaleMode : undefined,
 			viewportRectangle : viewport
 		},
-		grid = new Grid(new RandomSeedGenerator(new CellDrawing(drawing, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth));
-
-		graphicsDevice.setViewport(0, 0, gameWidth, gameHeight);
+		grid = new Grid(new RandomSeedGenerator(new CellDrawing(drawing, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth));		
 
     function update() {
 		graphicsDevice.beginFrame();
