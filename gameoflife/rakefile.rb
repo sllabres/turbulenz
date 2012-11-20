@@ -7,20 +7,13 @@ multitask :build => [:javascript_test, :jslint, :makehtml]
 
 # set path value for phantomjs
 task :javascript_test do
-	phantom_result = ""
 	Dir["tests/*.htm"].peach do |file|
-		phantom_result += `phantomjs resources/run-qunit.js #{file}`		
-	end	
-
-	puts phantom_result
-
-	if !phantom_result.include? '0 failed'		
-		fail "Javascript test failure"
-	end	
+		sh "phantomjs resources/run-qunit.js #{file}"		
+	end
 end
 
 task :jslint do	
-	puts `jsl -conf resources/jsl.default.conf`
+	sh "jsl -conf resources/jsl.default.conf"	
 end
 
 # using python.exe in the turbulenz env/script directory, added to the windows path environmental variable
