@@ -148,6 +148,21 @@ test("When cell drawing called for cell at index 3, then cell y coordinate is 1"
     equal(yCoordinate, 1);
 });
 
+test("When cell drawing for cell at index 1 with cell width of 10, then x coordinate is 10", function() {
+    var cellIndex = 1,
+        gridWidth = 3,
+        cellWidth = 10,
+        xCoordinate,
+        context = { fillRect : function (x, y, width, height) {
+            xCoordinate = x;
+        } },
+        cellDrawing = new CellDrawing(context, gridWidth, cellWidth);
+
+        cellDrawing.draw(true, cellIndex);
+
+    equal(xCoordinate, 10);
+});
+
 module("Live Cell Rules");
 var liveCellRule = new LiveCellRule();
 test("Live cell with fewer than two neighbours dies", function() {    
