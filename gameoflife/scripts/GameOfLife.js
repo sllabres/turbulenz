@@ -32,5 +32,5 @@ TurbulenzEngine.onload = function onload() {
 	};
 
     TurbulenzEngine.setInterval(update, 1000 / 60);
-    TurbulenzEngine.setInterval(grid.update, 250);
+    TurbulenzEngine.setInterval(grid.update, 150);
 };
