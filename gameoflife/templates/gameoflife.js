@@ -26,7 +26,7 @@
 /*{{ javascript("jslib/services/turbulenzbridge.js") }}*/
 /*{{ javascript("jslib/floor.js") }}*/
 /*{{ javascript("jslib/inputdevice.js") }}*/
-/*{{ javascript("jslib/canvas.js") }}*/
+/*{{ javascript("jslib/draw2d.js") }}*/
 
 /*{{ javascript("scripts/GameOfLife.js") }}*/
 /*{{ javascript("scripts/Cell.js") }}*/
