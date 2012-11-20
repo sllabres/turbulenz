@@ -27,8 +27,8 @@ task :makehtml do
 		end
 	end
 
-	puts `maketzjs --mode canvas -t templates -t . -o gameoflife.tzjs gameoflife.js`
-	puts `makehtml --mode canvas -t templates -t . -o gameoflife.plugin.debug.html gameoflife.html gameoflife.js`
+	puts `maketzjs -t templates -t . -o gameoflife.tzjs gameoflife.js`
+	puts `makehtml -t templates -t . -o gameoflife.plugin.debug.html gameoflife.html gameoflife.js`
 end
 
 task :git_commit_and_push do
