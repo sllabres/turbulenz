@@ -32,13 +32,10 @@ TurbulenzEngine.onload = function onload() {
 				drawOnce = false;
 				context.fillRect(10, 10, 10, 10);
 			}
-			/*else {				
-				//context.fillStyle = '#000000';
-				//context.fillRect(10, 10, 10, 10);
-			}*/
-
-			context.restore();
-			context.save();
+			else {				
+				context.fillStyle = '#000000';
+				context.fillRect(10, 10, 10, 10);
+			}
 
 			context.endFrame();
 			graphicsDevice.endFrame();
