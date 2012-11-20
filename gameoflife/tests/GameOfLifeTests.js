@@ -68,18 +68,8 @@ function FakeNeighbourhoodWatch() {
         return new Array();
     }
 }
-
+/*
 module("Given cell drawing on 3 * 3 grid");
-test("When cell drawing called for live cell, then cell is white", function() {
-    var liveCellColour = '#FFFFFF',
-        gridWidth = 3,
-        context = { fillRect : function() {} },
-        cellDrawing = new CellDrawing(context, gridWidth);
-
-    cellDrawing.draw(true);
-
-    equal(context.fillStyle, liveCellColour);
-});
 
 test("When cell drawing called for dead cell, then cell is black", function() {
     var deadCellColour = '#000000',
@@ -176,7 +166,7 @@ test("When cell drawing for cell at index 3 with cell width of 10, then y coordi
         cellDrawing.draw(true, cellIndex);
 
     equal(yCoordinate, 10);
-});
+});*/
 
 module("Live Cell Rules");
 var liveCellRule = new LiveCellRule();

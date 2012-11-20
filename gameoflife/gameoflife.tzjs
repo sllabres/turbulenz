@@ -26476,7 +26476,6 @@ Draw2D.create = function draw2DCreateFn(params)
 
 
 /*jslint browser: true*/
-// grid = new Grid(new RandomSeedGenerator(new CellDrawing(context, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth)),
 /*global TurbulenzEngine,Canvas,Draw2D,Grid,RandomSeedGenerator,CellDrawing,NeighbourhoodWatch*/
 TurbulenzEngine.onload = function onload() {
     
@@ -26491,7 +26490,8 @@ TurbulenzEngine.onload = function onload() {
 		configureParams = {
 			scaleMode : undefined,
 			viewportRectangle : viewport
-		};
+		},
+		grid = new Grid(new RandomSeedGenerator(new CellDrawing(drawing, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth));
 
     function update() {
 		graphicsDevice.beginFrame();
@@ -26573,23 +26573,20 @@ function DeadCell(cellFactory, rule, drawService) {
         draw : draw
     };
 }
-function CellDrawing(context, gridWidth, cellWidth) {
+function CellDrawing(boxDrawing, gridWidth, cellWidth) {
     
 
     if(cellWidth == undefined) {
         cellWidth = 1;
     }
 
-    function getCellColour(isAlive) {
-        return isAlive ? '#FFFFFF' : '#000000';
-    }
-
     function draw(isAlive, index) {
-        var xCoordinate = (index % gridWidth) * cellWidth,
-            yCoordinate = (Math.round(index / gridWidth)) * cellWidth;
+        if(isAlive) {
+            var xCoordinate = (index % gridWidth) * cellWidth,
+                yCoordinate = (Math.round(index / gridWidth)) * cellWidth;
 
-        context.fillStyle = getCellColour(isAlive);
-        context.fillRect(xCoordinate, yCoordinate, 10, 10);
+            boxDrawing.draw({ destinationRectangle : [xCoordinate, yCoordinate, cellWidth, cellWidth] });
+        }
     }
 
     return { draw : draw };
