@@ -17,7 +17,9 @@ TurbulenzEngine.onload = function onload() {
 		grid = new Grid(new RandomSeedGenerator(new CellDrawing(drawing, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth));
 
     function update() {
-		graphicsDevice.beginFrame();		
+		graphicsDevice.beginFrame();
+		drawing.setBackBuffer();		
+		//drawing.clear();
 		drawing.begin();		
 		grid.draw();
 		drawing.end();
