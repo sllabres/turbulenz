@@ -23,8 +23,7 @@ TurbulenzEngine.onload = function onload() {
 				canvas.height = deviceHeight;
 			}
 
-			context.beginFrame();
-			
+			context.beginFrame();			
 
 			context.endFrame();
 			graphicsDevice.endFrame();
