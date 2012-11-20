@@ -1,6 +1,4 @@
- 
- 
- function LiveCell (cellFactory, rule, drawService) {
+function LiveCell (cellFactory, rule, drawService) {
     "use strict";
     var neighbourCount = 0;
 
