@@ -1,4 +1,5 @@
 /*jslint browser: true*/
+// grid = new Grid(new RandomSeedGenerator(new CellDrawing(context, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth)),
 /*global TurbulenzEngine,Canvas,Draw2D,Grid,RandomSeedGenerator,CellDrawing,NeighbourhoodWatch*/
 TurbulenzEngine.onload = function onload() {
     "use strict";
@@ -13,15 +14,13 @@ TurbulenzEngine.onload = function onload() {
 		configureParams = {
 			scaleMode : undefined,
 			viewportRectangle : viewport
-		},
-		grid = new Grid(new RandomSeedGenerator(new CellDrawing(drawing, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth));
+		};
 
     function update() {
 		graphicsDevice.beginFrame();
-		drawing.setBackBuffer();		
-		drawing.clear();
-		drawing.begin();		
-		grid.draw();
+		drawing.begin();
+		drawing.draw({ destinationRectangle : [0, 0, 10, 10] });
+		drawing.draw({ destinationRectangle : [0, 10, 10, 10] });
 		drawing.end();
 		graphicsDevice.endFrame();
     }
@@ -32,5 +31,4 @@ TurbulenzEngine.onload = function onload() {
 	};
 
     TurbulenzEngine.setInterval(update, 1000 / 60);
-    TurbulenzEngine.setInterval(grid.update, 250);
 };
