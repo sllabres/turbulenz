@@ -18,7 +18,7 @@ TurbulenzEngine.onload = function onload() {
 
     function update() {
 		graphicsDevice.beginFrame();
-		//drawing.setBackBuffer();		
+		drawing.setBackBuffer();		
 		drawing.clear();
 		drawing.begin();		
 		grid.draw();
