@@ -22,7 +22,6 @@ TurbulenzEngine.onload = function onload() {
 		drawing.clear();
 		drawing.begin();		
 		grid.draw();
-		grid.update();
 		drawing.end();
 		graphicsDevice.endFrame();
     }
@@ -33,4 +32,5 @@ TurbulenzEngine.onload = function onload() {
 	};
 
     TurbulenzEngine.setInterval(update, 1000 / 60);
+    TurbulenzEngine.setInterval(grid.update, 100);
 };
