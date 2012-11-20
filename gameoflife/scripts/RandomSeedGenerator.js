@@ -2,8 +2,8 @@
 function RandomSeedGenerator(cellDrawing, gridWidth) {
     "use strict";
     var gridSize = gridWidth * gridWidth;
-    
-    function generate(gridSize) {
+
+    function generate() {
         var cellFactory = new CellFactory(new LiveCellRule(), new DeadCellRule(), cellDrawing),
             cells = [],
             liveCell,
