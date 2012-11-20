@@ -31,6 +31,6 @@ TurbulenzEngine.onload = function onload() {
 		mathsDevice = null;
 	};
 
-    TurbulenzEngine.setInterval(update, 1000 / 60);
-    TurbulenzEngine.setInterval(grid.update, 500);
+    TurbulenzEngine.setInterval(update, 200);
+    TurbulenzEngine.setInterval(grid.update, 250);
 };
