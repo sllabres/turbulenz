@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"fil",
+				"fillRect"
+			],
+			[
 				"render",
 				"renderCalled"
 			],
@@ -88,42 +92,10 @@
 	"buffers":
 	[
 		{
-			"file": "scripts/GameOfLife.js",
+			"file": "templates/GameOfLife.js",
 			"settings":
 			{
-				"buffer_size": 1293,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/H/Library/JsLint/jsl.default.conf",
-			"settings":
-			{
-				"buffer_size": 6062,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/inputapp.js",
-			"settings":
-			{
-				"buffer_size": 52201,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/point.js",
-			"settings":
-			{
-				"buffer_size": 362,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameThree.js",
-			"settings":
-			{
-				"buffer_size": 2986,
+				"buffer_size": 518,
 				"line_ending": "Windows"
 			}
 		}
@@ -172,8 +144,27 @@
 	},
 	"file_history":
 	[
-		"/H/Library/JsLint/jsl-sample.bat",
+		"/H/github/turbulenz/gameoflife/rakefile.rb",
+		"/H/github/turbulenz/gameoflife/gameoflife.canvas.js",
+		"/H/github/turbulenz/gameoflife/scripts/GameOfLife.js",
+		"/H/github/turbulenz/gameoflife/mapping_table.json",
 		"/H/github/turbulenz/gameoflife/templates/GameOfLife.js",
+		"/H/github/turbulenz/gameoflife/tests/GameOfLifeTests.js",
+		"/H/github/turbulenz/gameoflife/scripts/CellDrawing.js",
+		"/H/github/turbulenz/gameoflife/templates/gameoflife.html",
+		"/H/github/turbulenz/gameoflife/css/sampleapp.css",
+		"/H/github/turbulenz/gameoflife/scripts/Grid.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameThree.js",
+		"/H/github/turbulenz/gameoflife/scripts/RandomSeedGenerator.js",
+		"/H/github/turbulenz/gameoflife/tests/GameOfLife.htm",
+		"/H/github/turbulenz/gameoflife/scripts/Cell.js",
+		"/H/Turbulenz/SDK/0.23.1/samples/2dcanvas.canvas.js",
+		"/H/github/turbulenz/gameoflife/resources/jsl.default.conf",
+		"/H/Library/JsLint/jsl-sample.bat",
+		"/H/github/turbulenz/gameoflife/scripts/CellFactory.js",
+		"/H/Library/JsLint/jsl.default.conf",
+		"/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/inputapp.js",
+		"/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/point.js",
 		"/G/jjffe/ffewin.cfg",
 		"/H/Turbulenz/SDK/0.23.1/assets/shaders/generic3D.cgfx",
 		"/H/github/turbulenz/gameoflife/jslib/geometry.js",
@@ -181,24 +172,17 @@
 		"/H/Turbulenz/SDK/0.23.1/samples/basic_loop.canvas.js",
 		"/H/github/turbulenz/gameoflife/jslib/utilities.js",
 		"/H/github/turbulenz/gameoflife/jslib/camera.js",
-		"/H/github/turbulenz/gameoflife/rakefile.rb",
-		"/H/github/turbulenz/gameoflife/templates/gameoflife.html",
-		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameThree.js",
 		"/H/github/turbulenz/gameoflife/jslib/floor.js",
 		"/H/Turbulenz/SDK/0.23.1/samples/templates/animation.html",
 		"/H/github/turbulenz/gameoflife/scripts/NeighbourhoodWatch.js",
-		"/H/github/turbulenz/gameoflife/scripts/Grid.js",
-		"/H/github/turbulenz/gameoflife/tests/GameOfLifeTests.js",
 		"/H/github/turbulenz/gameoflife/gameoflife.plugin.debug.tzjs",
 		"/H/Turbulenz/SDK/0.23.1/apps/templateapp/templates/templateapp.js",
 		"/H/Turbulenz/SDK/0.23.1/apps/templateapp/scripts/app.js",
-		"/H/github/turbulenz/gameoflife/mapping_table.json",
 		"/H/github/turbulenz/gameoflife/templates/gameoflife.js",
 		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/manifest.yaml",
 		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/templates/sampleapp.html",
 		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/templates/sampleapp.js",
 		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/mapping_table.json",
-		"/H/github/turbulenz/gameoflife/scripts/GameOfLife.js",
 		"/H/Turbulenz/SDK/0.23.1/samples/mapping_table.json",
 		"/H/sllabres/rakefile.rb",
 		"/H/github/turbulenz/gameoflife/manifest.yaml",
@@ -218,11 +202,8 @@
 		"/H/github/turbulenz/gameoflife/Game.tzjs",
 		"/H/github/turbulenz/gameoflife/Game.plugin.html",
 		"/H/Turbulenz/SDK/0.23.1/env/Scripts/activate_this.py",
-		"/H/github/turbulenz/gameoflife/scripts/Cell.js",
-		"/H/github/turbulenz/gameoflife/scripts/CellFactory.js",
 		"/H/github/turbulenz/gameoflife/scripts/Rules.js",
 		"/H/github/turbulenz/gameoflife/scripts/LiveCell.js",
-		"/H/github/turbulenz/gameoflife/tests/GameOfLife.htm",
 		"/H/github/turbulenz/gameoflife/scripts/DeadCell.js",
 		"/H/github/turbulenz/gameoflife/myfirstapp.debug.html",
 		"/H/github/turbulenz/gameoflife/game.debug.html",
@@ -290,16 +271,7 @@
 		"/H/sllabres/sllabres.web.test/obj/Debug/Sllabres.Web.Test.csproj.FileListAbsolute.txt",
 		"/H/sllabres/sllabres.web.test/obj/Release/Sllabres.Web.Test.csproj.FileListAbsolute.txt",
 		"/H/sllabres/sllabres.web.test/Properties/AssemblyInfo.cs",
-		"/H/sllabres/sllabres.web.test/Sllabres.Web.Test.csproj",
-		"/H/sllabres/sllabres.web/Areas/WebGl/Controllers/TestController.cs",
-		"/H/sllabres/sllabres.web/Areas/WebGl/WebGlAreaRegistration.cs",
-		"/H/sllabres/sllabres.web/Controllers/HomeController.cs",
-		"/H/sllabres/sllabres.web/Global.asax",
-		"/H/sllabres/sllabres.web/Global.asax.cs",
-		"/H/sllabres/sllabres.web/obj/Debug/sllabres.web.csproj.FileListAbsolute.txt",
-		"/H/sllabres/sllabres.web/obj/Release/Sllabres.Web.csproj.FileListAbsolute.txt",
-		"/H/sllabres/sllabres.web/Properties/AssemblyInfo.cs",
-		"/H/sllabres/sllabres.web/sllabres.web.csproj"
+		"/H/sllabres/sllabres.web.test/Sllabres.Web.Test.csproj"
 	],
 	"find":
 	{
@@ -318,6 +290,12 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"get_contents_to_file",
+			"960px",
+			"draw2D",
+			"function",
+			"tick",
+			"space",
 			"inputDeviceParameters",
 			"inputDevice",
 			"():",
@@ -377,23 +355,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/GameOfLife.js",
+					"file": "templates/GameOfLife.js",
 					"settings":
 					{
-						"buffer_size": 1293,
+						"buffer_size": 518,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1235,
-								1235
+								52,
+								52
 							]
 						],
 						"settings":
@@ -402,116 +380,6 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/H/Library/JsLint/jsl.default.conf",
-					"settings":
-					{
-						"buffer_size": 6062,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/inputapp.js",
-					"settings":
-					{
-						"buffer_size": 52201,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								21845,
-								21862
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 9423.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/point.js",
-					"settings":
-					{
-						"buffer_size": 362,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameThree.js",
-					"settings":
-					{
-						"buffer_size": 2986,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2114,
-								2033
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 765.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -583,6 +451,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 379.0,
+	"side_bar_width": 271.0,
 	"status_bar_visible": true
 }
