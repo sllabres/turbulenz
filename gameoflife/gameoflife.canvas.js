@@ -32717,7 +32717,7 @@ function RandomSeedGenerator(cellDrawing, gridWidth) {
         for (i; i < gridSize; i += 1) {
             liveCell = Math.floor((Math.random() * 100) + 1);
 
-            if (liveCell > 50) {
+            if (liveCell > 20) {
                 cells.push(cellFactory.createLiveCell());
             } else {
                 cells.push(cellFactory.createDeadCell());

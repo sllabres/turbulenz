@@ -92,10 +92,26 @@
 	"buffers":
 	[
 		{
-			"file": "templates/GameOfLife.js",
+			"file": "scripts/GameOfLife.js",
 			"settings":
 			{
-				"buffer_size": 518,
+				"buffer_size": 1263,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/Rules.js",
+			"settings":
+			{
+				"buffer_size": 360,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/RandomSeedGenerator.js",
+			"settings":
+			{
+				"buffer_size": 730,
 				"line_ending": "Windows"
 			}
 		}
@@ -144,11 +160,11 @@
 	},
 	"file_history":
 	[
+		"/H/github/turbulenz/gameoflife/templates/GameOfLife.js",
 		"/H/github/turbulenz/gameoflife/rakefile.rb",
 		"/H/github/turbulenz/gameoflife/gameoflife.canvas.js",
 		"/H/github/turbulenz/gameoflife/scripts/GameOfLife.js",
 		"/H/github/turbulenz/gameoflife/mapping_table.json",
-		"/H/github/turbulenz/gameoflife/templates/GameOfLife.js",
 		"/H/github/turbulenz/gameoflife/tests/GameOfLifeTests.js",
 		"/H/github/turbulenz/gameoflife/scripts/CellDrawing.js",
 		"/H/github/turbulenz/gameoflife/templates/gameoflife.html",
@@ -355,28 +371,84 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "templates/GameOfLife.js",
+					"file": "scripts/GameOfLife.js",
 					"settings":
 					{
-						"buffer_size": 518,
+						"buffer_size": 1263,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								52,
-								52
+								386,
+								386
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scripts/Rules.js",
+					"settings":
+					{
+						"buffer_size": 360,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								360,
+								360
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "scripts/RandomSeedGenerator.js",
+					"settings":
+					{
+						"buffer_size": 730,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								485,
+								485
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
