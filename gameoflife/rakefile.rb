@@ -21,8 +21,8 @@ task :makejs do
 	makeCommands = ["maketzjs --mode plugin -t templates -t . -o gameoflife.plugin.tzjs gameoflife.js", 
 					"maketzjs --mode canvas -t templates -t . -o gameoflife.canvas.js gameoflife.js"];
 
-	compressCommands = ["maketzjs --mode plugin -t templates -t . -o gameoflife.plugin.tzjs gameoflife.js", 
-						"maketzjs --mode canvas -t templates -t . -o gameoflife.canvas.js gameoflife.js"];
+	compressCommands = ["uglifyjs -o gameoflife.plugin.tzjs gameoflife.plugin.tzjs", 
+						"uglifyjs -o gameoflife.canvas.js gameoflife.canvas.js"];
 
 	makeCommands.peach do |command|
 		sh command
