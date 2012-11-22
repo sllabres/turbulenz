@@ -43,21 +43,25 @@
 
 	    equal(yCoordinate, 0);
 	});
-	/*
 
 	test("When cell drawing called for cell at index 1, then cell x coordinate is 1", function() {
 	    var cellIndex = 1,
 	        gridWidth = 3,
+	        liveCell = true,
 	        xCoordinate,
-	        context = { fillRect : function (x, y, width, height) {
-	            xCoordinate = x;
-	        } },
-	        cellDrawing = new CellDrawing(context, gridWidth);
+	        boxDrawingStub = { draw : function (drawItem) {
+	            	xCoordinate = drawItem.destinationRectangle[0];
+	        	} 
+	    	},
+	        cellDrawing = new CellDrawing(boxDrawingStub, gridWidth);
 
-	        cellDrawing.draw(true, cellIndex);
+	    cellDrawing.draw(liveCell, cellIndex);
 
 	    equal(xCoordinate, 1);
 	});
+
+
+	/*
 
 	test("When cell drawing called for cell at index 3, then cell y coordinate is 1", function() {
 	    var cellIndex = 3,
