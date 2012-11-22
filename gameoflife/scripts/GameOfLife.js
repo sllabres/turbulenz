@@ -20,7 +20,6 @@ TurbulenzEngine.onload = function onload() {
 
     function update() {
 		if(graphicsDevice.beginFrame()) {			
-			graphicsDevice.setViewport(0, 0, 640, 480);	
 			drawing.setBackBuffer();		
 			drawing.clear();
 			drawing.begin();		
