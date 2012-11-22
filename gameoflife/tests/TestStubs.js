@@ -1,5 +1,4 @@
 ﻿// file full of stubs which should be inlined with the tests
-
 function NeighbourFake() {        
     this.notifyCount = 0;
     this.notify = function() {        

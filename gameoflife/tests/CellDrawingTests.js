@@ -1,18 +1,20 @@
 (function () {
 	"use strict";
 	module("Given cell drawing on 3 * 3 grid");
-	test("When cell drawing called for dead cell, then cell is black", function() {
+	test("When cell drawing called for dead cell, then draw is not called", function() {
 	    var deadCellColour = '#000000',
 	        gridWidth = 3,
-	        context = { fillRect : function() {} },
-	        cellDrawing = new CellDrawing(context, gridWidth);
+	        drawCalled = false,
+	        deadCell = false,
+	        boxDrawingStub = { draw : function() { drawCalled = true; } },
+	        cellDrawing = new CellDrawing(boxDrawingStub, gridWidth);
 
-	    cellDrawing.draw(false);
+	    cellDrawing.draw(deadCell, 0);
 
-	    equal(context.fillStyle, deadCellColour);
+	    equal(drawCalled, false);
 	});
 
-	test("When cell drawing called for cell at index 0, then cell x coordinate is 0", function() {
+	/*test("When cell drawing called for cell at index 0, then cell x coordinate is 0", function() {
 	    var cellIndex = 0,
 	        gridWidth = 3,
 	        xCoordinate,
@@ -96,5 +98,5 @@
 	        cellDrawing.draw(true, cellIndex);
 
 	    equal(yCoordinate, 10);
-	});
+	});*/
 }());
