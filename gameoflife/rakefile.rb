@@ -18,11 +18,19 @@ end
 
 # using python.exe in the turbulenz env/script directory, added to the windows path environmental variable
 task :makejs do
-	sh "maketzjs --mode plugin -t templates -t . -o gameoflife.plugin.tzjs gameoflife.js"	
-	sh "maketzjs --mode canvas -t templates -t . -o gameoflife.canvas.js gameoflife.js"
+	makeCommands = ["maketzjs --mode plugin -t templates -t . -o gameoflife.plugin.tzjs gameoflife.js", 
+					"maketzjs --mode canvas -t templates -t . -o gameoflife.canvas.js gameoflife.js"];
 
-	sh "uglifyjs -o gameoflife.plugin.tzjs gameoflife.plugin.tzjs"
-	sh "uglifyjs -o gameoflife.canvas.js gameoflife.canvas.js"
+	compressCommands = ["maketzjs --mode plugin -t templates -t . -o gameoflife.plugin.tzjs gameoflife.js", 
+						"maketzjs --mode canvas -t templates -t . -o gameoflife.canvas.js gameoflife.js"];
+
+	makeCommands.peach do |command|
+		sh command
+	end
+
+	compressCommands.peach do |command|
+		sh command
+	end
 end
 
 task :git_commit_and_push do
