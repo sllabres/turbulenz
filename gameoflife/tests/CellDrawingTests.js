@@ -2,33 +2,33 @@
 	"use strict";
 	module("Given cell drawing on 3 * 3 grid");
 	test("When cell drawing called for dead cell, then draw is not called", function() {
-	    var deadCellColour = '#000000',
-	        gridWidth = 3,
-	        drawCalled = false,
+	    var drawCalled = false,
 	        deadCell = false,
 	        boxDrawingStub = { draw : function() { drawCalled = true; } },
-	        cellDrawing = new CellDrawing(boxDrawingStub, gridWidth);
+	        cellDrawing = new CellDrawing(boxDrawingStub);
 
 	    cellDrawing.draw(deadCell, 0);
 
 	    equal(drawCalled, false);
 	});
 
-	/*test("When cell drawing called for cell at index 0, then cell x coordinate is 0", function() {
+	test("When cell drawing called for cell at index 0, then cell x coordinate is 0", function() {
 	    var cellIndex = 0,
 	        gridWidth = 3,
+	        liveCell = true,
 	        xCoordinate,
-	        context = { fillRect : function (x, y, width, height) {
-	            xCoordinate = x;
-	        } },
-	        cellDrawing = new CellDrawing(context, gridWidth);
+	        boxDrawingStub = { draw : function (drawItem) {
+	            	xCoordinate = drawItem.destinationRectangle[0];
+	        	} 
+	    	},
+	        cellDrawing = new CellDrawing(boxDrawingStub, gridWidth);
 
-	        cellDrawing.draw(true, cellIndex);
+	    cellDrawing.draw(liveCell, cellIndex);
 
 	    equal(xCoordinate, 0);
 	});
 
-	test("When cell drawing called for cell at index 0, then cell y coordinate is 0", function() {
+/*	test("When cell drawing called for cell at index 0, then cell y coordinate is 0", function() {
 	    var cellIndex = 0,
 	        gridWidth = 3,
 	        yCoordinate,
