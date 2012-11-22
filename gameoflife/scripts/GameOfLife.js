@@ -16,10 +16,11 @@ TurbulenzEngine.onload = function onload() {
 		},
 		grid = new Grid(new RandomSeedGenerator(new CellDrawing(drawing, gridWidth, cellWidth), gridWidth).generate(), new NeighbourhoodWatch(gridWidth));		
 
-	graphicsDevice.setViewport(100, 100, (graphicsDevice.width - 100), (graphicsDevice.height - 100));
+
 
     function update() {
 		if(graphicsDevice.beginFrame()) {			
+			graphicsDevice.setViewport(100, 100, (graphicsDevice.width - 100), (graphicsDevice.height - 100));
 			drawing.setBackBuffer();		
 			drawing.clear();
 			drawing.begin();		
