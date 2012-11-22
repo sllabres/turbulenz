@@ -30,7 +30,7 @@ function waitFor(testFx, onReady, timeOutMillis) {
                     clearInterval(interval); //< Stop this interval
                 }
             }
-        }, 10); //< repeat check every 10ms
+        }, 5); //< repeat check every 10ms
 };
 
 
