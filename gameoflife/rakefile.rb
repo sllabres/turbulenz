@@ -18,17 +18,8 @@ end
 
 # using python.exe in the turbulenz env/script directory, added to the windows path environmental variable
 task :makehtml do
-
-	game_files = "scripts/GameOfLife.js"
-
-	Dir["scripts/*.js"].each do |file|
-		if file != "scripts/GameOfLife.js"			
-			game_files = game_files + " " + file	
-		end
-	end
-
-	puts `maketzjs --mode plugin -t templates -t . -o gameoflife.plugin.tzjs gameoflife.js -u uglifyjs`
-	puts `maketzjs --mode canvas -t templates -t . -o gameoflife.canvas.js gameoflife.js -u uglifyjs`
+	sh "maketzjs --mode plugin -t templates -t . -o gameoflife.plugin.tzjs gameoflife.js"
+	sh "maketzjs --mode canvas -t templates -t . -o gameoflife.canvas.js gameoflife.js"
 end
 
 task :git_commit_and_push do
