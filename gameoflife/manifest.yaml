@@ -9,7 +9,7 @@ deploy_files:
 - img/*
 - js/*
 - staticmax/*
-deployed: 21:22 | 20/11/2012
+deployed: 21:41 | 22/11/2012
 engine_version: 0.23.1
 flash_main: ''
 is_multiplayer: false
