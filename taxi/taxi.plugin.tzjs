@@ -9120,10 +9120,6 @@ TurbulenzEngine.onload = function onload() {
 					mipmaps : true,
 					onload : function (texture) {
 						sprite = Draw2DSprite.create({
-						width : 64,
-						height : 32,
-						origin : [64 / 2, 32 / 2],
-						textureRectangle : [0, 0, 32, 32],
 						texture : texture
 						});
 						TurbulenzEngine.setInterval(update, 1000 / 60);
