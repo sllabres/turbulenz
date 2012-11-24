@@ -1,6 +1,8 @@
 require 'albacore'
 require 'peach'
 
+@game_name = "taxi"
+
 task :default => [:build, :git_commit_and_push]
 
 multitask :build => [:javascript_test, :jslint, :makejs]
@@ -18,11 +20,11 @@ end
 
 # using python.exe in the turbulenz env/script directory, added to the windows path environmental variable
 task :makejs do
-	makeCommands = ["maketzjs --mode plugin -t templates -t . -o gameoflife.plugin.tzjs gameoflife.js", 
-					"maketzjs --mode canvas -t templates -t . -o gameoflife.canvas.js gameoflife.js"];
+	makeCommands = ["maketzjs --mode plugin -t templates -t . -o #{@game_name}.plugin.tzjs #{@game_name}.js", 
+					"maketzjs --mode canvas -t templates -t . -o #{@game_name}.canvas.js #{@game_name}.js"];
 
-	compressCommands = ["uglifyjs -o gameoflife.plugin.tzjs gameoflife.plugin.tzjs", 
-						"uglifyjs -o gameoflife.canvas.js gameoflife.canvas.js"];
+	compressCommands = ["uglifyjs -o #{@game_name}.plugin.tzjs #{@game_name}.plugin.tzjs", 
+						"uglifyjs -o #{@game_name}.canvas.js #{@game_name}.canvas.js"];
 
 	makeCommands.peach do |command|
 		sh command

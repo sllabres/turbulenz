@@ -1,9 +1,9 @@
 aspect_ratio: '16:9'
-canvas_main: gameoflife.canvas.js
+canvas_main: taxi.canvas.js
 cover_art: cover_art.png
 deploy_files:
-- gameoflife.plugin.tzjs
-- gameoflife.canvas.js
+- taxi.plugin.tzjs
+- taxi.canvas.js
 - mapping_table.json
 - js/*
 deployed: 11:02 | 24/11/2012
@@ -13,8 +13,8 @@ is_multiplayer: false
 is_temp: false
 mapping_table: mapping_table.json
 modified: 22:23 | 22/11/2012
-path: H:\github\turbulenz\gameoflife
-plugin_main: gameoflife.plugin.tzjs
+path: H:\github\turbulenz\taxi
+plugin_main: taxi.plugin.tzjs
 slug: game-of-life
 title: Game Of Life
 title_logo: ''
