@@ -1,0 +1,667 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fil",
+				"fillRect"
+			],
+			[
+				"render",
+				"renderCalled"
+			],
+			[
+				"request",
+				"requestAnimationFrame"
+			],
+			[
+				"sce",
+				"sceneArray"
+			],
+			[
+				"not",
+				"notifyNeighbours"
+			],
+			[
+				"creat",
+				"createDeadCell"
+			],
+			[
+				"cret",
+				"createLiveCell"
+			],
+			[
+				"cell",
+				"cellIndex"
+			],
+			[
+				"curr",
+				"currentIndex"
+			],
+			[
+				"cur",
+				"currentIndex"
+			],
+			[
+				"ge",
+				"generateSeed"
+			],
+			[
+				"nei",
+				"neighbourCount"
+			],
+			[
+				"neig",
+				"neighbourCount"
+			],
+			[
+				"return",
+				"returnSeed"
+			],
+			[
+				"grid",
+				"gridWidth"
+			],
+			[
+				"star",
+				"startRowIndex"
+			],
+			[
+				"get",
+				"getNeighbours"
+			],
+			[
+				"cells",
+				"cells2d"
+			],
+			[
+				"neigh",
+				"neighboursCount"
+			],
+			[
+				"cel",
+				"cellCreated"
+			],
+			[
+				"Ma",
+				"maxThrust"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "scripts/GameOfLife.js",
+			"settings":
+			{
+				"buffer_size": 1284,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/CellDrawing.js",
+			"settings":
+			{
+				"buffer_size": 516,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "rakefile.rb",
+			"settings":
+			{
+				"buffer_size": 1286,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "manifest.yaml",
+			"settings":
+			{
+				"buffer_size": 464,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/Cell.js",
+			"settings":
+			{
+				"buffer_size": 1410,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tests/CellTests.js",
+			"settings":
+			{
+				"buffer_size": 4284,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/H/github/turbulenz/taxi/rakefile.rb",
+			"settings":
+			{
+				"buffer_size": 46,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/rake.sublime-build",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"packages",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Preferences: Browse Packages"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/H/github/turbulenz/gameoflife/gameoflife.sublime-workspace",
+		"/H/github/turbulenz/gameoflife/tests/GameOfLife.htm",
+		"/H/github/turbulenz/gameoflife/tests/CellDrawingTests.js",
+		"/H/github/turbulenz/gameoflife/scripts/CellDrawing.js",
+		"/H/github/turbulenz/gameoflife/scripts/Rules.js",
+		"/H/github/turbulenz/gameoflife/scripts/RandomSeedGenerator.js",
+		"/H/github/turbulenz/gameoflife/rakefile.rb",
+		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/scripts/sampleappmain.js",
+		"/H/github/turbulenz/gameoflife/gameoflife.canvas.js",
+		"/H/github/turbulenz/gameoflife/testugly.js",
+		"/C/Users/Sebastian/AppData/Roaming/npm/uglifyjs.cmd",
+		"/H/github/turbulenz/gameoflife/scripts/Grid.js",
+		"/H/github/turbulenz/gameoflife/tests/TestStubs.js",
+		"/H/github/turbulenz/gameoflife/tests/CellTests.js",
+		"/H/github/turbulenz/gameoflife/tests/RulesTests.js",
+		"/H/github/turbulenz/gameoflife/tests/NeighbourhoodWatchTests.js",
+		"/H/github/turbulenz/gameoflife/tests/GridTests.js",
+		"/H/github/turbulenz/gameoflife/tests/CellFactoryTests.js",
+		"/H/github/turbulenz/gameoflife/resources/run-qunit.js",
+		"/H/github/turbulenz/gameoflife/tests/CellDrawingTests",
+		"/H/github/turbulenz/gameoflife/scripts/GameOfLife.js",
+		"/H/github/turbulenz/gameoflife/templates/GameOfLife.js",
+		"/H/github/turbulenz/gameoflife/mapping_table.json",
+		"/H/github/turbulenz/gameoflife/tests/GameOfLifeTests.js",
+		"/H/github/turbulenz/gameoflife/templates/gameoflife.html",
+		"/H/github/turbulenz/gameoflife/css/sampleapp.css",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameThree.js",
+		"/H/github/turbulenz/gameoflife/scripts/Cell.js",
+		"/H/Turbulenz/SDK/0.23.1/samples/2dcanvas.canvas.js",
+		"/H/github/turbulenz/gameoflife/resources/jsl.default.conf",
+		"/H/Library/JsLint/jsl-sample.bat",
+		"/H/github/turbulenz/gameoflife/scripts/CellFactory.js",
+		"/H/Library/JsLint/jsl.default.conf",
+		"/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/inputapp.js",
+		"/H/Turbulenz/SDK/0.23.1/apps/inputapp/scripts/inputapp/point.js",
+		"/G/jjffe/ffewin.cfg",
+		"/H/Turbulenz/SDK/0.23.1/assets/shaders/generic3D.cgfx",
+		"/H/github/turbulenz/gameoflife/jslib/geometry.js",
+		"/H/Turbulenz/SDK/0.23.1/samples/animation.tzjs",
+		"/H/Turbulenz/SDK/0.23.1/samples/basic_loop.canvas.js",
+		"/H/github/turbulenz/gameoflife/jslib/utilities.js",
+		"/H/github/turbulenz/gameoflife/jslib/camera.js",
+		"/H/github/turbulenz/gameoflife/jslib/floor.js",
+		"/H/Turbulenz/SDK/0.23.1/samples/templates/animation.html",
+		"/H/github/turbulenz/gameoflife/scripts/NeighbourhoodWatch.js",
+		"/H/github/turbulenz/gameoflife/gameoflife.plugin.debug.tzjs",
+		"/H/Turbulenz/SDK/0.23.1/apps/templateapp/templates/templateapp.js",
+		"/H/Turbulenz/SDK/0.23.1/apps/templateapp/scripts/app.js",
+		"/H/github/turbulenz/gameoflife/templates/gameoflife.js",
+		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/manifest.yaml",
+		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/templates/sampleapp.html",
+		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/templates/sampleapp.js",
+		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/mapping_table.json",
+		"/H/Turbulenz/SDK/0.23.1/samples/mapping_table.json",
+		"/H/sllabres/rakefile.rb",
+		"/H/github/turbulenz/gameoflife/manifest.yaml",
+		"/H/github/turbulenz/_blank/manifest.yaml",
+		"/H/github/turbulenz/_blank/tests/_blank.htm",
+		"/H/github/turbulenz/_blank/rakefile.rb",
+		"/H/github/turbulenz/_blank/tests/_blank.js",
+		"/H/Turbulenz/SDK/0.23.1/env/Scripts/makehtml.bat",
+		"/H/Turbulenz/SDK/0.23.1/env/Scripts/activate.bat",
+		"/H/Turbulenz/SDK/0.23.1/run_env.bat",
+		"/C/Users/Sebastian/AppData/Roaming/Sublime Text 2/Packages/User/rake.sublime-build",
+		"/H/Turbulenz/SDK/0.23.1/env/Lib/site-packages/turbulenz-0.23.1-py2.7.egg/turbulenz/tools/makehtml.py",
+		"/H/Turbulenz/SDK/0.23.1/env/Lib/site-packages/turbulenz-0.23.1-py2.7.egg/EGG-INFO/scripts/makehtml.bat",
+		"/H/github/turbulenz/gameoflife/game.plugin.debug.html",
+		"/H/github/turbulenz/gameoflife/scripts/Game.js",
+		"/H/github/turbulenz/gameoflife/Game.tzjs",
+		"/H/github/turbulenz/gameoflife/Game.plugin.html",
+		"/H/Turbulenz/SDK/0.23.1/env/Scripts/activate_this.py",
+		"/H/github/turbulenz/gameoflife/scripts/LiveCell.js",
+		"/H/github/turbulenz/gameoflife/scripts/DeadCell.js",
+		"/H/github/turbulenz/gameoflife/myfirstapp.debug.html",
+		"/H/github/turbulenz/gameoflife/game.debug.html",
+		"/H/github/turbulenz/gameoflife/scripts/cell.js",
+		"/H/github/turbulenz/gameoflife/scripts/grid.js",
+		"/H/github/turbulenz/gameoflife/scripts/rules.js",
+		"/H/github/turbulenz/gameoflife/scripts/core.js",
+		"/H/github/turbulenz/taxi/manifest.yaml",
+		"/H/github/turbulenz/taxi/rakefile.rb",
+		"/H/CaptureTheFlag-sdk/examples.py",
+		"/H/python/example.py",
+		"/H/CaptureTheFlag-sdk/simulate.bat",
+		"/H/CaptureTheFlag-sdk/myCommand.py",
+		"/H/github/turbulenz/README.md",
+		"/H/github/turbulenz/rakefile.rb",
+		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/sampleapp.tzjs",
+		"/H/Turbulenz/SDK/0.23.1/samples/templates/multichat.js",
+		"/H/Turbulenz/SDK/0.23.1/samples/templates/2dcanvas.js",
+		"/H/Turbulenz/SDK/0.23.1/samples/templates/draw2d.js",
+		"/H/Turbulenz/SDK/0.23.1/samples/templates/physics.js",
+		"/H/Turbulenz/SDK/0.23.1/samples/scripts/debugphysics.js",
+		"/H/Turbulenz/SDK/0.22.1/samples/device_initialization.canvas.js",
+		"/H/Turbulenz/SDK/0.22.1/samples/2dcanvas.canvas.js",
+		"/H/Turbulenz/SDK/0.22.1/apps/inputapp/inputapp.canvas.js",
+		"/H/CaptureTheFlag-sdk/simulate.py",
+		"/H/sllabres/sllabres.web/Scripts/tests/GameOfLifeTests.js",
+		"/H/sllabres/sllabres.web/Scripts/tests/TaxiGame.js",
+		"/H/sllabres/sllabres.web/Scripts/tests/TaxiGame.htm",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/Play/Game.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/Core.js",
+		"/H/sllabres/sllabres.web/Scripts/Taxi/Core.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Views/Home/GameOfLifeThree.spark",
+		"/H/sllabres/sllabres.web/Scripts/tests/GameOfLife.htm",
+		"/H/sllabres/sllabres.web/Scripts/tests/run-qunit.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/Game.js",
+		"/H/sllabres/sllabres.web/Scripts/tests/GameOfLife.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/Tests.js",
+		"/H/sllabres/sllabres.web/Scripts/three.min.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Views/Home/Play.spark",
+		"/H/sllabres/sllabres.web.test/scripts/GameOfLife.htm",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Views/Shared/Application.spark",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Views/Home/GameOfLife.spark",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Controllers/HomeController.cs",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/three.min.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Views/Tests/GameOfLife.spark",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/WebGl/DrawService.js",
+		"/H/test.htm",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/Code.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Views/Test/Index.spark",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/webgl-utils.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/WebGl/Init.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameOfLife.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Views/Shared/Tests.spark",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/Cells",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/WebGl/Drawable.js",
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/Cells.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"H:\\sllabres"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"factory",
+			"get_contents_to_file",
+			"960px",
+			"draw2D",
+			"function",
+			"tick",
+			"space",
+			"inputDeviceParameters",
+			"inputDevice",
+			"():",
+			"stats",
+			"THREEx",
+			";\n",
+			"	\n",
+			"500",
+			"WebGLRenderer",
+			"10000",
+			"Scene",
+			"requestAnimationFrame",
+			"notifyNeighbours",
+			"console",
+			"log",
+			"lof",
+			"this.checkRule",
+			"neighboursCount",
+			"noNeighbours",
+			"deadCellFactoryFake",
+			"DeadCellFactoryFake",
+			"CellFactoryFake",
+			"createDell",
+			"createDeadCell",
+			"deadCellFactory",
+			"DeadCellFactoryFake",
+			"deadCellFactoryFake",
+			"DeadCellFactoryFake",
+			"Sllabres.Web",
+			"Sllabres.Web.Test",
+			"sllabres.web"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"this.getCell",
+			"neighbourCount",
+			"cellFactoryFake",
+			"createCell",
+			"createDell",
+			"CellFactoryFake",
+			"cellFactoryFake",
+			"CellFactoryFake",
+			"sllabres.web",
+			"sllabres.web.test",
+			"Sllabres.Web"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "scripts/GameOfLife.js",
+					"settings":
+					{
+						"buffer_size": 1284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								674,
+								685
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scripts/CellDrawing.js",
+					"settings":
+					{
+						"buffer_size": 516,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								53,
+								53
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "rakefile.rb",
+					"settings":
+					{
+						"buffer_size": 1286,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								823,
+								823
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "manifest.yaml",
+					"settings":
+					{
+						"buffer_size": 464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								121,
+								131
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "scripts/Cell.js",
+					"settings":
+					{
+						"buffer_size": 1410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "tests/CellTests.js",
+					"settings":
+					{
+						"buffer_size": 4284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1702,
+								1702
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 252.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/H/github/turbulenz/taxi/rakefile.rb",
+					"settings":
+					{
+						"buffer_size": 46,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 195.0
+	},
+	"output.jslint_result_view":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 271.0,
+	"status_bar_visible": true
+}
