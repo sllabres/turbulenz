@@ -8568,233 +8568,284 @@ if (typeof TurbulenzBridge !== 'undefined')
 }
 
 // Copyright (c) 2011-2012 Turbulenz Limited
-
-/*global Utilities: false*/
-/*global TurbulenzBridge: false*/
-/*global TurbulenzEngine: false*/
+/*global window: false*/
 /*global TurbulenzServices: false*/
+/*jshint nomen: false*/
 
-//
-// API
-//
-function GameSession() {}
-GameSession.prototype =
-{
-    version : 1,
-    post_delay: 1000,
+/*
+ * An object that takes care of communication with the gamesite and, among
+ * other things, replaces the deprecated 'osdlib' module.
+ *
+ * It wraps an EventEmitter instance that is stored on the page and provides
+ * methods that manually display the 'loading'-flag, post certain events to
+ * the page or request information about a player's settings.
+ *
+ */
+var TurbulenzBridge = {
+    _bridge: undefined,
 
-    setStatus: function gameSessionSetStatusFn(status)
-    {
-        if (this.destroyed || this.status === status)
+    /**
+     * Try to find an 'EventEmitter' object on the page and cache it.
+     */
+    _initInstance: function _initInstanceFn() {
+        var Turbulenz = window.top.Turbulenz;
+
+        if (Turbulenz && Turbulenz.Services)
         {
-            return;
+            var bridge = Turbulenz.Services.bridge;
+            if (!bridge)
+            {
+                return;
+            }
+
+            this._bridge = bridge;
+
+            this.emit = bridge.emit;
+            // TODO can remove all of these or's after gamesite and hub updates
+            this.on = bridge.gameListenerOn || bridge.addListener || bridge.setListener;
+
+            // we cant use off yet becuase the function recieved on the other VM is re-wrapped each time
+            //this.off = bridge.gameListenerOff;
+            // Legacy functions addListener/setListener
+            this.addListener = bridge.gameListenerOn || bridge.addListener || bridge.setListener;
+            this.setListener = bridge.gameListenerOn || bridge.setListener;
         }
 
-        this.status = status;
-        TurbulenzBridge.setGameSessionStatus(this.gameSessionId, status);
+        if (typeof TurbulenzServices !== 'undefined')
+        {
+            TurbulenzServices.addBridgeEvents();
+        }
     },
 
-    // callbackFn is for testing only!
-    // It will not be called if destroy is called in TurbulenzEngine.onUnload
-    destroy: function gameSessionDestroyFn(callbackFn)
-    {
-        var dataSpec;
-        if (this.pendingUpdate)
-        {
-            TurbulenzEngine.clearTimeout(this.pendingUpdate);
-            this.pendingUpdate = null;
-        }
+    isInitialised: function isInitialisedFn() {
+        return this._bridge !== undefined;
+    },
 
-        if (!this.destroyed && this.gameSessionId)
-        {
-            // we can't wait for the callback as the browser doesn't
-            // call async callbacks after onbeforeunload has been called
-            TurbulenzBridge.destroyedGameSession(this.gameSessionId);
-            this.destroyed = true;
+    emit: function emitFn() {},
 
-            dataSpec = {'gameSessionId': this.gameSessionId};
+    on: function onFn() {},
 
-            if (TurbulenzServices.bridgeServices)
-            {
-                TurbulenzServices.callOnBridge('gamesession.destroy', dataSpec, callbackFn);
-            }
-            else
-            {
-                Utilities.ajax({
-                    url: '/api/v1/games/destroy-session',
-                    method: 'POST',
-                    data: dataSpec,
-                    callback: callbackFn,
-                    requestHandler: this.requestHandler
-                });
-            }
-        }
-        else
-        {
-            if (callbackFn)
-            {
-                TurbulenzEngine.setTimeout(callbackFn, 0);
-            }
-        }
+    //off: function offFn() {},
+
+    addListener: function addListenerFn() {},
+
+    setListener: function setListenerFn() {},
+
+    /**
+     * Message that passes game configuration information from the hosting site
+     */
+    setOnReceiveConfig: function setOnReceiveConfigFn(callback) {
+        this.on('config.set', callback);
+    },
+    triggerRequestConfig: function triggerRequestConfigFn() {
+        this.emit('config.request');
     },
 
     /**
-     * Handle player metadata
+     * Methods to signal the beginning and end of load/save processes.
+     * This will display hints to the player and helps the page
+     * to prioritize resources.
      */
-    setTeamInfo : function gameSessionSetTeamInfoFn(teamList)
-    {
-        var sessionData = this.info.sessionData;
-        var oldTeamList = sessionData.teamList || [];
-        if (teamList.join('#') !== oldTeamList.join('#'))
-        {
-            sessionData.teamList = teamList;
-            this.update();
-        }
+    startLoading: function startLoadingFn() {
+        this.emit('status.loading.start');
     },
 
-    setPlayerInfo : function gameSessionSetPlayerInfoFn(playerId, data)
-    {
-        var playerData = this.info.playerSessionData[playerId];
-        var key;
-        var dirty = false;
-
-        if (!playerData)
-        {
-            playerData = {};
-            this.info.playerSessionData[playerId] = playerData;
-            dirty = true;
-        }
-
-        for (key in data)
-        {
-            if (data.hasOwnProperty(key))
-            {
-                if (!this.templatePlayerData.hasOwnProperty(key))
-                {
-                    throw "unknown session data property " + key;
-                }
-                if (playerData[key] !== data[key])
-                {
-                    playerData[key] = data[key];
-                    dirty = true;
-                }
-            }
-        }
-
-        if (dirty)
-        {
-            this.update();
-        }
+    startSaving: function startSavingFn() {
+        this.emit('status.saving.start');
     },
 
-    removePlayerInfo : function gameSessionRemovePlayerInfoFn(playerId)
-    {
-        delete this.info.playerSessionData[playerId];
-        this.update();
+    stopLoading: function stopLoadingFn() {
+        this.emit('status.loading.stop');
     },
 
-    clearAllPlayerInfo : function clearAllPlayerInfoFn()
-    {
-        this.info.playerSessionData = {};
-        this.update();
+    stopSaving: function stopSavingFn() {
+        this.emit('status.saving.stop');
     },
 
-    update: function updateFn()
+    /**
+     * These methods tell the gamesite the gameSession so it can
+     * emit a heartbeat for the message server to detect.
+     * gameSessionId - A string for identifying the current game session
+     */
+    createdGameSession: function createdGameSessionFn(gameSessionId) {
+        this.emit('game.session.created', gameSessionId);
+    },
+
+    destroyedGameSession: function destroyedGameSessionFn(gameSessionId) {
+        this.emit('game.session.destroyed', gameSessionId);
+    },
+
+    setGameSessionStatus: function setGameSessionStatusFn(gameSessionId, status) {
+        this.emit('game.session.status', gameSessionId, status);
+    },
+
+    setGameSessionInfo: function setGameSessionInfoFn(info) {
+        this.emit('game.session.info', info);
+    },
+
+    /**
+     * Update a userbadge. Used by the BadgeManager
+     */
+    updateUserBadge: function updateUserBadgeFn(badge)
     {
-        if (!this.pendingUpdate)
-        {
-            // Debounce the update to pick up any other changes.
-            this.pendingUpdate = TurbulenzEngine.setTimeout(this.postData, this.post_delay);
-        }
+        this.emit('userbadge.update', badge);
+    },
+
+    /**
+     * Update a leaderboard. Used by the LeaderboardManager
+     */
+    updateLeaderBoard: function updateLeaderBoardFn(scoreData)
+    {
+        this.emit('leaderboards.update', scoreData);
+    },
+
+
+    /**
+     * Handle multiplayer join events
+     */
+    setOnMultiplayerSessionToJoin: function setOnMultiplayerSessionToJoinFn(callback) {
+        this.on('multiplayer.session.join', callback);
+    },
+
+    triggerJoinedMultiplayerSession: function triggerJoinedMultiplayerSessionFn(session) {
+        this.emit('multiplayer.session.joined', session);
+    },
+
+    triggerLeaveMultiplayerSession: function triggerLeaveMultiplayerSessionFn(sessionId) {
+        this.emit('multiplayer.session.leave', sessionId);
+    },
+
+    triggerMultiplayerSessionMakePublic: function triggerMultiplayerSessionMakePublicFn(sessionId) {
+        this.emit('multiplayer.session.makepublic');
+    },
+
+    /**
+     * Handle store basket events
+     */
+    setOnBasketUpdate: function setOnBasketUpdateFn(callback) {
+        this.on('basket.site.update', callback);
+    },
+
+    triggerBasketUpdate: function triggerBasketUpdateFn(basket) {
+        this.emit('basket.game.update', basket);
+    },
+
+    triggerUserStoreUpdate: function triggerUserStoreUpdateFn(items) {
+        this.emit('store.user.update', items);
+    },
+
+    setOnPurchaseConfirmed: function setOnPurchaseConfirmedFn(callback) {
+        this.on('purchase.confirmed', callback);
+    },
+
+    setOnPurchaseRejected: function setOnPurchaseRejectedFn(callback) {
+        this.on('purchase.rejected', callback);
+    },
+
+    triggerShowConfirmPurchase: function triggerShowConfirmPurchaseFn() {
+        this.emit('purchase.show.confirm');
+    },
+
+    triggerFetchStoreMeta: function triggerFetchStoreMetaFn() {
+        this.emit('fetch.store.meta');
+    },
+
+    setOnStoreMeta: function setOnStoreMetaFn(callback) {
+        this.on('store.meta.v2', callback);
+    },
+
+    /**
+     * Methods to signal changes of the viewport's aspect ratio to the page.
+     */
+    changeAspectRatio: function changeAspectRatioFn(ratio) {
+        this.emit('change.viewport.ratio', ratio);
+    },
+
+    /**
+     * Methods to set callbacks to react to events happening on the page.
+     */
+    setOnViewportHide: function setOnViewportHideFn(callback) {
+        this.on('change.viewport.hide', callback);
+    },
+
+    setOnViewportShow: function setOnViewportShowFn(callback) {
+        this.on('change.viewport.show', callback);
+    },
+
+    setOnFullscreenOn: function setOnFullscreenOnFn(callback) {
+        this.on('change.viewport.fullscreen.on', callback);
+    },
+
+    setOnFullscreenOff: function setOnFullscreenOffFn(callback) {
+        this.on('change.viewport.fullscreen.off', callback);
+    },
+
+    setOnMenuStateChange: function setOnMenuStateChangeFn(callback) {
+        this.on('change.menu.state', callback);
+    },
+
+    setOnUserStateChange: function setOnUserStateChangeFn(callback) {
+        this.on('change.user.state', callback);
+    },
+
+    /**
+     * Methods to send trigger event-emission on the page. These prompt the  page to trigger
+     * the aforementioned corresponding onXXXX methods.
+     */
+
+    triggerOnFullscreen: function triggerOnFullscreenQueryFn() {
+        this.emit('trigger.viewport.fullscreen');
+    },
+
+    triggerOnViewportVisibility: function triggerOnViewportVisibilityQueryFn() {
+        this.emit('trigger.viewport.visibility');
+    },
+
+    triggerOnMenuStateChange: function triggerOnMenuStateQueryFn() {
+        this.emit('trigger.menu.state');
+    },
+
+    triggerOnUserStateChange: function triggerOnUserStateQueryFn() {
+        this.emit('trigger.user.state');
+    },
+
+    /**
+     * Methods to send requests for information to the page. These methods can be used to send
+     * state-queries. They take a callback function and prompt the page to call it.
+     */
+
+    /**
+     * callback - a function that takes a single boolean value that will be set to 'true' if the
+     * viewport is in fullscreen.
+     */
+    queryFullscreen: function queryFullscreenFn(callback) {
+        this.emit('query.viewport.fullscreen', callback);
+    },
+    /**
+     * callback - a function that takes a single boolean value that will be set to 'true' if the
+     * viewport is visible.
+     */
+    queryViewportVisibility: function queryViewportVisibilityFn(callback) {
+        this.emit('query.viewport.visibility', callback);
+    },
+    /**
+     * callback - a function that takes an object-representation of the current menu-state.
+     */
+    queryMenuState: function queryMenuStateFn(callback) {
+        this.emit('query.menu.state', callback);
+    },
+    /**
+     * callback - a function that takes an object-representation of the current state of the user's settings.
+     */
+    queryUserState: function queryUserStateFn(callback) {
+        this.emit('query.user.state', callback);
     }
 };
 
-GameSession.create = function gameSessionCreateFn(requestHandler, sessionCreatedFn, errorCallbackFn)
+if (!TurbulenzBridge.isInitialised())
 {
-    var gameSession = new GameSession();
-    var gameSlug = window.gameSlug;
-    var turbulenz = window.top.Turbulenz;
-    var turbulenzData = (turbulenz && turbulenz.Data) || {};
-    var mode = turbulenzData.mode || TurbulenzServices.mode;
-    var createSessionURL = '/api/v1/games/create-session/' + gameSlug;
-    var gameSessionRequestCallback = function gameSessionRequestCallbackFn(jsonResponse, status)
-    {
-        if (status === 200)
-        {
-            gameSession.mappingTable = jsonResponse.mappingTable;
-            gameSession.gameSessionId = jsonResponse.gameSessionId;
-
-            if (sessionCreatedFn)
-            {
-                sessionCreatedFn(gameSession);
-            }
-
-            TurbulenzBridge.createdGameSession(gameSession.gameSessionId);
-        }
-        else
-        {
-            gameSession.errorCallbackFn("TurbulenzServices.createGameSession error with HTTP status " + status + ": " + jsonResponse.msg, status);
-        }
-    };
-
-    gameSession.info = {
-        sessionData: {},
-        playerSessionData: {}
-    };
-
-    gameSession.templatePlayerData = {
-        team: null,
-        color: null,
-        status: null,
-        rank: null,
-        score: null,
-        sortkey: null
-    };
-
-    gameSession.postData = function postDataFn()
-    {
-        TurbulenzBridge.setGameSessionInfo(JSON.stringify(gameSession.info));
-        gameSession.pendingUpdate = null;
-    };
-
-    gameSession.pendingUpdate = null;
-
-    gameSession.gameSlug = gameSlug;
-
-    gameSession.requestHandler = requestHandler;
-    gameSession.errorCallbackFn = errorCallbackFn || TurbulenzServices.defaultErrorCallback;
-    gameSession.gameSessionId = null;
-    gameSession.service = TurbulenzServices.getService('gameSessions');
-    gameSession.status = null;
-
-    if (!TurbulenzServices.available())
-    {
-        // Call sessionCreatedFn on a timeout to get the same behaviour as the AJAX call
-        if (sessionCreatedFn)
-        {
-            TurbulenzEngine.setTimeout(function sessionCreatedCall()
-            {
-                sessionCreatedFn(gameSession);
-            }, 0);
-        }
-        return gameSession;
-    }
-
-    if (mode)
-    {
-        createSessionURL += '/' + mode;
-    }
-
-    gameSession.service.request({
-        url: createSessionURL,
-        method: 'POST',
-        callback: gameSessionRequestCallback,
-        requestHandler: requestHandler,
-        neverDiscard: true
-    });
-
-    return gameSession;
-};
+    TurbulenzBridge._initInstance();
+}
 
 /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices,Canvas,Draw2D*/
