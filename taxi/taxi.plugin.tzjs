@@ -9111,10 +9111,17 @@ TurbulenzEngine.onload = function onload() {
 		configureParams = null;
 	};
 
+	var draw2DTexture;
 	function sessionCreated(gameSession) {
 		TurbulenzServices.createMappingTable(requestHandler,
 			gameSession,
 			function (table) {
+				graphicsDevice.createTexture({ src : table.getURL("textures/physics2d.png"),
+					mipmaps : true,
+					onload : function (texture) {
+						draw2DTexture = texture;
+					}
+				});
 			});
 	}
 
