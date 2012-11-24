@@ -39,7 +39,7 @@ task :git_commit_and_push do
 	puts "Committing changes."
 	sh "git add ."
 	sh "git commit -m \"Automated Commit\""
-	sh "git push origin master"
+	#sh "git push origin master"
 end
 
 task :publish do
