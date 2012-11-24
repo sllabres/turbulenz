@@ -6,15 +6,15 @@ deploy_files:
 - taxi.canvas.js
 - mapping_table.json
 - js/*
-deployed: 11:02 | 24/11/2012
+deployed: Never
 engine_version: 0.23.1
 flash_main: ''
 is_multiplayer: false
 is_temp: false
 mapping_table: mapping_table.json
-modified: 22:23 | 22/11/2012
+modified: 20:32 | 24/11/2012
 path: H:\github\turbulenz\taxi
 plugin_main: taxi.plugin.tzjs
-slug: game-of-life
-title: Game Of Life
+slug: air-fair
+title: Air Fair
 title_logo: ''
