@@ -9119,7 +9119,7 @@ TurbulenzEngine.onload = function onload() {
 				graphicsDevice.createTexture({ src : table.getURL("textures/taxi.png"),
 					mipmaps : true,
 					onload : function (texture) {
-						sprite = Draw2DSprite.create({x : 20,
+						sprite = Draw2DSprite.create({x : 50,
 						y : 50,
 						texture : texture
 						});
