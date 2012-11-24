@@ -5,4 +5,5 @@
 /*{{ javascript("jslib/draw2d.js") }}*/
 /*{{ javascript("jslib/services/turbulenzservices.js") }}*/
 /*{{ javascript("jslib/services/turbulenzbridge.js") }}*/
+/*{{ javascript("jslib/services/gamesession.js") }}*/
 /*{{ javascript("scripts/Taxi.js") }}*/
