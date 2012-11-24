@@ -23,7 +23,7 @@ TurbulenzEngine.onload = function onload() {
 			drawing.begin();
 			drawing.draw({
 				texture: taxiTexture,
-				destinationRectangle : [0, 0, 10, 10] 
+				destinationRectangle : [0, 0, 67, 22] 
 			});
 			drawing.end();
 			graphicsDevice.endFrame();
