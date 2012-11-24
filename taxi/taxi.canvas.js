@@ -33986,7 +33986,7 @@ TurbulenzEngine.onload = function onload() {
     function update() {
 		if(graphicsDevice.beginFrame()) {			
 			drawing.setBackBuffer();		
-			drawing.clear();
+			drawing.clear([0.1,0.1,0.2,1]);
 			drawing.begin();
 			drawing.drawSprite(sprite);
 			drawing.end();
@@ -34010,7 +34010,7 @@ TurbulenzEngine.onload = function onload() {
 					mipmaps : true,
 					onload : function (texture) {
 						sprite = Draw2DSprite.create({						
-							//texture : texture
+							texture : texture
 						});
 						TurbulenzEngine.setInterval(update, 1000 / 60);
 					}
