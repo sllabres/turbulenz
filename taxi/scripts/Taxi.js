@@ -11,16 +11,20 @@ TurbulenzEngine.onload = function onload() {
 		configureParams = {
 			scaleMode : undefined,
 			viewportRectangle : viewport
-		};
-
-
+		},
+		taxiTexture = graphicsDevice.createTexture({
+			src: "textures/taxi.png"
+		});
 
     function update() {
 		if(graphicsDevice.beginFrame()) {			
 			drawing.setBackBuffer();		
 			drawing.clear([0.1,0.1,0.2,1]);
 			drawing.begin();
-			drawing.draw({ destinationRectangle : [0, 0, 10, 10] });			
+			drawing.draw({
+				texture: taxiTexture,
+				destinationRectangle : [0, 0, 10, 10] 
+			});
 			drawing.end();
 			graphicsDevice.endFrame();
 		}
