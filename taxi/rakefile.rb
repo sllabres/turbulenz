@@ -43,5 +43,5 @@ task :git_commit_and_push do
 end
 
 task :publish do
-	sh "deploygame -v -i manifest.yaml -u user --project=game-of-life --projectversion=0.1 --user=sllabres --cache H:\\Turbulenz\\SDK\\0.23.1\\devserver\\localdata\\deploycache --ultra"
+	sh "deploygame -v -i manifest.yaml -u user --project=taxi --projectversion=0.1 --user=sllabres --cache H:\\Turbulenz\\SDK\\0.23.1\\devserver\\localdata\\deploycache --ultra"
 end
