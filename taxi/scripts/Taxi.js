@@ -39,7 +39,7 @@ TurbulenzEngine.onload = function onload() {
 			gameSession,
 			function (table) {
 				graphicsDevice.createTexture({ src : table.getURL("textures/taxi.png"),
-					mipmaps : true,
+					mipmaps : false,
 					onload : function (texture) {
 						sprite = Draw2DSprite.create({x : 50,
 						y : 50,
