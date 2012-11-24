@@ -33986,7 +33986,7 @@ TurbulenzEngine.onload = function onload() {
     function update() {
 		if(graphicsDevice.beginFrame()) {			
 			drawing.setBackBuffer();		
-			drawing.clear([0.1,0.1,0.2,1]);
+			drawing.clear([0.1,0.1,0.2,0]);
 			drawing.begin();
 			drawing.drawSprite(sprite);
 			drawing.end();
