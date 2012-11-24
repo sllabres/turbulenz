@@ -12,7 +12,8 @@ TurbulenzEngine.onload = function onload() {
 			scaleMode : undefined,
 			viewportRectangle : viewport
 		},
-		requestHandler = RequestHandler.create({});
+		requestHandler = RequestHandler.create({}),
+		sprite;
 
     function update() {
 		if(graphicsDevice.beginFrame()) {			
@@ -33,7 +34,6 @@ TurbulenzEngine.onload = function onload() {
 		configureParams = null;
 	};
 
-	var draw2DTexture;
 	function sessionCreated(gameSession) {
 		TurbulenzServices.createMappingTable(requestHandler,
 			gameSession,
@@ -41,7 +41,13 @@ TurbulenzEngine.onload = function onload() {
 				graphicsDevice.createTexture({ src : table.getURL("textures/physics2d.png"),
 					mipmaps : true,
 					onload : function (texture) {
-						draw2DTexture = texture;
+						sprite = Draw2DSprite.create({
+						width : 67,
+						height : 22,
+						origin : [67 / 2, 22 / 2],
+						textureRectangle : [0, 0, 67, 22],
+						texture : texture
+						});
 					}
 				});
 			});
