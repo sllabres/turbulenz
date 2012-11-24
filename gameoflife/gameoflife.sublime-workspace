@@ -92,18 +92,10 @@
 	"buffers":
 	[
 		{
-			"file": "tests/GameOfLife.htm",
+			"file": "scripts/GameOfLife.js",
 			"settings":
 			{
-				"buffer_size": 1029,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "tests/CellDrawingTests.js",
-			"settings":
-			{
-				"buffer_size": 3394,
+				"buffer_size": 1284,
 				"line_ending": "Windows"
 			}
 		},
@@ -116,34 +108,74 @@
 			}
 		},
 		{
-			"file": "scripts/Rules.js",
-			"settings":
-			{
-				"buffer_size": 360,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "scripts/RandomSeedGenerator.js",
-			"settings":
-			{
-				"buffer_size": 730,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "rakefile.rb",
 			"settings":
 			{
-				"buffer_size": 939,
+				"buffer_size": 1286,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "scripts/GameOfLife.js",
+			"file": "manifest.yaml",
 			"settings":
 			{
-				"buffer_size": 1263,
+				"buffer_size": 464,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/Cell.js",
+			"settings":
+			{
+				"buffer_size": 1410,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tests/CellTests.js",
+			"settings":
+			{
+				"buffer_size": 4284,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/H/github/turbulenz/taxi/rakefile.rb",
+			"settings":
+			{
+				"buffer_size": 1286,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/H/github/turbulenz/taxi/tests/Taxi.htm",
+			"settings":
+			{
+				"buffer_size": 324,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/H/Turbulenz/SDK/0.23.1/apps/sampleapp/scripts/sampleappmain.js",
+			"settings":
+			{
+				"buffer_size": 7886,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/H/Turbulenz/SDK/0.23.1/apps/sampleapp/scripts/sceneloader.js",
+			"settings":
+			{
+				"buffer_size": 5395,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/H/github/turbulenz/taxi/tests/Taxi.js",
+			"settings":
+			{
+				"buffer_size": 100,
 				"line_ending": "Windows"
 			}
 		}
@@ -192,31 +224,33 @@
 	},
 	"file_history":
 	[
+		"/H/github/turbulenz/gameoflife/gameoflife.sublime-workspace",
+		"/H/github/turbulenz/gameoflife/tests/GameOfLife.htm",
+		"/H/github/turbulenz/gameoflife/tests/CellDrawingTests.js",
+		"/H/github/turbulenz/gameoflife/scripts/CellDrawing.js",
+		"/H/github/turbulenz/gameoflife/scripts/Rules.js",
+		"/H/github/turbulenz/gameoflife/scripts/RandomSeedGenerator.js",
+		"/H/github/turbulenz/gameoflife/rakefile.rb",
+		"/H/Turbulenz/SDK/0.23.1/apps/sampleapp/scripts/sampleappmain.js",
 		"/H/github/turbulenz/gameoflife/gameoflife.canvas.js",
 		"/H/github/turbulenz/gameoflife/testugly.js",
 		"/C/Users/Sebastian/AppData/Roaming/npm/uglifyjs.cmd",
 		"/H/github/turbulenz/gameoflife/scripts/Grid.js",
 		"/H/github/turbulenz/gameoflife/tests/TestStubs.js",
-		"/H/github/turbulenz/gameoflife/scripts/CellDrawing.js",
 		"/H/github/turbulenz/gameoflife/tests/CellTests.js",
 		"/H/github/turbulenz/gameoflife/tests/RulesTests.js",
 		"/H/github/turbulenz/gameoflife/tests/NeighbourhoodWatchTests.js",
 		"/H/github/turbulenz/gameoflife/tests/GridTests.js",
-		"/H/github/turbulenz/gameoflife/tests/CellDrawingTests.js",
 		"/H/github/turbulenz/gameoflife/tests/CellFactoryTests.js",
 		"/H/github/turbulenz/gameoflife/resources/run-qunit.js",
 		"/H/github/turbulenz/gameoflife/tests/CellDrawingTests",
-		"/H/github/turbulenz/gameoflife/scripts/Rules.js",
 		"/H/github/turbulenz/gameoflife/scripts/GameOfLife.js",
-		"/H/github/turbulenz/gameoflife/scripts/RandomSeedGenerator.js",
 		"/H/github/turbulenz/gameoflife/templates/GameOfLife.js",
-		"/H/github/turbulenz/gameoflife/rakefile.rb",
 		"/H/github/turbulenz/gameoflife/mapping_table.json",
 		"/H/github/turbulenz/gameoflife/tests/GameOfLifeTests.js",
 		"/H/github/turbulenz/gameoflife/templates/gameoflife.html",
 		"/H/github/turbulenz/gameoflife/css/sampleapp.css",
 		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/GameThree.js",
-		"/H/github/turbulenz/gameoflife/tests/GameOfLife.htm",
 		"/H/github/turbulenz/gameoflife/scripts/Cell.js",
 		"/H/Turbulenz/SDK/0.23.1/samples/2dcanvas.canvas.js",
 		"/H/github/turbulenz/gameoflife/resources/jsl.default.conf",
@@ -317,9 +351,7 @@
 		"/H/sllabres/sllabres.web/Areas/WebGl/Views/Shared/Tests.spark",
 		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/Cells",
 		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/WebGl/Drawable.js",
-		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/Cells.js",
-		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/Boids/Boid.js",
-		"/H/sllabres/sllabres.web/Scripts/qunit-1.10.0.js"
+		"/H/sllabres/sllabres.web/Areas/WebGl/Scripts/GameOfLife/Cells.js"
 	],
 	"find":
 	{
@@ -404,29 +436,28 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 9,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "tests/GameOfLife.htm",
+					"file": "scripts/GameOfLife.js",
 					"settings":
 					{
-						"buffer_size": 1029,
+						"buffer_size": 1284,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								923,
-								923
+								674,
+								685
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -436,33 +467,6 @@
 				},
 				{
 					"buffer": 1,
-					"file": "tests/CellDrawingTests.js",
-					"settings":
-					{
-						"buffer_size": 3394,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3394,
-								3394
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 924.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "scripts/CellDrawing.js",
 					"settings":
 					{
@@ -473,8 +477,8 @@
 						"selection":
 						[
 							[
-								366,
-								386
+								53,
+								53
 							]
 						],
 						"settings":
@@ -490,11 +494,64 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "scripts/Rules.js",
+					"buffer": 2,
+					"file": "rakefile.rb",
 					"settings":
 					{
-						"buffer_size": 360,
+						"buffer_size": 1286,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								823,
+								823
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "manifest.yaml",
+					"settings":
+					{
+						"buffer_size": 464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								121,
+								131
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "scripts/Cell.js",
+					"settings":
+					{
+						"buffer_size": 1410,
 						"regions":
 						{
 						},
@@ -518,19 +575,128 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "scripts/RandomSeedGenerator.js",
+					"buffer": 5,
+					"file": "tests/CellTests.js",
 					"settings":
 					{
-						"buffer_size": 730,
+						"buffer_size": 4284,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								485,
-								485
+								1702,
+								1702
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 252.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/H/github/turbulenz/taxi/rakefile.rb",
+					"settings":
+					{
+						"buffer_size": 1286,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/H/github/turbulenz/taxi/tests/Taxi.htm",
+					"settings":
+					{
+						"buffer_size": 324,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/H/Turbulenz/SDK/0.23.1/apps/sampleapp/scripts/sampleappmain.js",
+					"settings":
+					{
+						"buffer_size": 7886,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2730.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/H/Turbulenz/SDK/0.23.1/apps/sampleapp/scripts/sceneloader.js",
+					"settings":
+					{
+						"buffer_size": 5395,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -546,51 +712,26 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "rakefile.rb",
+					"buffer": 10,
+					"file": "/H/github/turbulenz/taxi/tests/Taxi.js",
 					"settings":
 					{
-						"buffer_size": 939,
+						"buffer_size": 100,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								657,
-								657
+								45,
+								45
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "scripts/GameOfLife.js",
-					"settings":
-					{
-						"buffer_size": 1263,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								385,
-								385
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

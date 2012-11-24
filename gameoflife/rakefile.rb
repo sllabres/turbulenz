@@ -35,7 +35,11 @@ end
 
 task :git_commit_and_push do
 	puts "Committing changes."
-	puts `git add .`	
-	puts `git commit -m "Automated Commit"`
-	puts `git push origin master`
+	sh "git add ."
+	sh "git commit -m \"Automated Commit\""
+	sh "git push origin master"
+end
+
+task :publish do
+	sh "deploygame -v -i manifest.yaml -u user --project=game-of-life --projectversion=0.1 --user=sllabres --cache H:\\Turbulenz\\SDK\\0.23.1\\devserver\\localdata\\deploycache --ultra"
 end
