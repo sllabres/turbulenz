@@ -13,7 +13,20 @@ TurbulenzEngine.onload = function onload() {
 			viewportRectangle : viewport
 		},
 		taxiTexture = graphicsDevice.createTexture({
-			src: "textures/taxi.png"
+			src: "textures/taxi.png",
+			onload: function onLoadedTextureFn(texture, status) {
+        if (texture)
+        {
+            sharedTechniqueParameters.diffuse = texture;
+            assetsToLoad -= 1;
+        }
+        else
+        {
+            alert("Texture missing!");
+        }
+
+        loadedTexture = loadingTexture;
+    }
 		});
 
     function update() {
