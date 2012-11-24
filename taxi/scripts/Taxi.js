@@ -21,8 +21,9 @@ TurbulenzEngine.onload = function onload() {
 			drawing.setBackBuffer();		
 			drawing.clear([0.1,0.1,0.2,1]);
 			drawing.begin();
-			drawing.draw({
+			drawing.draw({				
 				texture: taxiTexture,
+				sourceRectangle : [0, 0, 67, 22],
 				destinationRectangle : [0, 0, 67, 22] 
 			});
 			drawing.end();
