@@ -34012,7 +34012,7 @@ TurbulenzEngine.onload = function onload() {
 						sprite = Draw2DSprite.create({
 						width : 128,
 						height : 128,
-						origin : [128 / 2, 129 / 2],
+						origin : [128 / 2, 128 / 2],
 						textureRectangle : [0, 0, 128, 128],
 						texture : texture
 						});
