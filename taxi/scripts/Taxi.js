@@ -1,5 +1,5 @@
 /*jslint browser: true*/
-/*global TurbulenzEngine,Canvas,Draw2D,Grid,RandomSeedGenerator,CellDrawing,NeighbourhoodWatch*/
+/*global TurbulenzEngine,TurbulenzServices,Canvas,Draw2D*/
 TurbulenzEngine.onload = function onload() {
     "use strict";
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
@@ -12,33 +12,14 @@ TurbulenzEngine.onload = function onload() {
 			scaleMode : undefined,
 			viewportRectangle : viewport
 		},
-		taxiTexture = graphicsDevice.createTexture({
-			src: "textures/taxi.png",
-			onload: function onLoadedTextureFn(texture, status) {
-        if (texture)
-        {
-            sharedTechniqueParameters.diffuse = texture;
-            assetsToLoad -= 1;
-        }
-        else
-        {
-            alert("Texture missing!");
-        }
-
-        loadedTexture = loadingTexture;
-    }
-		});
+		requestHandler = RequestHandler.create({});
 
     function update() {
 		if(graphicsDevice.beginFrame()) {			
 			drawing.setBackBuffer();		
 			drawing.clear([0.1,0.1,0.2,1]);
 			drawing.begin();
-			drawing.draw({				
-				texture: taxiTexture,
-				sourceRectangle : [0, 0, 67, 22],
-				destinationRectangle : [0, 0, 67, 22] 
-			});
+			
 			drawing.end();
 			graphicsDevice.endFrame();
 		}
@@ -52,5 +33,14 @@ TurbulenzEngine.onload = function onload() {
 		configureParams = null;
 	};
 
+	function sessionCreated(gameSession) {
+		TurbulenzServices.createMappingTable(requestHandler,
+			gameSession,
+			function (table) {
+			});
+	}
+
+	TurbulenzServices.createGameSession(requestHandler, sessionCreated);
     TurbulenzEngine.setInterval(update, 1000 / 60);
 };
+
