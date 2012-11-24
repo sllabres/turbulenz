@@ -41,7 +41,8 @@ TurbulenzEngine.onload = function onload() {
 				graphicsDevice.createTexture({ src : table.getURL("textures/taxi.png"),
 					mipmaps : true,
 					onload : function (texture) {
-						sprite = Draw2DSprite.create({
+						sprite = Draw2DSprite.create({x : 20,
+						y : 50,
 						texture : texture
 						});
 						TurbulenzEngine.setInterval(update, 1000 / 60);
