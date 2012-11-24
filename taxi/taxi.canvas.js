@@ -34019,10 +34019,11 @@ TurbulenzEngine.onload = function onload() {
 					}
 				});
 			});
+
+		TurbulenzEngine.setInterval(update, 1000 / 60);
 	}
 
-	TurbulenzServices.createGameSession(requestHandler, sessionCreated);
-    TurbulenzEngine.setInterval(update, 1000 / 60);
+	TurbulenzServices.createGameSession(requestHandler, sessionCreated);    
 };
 
 
