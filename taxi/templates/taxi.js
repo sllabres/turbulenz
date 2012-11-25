@@ -9,5 +9,5 @@
 /*{{ javascript("jslib/observer.js") }}*/
 /*{{ javascript("jslib/utilities.js") }}*/
 
-/*{{ javascript("scripts/Taxi.js") }}*/
 /*{{ javascript("scripts/SpriteDrawing.js") }}*/
+/*{{ javascript("scripts/Taxi.js") }}*/
