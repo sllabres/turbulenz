@@ -2,7 +2,7 @@
 (function () {
 	"use strict";
 	module("Game started");
-	test("Calling update, draws", function () {
+	test("Update called, draw called", function () {
 		var drawCalled = false,
 			renderer = { draw : function () {
 				drawCalled = true;
