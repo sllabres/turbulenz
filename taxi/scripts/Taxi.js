@@ -2,25 +2,18 @@
 /*global TurbulenzEngine,TurbulenzServices,Canvas,Draw2D*/
 TurbulenzEngine.onload = function onload() {
     "use strict";
-    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-		drawing = Draw2D.create({ graphicsDevice : graphicsDevice }),
+    var spriteDrawing = new SpriteDrawing(TurbulenzEngine, Draw2D),
 		requestHandler = RequestHandler.create({}),
 		sprite;
 
     function update() {
-		if(graphicsDevice.beginFrame()) {				
-			drawing.setBackBuffer();		
-			drawing.clear([0.3,0.3,0.3,1]);
-			drawing.begin('alpha');
-			drawing.drawSprite(sprite);
-			drawing.end();
-			graphicsDevice.endFrame();
-		}
+    	spriteDrawing.draw([0.3,0.3,0.3,1], sprite);
     }
 
     TurbulenzEngine.onunload = function gameOnunload() {
-		graphicsDevice = null;		
-		drawing = null;		
+		spriteDrawing = null;		
+		requestHandler = null;
+		sprite = null;		
 	};
 
 	function sessionCreated(gameSession) {
