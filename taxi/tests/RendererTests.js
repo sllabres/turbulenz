@@ -64,21 +64,6 @@ function Renderer(turbulenzEngine, draw2d) {
 		ok(setBackBufferCalled);
 	});
 
-	test("On draw and beginFrame is true, draw2d clear called", function () {
-		var clearCalled = false,
-			graphicsDeviceStub = { beginFrame : function () { return true; } },
-			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
-			drawingMock = { setBackBuffer : function () { },
-				clear : function () { clearCalled = true; },
-				begin : function () { } },
-			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
-
-		renderer.draw();
-
-		ok(clearCalled);
-	});
-
 	test("On draw and beginFrame is true, clear called with RGBA [0, 0, 0, 0]", function () {
 		var clearColour = [],
 			expectedClearColour = [0, 0, 0, 0],
