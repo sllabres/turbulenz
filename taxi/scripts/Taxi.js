@@ -18,8 +18,8 @@ TurbulenzEngine.onload = function onload() {
     function update() {
 		if(graphicsDevice.beginFrame()) {	
 			drawing.begin('alpha', 'deferred');		
-			drawing.setBackBuffer();		
-			drawing.clear([0.3,0.3,0.3,1]);			
+			//drawing.setBackBuffer();		
+			//drawing.clear([0.3,0.3,0.3,1]);			
 			drawing.drawSprite(sprite);
 			drawing.end();
 			graphicsDevice.endFrame();
