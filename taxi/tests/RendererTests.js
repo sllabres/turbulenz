@@ -4,10 +4,10 @@ function Renderer(turbulenzEngine, draw2d) {
 	var graphicsDevice = turbulenzEngine.createGraphicsDevice({}),
 		drawing = draw2d.create(graphicsDevice);
 
-	function draw() {
+	function draw(clearColour) {
 		if (graphicsDevice.beginFrame()) {
 			drawing.setBackBuffer();
-			drawing.clear();
+			drawing.clear(clearColour);
 		}
 	}
 
@@ -74,5 +74,20 @@ function Renderer(turbulenzEngine, draw2d) {
 		renderer.draw();
 
 		ok(clearCalled);
+	});
+
+	test("On draw and beginFrame is true, clear called with RGBA [0, 0, 0, 0]", function () {
+		var clearColour = [],
+			expectedClearColour = [0, 0, 0, 0],
+			graphicsDeviceStub = { beginFrame : function () { return true; } },
+			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
+			drawingMock = { setBackBuffer : function () { },
+				clear : function (colour) { clearColour = colour; } },
+			draw2dStub = { create : function () { return drawingMock; } },
+			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
+
+		renderer.draw(expectedClearColour);
+
+		equal(expectedClearColour, clearColour);
 	});
 }());
