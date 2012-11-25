@@ -7,4 +7,6 @@
 /*{{ javascript("jslib/services/turbulenzbridge.js") }}*/
 /*{{ javascript("jslib/services/gamesession.js") }}*/
 /*{{ javascript("jslib/observer.js") }}*/
+/*{{ javascript("jslib/utilities.js") }}*/
+
 /*{{ javascript("scripts/Taxi.js") }}*/
