@@ -2,7 +2,7 @@
 /*global TurbulenzEngine,TurbulenzServices,Canvas,Draw2D*/
 TurbulenzEngine.onload = function onload() {
     "use strict";
-    var graphicsDevice = TurbulenzEngine.createGraphicsDevice(),
+    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 		mathsDevice = TurbulenzEngine.createMathDevice({}),
 		drawing = Draw2D.create({ graphicsDevice : graphicsDevice }),
 		gameWidth = 1024,
@@ -10,7 +10,7 @@ TurbulenzEngine.onload = function onload() {
 		viewport = mathsDevice.v4Build(0, 0, gameWidth, gameHeight),
 		configureParams = {
 			scaleMode : undefined,
-			viewportRectangle : viewport
+			viewportRectangle : {}
 		},
 		requestHandler = RequestHandler.create({}),
 		sprite;

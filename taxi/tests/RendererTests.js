@@ -2,22 +2,23 @@
 var TurbulenzEngine = {};
 
 function Renderer() {
-	TurbulenzEngine.createGraphicsDevice();
+	TurbulenzEngine.createGraphicsDevice({});
 }
 
 (function () {
 	"use strict";
 	module("Renderer");
-	test("On construction, createGraphicsDevice called", function () {
-		var createGraphicsDeviceCalled = false;
+	test("On construction, createGraphicsDevice called with params", function () {
+		var createGraphicsDeviceCalledWithParams = false;
 
-		TurbulenzEngine.createGraphicsDevice = function () {
-			createGraphicsDeviceCalled = true;
+		TurbulenzEngine.createGraphicsDevice = function (params) {
+			if(!!params) {
+				createGraphicsDeviceCalledWithParams = true;
+			}
 		};
 
 		new Renderer();
 
-		ok(createGraphicsDeviceCalled);
+		ok(createGraphicsDeviceCalledWithParams);
 	});
-
 }());
