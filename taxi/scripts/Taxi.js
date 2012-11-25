@@ -42,6 +42,7 @@ TurbulenzEngine.onload = function onload() {
 					mipmaps : true,
 					onload : function (texture) {
 						sprite = Draw2DSprite.create({
+						x : 512,
 						texture : texture						
 						});
 						TurbulenzEngine.setInterval(update, 1000 / 60);
