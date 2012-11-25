@@ -1,7 +1,6 @@
-function SpriteDrawing(turbulenzEngine, draw2d) {
+function SpriteDrawing(turbulenzEngine, draw2d, graphicsDevice) {
 	"use strict";
-	var graphicsDevice = turbulenzEngine.createGraphicsDevice({}),
-		drawing = draw2d.create(graphicsDevice);
+	var drawing = draw2d.create(graphicsDevice);
 
 	function prepareDraw(clearColour) {
 		drawing.setBackBuffer();

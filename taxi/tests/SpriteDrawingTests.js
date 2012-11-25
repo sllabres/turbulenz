@@ -2,21 +2,11 @@
 (function () {
 	"use strict";
 	module("SpriteDrawing");
-	test("On construction, createGraphicsDevice called with params", function () {
-		var createGraphicsDeviceCalledWithParams = false,
-			turbulenzEngineMock = { createGraphicsDevice : function (params) { if (!!params) { createGraphicsDeviceCalledWithParams = true; } } },
-			draw2dStub = { create : function (graphicsDevice) {	} },
-			renderer = new SpriteDrawing(turbulenzEngineMock, draw2dStub);
-
-		ok(createGraphicsDeviceCalledWithParams);
-	});
-
 	test("On construction, Draw2d create called with graphics device", function () {
 		var expectedGraphicsDevice = "graphisDevice",
 			passedGraphicsDevice = "",
-			turbulenzEngineStub = { createGraphicsDevice : function () { return expectedGraphicsDevice;	} },
 			draw2dStub = { create : function (graphicsDevice) { passedGraphicsDevice = graphicsDevice; } },
-			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(null, draw2dStub, expectedGraphicsDevice);
 
 		equal(expectedGraphicsDevice, passedGraphicsDevice);
 	});
@@ -25,9 +15,8 @@
 		var beginFrameCalled = false,
 			graphicsDeviceMock = { beginFrame : function () { beginFrameCalled = true; },
 				endFrame : function () { } },
-			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceMock; } },
 			draw2d = { create : function () { return { }; } },
-			renderer = new SpriteDrawing(turbulenzEngineStub, draw2d);
+			renderer = new SpriteDrawing(null, draw2d, graphicsDeviceMock);
 
 		renderer.draw();
 
@@ -38,14 +27,13 @@
 		var setBackBufferCalled = false,
 			graphicsDeviceStub = { beginFrame : function () { return true; },
 				endFrame : function () { } },
-			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { setBackBufferCalled = true; },
 				clear : function () { },
 				begin : function () { },
 				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
 
 		renderer.draw();
 
@@ -57,14 +45,13 @@
 			expectedClearColour = [0, 0, 0, 0],
 			graphicsDeviceStub = { beginFrame : function () { return true; },
 				endFrame : function () { } },
-			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingStub = { setBackBuffer : function () { },
 				clear : function (colour) { clearColour = colour; },
 				begin : function () { },
 				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingStub; } },
-			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
 
 		renderer.draw(expectedClearColour);
 
@@ -75,14 +62,13 @@
 		var beginCalled = false,
 			graphicsDeviceStub = { beginFrame : function () { return true; },
 				endFrame : function () { } },
-			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { },
 				clear : function () { },
 				begin : function () { beginCalled = true; },
 				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
@@ -93,14 +79,13 @@
 		var passedBlendMode = "",
 			graphicsDeviceStub = { beginFrame : function () { return true; },
 				endFrame : function () { } },
-			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { },
 				clear : function () { },
 				begin : function (blendMode) { passedBlendMode = blendMode; },
 				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
@@ -111,14 +96,13 @@
 		var drawSpriteCalled = false,
 			graphicsDeviceStub = { beginFrame : function () { return true; },
 				endFrame : function () { } },
-			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { },
 				clear : function () { },
 				begin : function () { },
 				drawSprite : function () { drawSpriteCalled = true; },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
@@ -130,14 +114,13 @@
 			passedSprite = "",
 			graphicsDeviceStub = { beginFrame : function () { return true; },
 				endFrame : function () { } },
-			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { },
 				clear : function () { },
 				begin : function () { },
 				drawSprite : function (sprite) { passedSprite = sprite; },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([], expectedSprite);
 
@@ -148,14 +131,13 @@
 		var endCalled = false,
 			graphicsDeviceStub = { beginFrame : function () { return true; },
 				endFrame : function () { } },
-			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { },
 				clear : function () { },
 				begin : function () { },
 				drawSprite : function () { },
 				end : function () { endCalled = true; } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
@@ -166,14 +148,13 @@
 		var endFrameCalled = false,
 			graphicsDeviceStub = { beginFrame : function () { return true; },
 				endFrame : function () { endFrameCalled = true; } },
-			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingStub = { setBackBuffer : function () { },
 				clear : function () { },
 				begin : function () { },
 				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingStub; } },
-			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
