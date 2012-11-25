@@ -95,5 +95,18 @@ function Renderer(turbulenzEngine, draw2d) {
 		equal(true, beginCalled);
 	});
 
+	test("On draw and beginFrame is true, begin called with blend mode alpha", function () {
+		var beginCalled = false,
+			graphicsDeviceStub = { beginFrame : function () { return true; } },
+			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
+			drawingMock = { setBackBuffer : function () { },
+				clear : function () { },
+				begin : function (blendMode) { beginCalled = true; } },
+			draw2dStub = { create : function () { return drawingMock; } },
+			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
 
+		renderer.draw([]);
+
+		equal(true, beginCalled);
+	});
 }());
