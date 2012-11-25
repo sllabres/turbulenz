@@ -33969,7 +33969,7 @@ GameSession.create = function gameSessionCreateFn(requestHandler, sessionCreated
 
 
 
-function SpriteDrawing(turbulenzEngine, draw2d, graphicsDevice) {
+function SpriteDrawing(draw2d, graphicsDevice) {
 	
 	var drawing = draw2d.create(graphicsDevice);
 

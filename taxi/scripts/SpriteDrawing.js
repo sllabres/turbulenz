@@ -1,4 +1,4 @@
-function SpriteDrawing(turbulenzEngine, draw2d, graphicsDevice) {
+function SpriteDrawing(draw2d, graphicsDevice) {
 	"use strict";
 	var drawing = draw2d.create(graphicsDevice);
 

@@ -6,7 +6,7 @@
 		var expectedGraphicsDevice = "graphisDevice",
 			passedGraphicsDevice = "",
 			draw2dStub = { create : function (graphicsDevice) { passedGraphicsDevice = graphicsDevice; } },
-			renderer = new SpriteDrawing(null, draw2dStub, expectedGraphicsDevice);
+			renderer = new SpriteDrawing(draw2dStub, expectedGraphicsDevice);
 
 		equal(expectedGraphicsDevice, passedGraphicsDevice);
 	});
@@ -16,7 +16,7 @@
 			graphicsDeviceMock = { beginFrame : function () { beginFrameCalled = true; },
 				endFrame : function () { } },
 			draw2d = { create : function () { return { }; } },
-			renderer = new SpriteDrawing(null, draw2d, graphicsDeviceMock);
+			renderer = new SpriteDrawing(draw2d, graphicsDeviceMock);
 
 		renderer.draw();
 
@@ -33,7 +33,7 @@
 				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
+			renderer = new SpriteDrawing(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw();
 
@@ -51,7 +51,7 @@
 				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingStub; } },
-			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
+			renderer = new SpriteDrawing(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw(expectedClearColour);
 
@@ -68,7 +68,7 @@
 				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
+			renderer = new SpriteDrawing(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
@@ -85,7 +85,7 @@
 				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
+			renderer = new SpriteDrawing(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
@@ -102,7 +102,7 @@
 				drawSprite : function () { drawSpriteCalled = true; },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
+			renderer = new SpriteDrawing(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
@@ -120,7 +120,7 @@
 				drawSprite : function (sprite) { passedSprite = sprite; },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
+			renderer = new SpriteDrawing(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([], expectedSprite);
 
@@ -137,7 +137,7 @@
 				drawSprite : function () { },
 				end : function () { endCalled = true; } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
+			renderer = new SpriteDrawing(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
@@ -154,7 +154,7 @@
 				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingStub; } },
-			renderer = new SpriteDrawing(null, draw2dStub, graphicsDeviceStub);
+			renderer = new SpriteDrawing(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 

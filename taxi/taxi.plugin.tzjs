@@ -9923,7 +9923,7 @@ JSProfiling.sort = function JSProfilingSortFn(array, propertyName, descending)
 };
 
 
-function SpriteDrawing(turbulenzEngine, draw2d, graphicsDevice) {
+function SpriteDrawing(draw2d, graphicsDevice) {
 	
 	var drawing = draw2d.create(graphicsDevice);
 
