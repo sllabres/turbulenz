@@ -6,10 +6,14 @@ function Renderer(turbulenzEngine, draw2d) {
 
 	function draw(clearColour) {
 		if (graphicsDevice.beginFrame()) {
-			drawing.setBackBuffer();
-			drawing.clear(clearColour);
-			drawing.begin('alpha');
+			prepareDraw(clearColour);			
 		}
+	}
+
+	function prepareDraw(clearColour) {
+		drawing.setBackBuffer();
+		drawing.clear(clearColour);
+		drawing.begin('alpha');
 	}
 
 	return { draw : draw };
