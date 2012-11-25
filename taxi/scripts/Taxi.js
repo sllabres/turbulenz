@@ -19,7 +19,7 @@ TurbulenzEngine.onload = function onload() {
 		if(graphicsDevice.beginFrame()) {			
 			drawing.setBackBuffer();		
 			drawing.clear([0.1,0.1,0.2,1]);
-			drawing.begin();
+			drawing.begin('alpha');
 			drawing.drawSprite(sprite);
 			drawing.end();
 			graphicsDevice.endFrame();
@@ -46,8 +46,7 @@ TurbulenzEngine.onload = function onload() {
 						texture : texture						
 						});
 						TurbulenzEngine.setInterval(update, 1000 / 60);
-					},
-					format: graphicsDevice.PIXELFORMAT_A8
+					}					
 				});
 			});
 	}
