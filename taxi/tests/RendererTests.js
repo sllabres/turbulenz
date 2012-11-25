@@ -8,6 +8,7 @@ function Renderer(turbulenzEngine, draw2d) {
 		if (graphicsDevice.beginFrame()) {
 			drawing.setBackBuffer();
 			drawing.clear(clearColour);
+			drawing.begin();
 		}
 	}
 
@@ -53,7 +54,8 @@ function Renderer(turbulenzEngine, draw2d) {
 			graphicsDeviceStub = { beginFrame : function () { return true; } },
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { setBackBufferCalled = true; },
-				clear : function () { } },
+				clear : function () { },
+				begin : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
 			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
 
@@ -67,7 +69,8 @@ function Renderer(turbulenzEngine, draw2d) {
 			graphicsDeviceStub = { beginFrame : function () { return true; } },
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { },
-				clear : function () { clearCalled = true; } },
+				clear : function () { clearCalled = true; },
+				begin : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
 			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
 
@@ -81,13 +84,31 @@ function Renderer(turbulenzEngine, draw2d) {
 			expectedClearColour = [0, 0, 0, 0],
 			graphicsDeviceStub = { beginFrame : function () { return true; } },
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
-			drawingMock = { setBackBuffer : function () { },
-				clear : function (colour) { clearColour = colour; } },
-			draw2dStub = { create : function () { return drawingMock; } },
+			drawingStub = { setBackBuffer : function () { },
+				clear : function (colour) { clearColour = colour; },
+				begin : function () { } },
+			draw2dStub = { create : function () { return drawingStub; } },
 			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
 
 		renderer.draw(expectedClearColour);
 
 		equal(expectedClearColour, clearColour);
 	});
+
+	test("On draw and beginFrame is true, begin called", function () {
+		var beginCalled = false,
+			graphicsDeviceStub = { beginFrame : function () { return true; } },
+			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
+			drawingMock = { setBackBuffer : function () { },
+				clear : function () { },
+				begin : function () { beginCalled = true; } },
+			draw2dStub = { create : function () { return drawingMock; } },
+			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
+
+		renderer.draw([]);
+
+		equal(true, beginCalled);
+	});
+
+
 }());
