@@ -5,7 +5,7 @@
 	test("On construction, Draw2d create called with graphics device", function () {
 		var expectedGraphicsDevice = "graphisDevice",
 			passedGraphicsDevice = "",
-			draw2dStub = { create : function (graphicsDevice) { passedGraphicsDevice = graphicsDevice; } },
+			draw2dStub = { create : function (params) { passedGraphicsDevice = params.graphicsDevice; } },
 			renderer = new SpriteDrawing(draw2dStub, expectedGraphicsDevice);
 
 		equal(expectedGraphicsDevice, passedGraphicsDevice);

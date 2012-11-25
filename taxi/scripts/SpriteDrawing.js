@@ -1,6 +1,6 @@
 function SpriteDrawing(draw2d, graphicsDevice) {
 	"use strict";
-	var drawing = draw2d.create(graphicsDevice);
+	var drawing = draw2d.create({ graphicsDevice : graphicsDevice });
 
 	function prepareDraw(clearColour) {
 		drawing.setBackBuffer();

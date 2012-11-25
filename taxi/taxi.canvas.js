@@ -33971,7 +33971,7 @@ GameSession.create = function gameSessionCreateFn(requestHandler, sessionCreated
 
 function SpriteDrawing(draw2d, graphicsDevice) {
 	
-	var drawing = draw2d.create(graphicsDevice);
+	var drawing = draw2d.create({ graphicsDevice : graphicsDevice });
 
 	function prepareDraw(clearColour) {
 		drawing.setBackBuffer();
