@@ -8,7 +8,7 @@ function Renderer(turbulenzEngine, draw2d) {
 		if (graphicsDevice.beginFrame()) {
 			drawing.setBackBuffer();
 			drawing.clear(clearColour);
-			drawing.begin();
+			drawing.begin('alpha');
 		}
 	}
 
@@ -96,17 +96,17 @@ function Renderer(turbulenzEngine, draw2d) {
 	});
 
 	test("On draw and beginFrame is true, begin called with blend mode alpha", function () {
-		var beginCalled = false,
+		var passedBlendMode = "",
 			graphicsDeviceStub = { beginFrame : function () { return true; } },
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { },
 				clear : function () { },
-				begin : function (blendMode) { beginCalled = true; } },
+				begin : function (blendMode) { passedBlendMode = blendMode; } },
 			draw2dStub = { create : function () { return drawingMock; } },
 			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
 
 		renderer.draw([]);
 
-		equal(true, beginCalled);
+		equal('alpha', passedBlendMode);
 	});
 }());
