@@ -5,9 +5,9 @@ TurbulenzEngine.onload = function onload() {
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 		mathsDevice = TurbulenzEngine.createMathDevice({}),
 		drawing = Draw2D.create({ graphicsDevice : graphicsDevice }),
-		gameWidth = graphicsDevice.width,
-		gameHeight = graphicsDevice.height,
-		viewport = mathsDevice.v4Build(0, 0, 1024, 1024),
+		gameWidth = 1024,
+		gameHeight = 768,
+		viewport = mathsDevice.v4Build(0, 0, gameWidth, gameHeight),
 		configureParams = {
 			scaleMode : undefined,
 			viewportRectangle : viewport
