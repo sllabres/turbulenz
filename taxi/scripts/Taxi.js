@@ -4,12 +4,6 @@ TurbulenzEngine.onload = function onload() {
     "use strict";
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 		drawing = Draw2D.create({ graphicsDevice : graphicsDevice }),
-		gameWidth = 1024,
-		gameHeight = 768,
-		configureParams = {
-			scaleMode : undefined,
-			viewportRectangle : {}
-		},
 		requestHandler = RequestHandler.create({}),
 		sprite;
 
@@ -27,7 +21,6 @@ TurbulenzEngine.onload = function onload() {
     TurbulenzEngine.onunload = function gameOnunload() {
 		graphicsDevice = null;		
 		drawing = null;		
-		configureParams = null;
 	};
 
 	function sessionCreated(gameSession) {
