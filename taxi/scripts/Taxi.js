@@ -3,11 +3,9 @@
 TurbulenzEngine.onload = function onload() {
     "use strict";
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-		mathsDevice = TurbulenzEngine.createMathDevice({}),
 		drawing = Draw2D.create({ graphicsDevice : graphicsDevice }),
 		gameWidth = 1024,
 		gameHeight = 768,
-		viewport = mathsDevice.v4Build(0, 0, gameWidth, gameHeight),
 		configureParams = {
 			scaleMode : undefined,
 			viewportRectangle : {}
@@ -27,10 +25,8 @@ TurbulenzEngine.onload = function onload() {
     }
 
     TurbulenzEngine.onunload = function gameOnunload() {
-		graphicsDevice = null;
-		mathsDevice = null;		
-		drawing = null;
-		viewport = null;
+		graphicsDevice = null;		
+		drawing = null;		
 		configureParams = null;
 	};
 
