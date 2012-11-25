@@ -16,10 +16,10 @@ TurbulenzEngine.onload = function onload() {
 		sprite;
 
     function update() {
-		if(graphicsDevice.beginFrame()) {			
+		if(graphicsDevice.beginFrame()) {	
+			drawing.begin('alpha', 'deferred');		
 			drawing.setBackBuffer();		
-			drawing.clear([0.3,0.3,0.3,1]);
-			drawing.begin('alpha', 'deferred');
+			drawing.clear([0.3,0.3,0.3,1]);			
 			drawing.drawSprite(sprite);
 			drawing.end();
 			graphicsDevice.endFrame();
