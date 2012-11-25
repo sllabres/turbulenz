@@ -38,10 +38,11 @@ TurbulenzEngine.onload = function onload() {
 		TurbulenzServices.createMappingTable(requestHandler,
 			gameSession,
 			function (table) {
-				graphicsDevice.createTexture({ src : table.getURL("textures/Sky.jpg"),
+				graphicsDevice.createTexture({ src : table.getURL("textures/taxishort.png"),
 					mipmaps : true,
 					onload : function (texture) {
-						sprite = Draw2DSprite.create({
+						sprite = Draw2DSprite.create({x : 50,
+						y : 50,
 						texture : texture						
 						});
 						TurbulenzEngine.setInterval(update, 1000 / 60);
