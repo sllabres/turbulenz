@@ -2,7 +2,8 @@
 /*global TurbulenzEngine,TurbulenzServices,Canvas,Draw2D*/
 TurbulenzEngine.onload = function onload() {
     "use strict";
-    var spriteDrawing = new SpriteDrawing(TurbulenzEngine, Draw2D),
+    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
+    	spriteDrawing = new SpriteDrawing(Draw2D, graphicsDevice),
 		requestHandler = RequestHandler.create({}),
 		sprite;
 
@@ -13,7 +14,8 @@ TurbulenzEngine.onload = function onload() {
     TurbulenzEngine.onunload = function gameOnunload() {
 		spriteDrawing = null;		
 		requestHandler = null;
-		sprite = null;		
+		sprite = null;	
+		graphicsDevice = null;	
 	};
 
 	function sessionCreated(gameSession) {
