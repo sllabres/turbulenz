@@ -5,8 +5,9 @@ function Renderer(turbulenzEngine, draw2d) {
 		drawing = draw2d.create(graphicsDevice);
 
 	function draw() {
-		graphicsDevice.beginFrame();
-		drawing.setBackBuffer();
+		if(graphicsDevice.beginFrame()) {
+			drawing.setBackBuffer();
+		}
 	}
 
 	return { draw : draw };
@@ -49,7 +50,7 @@ function Renderer(turbulenzEngine, draw2d) {
 
 	test("On draw, draw2d setBackBuffer called", function () {
 		var setBackBufferCalled = false,
-			graphicsDeviceStub = { beginFrame : function () { } },			
+			graphicsDeviceStub = { beginFrame : function () { return true; } },			
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { setBackBufferCalled = true; } },
 			draw2dStub = { create : function () { return drawingMock; } },
@@ -58,5 +59,18 @@ function Renderer(turbulenzEngine, draw2d) {
 		renderer.draw();
 
 		ok(setBackBufferCalled);
+	});
+
+	test("On draw when being frame is false, draw2d setBackBuffer not called", function () {
+		var setBackBufferCalled = false,
+			graphicsDeviceStub = { beginFrame : function () { return false } },			
+			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
+			drawingMock = { setBackBuffer : function () { setBackBufferCalled = true; } },
+			draw2dStub = { create : function () { return drawingMock; } },
+			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
+
+		renderer.draw();
+
+		equal(setBackBufferCalled, false);
 	});
 }());
