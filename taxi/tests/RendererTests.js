@@ -17,20 +17,19 @@ function Renderer(turbulenzEngine, draw2d) {
 	module("Renderer");
 	test("On construction, createGraphicsDevice called with params", function () {
 		var createGraphicsDeviceCalledWithParams = false,
-			turbulenzEngine = { createGraphicsDevice : function (params) { if (!!params) { createGraphicsDeviceCalledWithParams = true; } } },
-			draw2d = { create : function (graphicsDevice) {	} },
-			renderer = new Renderer(turbulenzEngine, draw2d);
+			turbulenzEngineMock = { createGraphicsDevice : function (params) { if (!!params) { createGraphicsDeviceCalledWithParams = true; } } },
+			draw2dStub = { create : function (graphicsDevice) {	} },
+			renderer = new Renderer(turbulenzEngineMock, draw2dStub);
 
 		ok(createGraphicsDeviceCalledWithParams);
 	});
 
 	test("On construction, Draw2d create called with graphics device", function () {
-		var draw2dCreateCalled = false,
-			expectedGraphicsDevice = "graphisDevice",
+		var expectedGraphicsDevice = "graphisDevice",
 			passedGraphicsDevice = "",
-			turbulenzEngine = { createGraphicsDevice : function () { return expectedGraphicsDevice;	} },
-			draw2d = { create : function (graphicsDevice) { passedGraphicsDevice = graphicsDevice; } },
-			renderer = new Renderer(turbulenzEngine, draw2d);
+			turbulenzEngineStub = { createGraphicsDevice : function () { return expectedGraphicsDevice;	} },
+			draw2dStub = { create : function (graphicsDevice) { passedGraphicsDevice = graphicsDevice; } },
+			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
 
 		equal(expectedGraphicsDevice, passedGraphicsDevice);
 	});
