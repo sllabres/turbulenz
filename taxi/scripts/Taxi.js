@@ -43,7 +43,7 @@ TurbulenzEngine.onload = function onload() {
 					onload : function (texture) {
 						sprite = Draw2DSprite.create({
 						x : 512,
-						y : 256,
+						y : 512,
 						texture : texture						
 						});
 						TurbulenzEngine.setInterval(update, 1000 / 60);
