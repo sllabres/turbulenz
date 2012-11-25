@@ -1,5 +1,6 @@
 {
 	"urnmapping" : { 
-		"textures/taxishort.png" : "taxishort.png"
+		"textures/taxishort.png" : "taxishort.png",
+		"textures/Sky.jpg" : "Sky.jpg"
 	}
 }
