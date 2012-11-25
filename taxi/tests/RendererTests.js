@@ -4,16 +4,16 @@ function Renderer(turbulenzEngine, draw2d) {
 	var graphicsDevice = turbulenzEngine.createGraphicsDevice({}),
 		drawing = draw2d.create(graphicsDevice);
 
-	function draw(clearColour) {
-		if (graphicsDevice.beginFrame()) {
-			prepareDraw(clearColour);			
-		}
-	}
-
 	function prepareDraw(clearColour) {
 		drawing.setBackBuffer();
 		drawing.clear(clearColour);
 		drawing.begin('alpha');
+	}
+
+	function draw(clearColour) {
+		if (graphicsDevice.beginFrame()) {
+			prepareDraw(clearColour);
+		}
 	}
 
 	return { draw : draw };
