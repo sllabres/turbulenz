@@ -34014,7 +34014,8 @@ TurbulenzEngine.onload = function onload() {
 						texture : texture						
 						});
 						TurbulenzEngine.setInterval(update, 1000 / 60);
-					}
+					},
+					format: graphicsDevice.PIXELFORMAT_A8
 				});
 			});
 	}
