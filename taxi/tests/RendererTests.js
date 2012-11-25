@@ -1,5 +1,5 @@
 /*global module, equal, test, ok*/
-function Renderer(turbulenzEngine, draw2d) {
+function SpriteDrawing(turbulenzEngine, draw2d) {
 	"use strict";
 	var graphicsDevice = turbulenzEngine.createGraphicsDevice({}),
 		drawing = draw2d.create(graphicsDevice);
@@ -13,6 +13,7 @@ function Renderer(turbulenzEngine, draw2d) {
 	function draw(clearColour) {
 		if (graphicsDevice.beginFrame()) {
 			prepareDraw(clearColour);
+			drawing.drawSprite();
 		}
 	}
 
@@ -21,12 +22,12 @@ function Renderer(turbulenzEngine, draw2d) {
 
 (function () {
 	"use strict";
-	module("Renderer");
+	module("SpriteDrawing");
 	test("On construction, createGraphicsDevice called with params", function () {
 		var createGraphicsDeviceCalledWithParams = false,
 			turbulenzEngineMock = { createGraphicsDevice : function (params) { if (!!params) { createGraphicsDeviceCalledWithParams = true; } } },
 			draw2dStub = { create : function (graphicsDevice) {	} },
-			renderer = new Renderer(turbulenzEngineMock, draw2dStub);
+			renderer = new SpriteDrawing(turbulenzEngineMock, draw2dStub);
 
 		ok(createGraphicsDeviceCalledWithParams);
 	});
@@ -36,7 +37,7 @@ function Renderer(turbulenzEngine, draw2d) {
 			passedGraphicsDevice = "",
 			turbulenzEngineStub = { createGraphicsDevice : function () { return expectedGraphicsDevice;	} },
 			draw2dStub = { create : function (graphicsDevice) { passedGraphicsDevice = graphicsDevice; } },
-			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
 
 		equal(expectedGraphicsDevice, passedGraphicsDevice);
 	});
@@ -46,7 +47,7 @@ function Renderer(turbulenzEngine, draw2d) {
 			graphicsDeviceMock = { beginFrame : function () { beginFrameCalled = true; } },
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceMock; } },
 			draw2d = { create : function () { return { }; } },
-			renderer = new Renderer(turbulenzEngineStub, draw2d);
+			renderer = new SpriteDrawing(turbulenzEngineStub, draw2d);
 
 		renderer.draw();
 
@@ -59,9 +60,10 @@ function Renderer(turbulenzEngine, draw2d) {
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { setBackBufferCalled = true; },
 				clear : function () { },
-				begin : function () { } },
+				begin : function () { },
+				drawSprite : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
 
 		renderer.draw();
 
@@ -75,9 +77,10 @@ function Renderer(turbulenzEngine, draw2d) {
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingStub = { setBackBuffer : function () { },
 				clear : function (colour) { clearColour = colour; },
-				begin : function () { } },
+				begin : function () { },
+				drawSprite : function () { } },
 			draw2dStub = { create : function () { return drawingStub; } },
-			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
 
 		renderer.draw(expectedClearColour);
 
@@ -90,9 +93,10 @@ function Renderer(turbulenzEngine, draw2d) {
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { },
 				clear : function () { },
-				begin : function () { beginCalled = true; } },
+				begin : function () { beginCalled = true; },
+				drawSprite : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
 
 		renderer.draw([]);
 
@@ -105,12 +109,31 @@ function Renderer(turbulenzEngine, draw2d) {
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
 			drawingMock = { setBackBuffer : function () { },
 				clear : function () { },
-				begin : function (blendMode) { passedBlendMode = blendMode; } },
+				begin : function (blendMode) { passedBlendMode = blendMode; },
+				drawSprite : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
+			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
 
 		renderer.draw([]);
 
 		equal('alpha', passedBlendMode);
 	});
+
+	test("On draw and beginFrame is true, drawSprite called", function () {
+		var drawSpriteCalled = false,
+			graphicsDeviceStub = { beginFrame : function () { return true; } },
+			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
+			drawingMock = { setBackBuffer : function () { },
+				clear : function () { },
+				begin : function () { },
+				drawSprite : function () { drawSpriteCalled = true; } },
+			draw2dStub = { create : function () { return drawingMock; } },
+			renderer = new SpriteDrawing(turbulenzEngineStub, draw2dStub);
+
+		renderer.draw([]);
+
+		ok(drawSpriteCalled);
+	});
+
+
 }());
