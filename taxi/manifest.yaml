@@ -13,9 +13,9 @@ flash_main: ''
 is_multiplayer: false
 is_temp: false
 mapping_table: mapping_table.json
-modified: 22:57 | 24/11/2012
+modified: 09:50 | 25/11/2012
 path: H:\github\turbulenz\taxi
 plugin_main: taxi.plugin.tzjs
-slug: air-fare-1
+slug: air-fare
 title: Air Fare
 title_logo: ''
