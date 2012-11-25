@@ -38,7 +38,7 @@ TurbulenzEngine.onload = function onload() {
 		TurbulenzServices.createMappingTable(requestHandler,
 			gameSession,
 			function (table) {
-				graphicsDevice.createTexture({ src : table.getURL("textures/Sky.jpg"),
+				graphicsDevice.createTexture({ src : table.getURL("textures/Sky512.jpg"),
 					mipmaps : true,
 					onload : function (texture) {
 						sprite = Draw2DSprite.create({
