@@ -9955,10 +9955,11 @@ TurbulenzEngine.onload = function onload() {
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
     	spriteDrawing = new SpriteDrawing(Draw2D, graphicsDevice),
 		requestHandler = RequestHandler.create({}),
+		backgroundColour = [0.3,0.3,0.3,1],
 		sprite;
 
     function update() {
-    	spriteDrawing.draw([0.3,0.3,0.3,1], sprite);
+    	spriteDrawing.draw(backgroundColour, sprite);
     }
 
     TurbulenzEngine.onunload = function gameOnunload() {
