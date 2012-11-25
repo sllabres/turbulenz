@@ -5,8 +5,9 @@ function Renderer(turbulenzEngine, draw2d) {
 		drawing = draw2d.create(graphicsDevice);
 
 	function draw() {
-		if(graphicsDevice.beginFrame()) {
+		if (graphicsDevice.beginFrame()) {
 			drawing.setBackBuffer();
+			drawing.clear();
 		}
 	}
 
@@ -37,7 +38,7 @@ function Renderer(turbulenzEngine, draw2d) {
 
 	test("On draw, begin frame called", function () {
 		var beginFrameCalled = false,
-			graphicsDeviceMock = { beginFrame : function () { beginFrameCalled = true; } },			
+			graphicsDeviceMock = { beginFrame : function () { beginFrameCalled = true; } },
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceMock; } },
 			drawingStub = { setBackBuffer : function () { } },
 			draw2d = { create : function () { return drawingStub; } },
@@ -50,9 +51,10 @@ function Renderer(turbulenzEngine, draw2d) {
 
 	test("On draw, draw2d setBackBuffer called", function () {
 		var setBackBufferCalled = false,
-			graphicsDeviceStub = { beginFrame : function () { return true; } },			
+			graphicsDeviceStub = { beginFrame : function () { return true; } },
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
-			drawingMock = { setBackBuffer : function () { setBackBufferCalled = true; } },
+			drawingMock = { setBackBuffer : function () { setBackBufferCalled = true; },
+				clear : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
 			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
 
@@ -61,16 +63,31 @@ function Renderer(turbulenzEngine, draw2d) {
 		ok(setBackBufferCalled);
 	});
 
-	test("On draw when being frame is false, draw2d setBackBuffer not called", function () {
+	test("On draw when beginFrame is false, draw2d setBackBuffer not called", function () {
 		var setBackBufferCalled = false,
-			graphicsDeviceStub = { beginFrame : function () { return false } },			
+			graphicsDeviceStub = { beginFrame : function () { return false; } },
 			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
-			drawingMock = { setBackBuffer : function () { setBackBufferCalled = true; } },
+			drawingMock = { setBackBuffer : function () { setBackBufferCalled = true; },
+				clear : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
 			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
 
 		renderer.draw();
 
 		equal(setBackBufferCalled, false);
+	});
+
+	test("On draw and beginFrame is true, draw2d clear called", function () {
+		var clearCalled = false,
+			graphicsDeviceStub = { beginFrame : function () { return true; } },
+			turbulenzEngineStub = { createGraphicsDevice : function () { return graphicsDeviceStub; } },
+			drawingMock = { setBackBuffer : function () { },
+				clear : function () { clearCalled = true; } },
+			draw2dStub = { create : function () { return drawingMock; } },
+			renderer = new Renderer(turbulenzEngineStub, draw2dStub);
+
+		renderer.draw();
+
+		ok(clearCalled);
 	});
 }());
