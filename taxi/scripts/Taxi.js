@@ -15,7 +15,7 @@
 		}});
 
 	    function update() {
-	    	spriteDrawing.draw(backgroundColour, sprite);
+	    	spriteDrawing.draw(backgroundColour);
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
