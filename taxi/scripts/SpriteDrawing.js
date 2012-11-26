@@ -4,13 +4,15 @@ function SpriteDrawing(draw2d, graphicsDevice, jquery) {
 
 	function draw(clearColour, sprite) {
 		if (graphicsDevice.beginFrame()) {
-			if(jquery != undefined) {
-				jquery(this).trigger('beginFrame');
-			}
 			drawing.setBackBuffer();
 			drawing.clear(clearColour);
 			drawing.begin('alpha');
 			drawing.drawSprite(sprite);
+			
+			if(jquery != undefined) {
+				jquery(this).trigger('drawReady');
+			}
+
 			drawing.end();
 			graphicsDevice.endFrame();
 		}
