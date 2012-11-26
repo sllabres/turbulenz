@@ -12,7 +12,8 @@
 			phys2D = Physics2DDevice.create(),
 			world = phys2D.createWorld({ gravity : [0, 20] });
 
-			var thickness = 0.01; // 1 cm
+			var thickness = 0.01,
+				stageHeight = 22;
 			var border = phys2D.createRigidBody({
 				type : 'static',
 					shapes : [
