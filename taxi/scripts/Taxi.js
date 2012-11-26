@@ -11,7 +11,7 @@
 			sprite;
 
 		jquery(spriteDrawing).bind( {draw : function (drawing) {
-			//console.log("draw event");
+			drawing.drawSprite(sprite);
 		}});
 
 	    function update() {
