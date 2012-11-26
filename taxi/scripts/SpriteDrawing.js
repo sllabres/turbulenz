@@ -1,6 +1,6 @@
 function SpriteDrawing(draw2d, graphicsDevice, jquery) {
 	"use strict";
-	var drawing = draw2d.create({ graphicsDevice : graphicsDevice });	
+	var drawing = draw2d.create({ graphicsDevice : graphicsDevice });
 
 	function draw(clearColour) {
 		if (graphicsDevice.beginFrame()) {
