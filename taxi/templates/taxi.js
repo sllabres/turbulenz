@@ -8,6 +8,7 @@
 /*{{ javascript("jslib/services/gamesession.js") }}*/
 /*{{ javascript("jslib/observer.js") }}*/
 /*{{ javascript("jslib/utilities.js") }}*/
+/*{{ javascript("js/jquery-1.4.2.min.js") }}*/
 
 /*{{ javascript("scripts/Game.js") }}*/
 /*{{ javascript("scripts/SpriteDrawing.js") }}*/
