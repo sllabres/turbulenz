@@ -34164,7 +34164,9 @@ function SpriteDrawing(draw2d, graphicsDevice, jquery) {
 			sprite;
 
 		jquery(spriteDrawing).bind( {draw : function (eventName, drawing) {
-			drawing.drawSprite(sprite);
+			if(sprite != undefined) {
+				drawing.drawSprite(sprite);
+			}
 		}});
 
 	    function update() {
