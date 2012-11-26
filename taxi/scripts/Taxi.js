@@ -13,7 +13,8 @@
 			world = phys2D.createWorld({ gravity : [0, 20] });
 
 			var thickness = 0.01,
-				stageHeight = 22;
+				stageHeight = 22,
+				stageWidth = 30;
 			var border = phys2D.createRigidBody({
 				type : 'static',
 					shapes : [
@@ -34,6 +35,7 @@
 			world.addRigidBody(border);
 
 	    function update() {
+	    	var bodies = world.rigidBodies;
 	    	spriteDrawing.draw(backgroundColour, sprite);
 	    }
 
