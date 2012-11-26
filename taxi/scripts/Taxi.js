@@ -10,7 +10,8 @@ TurbulenzEngine.onload = function onload() {
 		backgroundColour = [0.3,0.3,0.3,1],
 		sprite;
 
-	$(spriteDrawing).bind({ beginFrame: function() { console.log("beginFrame triggered!"); }});
+	$(spriteDrawing).bind({ beginFrame: function() { console.log("beginFrame triggered!"); },
+		beginFrame: function() { console.log("Yet again!"); }});
 
     function update() {
     	spriteDrawing.draw(backgroundColour, sprite);
