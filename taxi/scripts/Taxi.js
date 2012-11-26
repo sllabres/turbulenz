@@ -10,6 +10,10 @@
 			backgroundColour = [0.3,0.3,0.3,1],
 			sprite;
 
+		jquery(spriteDrawing).bind( {draw : function () {
+			console.log("draw event");
+		}});
+
 	    function update() {
 	    	spriteDrawing.draw(backgroundColour, sprite);
 	    }
