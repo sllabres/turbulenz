@@ -1,7 +1,9 @@
 function Game(renderer) {
-	"use strict";
+	"use strict";	
+	var backgroundColour = [0.3,0.3,0.3,1];
+
 	function update() {
-		renderer.draw();
+		renderer.draw(backgroundColour, null);
 	}	
 
 	return { update : update };

@@ -5,18 +5,19 @@ TurbulenzEngine.onload = function onload() {
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
     	spriteDrawing = new SpriteDrawing(Draw2D, graphicsDevice),
 		requestHandler = RequestHandler.create({}),
-		backgroundColour = [0.3,0.3,0.3,1],
+		game = new Game(spriteDrawing),
 		sprite;
 
     function update() {
-    	spriteDrawing.draw(backgroundColour, sprite);
+    	game.update();
     }
 
     TurbulenzEngine.onunload = function gameOnunload() {
 		spriteDrawing = null;		
 		requestHandler = null;
 		sprite = null;	
-		graphicsDevice = null;	
+		graphicsDevice = null;
+		game = null;
 	};
 
 	function sessionCreated(gameSession) {
