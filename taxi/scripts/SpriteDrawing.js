@@ -7,11 +7,7 @@ function SpriteDrawing(draw2d, graphicsDevice, jquery) {
 			drawing.setBackBuffer();
 			drawing.clear(clearColour);
 			drawing.begin('alpha');
-			
-			/*if(jquery != undefined) {
-				jquery(this).trigger('draw');
-			}*/
-
+			jquery(this).trigger('draw');
 			drawing.end();
 			graphicsDevice.endFrame();
 		}
