@@ -8,7 +8,9 @@
 			requestHandler = RequestHandler.create({}),
 			game = new Game(spriteDrawing),
 			backgroundColour = [0.3,0.3,0.3,1],
-			sprite;
+			sprite,
+			phys2D = Physics2DDevice.create(),
+			world = phys2D.createWorld({ gravity : [0, 20] });
 
 	    function update() {
 	    	spriteDrawing.draw(backgroundColour, sprite);
