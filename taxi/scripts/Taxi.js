@@ -4,18 +4,14 @@
 	TurbulenzEngine.onload = function onload() {
 	    "use strict";
 	    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-	    	spriteDrawing = new SpriteDrawing(Draw2D, graphicsDevice, jquery),
+	    	spriteDrawing = new SpriteDrawing(Draw2D, graphicsDevice, $),
 			requestHandler = RequestHandler.create({}),
 			game = new Game(spriteDrawing),
 			backgroundColour = [0.3,0.3,0.3,1],
 			sprite;
 
-		jquery(spriteDrawing).bind( { drawPrepared : function(eventName, drawing) {  },
-			drawComplete : spriteDrawing.end
-		});
-
 	    function update() {
-	    	spriteDrawing.prepare(backgroundColour);
+	    	spriteDrawing.draw(backgroundColour, sprite);
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
@@ -24,7 +20,6 @@
 			sprite = null;	
 			graphicsDevice = null;
 			game = null;
-			jquery = null;
 		};
 
 		function sessionCreated(gameSession) {
