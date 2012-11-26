@@ -4,7 +4,7 @@
 	TurbulenzEngine.onload = function onload() {
 	    "use strict";
 	    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-	    	spriteDrawing = new SpriteDrawing(Draw2D, graphicsDevice, $),
+	    	spriteDrawing = new SpriteDrawing(Draw2D, graphicsDevice, jquery),
 			requestHandler = RequestHandler.create({}),
 			game = new Game(spriteDrawing),
 			backgroundColour = [0.3,0.3,0.3,1],
@@ -24,6 +24,7 @@
 			sprite = null;	
 			graphicsDevice = null;
 			game = null;
+			jquery = null;
 		};
 
 		function sessionCreated(gameSession) {
