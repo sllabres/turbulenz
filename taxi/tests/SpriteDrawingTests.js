@@ -92,41 +92,6 @@
 		equal('alpha', passedBlendMode);
 	});
 
-	test("On draw and beginFrame is true, drawSprite called", function () {
-		var drawSpriteCalled = false,
-			graphicsDeviceStub = { beginFrame : function () { return true; },
-				endFrame : function () { } },
-			drawingMock = { setBackBuffer : function () { },
-				clear : function () { },
-				begin : function () { },
-				drawSprite : function () { drawSpriteCalled = true; },
-				end : function () { } },
-			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(draw2dStub, graphicsDeviceStub);
-
-		renderer.draw([]);
-
-		ok(drawSpriteCalled);
-	});
-
-	test("On draw and beginFrame is true, drawSprite called with sprite", function () {
-		var expectedSprite = "sprite",
-			passedSprite = "",
-			graphicsDeviceStub = { beginFrame : function () { return true; },
-				endFrame : function () { } },
-			drawingMock = { setBackBuffer : function () { },
-				clear : function () { },
-				begin : function () { },
-				drawSprite : function (sprite) { passedSprite = sprite; },
-				end : function () { } },
-			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new SpriteDrawing(draw2dStub, graphicsDeviceStub);
-
-		renderer.draw([], expectedSprite);
-
-		equal(expectedSprite, passedSprite);
-	});
-
 	test("On draw and beginFrame is true, end called", function () {
 		var endCalled = false,
 			graphicsDeviceStub = { beginFrame : function () { return true; },
