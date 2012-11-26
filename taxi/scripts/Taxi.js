@@ -11,6 +11,7 @@
 			sprite;
 
 		jquery(spriteDrawing).bind( {draw : function (eventName, drawing) {
+			console.log("drawing");
 			if(sprite != undefined) {
 				drawing.drawSprite(sprite);
 			}

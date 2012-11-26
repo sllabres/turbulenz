@@ -7,7 +7,9 @@ function SpriteDrawing(draw2d, graphicsDevice, jquery) {
 			drawing.setBackBuffer();
 			drawing.clear(clearColour);
 			drawing.begin('alpha');
+			console.log("drawing triggered");
 			jquery(this).trigger('draw', drawing);
+			console.log("drawing finished triggered");
 			drawing.end();
 			graphicsDevice.endFrame();
 		}
