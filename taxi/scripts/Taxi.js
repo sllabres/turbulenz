@@ -1,6 +1,6 @@
 /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices,Canvas,Draw2D*/
-
+(function(jquery) {
 TurbulenzEngine.onload = function onload() {
     "use strict";
     var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
@@ -9,9 +9,6 @@ TurbulenzEngine.onload = function onload() {
 		game = new Game(spriteDrawing),
 		backgroundColour = [0.3,0.3,0.3,1],
 		sprite;
-
-	$(spriteDrawing).bind({ beginFrame: function() { console.log("beginFrame triggered!"); }});
-	$(spriteDrawing).bind({ beginFrame: function() { console.log("beginFrame triggered Again!"); }});
 
     function update() {
     	spriteDrawing.draw(backgroundColour, sprite);
@@ -45,4 +42,4 @@ TurbulenzEngine.onload = function onload() {
 
 	TurbulenzServices.createGameSession(requestHandler, sessionCreated);    
 };
-
+}($));
