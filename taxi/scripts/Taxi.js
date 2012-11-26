@@ -12,6 +12,26 @@
 			phys2D = Physics2DDevice.create(),
 			world = phys2D.createWorld({ gravity : [0, 20] });
 
+			var thickness = 0.01; // 1 cm
+			var border = phys2D.createRigidBody({
+				type : 'static',
+					shapes : [
+					phys2D.createPolygonShape({
+						vertices : phys2D.createRectangleVertices(0, 0, thickness, stageHeight)
+					}),
+					phys2D.createPolygonShape({
+						vertices : phys2D.createRectangleVertices(0, 0, stageWidth, thickness)
+					}),
+					phys2D.createPolygonShape({
+						vertices : phys2D.createRectangleVertices((stageWidth - thickness), 0, stageWidth, stageHeight)
+					}),
+					phys2D.createPolygonShape({
+						vertices : phys2D.createRectangleVertices(0, (stageHeight - thickness), stageWidth, stageHeight)
+					})
+				]
+			});
+			world.addRigidBody(border);
+
 	    function update() {
 	    	spriteDrawing.draw(backgroundColour, sprite);
 	    }
