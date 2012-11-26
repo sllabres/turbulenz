@@ -1,10 +1,10 @@
 /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices,Canvas,Draw2D*/
-(function(jquery) {
+(function() {
 	TurbulenzEngine.onload = function onload() {
 	    "use strict";
 	    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-	    	spriteDrawing = new SpriteDrawing(Draw2D, graphicsDevice, $),
+	    	spriteDrawing = new SpriteDrawing(Draw2D, graphicsDevice),
 			requestHandler = RequestHandler.create({}),
 			game = new Game(spriteDrawing),
 			backgroundColour = [0.3,0.3,0.3,1],
@@ -44,4 +44,4 @@
 
 		TurbulenzServices.createGameSession(requestHandler, sessionCreated);    
 	};
-}($));
+}());
