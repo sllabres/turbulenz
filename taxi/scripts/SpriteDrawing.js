@@ -8,9 +8,9 @@ function SpriteDrawing(draw2d, graphicsDevice, jquery) {
 			drawing.clear(clearColour);
 			drawing.begin('alpha');
 			
-			if(jquery != undefined) {
+			/*if(jquery != undefined) {
 				jquery(this).trigger('draw');
-			}
+			}*/
 
 			drawing.end();
 			graphicsDevice.endFrame();
