@@ -10,15 +10,12 @@
 			backgroundColour = [0.3,0.3,0.3,1],
 			sprite;
 
-		jquery(spriteDrawing).bind( {draw : function (eventName, drawing) {
-			console.log("drawing");
-			if(sprite != undefined) {
-				drawing.drawSprite(sprite);
-			}
-		}});
+		jquery(spriteDrawing).bind( { drawPrepared : function(eventName, drawing) {  },
+			drawComplete : spriteDrawing.end
+		});
 
 	    function update() {
-	    	spriteDrawing.draw(backgroundColour);
+	    	spriteDrawing.prepare(backgroundColour);
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
