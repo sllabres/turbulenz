@@ -11,7 +11,7 @@ TurbulenzEngine.onload = function onload() {
 		sprite;
 
 	$(spriteDrawing).bind("beginFrame", function() {
-		console.log("beginFrame triggered!");
+		//console.log("beginFrame triggered!");
 	});
 
     function update() {
