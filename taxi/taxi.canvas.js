@@ -50825,7 +50825,10 @@ function SpriteRendering(drawing2d) {
 			game = new Game(spriteRendering),
 			backgroundColour = [0.3,0.3,0.3,1],
 			background,
-			taxi;
+			taxi,
+			pysicsDebug = Physics2DDebugDraw.create({
+ 				graphicsDevice : graphicsDevice
+ 			});
 
 	    function update() {
 	    	if(!!background && !!taxi) {
