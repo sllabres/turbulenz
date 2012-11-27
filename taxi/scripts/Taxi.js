@@ -33,7 +33,7 @@
 				shapes : [taxiShape.clone()],
 				position : [ 50, 20 ],
 				type : 'dynamic',
-				mass : 10
+				mass : 0.1
 			}),
 			realTime = 0,
 			prevTime = TurbulenzEngine.time;
