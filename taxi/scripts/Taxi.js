@@ -30,7 +30,7 @@
 			body = physics2D.createRigidBody({
 				shapes : [taxiShape.clone()],
 				position : [ 50, 20 ],
-				userData : taxiSprite 
+				userData : taxi 
 			});
 			world.addRigidBody(body);
 
