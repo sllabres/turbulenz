@@ -8,10 +8,17 @@
 			requestHandler = RequestHandler.create({}),
 			game = new Game(spriteDrawing),
 			backgroundColour = [0.3,0.3,0.3,1],
-			sprite;
+			background,
+			taxi;
 
 	    function update() {
-	    	spriteDrawing.draw(backgroundColour, sprite);
+	    	if(!!background) {
+	    		spriteDrawing.draw(backgroundColour, background);
+	    	}
+
+	    	if(!!taxi) {
+	    		spriteDrawing.draw(backgroundColour, taxi);
+	    	}
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
@@ -29,17 +36,28 @@
 					graphicsDevice.createTexture({ src : table.getURL("textures/Sky512.jpg"),
 						mipmaps : true,
 						onload : function (texture) {
-							sprite = Draw2DSprite.create({
+							background = Draw2DSprite.create({
 							x : 512,
 							y : 256,
 							texture : texture						
+							});							
+						}
+					});
+
+					graphicsDevice.createTexture({ src : table.getURL("textures/taxi.jpg"),
+						mipmaps : true,
+						onload : function (texture) {
+							taxi = Draw2DSprite.create({
+							x : 50,
+							y : 50,
+							texture : texture						
 							});
-							TurbulenzEngine.setInterval(update, 1000 / 60);
 						}
 					});
 				});
 		}
 
-		TurbulenzServices.createGameSession(requestHandler, sessionCreated);    
+		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
+		TurbulenzEngine.setInterval(update, 1000 / 60);
 	};
 }());
