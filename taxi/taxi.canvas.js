@@ -49247,7 +49247,7 @@ function Rendering(drawing2d, graphicsDevice, spriteRendering) {
 		}
 	}
 
-	return { draw : render };
+	return { render : render };
 }
 function SpriteRendering(drawing2d) {
 	
@@ -49288,8 +49288,8 @@ function SpriteRendering(drawing2d) {
 		    	spriteRendering.addSprite(background);
 		    	spriteRendering.addSprite(taxi);
 	    	}
-	    	
-	    	rendering.draw();	    	
+
+	    	rendering.render();	    	
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {

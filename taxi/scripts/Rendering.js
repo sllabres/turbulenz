@@ -12,5 +12,5 @@ function Rendering(drawing2d, graphicsDevice, spriteRendering) {
 		}
 	}
 
-	return { draw : render };
+	return { render : render };
 }
