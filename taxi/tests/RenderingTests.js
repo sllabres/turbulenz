@@ -32,7 +32,8 @@
 				begin : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
+			spriteRenderingMock = { render : function () { } },
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw();
 
@@ -49,7 +50,8 @@
 				begin : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingStub; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
+			spriteRenderingMock = { render : function () { } },
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw(expectedClearColour);
 
@@ -65,7 +67,8 @@
 				begin : function () { beginCalled = true; },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
+			spriteRenderingMock = { render : function () { } },
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw([]);
 
@@ -81,7 +84,8 @@
 				begin : function (blendMode) { passedBlendMode = blendMode; },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
+			spriteRenderingMock = { render : function () { } },
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw([]);
 
@@ -97,7 +101,8 @@
 				begin : function () { },
 				end : function () { endCalled = true; } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
+			spriteRenderingMock = { render : function () { } },
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw([]);
 
@@ -113,7 +118,8 @@
 				begin : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingStub; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
+			spriteRenderingMock = { render : function () { } },
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw([]);
 
