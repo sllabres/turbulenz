@@ -20,7 +20,7 @@
  			stageHeight = 768,
  			physics2D = Physics2DDevice.create(),
  			world = physics2D.createWorld({
-				gravity : [0, 20]
+				gravity : [0, 30]
 			}),
 			heavyMaterial = physics2D.createMaterial({
 				density : 3
