@@ -11,7 +11,9 @@ function SpriteRendering(drawing2d) {
 	}
 
 	function addSprite(sprite) {
-		spriteCollection.push(sprite);
+		if(!!sprite) {
+			spriteCollection.push(sprite);
+		}
 	}
 
 	return { render : render,

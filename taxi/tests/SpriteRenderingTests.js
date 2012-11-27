@@ -73,4 +73,16 @@
 
 		equal(drawSpriteCallCount, 1);
 	});
+
+	test("When calling render with undefined sprite, drawSprite not called", function () {
+		var drawSpriteCalled = false,
+			sprite, 
+			drawing2dMock = { drawSprite : function () { drawSpriteCalled = true; } },
+			spriteRendering = new SpriteRendering(drawing2dMock);
+
+		spriteRendering.addSprite(sprite);
+		spriteRendering.render();
+
+		equal(drawSpriteCalled, false);
+	});
 }());
