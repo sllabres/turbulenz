@@ -12,9 +12,9 @@
 			taxi;
 
 	    function update() {
-	    	/*if(!!background) {
+	    	if(!!background) {
 	    		spriteDrawing.draw(backgroundColour, background);
-	    	}*/
+	    	}
 
 	    	if(!!taxi) {
 	    		spriteDrawing.draw(backgroundColour, taxi);
