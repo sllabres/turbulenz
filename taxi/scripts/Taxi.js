@@ -24,7 +24,7 @@
 				density : 3
 			}),
 			taxiShape = physics2D.createPolygonShape({
-				vertices : phys2D.createBoxVertices(64, 32),
+				vertices : physics2D.createBoxVertices(64, 32),
 				material : heavyMaterial
 			});
 
