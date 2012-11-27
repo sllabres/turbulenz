@@ -49287,8 +49287,8 @@ function SpriteRendering(drawing2d) {
 
 	    function update() {
 	    	if(!!background && !!taxi) {
-		    	spriteRendering.addSprite(background);
-		    	spriteRendering.addSprite(taxi);
+	    		spriteRendering.addSprite(taxi);
+		    	spriteRendering.addSprite(background);		    	
 	    	}
 
 	    	rendering.render(backgroundColour);	    	
