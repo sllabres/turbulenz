@@ -33,7 +33,7 @@
 				shapes : [taxiShape.clone()],
 				position : [ 50, 20 ],
 				type : 'dynamic',
-				mass : 0.1
+				mass : 1
 			}),
 			realTime = 0,
 			prevTime = TurbulenzEngine.time;
@@ -132,7 +132,7 @@
 
 		var onKeyUp = function onKeyUpFn(keynum) {
 			if (keynum === keyCodes.W) {				
-				body.setForce([0, 2000]);
+				body.setForce([0, -1000]);
 			}
 
 			if (keynum === keyCodes.D) {				
