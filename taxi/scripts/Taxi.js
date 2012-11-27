@@ -67,6 +67,9 @@
 		    	timeDelta = (1 / 20);
 		    }
 
+			realTime += timeDelta;
+			prevTime = curTime;
+
 		    while (world.simulatedTime < realTime) {
 		    	world.step(1 / 60);
 		    }
