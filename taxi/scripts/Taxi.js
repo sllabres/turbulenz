@@ -26,17 +26,40 @@
 			taxiShape = physics2D.createPolygonShape({
 				vertices : physics2D.createBoxVertices(64, 32),
 				material : heavyMaterial
+			}),
+			body = physics2D.createRigidBody({
+				shapes : [taxiShape.clone()],
+				position : [ 50, 20 ],
+				userData : taxiSprite 
 			});
+			world.addRigidBody(body);
 
- 			drawing2d.configure({
-				viewportRectangle : [0, 0, stageWidth, stageHeight],
-				scaleMode : 'scale'
+ 			drawing2d.configure({ viewportRectangle : [0, 0, stageWidth, stageHeight] });
+			border = physics2D.createRigidBody({
+				type : 'static',
+				shapes : [
+					physics2D.createPolygonShape({
+						vertices : physics2D.createRectangleVertices(0, 0, 0.01, stageHeight)
+					}),
+					physics2D.createPolygonShape({
+						vertices : physics2D.createRectangleVertices(0, 0, stageWidth, 0.01)
+					}),
+					physics2D.createPolygonShape({
+						vertices : physics2D.createRectangleVertices((stageWidth - 0.01), 0, stageWidth, stageHeight)
+					}),
+					physics2D.createPolygonShape({
+						vertices : physics2D.createRectangleVertices(0, (stageHeight - 0.01), stageWidth, stageHeight)
+					})
+				]
 			});
+			world.addRigidBody(border);
+
+			pysicsDebug.setPhysics2DViewport([0, 0, stageWidth, stageHeight]);
 
 	    function update() {
 		    spriteRendering.addSprite(background);
-		    spriteRendering.addSprite(taxi);    	
-		    rendering.render(backgroundColour);		    
+		    spriteRendering.addSprite(taxi);    			    
+		    rendering.render(backgroundColour);			    	
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
@@ -59,8 +82,7 @@
 						mipmaps : true,
 						onload : function (texture) {
 							background = Draw2DSprite.create({
-							x : 512,
-							y : 256,
+							origin: [0,0],
 							texture : texture						
 							});							
 						}
@@ -71,7 +93,7 @@
 						onload : function (texture) {
 							taxi = Draw2DSprite.create({
 							x : 50,
-							y : 50,
+							y : 20,
 							texture : texture						
 							});
 						}
