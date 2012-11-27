@@ -128,6 +128,7 @@
 				});
 		}
 
+		inputDevice.addEventListener('keyup', onKeyUp);
 		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
 		TurbulenzEngine.setInterval(update, 1000 / 60);
 
@@ -142,8 +143,6 @@
 
 			if (keynum === keyCodes.A) {				
 			}*/
-		};
-
-		inputDevice.addEventListener('keyup', onKeyUp);
+		};		
 	};
 }());
