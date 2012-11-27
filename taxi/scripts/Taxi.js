@@ -14,8 +14,11 @@
 			taxi;
 
 	    function update() {
-	    	spriteRendering.addSprite(background);
-	    	spriteRendering.addSprite(taxi);
+	    	if(!!background && !!taxi) {
+		    	spriteRendering.addSprite(background);
+		    	spriteRendering.addSprite(taxi);
+	    	}
+	    	
 	    	rendering.draw();	    	
 	    }
 
