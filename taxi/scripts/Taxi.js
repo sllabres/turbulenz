@@ -32,6 +32,7 @@
 				position : [ 50, 20 ],
 				userData : taxi 
 			}),
+			realTime = 0,
 			prevTime = TurbulenzEngine.time;
 			world.addRigidBody(body);
 
