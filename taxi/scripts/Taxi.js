@@ -12,9 +12,9 @@
 			taxi;
 
 	    function update() {
-	    	/*if(!!background) {
+	    	if(!!background) {
 	    		spriteDrawing.draw(backgroundColour, background);
-	    	}*/
+	    	}
 
 	    	if(!!taxi) {
 	    		spriteDrawing.draw(backgroundColour, taxi);
@@ -44,7 +44,7 @@
 						}
 					});
 
-					graphicsDevice.createTexture({ src : table.getURL("textures/taxi1.jpg"),
+					graphicsDevice.createTexture({ src : table.getURL("textures/taxi.jpg"),
 						mipmaps : true,
 						onload : function (texture) {
 							taxi = Draw2DSprite.create({
