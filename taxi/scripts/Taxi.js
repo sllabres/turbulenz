@@ -31,7 +31,8 @@
 				shapes : [taxiShape.clone()],
 				position : [ 50, 20 ],
 				userData : taxi 
-			});
+			}),
+			prevTime = TurbulenzEngine.time;
 			world.addRigidBody(body);
 
  			drawing2d.configure({ viewportRectangle : [0, 0, stageWidth, stageHeight] });
