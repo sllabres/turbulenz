@@ -5,21 +5,17 @@
 	    "use strict";
 	    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 	    	drawing2d = Draw2D.create({ graphicsDevice : graphicsDevice }),
-	    	spriteDrawing = new Rendering(drawing2d, graphicsDevice),
+	    	spriteRendering = new SpriteRendering(drawing2d, graphicsDevice),
+	    	rendering = new Rendering(drawing2d, graphicsDevice, spriteRendering),
 			requestHandler = RequestHandler.create({}),
-			game = new Game(spriteDrawing),
+			game = new Game(spriteRendering),
 			backgroundColour = [0.3,0.3,0.3,1],
 			background,
 			taxi;
 
 	    function update() {
-	    	if(!!background) {
-	    		spriteDrawing.draw(backgroundColour, background);
-	    	}
-
-	    	if(!!taxi) {
-	    		spriteDrawing.draw(backgroundColour, taxi);
-	    	}
+	    	spriteRendering.addSprite(background);
+	    	spriteRendering.addSprite(taxi);	    	
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
