@@ -16,7 +16,11 @@
  				graphicsDevice : graphicsDevice
  			}),
  			stageWidth = 1024,
- 			stageHeight = 768;
+ 			stageHeight = 768,
+ 			physics2D = Physics2DDevice.create(),
+ 			world = phys2D.createWorld({
+				gravity : [0, 10]
+			});
 
  			drawing2d.configure({
 				viewportRectangle : [0, 0, stageWidth, stageHeight],
