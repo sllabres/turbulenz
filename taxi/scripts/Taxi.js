@@ -15,8 +15,8 @@
 			pysicsDebug = Physics2DDebugDraw.create({
  				graphicsDevice : graphicsDevice
  			}),
- 			stageWidth = 30,
- 			stageHeight = 22;
+ 			stageWidth = 1024,
+ 			stageHeight = 768;
 
  			drawing2d.configure({
 				viewportRectangle : [0, 0, stageWidth, stageHeight],
