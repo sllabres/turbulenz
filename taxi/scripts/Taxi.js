@@ -84,8 +84,7 @@
 			    body.getPosition(pos);
 
 			    taxi.x = pos[0];
-			    taxi.y = pos[1];
-			    body.setForce([0, 0]);
+			    taxi.y = pos[1];			    
 			}
 
 		    spriteRendering.addSprite(taxi);    			    
@@ -131,7 +130,7 @@
 				});
 		}
 
-		var onKeyUp = function onKeyUpFn(keynum) {
+		var onKeyDown = function onKeyDown(keynum) {
 			var yForce = 0,
 				xForce = 0;
 			if (keynum === keyCodes.W) {
@@ -149,6 +148,11 @@
 			body.setForce([xForce, yForce]);
 		};
 
+		var onKeyUp = function onKeyUp(keynum) {
+			body.setForce([0, 0]);
+		};
+
+		inputDevice.addEventListener('keydown', onKeyDown);
 		inputDevice.addEventListener('keyup', onKeyUp);
 		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
 		TurbulenzEngine.setInterval(update, 1000 / 60);
