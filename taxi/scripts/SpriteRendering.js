@@ -6,6 +6,8 @@ function SpriteRendering(drawing2d) {
 		for (var spriteCount = 0, arrayLength = spriteCollection.length; spriteCount < arrayLength; spriteCount++) {
 			drawing2d.drawSprite(spriteCollection[spriteCount]);
 		}
+
+		spriteCollection = [];
 	}
 
 	function addSprite(sprite) {
