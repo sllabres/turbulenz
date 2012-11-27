@@ -8,7 +8,6 @@
 	    	spriteRendering = new SpriteRendering(drawing2d, graphicsDevice),
 	    	rendering = new Rendering(drawing2d, graphicsDevice, spriteRendering),
 			requestHandler = RequestHandler.create({}),
-			game = new Game(spriteRendering),
 			backgroundColour = [0.3,0.3,0.3,1],
 			background,
 			taxi,
@@ -37,11 +36,15 @@
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
-			spriteDrawing = null;		
+			drawing2d = null;		
 			requestHandler = null;
-			sprite = null;	
+			background = null;	
+			taxi = null;	
 			graphicsDevice = null;
-			game = null;
+			pysicsDebug = null;
+			physics2D = null;
+			world = null;
+			rendering = null;
 		};
 
 		function sessionCreated(gameSession) {
