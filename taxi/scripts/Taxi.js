@@ -14,7 +14,14 @@
 			taxi,
 			pysicsDebug = Physics2DDebugDraw.create({
  				graphicsDevice : graphicsDevice
- 			});
+ 			}),
+ 			stageWidth = 30,
+ 			stageHeight = 22;
+
+ 			drawing2d.configure({
+				viewportRectangle : [0, 0, stageWidth, stageHeight],
+				scaleMode : 'scale'
+			});
 
 	    function update() {
 	    	if(!!background && !!taxi) {
