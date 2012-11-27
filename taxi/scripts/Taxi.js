@@ -132,17 +132,21 @@
 		}
 
 		var onKeyUp = function onKeyUpFn(keynum) {
-			if (keynum === keyCodes.W) {				
-				body.setForce([0, -100]);
+			var yForce = 0,
+				xForce = 0;
+			if (keynum === keyCodes.W) {
+				yForce = -100;
 			}
 
 			if (keynum === keyCodes.D) {				
-				body.setForce([100, 0]);
+				xForce = 100;
 			}
 
-			if (keynum === keyCodes.A) {				
-				body.setForce([-100, 0]);
+			if (keynum === keyCodes.A) {								
+				xForce = -100;
 			}
+
+			body.setForce([xForce, yForce]);
 		};
 
 		inputDevice.addEventListener('keyup', onKeyUp);
