@@ -30,7 +30,6 @@
 			drawingMock = { setBackBuffer : function () { setBackBufferCalled = true; },
 				clear : function () { },
 				begin : function () { },
-				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
 			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
@@ -48,7 +47,6 @@
 			drawingStub = { setBackBuffer : function () { },
 				clear : function (colour) { clearColour = colour; },
 				begin : function () { },
-				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingStub; } },
 			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
@@ -65,7 +63,6 @@
 			drawingMock = { setBackBuffer : function () { },
 				clear : function () { },
 				begin : function () { beginCalled = true; },
-				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
 			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
@@ -82,7 +79,6 @@
 			drawingMock = { setBackBuffer : function () { },
 				clear : function () { },
 				begin : function (blendMode) { passedBlendMode = blendMode; },
-				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingMock; } },
 			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
@@ -99,7 +95,6 @@
 			drawingMock = { setBackBuffer : function () { },
 				clear : function () { },
 				begin : function () { },
-				drawSprite : function () { },
 				end : function () { endCalled = true; } },
 			draw2dStub = { create : function () { return drawingMock; } },
 			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
@@ -116,7 +111,6 @@
 			drawingStub = { setBackBuffer : function () { },
 				clear : function () { },
 				begin : function () { },
-				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingStub; } },
 			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
@@ -133,7 +127,6 @@
 			drawingStub = { setBackBuffer : function () { },
 				clear : function () { },
 				begin : function () { },
-				drawSprite : function () { },
 				end : function () { } },
 			draw2dStub = { create : function () { return drawingStub; } },
 			spriteRenderingMock = { render : function () { spriteRenderCalled = true; } },
