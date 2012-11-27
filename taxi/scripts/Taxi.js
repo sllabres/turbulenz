@@ -78,7 +78,6 @@
 
 			    taxi.x = pos[0];
 			    taxi.y = pos[1];
-			    console.log("test");
 			}
 
 		    spriteRendering.addSprite(taxi);    			    
