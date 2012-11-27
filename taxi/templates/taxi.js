@@ -9,6 +9,7 @@
 /*{{ javascript("jslib/observer.js") }}*/
 /*{{ javascript("jslib/utilities.js") }}*/
 /*{{ javascript("jslib/physics2ddevice.js") }}*/
+/*{{ javascript('jslib/physics2ddebugdraw.js') }}*/
 /*{{ javascript('jslib/boxtree.js') }}*/
 
 /*{{ javascript("scripts/Game.js") }}*/
