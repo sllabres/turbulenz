@@ -31,7 +31,8 @@
 			}),
 			body = physics2D.createRigidBody({
 				shapes : [taxiShape.clone()],
-				position : [ 50, 20 ]
+				position : [ 50, 20 ],
+				type : 'dynamic'
 			}),
 			realTime = 0,
 			prevTime = TurbulenzEngine.time;
