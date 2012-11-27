@@ -76,6 +76,8 @@
 			    	pos = [];
 			    body.getPosition(pos);
 
+			    console.log(taxi);
+
 			    taxi.x = pos[0];
 			    taxi.y = pos[1];
 			}
