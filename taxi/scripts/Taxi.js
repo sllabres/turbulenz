@@ -16,9 +16,6 @@
 	    		spriteDrawing.draw(backgroundColour, background);
 	    	}
 
-	    	if(!!taxi) {
-	    		spriteDrawing.draw(backgroundColour, taxi);
-	    	}
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
