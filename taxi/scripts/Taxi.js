@@ -132,15 +132,16 @@
 
 		var onKeyUp = function onKeyUpFn(keynum) {
 			if (keynum === keyCodes.W) {				
-				console.log("W");
+				body.setForce([0, 1000]);
+			}
+
+			if (keynum === keyCodes.D) {				
 				body.setForce([1000, 0]);
 			}
 
-			/*if (keynum === keyCodes.D) {				
-			}
-
 			if (keynum === keyCodes.A) {				
-			}*/
+				body.setForce([-1000, 0]);
+			}
 		};
 
 		inputDevice.addEventListener('keyup', onKeyUp);
