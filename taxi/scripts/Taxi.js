@@ -29,8 +29,7 @@
 			}),
 			body = physics2D.createRigidBody({
 				shapes : [taxiShape.clone()],
-				position : [ 50, 20 ],
-				userData : taxi 
+				position : [ 50, 20 ]
 			}),
 			realTime = 0,
 			prevTime = TurbulenzEngine.time;
@@ -59,9 +58,7 @@
 			pysicsDebug.setPhysics2DViewport([0, 0, stageWidth, stageHeight]);
 
 	    function update() {
-		    spriteRendering.addSprite(background);
-		    spriteRendering.addSprite(taxi);    			    
-		    rendering.render(backgroundColour);
+		    spriteRendering.addSprite(background);		    
 
 		    var curTime = TurbulenzEngine.time;
 		    var timeDelta = (curTime - prevTime);
@@ -72,6 +69,16 @@
 		    while (world.simulatedTime < realTime) {
 		    	world.step(1 / 60);
 		    }
+
+		    var body = world.rigidBodies[0],
+		    	pos = [];
+		    body.getPosition(pos);
+
+		    taxi.x = pos[0];
+		    taxi.y = pos[1];
+
+		    spriteRendering.addSprite(taxi);    			    
+		    rendering.render(backgroundColour);
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
