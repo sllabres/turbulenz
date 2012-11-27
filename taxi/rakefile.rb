@@ -31,7 +31,7 @@ task :makejs do
 	end
 
 	compressCommands.peach do |command|
-		sh command
+		#sh command
 	end
 end
 
