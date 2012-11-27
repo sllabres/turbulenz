@@ -49289,7 +49289,7 @@ function SpriteRendering(drawing2d) {
 		    	spriteRendering.addSprite(taxi);
 	    	}
 
-	    	rendering.render();	    	
+	    	rendering.render(backgroundColour);	    	
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
