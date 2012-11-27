@@ -11,6 +11,8 @@
 			backgroundColour = [0.3,0.3,0.3,1],
 			background,
 			taxi,
+			inputDevice = TurbulenzEngine.createInputDevice({}),
+			keyCodes = inputDevice.keyCodes,
 			pysicsDebug = Physics2DDebugDraw.create({
  				graphicsDevice : graphicsDevice
  			}),
@@ -128,5 +130,19 @@
 
 		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
 		TurbulenzEngine.setInterval(update, 1000 / 60);
+
+		var onKeyUp = function onKeyUpFn(keynum) {
+			if (keynum === keyCodes.W) {				
+				body.setForce([1,1]);
+			}
+
+			/*if (keynum === keyCodes.D) {				
+			}
+
+			if (keynum === keyCodes.A) {				
+			}*/
+		};
+
+		inputDevice.addEventListener('keyup', onKeyUp);
 	};
 }());
