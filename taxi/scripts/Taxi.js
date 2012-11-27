@@ -26,10 +26,8 @@
 			pysicsDebug.setPhysics2DViewport([0, 0, stageWidth, stageHeight]);
 
 	    function update() {
-	    	if(!!background && !!taxi) {
-		    	spriteRendering.addSprite(background);
-		    	spriteRendering.addSprite(taxi);
-	    	}
+		    spriteRendering.addSprite(background);
+		    spriteRendering.addSprite(taxi);    	
 
 	    	rendering.render(backgroundColour);	    	
 	    }
