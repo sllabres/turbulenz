@@ -32,9 +32,8 @@
 				begin : function () { },
 				drawSprite : function () { },
 				end : function () { } },
-			jqueryStub = function jqueryStub(object) { return { trigger : function () { } } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, jqueryStub);
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw();
 
@@ -51,9 +50,8 @@
 				begin : function () { },
 				drawSprite : function () { },
 				end : function () { } },
-			jqueryStub = function jqueryStub(object) { return { trigger : function () { } } },
 			draw2dStub = { create : function () { return drawingStub; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, jqueryStub);
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw(expectedClearColour);
 
@@ -69,9 +67,8 @@
 				begin : function () { beginCalled = true; },
 				drawSprite : function () { },
 				end : function () { } },
-			jqueryStub = function jqueryStub(object) { return { trigger : function () { } } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, jqueryStub);
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
@@ -87,9 +84,8 @@
 				begin : function (blendMode) { passedBlendMode = blendMode; },
 				drawSprite : function () { },
 				end : function () { } },
-			jqueryStub = function jqueryStub(object) { return { trigger : function () { } } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, jqueryStub);
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
@@ -105,9 +101,8 @@
 				begin : function () { },
 				drawSprite : function () { },
 				end : function () { endCalled = true; } },
-			jqueryStub = function jqueryStub(object) { return { trigger : function () { } } },
 			draw2dStub = { create : function () { return drawingMock; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, jqueryStub);
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
@@ -123,13 +118,29 @@
 				begin : function () { },
 				drawSprite : function () { },
 				end : function () { } },
-			jqueryStub = function jqueryStub(object) { return { trigger : function () { } } },
 			draw2dStub = { create : function () { return drawingStub; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, jqueryStub);
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub);
 
 		renderer.draw([]);
 
 		ok(endFrameCalled);
 	});
 
+	test("On draw and beginFrame is true, spriteRenderCalled is true", function() {
+		var spriteRenderCalled = false,
+			graphicsDeviceStub = { beginFrame : function () { return true; },
+				endFrame : function () { } },
+			drawingStub = { setBackBuffer : function () { },
+				clear : function () { },
+				begin : function () { },
+				drawSprite : function () { },
+				end : function () { } },
+			draw2dStub = { create : function () { return drawingStub; } },
+			spriteRenderingMock = { render : function () { spriteRenderCalled = true; } },
+			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
+
+		renderer.draw([]);
+
+		equal(spriteRenderCalled, true);
+	});
 }());
