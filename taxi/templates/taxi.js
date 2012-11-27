@@ -13,4 +13,5 @@
 
 /*{{ javascript("scripts/Game.js") }}*/
 /*{{ javascript("scripts/Rendering.js") }}*/
+/*{{ javascript("scripts/SpriteRendering.js") }}*/
 /*{{ javascript("scripts/Taxi.js") }}*/
