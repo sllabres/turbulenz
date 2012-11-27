@@ -70,12 +70,14 @@
 		    	world.step(1 / 60);
 		    }
 
-		    var body = world.rigidBodies[0],
-		    	pos = [];
-		    body.getPosition(pos);
+		    if(!!taxi) {
+			    var body = world.rigidBodies[0],
+			    	pos = [];
+			    body.getPosition(pos);
 
-		    taxi.x = pos[0];
-		    taxi.y = pos[1];
+			    taxi.x = pos[0];
+			    taxi.y = pos[1];
+			}
 
 		    spriteRendering.addSprite(taxi);    			    
 		    rendering.render(backgroundColour);
