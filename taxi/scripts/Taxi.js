@@ -128,15 +128,16 @@
 				});
 		}
 
-		inputDevice.addEventListener('keyup', onKeyUp);
-		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
-		TurbulenzEngine.setInterval(update, 1000 / 60);
-
 		var onKeyUp = function onKeyUpFn(keynum) {
 			if (keynum === keyCodes.W) {				
 				console.log("W");
 				body.setForce(1);				
 			}
+
+		inputDevice.addEventListener('keyup', onKeyUp);
+		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
+		TurbulenzEngine.setInterval(update, 1000 / 60);
+
 
 			/*if (keynum === keyCodes.D) {				
 			}
