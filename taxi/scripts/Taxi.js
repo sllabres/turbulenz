@@ -85,11 +85,11 @@
 
 			    taxi.x = pos[0];
 			    taxi.y = pos[1];
+			    body.setForce([0, 0]);
 			}
 
 		    spriteRendering.addSprite(taxi);    			    
-		    rendering.render(backgroundColour);
-		    body.setForce([0, 0]);
+		    rendering.render(backgroundColour);		    
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
