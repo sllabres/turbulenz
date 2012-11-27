@@ -59,7 +59,17 @@
 	    function update() {
 		    spriteRendering.addSprite(background);
 		    spriteRendering.addSprite(taxi);    			    
-		    rendering.render(backgroundColour);			    	
+		    rendering.render(backgroundColour);
+
+		    var curTime = TurbulenzEngine.time;
+		    var timeDelta = (curTime - prevTime);
+		    if (timeDelta > (1 / 20)) {
+		    	timeDelta = (1 / 20);
+		    }
+
+		    while (world.simulatedTime < realTime) {
+		    	world.step(1 / 60);
+		    }
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
