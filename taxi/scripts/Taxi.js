@@ -19,14 +19,19 @@
  			physics2D = Physics2DDevice.create(),
  			world = physics2D.createWorld({
 				gravity : [0, 10]
+			}),
+			heavyMaterial = physics2D.createMaterial({
+				density : 3
+			}),
+			taxiShape = physics2D.createPolygonShape({
+				vertices : phys2D.createBoxVertices(64, 32),
+				material : heavyMaterial
 			});
 
  			drawing2d.configure({
 				viewportRectangle : [0, 0, stageWidth, stageHeight],
 				scaleMode : 'scale'
 			});
-
-			pysicsDebug.setPhysics2DViewport([0, 0, stageWidth, stageHeight]);
 
 	    function update() {
 		    spriteRendering.addSprite(background);
