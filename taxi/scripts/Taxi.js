@@ -33,6 +33,7 @@
 			}),
 			realTime = 0,
 			prevTime = TurbulenzEngine.time;
+			world.clear();
 			world.addRigidBody(body);
 
  			drawing2d.configure({ viewportRectangle : [0, 0, stageWidth, stageHeight] });
@@ -77,6 +78,7 @@
 
 			    taxi.x = pos[0];
 			    taxi.y = pos[1];
+			    console.log("test");
 			}
 
 		    spriteRendering.addSprite(taxi);    			    
