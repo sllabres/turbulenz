@@ -4,7 +4,8 @@
 	TurbulenzEngine.onload = function onload() {
 	    "use strict";
 	    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-	    	spriteDrawing = new Rendering(Draw2D, graphicsDevice),
+	    	drawing2d = draw2d.create({ graphicsDevice : graphicsDevice }),
+	    	spriteDrawing = new Rendering(drawing2d, graphicsDevice),
 			requestHandler = RequestHandler.create({}),
 			game = new Game(spriteDrawing),
 			backgroundColour = [0.3,0.3,0.3,1],
