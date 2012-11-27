@@ -2,15 +2,6 @@
 (function () {
 	"use strict";
 	module("Rendering");
-	test("On construction, Draw2d create called with graphics device", function () {
-		var expectedGraphicsDevice = "graphisDevice",
-			passedGraphicsDevice = "",
-			draw2dStub = { create : function (params) { passedGraphicsDevice = params.graphicsDevice; } },
-			renderer = new Rendering(draw2dStub, expectedGraphicsDevice);
-
-		equal(expectedGraphicsDevice, passedGraphicsDevice);
-	});
-
 	test("On draw, begin frame called", function () {
 		var beginFrameCalled = false,
 			graphicsDeviceMock = { beginFrame : function () { beginFrameCalled = true; },
@@ -31,9 +22,8 @@
 				clear : function () { },
 				begin : function () { },
 				end : function () { } },
-			draw2dStub = { create : function () { return drawingMock; } },
 			spriteRenderingMock = { render : function () { } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
+			renderer = new Rendering(drawingMock, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw();
 
@@ -49,9 +39,8 @@
 				clear : function (colour) { clearColour = colour; },
 				begin : function () { },
 				end : function () { } },
-			draw2dStub = { create : function () { return drawingStub; } },
 			spriteRenderingMock = { render : function () { } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
+			renderer = new Rendering(drawingStub, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw(expectedClearColour);
 
@@ -66,9 +55,8 @@
 				clear : function () { },
 				begin : function () { beginCalled = true; },
 				end : function () { } },
-			draw2dStub = { create : function () { return drawingMock; } },
 			spriteRenderingMock = { render : function () { } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
+			renderer = new Rendering(drawingMock, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw([]);
 
@@ -83,9 +71,8 @@
 				clear : function () { },
 				begin : function (blendMode) { passedBlendMode = blendMode; },
 				end : function () { } },
-			draw2dStub = { create : function () { return drawingMock; } },
 			spriteRenderingMock = { render : function () { } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
+			renderer = new Rendering(drawingMock, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw([]);
 
@@ -100,9 +87,8 @@
 				clear : function () { },
 				begin : function () { },
 				end : function () { endCalled = true; } },
-			draw2dStub = { create : function () { return drawingMock; } },
 			spriteRenderingMock = { render : function () { } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
+			renderer = new Rendering(drawingMock, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw([]);
 
@@ -117,9 +103,8 @@
 				clear : function () { },
 				begin : function () { },
 				end : function () { } },
-			draw2dStub = { create : function () { return drawingStub; } },
 			spriteRenderingMock = { render : function () { } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
+			renderer = new Rendering(drawingStub, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw([]);
 
@@ -134,9 +119,8 @@
 				clear : function () { },
 				begin : function () { },
 				end : function () { } },
-			draw2dStub = { create : function () { return drawingStub; } },
 			spriteRenderingMock = { render : function () { spriteRenderCalled = true; } },
-			renderer = new Rendering(draw2dStub, graphicsDeviceStub, spriteRenderingMock);
+			renderer = new Rendering(drawingStub, graphicsDeviceStub, spriteRenderingMock);
 
 		renderer.draw([]);
 

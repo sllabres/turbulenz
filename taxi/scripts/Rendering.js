@@ -1,14 +1,13 @@
-function Rendering(draw2d, graphicsDevice, spriteRendering) {
+function Rendering(drawing2d, graphicsDevice, spriteRendering) {
 	"use strict";
-	var drawing = draw2d.create({ graphicsDevice : graphicsDevice });
 
 	function render(clearColour) {
 		if (graphicsDevice.beginFrame()) {			
-			drawing.setBackBuffer();
-			drawing.clear(clearColour);
-			drawing.begin('alpha');
+			drawing2d.setBackBuffer();
+			drawing2d.clear(clearColour);
+			drawing2d.begin('alpha');
 			spriteRendering.render();
-			drawing.end();
+			drawing2d.end();
 			graphicsDevice.endFrame();
 		}
 	}
