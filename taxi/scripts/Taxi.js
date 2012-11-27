@@ -31,8 +31,7 @@
 	    function update() {
 		    spriteRendering.addSprite(background);
 		    spriteRendering.addSprite(taxi);    	
-
-	    	rendering.render(backgroundColour);	    	
+		    rendering.render(backgroundColour);		    
 	    }
 
 	    TurbulenzEngine.onunload = function gameOnunload() {
