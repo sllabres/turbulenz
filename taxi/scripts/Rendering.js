@@ -1,4 +1,4 @@
-function SpriteDrawing(draw2d, graphicsDevice) {
+function Rendering(draw2d, graphicsDevice) {
 	"use strict";
 	var drawing = draw2d.create({ graphicsDevice : graphicsDevice });
 

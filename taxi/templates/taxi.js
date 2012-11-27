@@ -12,5 +12,5 @@
 /*{{ javascript('jslib/boxtree.js') }}*/
 
 /*{{ javascript("scripts/Game.js") }}*/
-/*{{ javascript("scripts/SpriteDrawing.js") }}*/
+/*{{ javascript("scripts/Rendering.js") }}*/
 /*{{ javascript("scripts/Taxi.js") }}*/
