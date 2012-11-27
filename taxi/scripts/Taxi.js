@@ -133,7 +133,7 @@
 
 		var onKeyUp = function onKeyUpFn(keynum) {
 			if (keynum === keyCodes.W) {				
-				body.setForce(10);
+				body.setForce(1);
 				console.log("W");
 			}
 
