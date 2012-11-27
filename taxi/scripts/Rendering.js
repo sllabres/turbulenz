@@ -6,12 +6,8 @@ function Rendering(draw2d, graphicsDevice, spriteRendering) {
 		if (graphicsDevice.beginFrame()) {			
 			drawing.setBackBuffer();
 			drawing.clear(clearColour);
-			drawing.begin('alpha');			
-
-			if(spriteRendering != undefined) {
-				spriteRendering.render();
-			}
-
+			drawing.begin('alpha');
+			spriteRendering.render();
 			drawing.end();
 			graphicsDevice.endFrame();
 		}
