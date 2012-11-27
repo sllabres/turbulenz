@@ -18,7 +18,7 @@
  			stageWidth = 1024,
  			stageHeight = 768,
  			physics2D = Physics2DDevice.create(),
- 			world = phys2D.createWorld({
+ 			world = physics2D.createWorld({
 				gravity : [0, 10]
 			});
 
