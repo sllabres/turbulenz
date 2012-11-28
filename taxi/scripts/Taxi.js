@@ -130,9 +130,11 @@
 				});
 		}
 
+		var yForce = 0,
+			xForce = 0;
+
 		var onKeyDown = function onKeyDown(keynum) {
-			var yForce = 0,
-				xForce = 0;
+			
 			if (keynum === keyCodes.W) {
 				yForce = -50;
 			}
