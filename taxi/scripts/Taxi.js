@@ -16,8 +16,8 @@
 			pysicsDebug = Physics2DDebugDraw.create({
  				graphicsDevice : graphicsDevice
  			}),
- 			stageWidth = graphicsDevice.height,
- 			stageHeight = graphicsDevice.width,
+ 			stageHeight = graphicsDevice.height,
+ 			stageWidth = graphicsDevice.width,
  			physics2D = Physics2DDevice.create(),
  			world = physics2D.createWorld({
 				gravity : [0, 21]
