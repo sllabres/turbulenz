@@ -155,6 +155,8 @@
 		};
 
 		var onKeyUp = function onKeyUp(keynum) {
+			yForce = 0;
+			xForce = 0;
 			body.setForce([0, 0]);
 		};
 
