@@ -136,19 +136,19 @@
 		var onKeyDown = function onKeyDown(keynum) {
 			
 			if (keynum === keyCodes.W) {
-				yForce = -50;
+				yForce = -20;
 			}
 
 			if (keynum === keyCodes.S) {
-				yForce = 50;
+				yForce = 20;
 			}
 
 			if (keynum === keyCodes.D) {				
-				xForce = 50;
+				xForce = 20;
 			}
 
 			if (keynum === keyCodes.A) {								
-				xForce = -50;
+				xForce = -20;
 			}
 
 			body.setForce([xForce, yForce]);
