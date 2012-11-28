@@ -134,15 +134,15 @@
 			var yForce = 0,
 				xForce = 0;
 			if (keynum === keyCodes.W) {
-				yForce = -100;
+				yForce = -50;
 			}
 
 			if (keynum === keyCodes.D) {				
-				xForce = 100;
+				xForce = 50;
 			}
 
 			if (keynum === keyCodes.A) {								
-				xForce = -100;
+				xForce = -50;
 			}
 
 			body.setForce([xForce, yForce]);
