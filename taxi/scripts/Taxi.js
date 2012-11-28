@@ -40,7 +40,7 @@
 			world.clear();
 			world.addRigidBody(body);
 
- 			drawing2d.configure({ viewportRectangle : [0, 0, stageWidth, stageHeight] });
+ 			drawing2d.configure({ viewportRectangle : [0, 0, stageWidth, stageHeight], scaleMode : 'scale' });
 			border = physics2D.createRigidBody({
 				type : 'static',
 				shapes : [
