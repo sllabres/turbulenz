@@ -20,7 +20,7 @@
  			stageHeight = 768,
  			physics2D = Physics2DDevice.create(),
  			world = physics2D.createWorld({
-				gravity : [0, 30]
+				gravity : [0, 21]
 			}),
 			heavyMaterial = physics2D.createMaterial({
 				density : 3
@@ -33,7 +33,7 @@
 				shapes : [taxiShape.clone()],
 				position : [ 50, 20 ],
 				type : 'dynamic',
-				mass : 1
+				mass : 0.1
 			}),
 			realTime = 0,
 			prevTime = TurbulenzEngine.time;
