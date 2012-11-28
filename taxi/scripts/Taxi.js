@@ -137,6 +137,10 @@
 				yForce = -50;
 			}
 
+			if (keynum === keyCodes.S) {
+				yForce = 50;
+			}
+
 			if (keynum === keyCodes.D) {				
 				xForce = 50;
 			}
