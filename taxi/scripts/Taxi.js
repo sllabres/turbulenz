@@ -113,7 +113,7 @@
 							background = Draw2DSprite.create({
 							origin: [0,0],
 							texture : texture,
-							height : graphicsDevice.height,
+							height : graphicsDevice.height / 2,
 							width : graphicsDevice.width
 							});							
 						}
