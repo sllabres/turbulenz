@@ -109,10 +109,12 @@
 				function (table) {
 					graphicsDevice.createTexture({ src : table.getURL("textures/Sky512.jpg"),
 						mipmaps : true,
+						height : graphicsDevice.height,
+						width : graphicsDevice.width,
 						onload : function (texture) {
 							background = Draw2DSprite.create({
 							origin: [0,0],
-							texture : texture						
+							texture : texture
 							});							
 						}
 					});
