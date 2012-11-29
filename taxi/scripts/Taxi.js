@@ -141,6 +141,7 @@
 							city = Draw2DSprite.create({
 							x : 1024,
 							y : graphicsDevice.height - 128,
+							width : graphicsDevice.width,
 							texture : texture						
 							});
 						}
