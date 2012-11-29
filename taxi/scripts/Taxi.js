@@ -138,7 +138,7 @@
 					graphicsDevice.createTexture({ src : table.getURL("textures/City.jpg"),
 						mipmaps : true,
 						onload : function (texture) {
-							taxi = Draw2DSprite.create({
+							city = Draw2DSprite.create({
 							y : graphicsDevice.height - 300,
 							texture : texture						
 							});
