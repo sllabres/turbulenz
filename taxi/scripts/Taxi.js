@@ -120,7 +120,7 @@
 						}
 					});
 
-					graphicsDevice.createTexture({ src : table.getURL("textures/taxi.png"),
+					graphicsDevice.createTexture({ src : table.getURL("textures/TaxiNew.png"),
 						mipmaps : true,
 						onload : function (texture) {
 							taxi = Draw2DSprite.create({
