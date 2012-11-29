@@ -23,8 +23,8 @@
 				gravity : [0, 21]
 			}),
 			heavyMaterial = physics2D.createMaterial({
-				elasticity : 1,
-				density : 3
+				elasticity : 0.1,
+				density : 10
 			}),
 			taxiShape = physics2D.createPolygonShape({
 				vertices : physics2D.createBoxVertices(64, 32),
