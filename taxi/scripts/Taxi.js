@@ -135,7 +135,7 @@
 						}
 					});
 
-					graphicsDevice.createTexture({ src : table.getURL("textures/City.jpg"),
+					graphicsDevice.createTexture({ src : table.getURL("textures/CityNew.jpg"),
 						mipmaps : true,
 						onload : function (texture) {
 							city = Draw2DSprite.create({
