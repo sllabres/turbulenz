@@ -10,6 +10,7 @@
 			requestHandler = RequestHandler.create({}),
 			backgroundColour = [0.3,0.3,0.3,1],
 			background,
+			city,
 			taxi,
 			inputDevice = TurbulenzEngine.createInputDevice({}),
 			keyCodes = inputDevice.keyCodes,
@@ -66,7 +67,8 @@
 			pysicsDebug.setPhysics2DViewport([0, 0, stageWidth, stageHeight]);
 
 	    function update() {
-		    spriteRendering.addSprite(background);		    
+		    spriteRendering.addSprite(background);
+		    spriteRendering.addSprite(city);		    
 
 		    var curTime = TurbulenzEngine.time;
 		    var timeDelta = (curTime - prevTime);
@@ -128,6 +130,16 @@
 							taxi = Draw2DSprite.create({
 							x : 50,
 							y : 20,
+							texture : texture						
+							});
+						}
+					});
+
+					graphicsDevice.createTexture({ src : table.getURL("textures/City.jpg"),
+						mipmaps : true,
+						onload : function (texture) {
+							taxi = Draw2DSprite.create({
+							y : graphicsDevice.height - 300,
 							texture : texture						
 							});
 						}
