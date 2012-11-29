@@ -139,7 +139,7 @@
 						mipmaps : true,
 						onload : function (texture) {
 							city = Draw2DSprite.create({
-							x : 1024,
+							x : 0,
 							y : graphicsDevice.height - 128,
 							width : graphicsDevice.width,
 							texture : texture						
