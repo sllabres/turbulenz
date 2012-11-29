@@ -140,7 +140,7 @@
 						onload : function (texture) {
 							city = Draw2DSprite.create({
 							x : graphicsDevice.width / 2,
-							y : graphicsDevice.height - 512,
+							y : graphicsDevice.height - 256,	
 							width : graphicsDevice.width,
 							height : graphicsDevice.height / 1.5,
 							texture : texture						
