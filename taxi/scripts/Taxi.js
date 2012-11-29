@@ -21,7 +21,7 @@
  			stageWidth = graphicsDevice.width,
  			physics2D = Physics2DDevice.create(),
  			world = physics2D.createWorld({
-				gravity : [0, 100]
+				gravity : [0, 80]
 			}),
 			heavyMaterial = physics2D.createMaterial({
 				elasticity : 0.3,
