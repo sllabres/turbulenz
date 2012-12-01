@@ -1,7 +1,7 @@
-function Rendering(drawing2d, graphicsDevice, spriteRendering) {
+function Rendering(drawing2d, graphicsDevice, spriteRendering, clearColour) {
 	"use strict";
-
-	function render(clearColour) {
+	
+	function render() {
 		if (graphicsDevice.beginFrame()) {
 			drawing2d.setBackBuffer();
 			drawing2d.clear(clearColour);

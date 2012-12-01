@@ -22,27 +22,27 @@
 				clear : function () { },
 				begin : function () { },
 				end : function () { } },
-			spriteRenderingMock = { render : function () { } },
-			renderer = new Rendering(drawingMock, graphicsDeviceStub, spriteRenderingMock);
+			spriteRenderingStub = { render : function () { } },
+			renderer = new Rendering(drawingMock, graphicsDeviceStub, spriteRenderingStub);
 
 		renderer.render();
 
 		ok(setBackBufferCalled);
 	});
 
-	test("On render and beginFrame is true, clear called with RGBA [0, 0, 0, 0]", function () {
+	test("On render and beginFrame is true, clear called with RGBA [0.3,0.3,0.3,1]", function () {
 		var clearColour = [],
-			expectedClearColour = [0, 0, 0, 0],
+			expectedClearColour = [0.3,0.3,0.3,1],
 			graphicsDeviceStub = { beginFrame : function () { return true; },
 				endFrame : function () { } },
-			drawingStub = { setBackBuffer : function () { },
+			drawingMock = { setBackBuffer : function () { },
 				clear : function (colour) { clearColour = colour; },
 				begin : function () { },
 				end : function () { } },
-			spriteRenderingMock = { render : function () { } },
-			renderer = new Rendering(drawingStub, graphicsDeviceStub, spriteRenderingMock);
+			spriteRenderingStub = { render : function () { } },
+			renderer = new Rendering(drawingMock, graphicsDeviceStub, spriteRenderingStub, expectedClearColour);
 
-		renderer.render(expectedClearColour);
+		renderer.render();
 
 		equal(expectedClearColour, clearColour);
 	});

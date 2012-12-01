@@ -8,7 +8,7 @@ deploy_files:
 - js/*
 - textures/*
 - staticmax/*
-deployed: 20:31 | 29/11/2012
+deployed: 19:53 | 30/11/2012
 engine_version: 0.23.1
 flash_main: ''
 is_multiplayer: false
