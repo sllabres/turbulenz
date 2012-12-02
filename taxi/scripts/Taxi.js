@@ -2,6 +2,9 @@
 /*global TurbulenzEngine,TurbulenzServices,Canvas,Draw2D*/
 (function() {
 	TurbulenzEngine.onload = function onload() {
+
+		//var game = new Game(TurbulenzEngine)
+
 	    "use strict";
 	    var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 	    	drawing2d = Draw2D.create({ graphicsDevice : graphicsDevice }),
