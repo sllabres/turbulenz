@@ -1,4 +1,4 @@
-/*jslint browser: true*/
+ /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices,Canvas,Draw2D*/
 (function() {
 	TurbulenzEngine.onload = function onload() {
@@ -17,9 +17,6 @@
 			taxi,
 			inputDevice = TurbulenzEngine.createInputDevice({}),
 			keyCodes = inputDevice.keyCodes,
-			pysicsDebug = Physics2DDebugDraw.create({
- 				graphicsDevice : graphicsDevice
- 			}),
  			stageHeight = graphicsDevice.height,
  			stageWidth = graphicsDevice.width,
  			physics2D = Physics2DDevice.create(),
@@ -67,8 +64,6 @@
 			});
 			world.addRigidBody(border);
 
-			pysicsDebug.setPhysics2DViewport([0, 0, stageWidth, stageHeight]);
-
 	    function update() {
 		    spriteRendering.addSprite(background);
 		    spriteRendering.addSprite(city);		    
@@ -104,8 +99,7 @@
 			requestHandler = null;
 			background = null;	
 			taxi = null;	
-			graphicsDevice = null;
-			pysicsDebug = null;
+			graphicsDevice = null;			
 			physics2D = null;
 			world = null;
 			rendering = null;
