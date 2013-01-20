@@ -10,9 +10,24 @@
 		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
 
 		function sessionCreated(gameSession) {
-			drawAcl.sessionCreated(gameSession, requestHandler);
-			TurbulenzEngine.setInterval(game.update, 1000 / 60);
-		}
+			TurbulenzServices.createMappingTable(requestHandler,
+				gameSession,
+				function (table) {
+					graphicsDevice.createTexture({ src : table.getURL("textures/Sky.jpg"),
+						mipmaps : true,						
+						onload : function (texture) {
+							drawAcl.background = Draw2DSprite.create({
+							origin: [0,0],
+							texture : texture,
+							height : graphicsDevice.height,
+							width : graphicsDevice.width
+							});							
+						}
+					});
+
+					TurbulenzEngine.setInterval(game.update, 1000 / 60);
+				});
+		}		
 	};
 }());
 

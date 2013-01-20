@@ -16,26 +16,7 @@ function DrawAcl() {
 			draw2D.end();
 			graphicsDevice.endFrame();
 		}
-    }
+    }    
 
-    function sessionCreated(gameSession, requestHandler) {
-			TurbulenzServices.createMappingTable(requestHandler,
-				gameSession,
-				function (table) {
-					graphicsDevice.createTexture({ src : table.getURL("textures/Sky.jpg"),
-						mipmaps : true,						
-						onload : function (texture) {
-							background = Draw2DSprite.create({
-							origin: [0,0],
-							texture : texture,
-							height : graphicsDevice.height,
-							width : graphicsDevice.width
-							});							
-						}
-					});
-				});
-		}
-
-    return { draw: draw,
-    		 sessionCreated : sessionCreated };
+    return { draw: draw };
 }
