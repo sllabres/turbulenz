@@ -5,7 +5,7 @@ function DrawAcl() {
     	draw2D = Draw2D.create({ graphicsDevice : graphicsDevice }),
     	background;
 
-    draw2D.configure({ viewportRectangle : [0, 0, stageWidth, stageHeight], scaleMode : 'scale' });    
+    draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });    
 
     function draw() {
     	if (graphicsDevice.beginFrame()) {
