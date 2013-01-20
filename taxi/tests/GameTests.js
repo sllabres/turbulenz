@@ -6,12 +6,17 @@
 		var backgroundDrawn = false,
 			backGroundDrawing = { draw : function() { backgroundDrawn = true; } },
 			game = new Game(backGroundDrawing);
-
+			game.update();
+			
 		ok(backgroundDrawn);
 	});
 }());
 
 function Game(backgroundDrawing) {
 	"use strict";
-	backgroundDrawing.draw();
+	function update() {
+		backgroundDrawing.draw();
+	}
+
+	return { update : update };
 }
