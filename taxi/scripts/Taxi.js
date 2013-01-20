@@ -3,6 +3,7 @@
 (function() {
 	TurbulenzEngine.onload = function onload() {
 		var requestHandler = RequestHandler.create({}),
+			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			drawAcl = new DrawAcl(),			
 			backgroundDrawing = new BackgroundDrawing(drawAcl),
 			game = new Game(backgroundDrawing);
