@@ -1,5 +1,19 @@
  /*jslint browser: true*/
+/*global TurbulenzEngine,TurbulenzServices*/
+(function() {
+	TurbulenzEngine.onload = function onload() {
+		var requestHandler = RequestHandler.create({}),
+			drawAcl = new DrawAcl(),			
+			backgroundDrawing = new BackgroundDrawing(drawAcl),
+			game = new Game(backgroundDrawing);		
+
+		TurbulenzServices.createGameSession(requestHandler, drawAcl.sessionCreated);
+	};
+}());
+
+ /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices,Canvas,Draw2D*/
+/*
 (function() {
 	TurbulenzEngine.onload = function onload() {
 
@@ -181,7 +195,6 @@
 		inputDevice.addEventListener('keyup', onKeyUp);
 		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
 		TurbulenzEngine.setInterval(update, 1000 / 60);
-
-
 	};
 }());
+ */

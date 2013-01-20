@@ -1,7 +1,7 @@
 {
 	"urnmapping" : { 
 		"textures/TaxiNew.png" : "TaxiNew.png",
-		"textures/Sky512.jpg" : "Sky512.jpg",
+		"textures/Sky.jpg" : "Sky.jpg",
 		"textures/CityNew.png" : "CityNew.png",
 		"textures/SkyLarge.jpg" : "SkyLarge.jpg"
 	}

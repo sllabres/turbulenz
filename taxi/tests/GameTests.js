@@ -21,6 +21,15 @@
 
 		ok(drawCalled);
 	});
+
+	test("When drawing, Then drawAcl is called with sky background", function () {
+		var backgroundImage = "",
+			drawAcl = { draw : function(image) { backgroundImage = image }},
+			backgroundDrawing = new BackgroundDrawing(drawAcl);
+			backgroundDrawing.draw();;
+
+			equal(backgroundImage, "Sky");
+	});
 }());
 
 function Game(backgroundDrawing) {
@@ -35,7 +44,7 @@ function Game(backgroundDrawing) {
 function BackgroundDrawing(drawAcl) {
 	"use strict";
 	function draw() {
-		drawAcl.draw();
+		drawAcl.draw("Sky");
 	}
 
 	return { draw : draw };
