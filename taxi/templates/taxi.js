@@ -13,6 +13,6 @@
 /*{{ javascript('jslib/boxtree.js') }}*/
 
 /*{{ javascript("scripts/Game.js") }}*/
-/*{{ javascript("scripts/Rendering.js") }}*/
-/*{{ javascript("scripts/SpriteRendering.js") }}*/
+/*{{ javascript("scripts/BackgroundDrawing.js") }}*/
+/*{{ javascript("scripts/DrawAcl.js") }}*/
 /*{{ javascript("scripts/Taxi.js") }}*/

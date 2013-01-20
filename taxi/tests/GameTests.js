@@ -32,20 +32,3 @@
 	});
 }());
 
-function Game(backgroundDrawing) {
-	"use strict";
-	function update() {
-		backgroundDrawing.draw();
-	}
-
-	return { update : update };
-}
-
-function BackgroundDrawing(drawAcl) {
-	"use strict";
-	function draw() {
-		drawAcl.draw("Sky");
-	}
-
-	return { draw : draw };
-}
