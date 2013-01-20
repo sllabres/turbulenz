@@ -5,9 +5,14 @@
 		var requestHandler = RequestHandler.create({}),
 			drawAcl = new DrawAcl(),			
 			backgroundDrawing = new BackgroundDrawing(drawAcl),
-			game = new Game(backgroundDrawing);		
+			game = new Game(backgroundDrawing);
 
-		TurbulenzServices.createGameSession(requestHandler, drawAcl.sessionCreated);
+		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
+
+		function sessionCreated(gameSession) {
+			drawAcl.sessionCreated(gameSession, requestHandler);
+			TurbulenzEngine.setInterval(game.update, 1000 / 60);
+		}
 	};
 }());
 

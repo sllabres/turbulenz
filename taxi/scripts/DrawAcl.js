@@ -2,8 +2,7 @@
 function DrawAcl() {
 	"use strict";
 	var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-    	draw2D = Draw2D.create({ graphicsDevice : graphicsDevice }),
-    	requestHandler = RequestHandler.create({}),
+    	draw2D = Draw2D.create({ graphicsDevice : graphicsDevice }),    	
     	background;
 
     draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });    
@@ -19,7 +18,7 @@ function DrawAcl() {
 		}
     }
 
-    function sessionCreated(gameSession) {
+    function sessionCreated(gameSession, requestHandler) {
 			TurbulenzServices.createMappingTable(requestHandler,
 				gameSession,
 				function (table) {
