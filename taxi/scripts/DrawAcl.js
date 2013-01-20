@@ -11,6 +11,7 @@ function DrawAcl(graphicsDevice) {
 			draw2D.setBackBuffer();
 			draw2D.clear([0.3,0.3,0.3,1]);
 			draw2D.begin('alpha');
+			alert(background);
 			draw2D.drawSprite(background);
 			draw2D.end();
 			graphicsDevice.endFrame();
