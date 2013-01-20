@@ -3,12 +3,23 @@
 	"use strict";
 	module("Given game started");
 	test("When updating, Then draw background", function () {
-		var backgroundDrawn = false,
-			backGroundDrawing = { draw : function() { backgroundDrawn = true; } },
+		var drawCalled = false,
+			backGroundDrawing = { draw : function() { drawCalled = true; } },
 			game = new Game(backGroundDrawing);
 			game.update();
-			
-		ok(backgroundDrawn);
+
+		ok(drawCalled);
+	});
+
+	module("Given drawing background");
+	test("When drawing, Then drawACL is called", function () {
+		var drawCalled = false,
+			drawAcl = { draw : function() { drawCalled = true; }},
+			backgroundDrawing = new BackgroundDrawing(drawAcl);
+
+		backgroundDrawing.draw();
+
+		ok(drawCalled);
 	});
 }());
 
@@ -19,4 +30,13 @@ function Game(backgroundDrawing) {
 	}
 
 	return { update : update };
+}
+
+function BackgroundDrawing(drawAcl) {
+	"use strict";
+	function draw() {
+		drawAcl.draw();
+	}
+
+	return { draw : draw };
 }
