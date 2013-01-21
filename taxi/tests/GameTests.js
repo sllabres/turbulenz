@@ -45,14 +45,16 @@
 	});
 }());
 
-function Game(requestFactory, backgroundDrawing) {
+function Game(requestHandlerFactory, backgroundDrawing) {
 	"use strict";
+	var requestHandler = {};
+
 	function update() {
 		backgroundDrawing.draw();
 	}
 
 	function load() {
-		requestFactory.create({});
+		requestHandler = requestHandlerFactory.create({});
 	}
 
 	return { load : load, 
