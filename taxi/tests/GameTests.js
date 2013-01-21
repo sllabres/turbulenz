@@ -16,8 +16,9 @@
 
 	test("When updating, Then draw background", function () {
 		var drawCalled = false,
+			requestHandlerStub = {},
 			backGroundDrawing = { draw : function() { drawCalled = true; } },
-			game = new Game({}, backGroundDrawing);
+			game = new Game(requestHandlerStub, backGroundDrawing);
 			game.update();
 
 		ok(drawCalled);
