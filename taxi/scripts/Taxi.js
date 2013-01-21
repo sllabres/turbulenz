@@ -1,7 +1,9 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices*/
 (function() {
-	TurbulenzEngine.onload = function onload() {
+	
+	/*TurbulenzEngine.onload = function onload() {
+
 		var requestHandler = RequestHandler.create({}),
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			drawAcl = new DrawAcl(graphicsDevice),			
@@ -29,7 +31,7 @@
 					TurbulenzEngine.setInterval(game.update, 1000 / 60);
 				});
 		}		
-	};
+	};*/
 }());
 
  /*jslint browser: true*/
