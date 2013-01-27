@@ -2,7 +2,7 @@
 (function () {
 	"use strict";
 	module("Given turbulenz game")
-	test("When onload Then create RequestHandler with empty parameters", function() {
+	test("When load called Then create RequestHandler with empty parameters", function() {
 		var passedParameters = null,
 			expectedPropertiesCount = 0,
 			requestHandlerMock = { create : function(parameters) { passedParameters = parameters; } },
@@ -14,20 +14,32 @@
 		ok(Object.keys(passedParameters).length === expectedPropertiesCount);
 	});
 
-	test("When onload Then create GrapihicsDevice with empty parameters", function() {
+	test("When load called Then create GrapihicsDevice with empty parameters", function() {
 		var passedParameters = null,
 			expectedPropertiesCount = 0,
 			requestHandlerStub = { create : function() { } },
-			turbulenzEngine = { createGraphicsDevice : function(parameters) { passedParameters = parameters; } },
-			turbulenzGame = new TurbulenzGame(requestHandlerStub, turbulenzEngine);
+			turbulenzEngineMock = { createGraphicsDevice : function(parameters) { passedParameters = parameters; } },
+			turbulenzGame = new TurbulenzGame(requestHandlerStub, turbulenzEngineMock);
 
 		turbulenzGame.load();
 
 		ok(Object.keys(passedParameters).length === expectedPropertiesCount);
 	});
+
+	test("When load called Then call createGameSession", function() {
+		var createGameSessionCalled = false,
+			requestHandlerStub = { create : function() { } },
+			turbulenzEngineStub = { createGraphicsDevice : function() { } },
+			turbulenzServicesMock = { createGameSession : function() { createGameSessionCalled = true; } },
+			turbulenzGame = new TurbulenzGame(requestHandlerStub, turbulenzEngineStub, turbulenzServicesMock);
+
+		turbulenzGame.load();
+
+		ok(createGameSessionCalled);
+	});
 }());
 
-function TurbulenzGame(requestHandlerFactory, turbulenzEngine) {
+function TurbulenzGame(requestHandlerFactory, turbulenzEngine, turbulenzServices) {
 	"use strict";
 	var requestHandler = null,
 		graphicsDevice = null;
@@ -35,6 +47,10 @@ function TurbulenzGame(requestHandlerFactory, turbulenzEngine) {
 	function load() {
 		requestHandler = requestHandlerFactory.create({});
 		graphicsDevice = turbulenzEngine.createGraphicsDevice({});		
+
+		if(turbulenzServices != null) {
+			turbulenzServices.createGameSession();
+		}
 	}
 
 	return { load : load };
