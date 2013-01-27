@@ -5,8 +5,9 @@
 	test("When onload Then create RequestHandler with empty parameters", function() {
 		var passedParameters = null,
 			expectedPropertiesCount = 0,
-			requestHandler = { create : function(parameters) { passedParameters = parameters; } },
-			turbulenzGame = new TurbulenzGame(requestHandler);
+			requestHandlerMock = { create : function(parameters) { passedParameters = parameters; } },
+			turbulenzEngineStub = { createGraphicsDevice : function() { } },
+			turbulenzGame = new TurbulenzGame(requestHandlerMock, turbulenzEngineStub);
 
 		turbulenzGame.load();
 
