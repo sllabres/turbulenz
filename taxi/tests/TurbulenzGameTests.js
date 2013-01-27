@@ -7,7 +7,8 @@
 			expectedPropertiesCount = 0,
 			requestHandlerMock = { create : function(parameters) { passedParameters = parameters; } },
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
-			turbulenzGame = new TurbulenzGame(requestHandlerMock, turbulenzEngineStub);
+			turbulenzServicesStub = { createGameSession : function() { } },
+			turbulenzGame = new TurbulenzGame(requestHandlerMock, turbulenzEngineStub, turbulenzServicesStub);
 
 		turbulenzGame.load();
 
@@ -19,7 +20,8 @@
 			expectedPropertiesCount = 0,
 			requestHandlerStub = { create : function() { } },
 			turbulenzEngineMock = { createGraphicsDevice : function(parameters) { passedParameters = parameters; } },
-			turbulenzGame = new TurbulenzGame(requestHandlerStub, turbulenzEngineMock);
+			turbulenzServicesStub = { createGameSession : function() { } },
+			turbulenzGame = new TurbulenzGame(requestHandlerStub, turbulenzEngineMock, turbulenzServicesStub);
 
 		turbulenzGame.load();
 
@@ -46,11 +48,8 @@ function TurbulenzGame(requestHandlerFactory, turbulenzEngine, turbulenzServices
 
 	function load() {
 		requestHandler = requestHandlerFactory.create({});
-		graphicsDevice = turbulenzEngine.createGraphicsDevice({});		
-
-		if(turbulenzServices != null) {
-			turbulenzServices.createGameSession();
-		}
+		graphicsDevice = turbulenzEngine.createGraphicsDevice({});
+		turbulenzServices.createGameSession();
 	}
 
 	return { load : load };
