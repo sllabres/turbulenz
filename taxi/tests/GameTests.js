@@ -13,7 +13,6 @@
 	});
 
 	module("Given game started");
-
 	test("When updating, Then draw background", function () {
 		var drawCalled = false,
 			requestHandlerStub = {},
