@@ -29,11 +29,12 @@
 
 function TurbulenzGame(requestHandlerFactory, turbulenzEngine) {
 	"use strict";
-	var requestHandler = {};
+	var requestHandler = null,
+		graphicsDevice = null;
 
 	function load() {
 		requestHandler = requestHandlerFactory.create({});
-		turbulenzEngine.createGraphicsDevice({});		
+		graphicsDevice = turbulenzEngine.createGraphicsDevice({});		
 	}
 
 	return { load : load };
