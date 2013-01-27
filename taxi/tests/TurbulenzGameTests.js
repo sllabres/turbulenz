@@ -33,10 +33,7 @@ function TurbulenzGame(requestHandlerFactory, turbulenzEngine) {
 
 	function load() {
 		requestHandler = requestHandlerFactory.create({});
-
-		if(turbulenzEngine != null) {
-			turbulenzEngine.createGraphicsDevice({});
-		}
+		turbulenzEngine.createGraphicsDevice({});		
 	}
 
 	return { load : load };
