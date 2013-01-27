@@ -2,16 +2,6 @@
 (function () {
 	"use strict";
 	module("Given turbulenz game")
-	test("When onload Then create RequestHandler", function () {
-		var requestHandlerCreated = false,
-			requestHandler = { create : function() { requestHandlerCreated = true; } },
-			turbulenzGame = new TurbulenzGame(requestHandler);
-
-		turbulenzGame.load();
-
-		ok(requestHandlerCreated);
-	});
-
 	test("When onload Then create RequestHandler with empty parameters", function() {
 		var passedParameters = null,
 			expectedPropertiesCount = 0,
