@@ -12,7 +12,4 @@
 /*{{ javascript('jslib/physics2ddebugdraw.js') }}*/
 /*{{ javascript('jslib/boxtree.js') }}*/
 
-/*{{ javascript("scripts/Game.js") }}*/
-/*{{ javascript("scripts/BackgroundDrawing.js") }}*/
-/*{{ javascript("scripts/DrawAcl.js") }}*/
 /*{{ javascript("scripts/Taxi.js") }}*/
