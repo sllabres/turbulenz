@@ -98,10 +98,8 @@ function TurbulenzGameLoader(requestHandlerFactory, turbulenzEngine, turbulenzSe
 		turbulenzServices.createMappingTable(requestHandler, gameSession, mappingTableCreated);
 	}
 
-	function mappingTableCreated(table) {
-		if(textureLoader != null) {
-			textureLoader.load();
-		}
+	function mappingTableCreated(table) {		
+		textureLoader.load();
 	}
 
 	function load() {
