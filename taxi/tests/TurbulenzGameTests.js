@@ -74,18 +74,19 @@
 		equal(receivedGameSession, expectedGameSession);
 	});
 
-	test("When mappingTableCreated Then textureLoading load called", function() {
-		var textureLoaderLoadCalled = false,		
+	test("When mappingTableCreated Then textureLoading load called with mappingTable", function() {
+		var expectedMappingTable = "gameSession",
+			receivedMappingTable = "",
 			requestHandlerFactoryStub = { create : function() { } },			
-			textureLoaderMock = { load : function() { textureLoaderLoadCalled = true; } },
+			textureLoaderMock = { load : function(mappingTable) { receivedMappingTable = mappingTable; } },
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
-										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
+										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(expectedMappingTable); } },
 			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesStub, textureLoaderMock);
 
 		turbulenzGame.load();
 
-		ok(textureLoaderLoadCalled);
+		equal(receivedMappingTable, expectedMappingTable);
 	});
 }());
 
@@ -99,7 +100,7 @@ function TurbulenzGameLoader(requestHandlerFactory, turbulenzEngine, turbulenzSe
 	}
 
 	function mappingTableCreated(table) {		
-		textureLoader.load();
+		textureLoader.load(table);
 	}
 
 	function load() {
