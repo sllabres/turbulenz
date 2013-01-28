@@ -8,7 +8,7 @@
 			requestHandlerFactoryMock = { create : function(parameters) { passedParameters = parameters; } },
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesStub = { createGameSession : function() { } },
-			turbulenzGame = new TurbulenzGame(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesStub);
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesStub);
 
 		turbulenzGame.load();
 
@@ -21,7 +21,7 @@
 			requestHandlerFactoryStub = { create : function() { } },
 			turbulenzEngineMock = { createGraphicsDevice : function(parameters) { passedParameters = parameters; } },
 			turbulenzServicesStub = { createGameSession : function() { } },
-			turbulenzGame = new TurbulenzGame(requestHandlerFactoryStub, turbulenzEngineMock, turbulenzServicesStub);
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzEngineMock, turbulenzServicesStub);
 
 		turbulenzGame.load();
 
@@ -34,7 +34,7 @@
 			requestHandlerFactoryMock = { create : function() { return expectedRequestHandler; } },
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesMock = { createGameSession : function(requestHandler) { receivedRequestHandler = requestHandler; } },
-			turbulenzGame = new TurbulenzGame(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesMock);
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesMock);
 
 		turbulenzGame.load();
 
@@ -48,7 +48,7 @@
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
 										createMappingTable : function(requestHandler) { receivedRequestHandler = requestHandler; } },
-			turbulenzGame = new TurbulenzGame(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesMock);
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesMock);
 
 		turbulenzGame.load();
 
@@ -62,26 +62,41 @@
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(expectedGameSession); },
 										createMappingTable : function(requestHandler, gameSession) { receivedGameSession = gameSession; } },
-			turbulenzGame = new TurbulenzGame(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesMock);
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesMock);
 
 		turbulenzGame.load();
 
 		equal(receivedGameSession, expectedGameSession);
 	});
+
+	test("When mappingTableCreated Then textureLoading load called", function() {
+		var textureLoaderLoadCalled = false,		
+			requestHandlerFactoryStub = { create : function() { } },			
+			textureLoaderMock = { load : function() { textureLoaderLoadCalled = true; } },			
+			turbulenzEngineStub = { createGraphicsDevice : function() { } },
+			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
+										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesStub, textureLoaderMock);
+
+		turbulenzGame.load();
+
+		ok(textureLoaderLoadCalled);
+	});
 }());
 
-function TurbulenzGame(requestHandlerFactory, turbulenzEngine, turbulenzServices, textureLoading) {
+function TurbulenzGameLoader(requestHandlerFactory, turbulenzEngine, turbulenzServices, textureLoader) {
 	"use strict";
 	var requestHandler = null,
-		graphicsDevice = null,
-		mappingTable = null;
+		graphicsDevice = null;
 
 	function sessionCreated(gameSession) {
 		turbulenzServices.createMappingTable(requestHandler, gameSession, mappingTableCreated);
 	}
 
 	function mappingTableCreated(table) {
-		mappingTable = table;
+		if(textureLoader != null) {
+			textureLoader.load();
+		}
 	}
 
 	function load() {
