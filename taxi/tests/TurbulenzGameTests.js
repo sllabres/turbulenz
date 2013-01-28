@@ -69,22 +69,37 @@
 		equal(receivedGameSession, expectedGameSession);
 	});
 
-	test("When game createMappingTable called Then createTexture called", function() {
+	test("When createMappingTable called Then createTexture called", function() {
 		var createTextureCalled = false,		
 			requestHandlerFactoryStub = { create : function() { } },
 			graphicsDeviceMock = { createTexture : function() { createTextureCalled = true; } },
 			turbulenzEngineStub = { createGraphicsDevice : function(parameters) { return graphicsDeviceMock; } },
 			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
-										createMappingTable : function(requestHandler, sessionCreated, mappingTableCreated) { mappingTableCreated(); } },
+										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
 			turbulenzGame = new TurbulenzGame(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesStub);
 
 		turbulenzGame.load();
 
 		ok(createTextureCalled);
-	});	
+	});
+
+	test("When mappingTableCreated Then textureLoading load called", function() {
+		var textureLoadingLoadCalled = false,		
+			requestHandlerFactoryStub = { create : function() { } },
+			graphicsDeviceMock = { createTexture : function() { } },
+			textureLoadingMock = { load : function() { textureLoadingLoadCalled = true; } },			
+			turbulenzEngineStub = { createGraphicsDevice : function(parameters) { return graphicsDeviceMock; } },
+			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
+										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
+			turbulenzGame = new TurbulenzGame(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesStub, textureLoadingMock);
+
+		turbulenzGame.load();
+
+		ok(textureLoadingLoadCalled);
+	});
 }());
 
-function TurbulenzGame(requestHandlerFactory, turbulenzEngine, turbulenzServices) {
+function TurbulenzGame(requestHandlerFactory, turbulenzEngine, turbulenzServices, textureLoading) {
 	"use strict";
 	var requestHandler = null,
 		graphicsDevice = null;
@@ -95,6 +110,10 @@ function TurbulenzGame(requestHandlerFactory, turbulenzEngine, turbulenzServices
 
 	function mappingTableCreated() {
 		graphicsDevice.createTexture();
+
+		if(textureLoading != null) {
+			textureLoading.load();
+		}
 	}
 
 	function load() {
