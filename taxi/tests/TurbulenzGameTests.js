@@ -68,6 +68,20 @@
 
 		equal(receivedGameSession, expectedGameSession);
 	});
+
+	test("When game createMappingTable called Then createTexture called", function() {
+		var createTextureCalled = false,		
+			requestHandlerFactoryStub = { create : function() { } },
+			graphicsDeviceMock = { createTexture : function() { createTextureCalled = true; } },
+			turbulenzEngineStub = { createGraphicsDevice : function(parameters) { return graphicsDeviceMock; } },
+			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
+										createMappingTable : function(requestHandler, sessionCreated, mappingTableCreated) { mappingTableCreated(); } },
+			turbulenzGame = new TurbulenzGame(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesStub);
+
+		turbulenzGame.load();
+
+		ok(createTextureCalled);
+	});	
 }());
 
 function TurbulenzGame(requestHandlerFactory, turbulenzEngine, turbulenzServices) {
@@ -76,7 +90,11 @@ function TurbulenzGame(requestHandlerFactory, turbulenzEngine, turbulenzServices
 		graphicsDevice = null;
 
 	function sessionCreated(gameSession) {
-		turbulenzServices.createMappingTable(requestHandler, gameSession);
+		turbulenzServices.createMappingTable(requestHandler, gameSession, mappingTableCreated);
+	}
+
+	function mappingTableCreated() {
+		graphicsDevice.createTexture();
 	}
 
 	function load() {
