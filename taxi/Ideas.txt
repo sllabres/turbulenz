@@ -1,5 +1,5 @@
 Turbulenz Game Engine
-Handles Turbulenz engine onload event.  Creates game session and gets mapping table.
+Handles Turbulenz engine onload event.  Creates game session, creates .
 
 TubulenzGame (TurbluenzEngine, TurbulenzServices, RequestHandler)
 	onload
