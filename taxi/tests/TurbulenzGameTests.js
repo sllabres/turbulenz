@@ -68,52 +68,20 @@
 
 		equal(receivedGameSession, expectedGameSession);
 	});
-
-	test("When createMappingTable called Then createTexture called", function() {
-		var createTextureCalled = false,		
-			requestHandlerFactoryStub = { create : function() { } },
-			graphicsDeviceMock = { createTexture : function() { createTextureCalled = true; } },
-			turbulenzEngineStub = { createGraphicsDevice : function(parameters) { return graphicsDeviceMock; } },
-			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
-										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
-			turbulenzGame = new TurbulenzGame(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesStub);
-
-		turbulenzGame.load();
-
-		ok(createTextureCalled);
-	});
-
-	test("When mappingTableCreated Then textureLoading load called", function() {
-		var textureLoadingLoadCalled = false,		
-			requestHandlerFactoryStub = { create : function() { } },
-			graphicsDeviceMock = { createTexture : function() { } },
-			textureLoadingMock = { load : function() { textureLoadingLoadCalled = true; } },			
-			turbulenzEngineStub = { createGraphicsDevice : function(parameters) { return graphicsDeviceMock; } },
-			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
-										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
-			turbulenzGame = new TurbulenzGame(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesStub, textureLoadingMock);
-
-		turbulenzGame.load();
-
-		ok(textureLoadingLoadCalled);
-	});
 }());
 
 function TurbulenzGame(requestHandlerFactory, turbulenzEngine, turbulenzServices, textureLoading) {
 	"use strict";
 	var requestHandler = null,
-		graphicsDevice = null;
+		graphicsDevice = null,
+		mappingTable = null;
 
 	function sessionCreated(gameSession) {
 		turbulenzServices.createMappingTable(requestHandler, gameSession, mappingTableCreated);
 	}
 
-	function mappingTableCreated() {
-		graphicsDevice.createTexture();
-
-		if(textureLoading != null) {
-			textureLoading.load();
-		}
+	function mappingTableCreated(table) {
+		mappingTable = table;
 	}
 
 	function load() {
