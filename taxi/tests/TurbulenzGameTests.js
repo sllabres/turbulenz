@@ -144,5 +144,6 @@ function TurbulenzGameLoader(requestHandlerFactory, turbulenzEngine, turbulenzSe
 		graphicsDevice = null;		
 	}
 
-	return { load : load };
+	return { load : load,
+			 unload : unload };
 }
