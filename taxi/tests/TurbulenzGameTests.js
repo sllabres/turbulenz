@@ -129,8 +129,8 @@ function TurbulenzGameLoader(requestHandlerFactory, turbulenzEngine, turbulenzSe
 		loadCompleted(table, graphicsDevice, requestHandler);		
 	}
 
-	function load(onloadCompleted) {
-		loadCompleted = onloadCompleted;
+	function load(gameLoadCompleted) {
+		loadCompleted = gameLoadCompleted;
 		requestHandler = requestHandlerFactory.create({});
 		graphicsDevice = turbulenzEngine.createGraphicsDevice({});
 		turbulenzServices.createGameSession(requestHandler, sessionCreated);
