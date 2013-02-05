@@ -74,6 +74,8 @@
 							height : graphicsDevice.height,
 							width : graphicsDevice.width
 							}));
+
+				alert("textureOnload");
 			};
 		
 			var texture = textureManager.load("textures/Sky.jpg", true, onload);
