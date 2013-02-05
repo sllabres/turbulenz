@@ -79,11 +79,13 @@
 			};
 
 			alert("loadTexture");		
-			var texture = textureManager.load("textures/Sky.jpg", true, onload);
+			//var texture = textureManager.load("textures/Sky.jpg", true, onload);
 
 			TurbulenzServices.createMappingTable(requestHandler,
 				gameSession,
 				function (table) {
+					var texture = textureManager.load("textures/Sky.jpg", true, onload);
+					
 					graphicsDevice.createTexture({ src : table.getURL("textures/Sky.jpg"),
 						mipmaps : true,						
 						onload : function (texture) {
