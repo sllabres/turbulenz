@@ -80,7 +80,7 @@
 
 			alert("loadTexture");
 		
-			var texture = textureManager.load("textures/Sky.jpg", true, onload);
+			var texture = textureManager.load("Sky.jpg", true, onload);
 
 			/*TurbulenzServices.createMappingTable(requestHandler,
 				gameSession,
