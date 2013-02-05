@@ -60,12 +60,25 @@
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			drawAcl = new DrawAcl(graphicsDevice),			
 			backgroundDrawing = new BackgroundDrawing(drawAcl),
-			game = new Game(backgroundDrawing);
+			game = new Game(backgroundDrawing),
+			textureManager = TextureManager.create(graphicsDevice, requestHandler);
 
 		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
 
 		function sessionCreated(gameSession) {
-			TurbulenzServices.createMappingTable(requestHandler,
+
+			var onload = function onloadFn(textureInstance) {
+				drawAcl.setBackground(Draw2DSprite.create({
+							origin: [0,0],
+							texture : texture,
+							height : graphicsDevice.height,
+							width : graphicsDevice.width
+							}));
+			};
+		
+			var texture = textureManager.load("textures/Sky.jpg", true, onload);
+
+			/*TurbulenzServices.createMappingTable(requestHandler,
 				gameSession,
 				function (table) {
 					graphicsDevice.createTexture({ src : table.getURL("textures/Sky.jpg"),
@@ -81,7 +94,7 @@
 					});
 
 					TurbulenzEngine.setInterval(game.update, 1000 / 60);
-				});
+				});*/
 		}		
 	};
 }());
