@@ -96,7 +96,8 @@
 							texture : texture,
 							height : graphicsDevice.height,
 							width : graphicsDevice.width
-							}));							
+							}));		
+							TurbulenzEngine.setInterval(game.update, 1000 / 60);					
 						}
 					});				
 				});
