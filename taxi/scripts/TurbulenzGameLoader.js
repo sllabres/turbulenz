@@ -21,7 +21,7 @@ function TurbulenzGameLoader(requestHandlerFactory, turbulenzEngine, turbulenzSe
 
 	function unload() {
 		requestHandler = null;
-		graphicsDevice = null;		
+		graphicsDevice = null;
 	}
 
 	return { load : load,

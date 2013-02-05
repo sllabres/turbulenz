@@ -1,6 +1,8 @@
 Turbulenz Game Loader Engine
 Handles Turbulenz engine onload event.  Creates game session, creates .
 
+"Dependencies", "Notifiers" and "Adjusters"
+
 TubulenzGame (TurbluenzEngine, TurbulenzServices, RequestHandler)
 	onload
 		RequestHandler {}
@@ -8,9 +10,17 @@ TubulenzGame (TurbluenzEngine, TurbulenzServices, RequestHandler)
 			GameSession
 				MappingTable
 
+Taxi
+	Dependencies: TurbulenzGameLoader
+	For: Triggering load
+
 Game (BackgroundDrawing)
 	update
 		drawBackGround
+
+TextureLoader
+	For: Loads textures
+	Dependencies: MappingTable, GraphicsDevice, TextureManager
 
 
 ------------------------

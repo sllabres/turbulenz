@@ -13,3 +13,4 @@
 /*{{ javascript('jslib/boxtree.js') }}*/
 
 /*{{ javascript("scripts/Taxi.js") }}*/
+/*{{ javascript("scripts/TurbulenzGameLoader.js") }}*/

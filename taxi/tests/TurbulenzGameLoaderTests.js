@@ -1,7 +1,7 @@
 /*global module, equal, test*/
 (function () {
 	"use strict";
-	module("Given turbulenz game loader")
+	module("Given turbulenz game loader");
 	test("When load called Then create RequestHandler with empty parameters", function() {
 		var passedParameters = null,
 			expectedPropertiesCount = 0,			
