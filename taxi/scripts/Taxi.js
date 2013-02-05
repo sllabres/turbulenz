@@ -70,7 +70,7 @@
 			var onload = function onloadFn(textureInstance) {
 				drawAcl.setBackground(Draw2DSprite.create({
 							origin: [0,0],
-							texture : texture,
+							texture : textureInstance,
 							height : graphicsDevice.height,
 							width : graphicsDevice.width
 							}));
