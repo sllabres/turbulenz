@@ -2,7 +2,7 @@
 (function () {
 	"use strict";
 	module("Given texture loader");
-	test("", function() {
+	test("When load called Then TextureManager created", function() {
 		ok(true);
 	});
 }());
