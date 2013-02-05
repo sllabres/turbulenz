@@ -75,7 +75,7 @@
 							width : graphicsDevice.width
 							}));
 
-				alert("textureOnload");
+				alert(textureInstance);
 			};
 
 			alert("loadTexture");
