@@ -75,31 +75,13 @@
 							width : graphicsDevice.width
 							}));
 
-				TurbulenzEngine.setInterval(game.update, 1000 / 60);
-
-				//alert(textureInstance);
+				TurbulenzEngine.setInterval(game.update, 1000 / 60);				
 			};
-
-			//alert("loadTexture");		
-			//var texture = textureManager.load("textures/Sky.jpg", true, onload);
 
 			TurbulenzServices.createMappingTable(requestHandler,
 				gameSession,
 				function (table) {
-					var texture = textureManager.load(table.getURL("textures/Sky.jpg"), false, onload);
-
-					/*graphicsDevice.createTexture({ src : table.getURL("textures/Sky.jpg"),
-						mipmaps : true,						
-						onload : function (texture) {
-							drawAcl.setBackground(Draw2DSprite.create({
-							origin: [0,0],
-							texture : texture,
-							height : graphicsDevice.height,
-							width : graphicsDevice.width
-							}));		
-							TurbulenzEngine.setInterval(game.update, 1000 / 60);					
-						}
-					});		*/		
+					var texture = textureManager.load(table.getURL("textures/Sky.jpg"), false, onload);	
 				});
 		}			
 	};
