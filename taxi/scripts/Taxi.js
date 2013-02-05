@@ -88,6 +88,6 @@
 				function (table) {
 					var texture = textureManager.load(table.getURL("textures/Sky.jpg"), true, onload);					
 				});
-		}		
+		}			
 	};
 }());
