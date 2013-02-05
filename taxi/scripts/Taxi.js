@@ -68,21 +68,20 @@
 		function sessionCreated(gameSession) {
 
 			var onload = function onloadFn(textureInstance) {
-				drawAcl.setBackground(Draw2DSprite.create({
+				/*drawAcl.setBackground(Draw2DSprite.create({
 							origin: [0,0],
 							texture : texture,
 							height : graphicsDevice.height,
 							width : graphicsDevice.width
-							}));
+							}));*/
 
 				alert(textureInstance);
 			};
 
-			alert("loadTexture");
-		
-			var texture = textureManager.load("Sky.jpg", true, onload);
+			alert("loadTexture");		
+			var texture = textureManager.load("textures/Sky.jpg", true, onload);
 
-			/*TurbulenzServices.createMappingTable(requestHandler,
+			TurbulenzServices.createMappingTable(requestHandler,
 				gameSession,
 				function (table) {
 					graphicsDevice.createTexture({ src : table.getURL("textures/Sky.jpg"),
@@ -98,7 +97,7 @@
 					});
 
 					TurbulenzEngine.setInterval(game.update, 1000 / 60);
-				});*/
+				});
 		}		
 	};
 }());
