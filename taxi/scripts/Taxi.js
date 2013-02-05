@@ -77,7 +77,7 @@
 
 				TurbulenzEngine.setInterval(game.update, 1000 / 60);
 
-				//alert(textureInstance);
+				alert(textureInstance);
 			};
 
 			//alert("loadTexture");		
