@@ -84,19 +84,7 @@
 			TurbulenzServices.createMappingTable(requestHandler,
 				gameSession,
 				function (table) {
-					var texture = textureManager.load(table.getURL("textures/Sky.jpg"), true, onload);
-					
-					graphicsDevice.createTexture({ src : table.getURL("textures/Sky.jpg"),
-						mipmaps : true,						
-						onload : function (texture) {
-							drawAcl.setBackground(Draw2DSprite.create({
-							origin: [0,0],
-							texture : texture,
-							height : graphicsDevice.height,
-							width : graphicsDevice.width
-							}));							
-						}
-					});
+					var texture = textureManager.load(table.getURL("textures/Sky.jpg"), true, onload);					
 
 					TurbulenzEngine.setInterval(game.update, 1000 / 60);
 				});
