@@ -68,14 +68,14 @@
 		function sessionCreated(gameSession) {
 
 			var onload = function onloadFn(textureInstance) {
-				/*drawAcl.setBackground(Draw2DSprite.create({
+				drawAcl.setBackground(Draw2DSprite.create({
 							origin: [0,0],
 							texture : texture,
 							height : graphicsDevice.height,
 							width : graphicsDevice.width
-							}));*/
+							}));
 
-				alert(textureInstance);
+				//alert(textureInstance);
 			};
 
 			alert("loadTexture");		
