@@ -75,6 +75,8 @@
 							width : graphicsDevice.width
 							}));
 
+				TurbulenzEngine.setInterval(game.update, 1000 / 60);
+
 				//alert(textureInstance);
 			};
 
@@ -85,8 +87,6 @@
 				gameSession,
 				function (table) {
 					var texture = textureManager.load(table.getURL("textures/Sky.jpg"), true, onload);					
-
-					TurbulenzEngine.setInterval(game.update, 1000 / 60);
 				});
 		}		
 	};
