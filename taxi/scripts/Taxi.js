@@ -7,6 +7,15 @@
 	};
 }());*/
 
+ function BackgroundDrawing(drawAcl) {
+	"use strict";
+	function draw() {
+		drawAcl.draw("Sky");
+	}
+
+	return { draw : draw };
+}
+
  function DrawAcl(graphicsDevice) {
 	"use strict";
 	var draw2D = Draw2D.create({ graphicsDevice : graphicsDevice }),    	
