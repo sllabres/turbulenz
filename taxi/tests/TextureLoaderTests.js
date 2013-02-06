@@ -39,7 +39,7 @@
 			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { return textureManagerMock; } },
 			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, { });
 
-		textureLoader.load("");
+		textureLoader.load();
 
 		equal(receivedNoMipMaps, expectedNoMipMaps);
 	});
