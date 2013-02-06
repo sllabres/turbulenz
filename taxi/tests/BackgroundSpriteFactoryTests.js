@@ -21,6 +21,7 @@
 		backgroundSpriteFactory.create();
 
 		equal(receivedOrigin[0], expectedOrigin[0]);
+		equal(receivedOrigin[1], expectedOrigin[1]);
 	});
 }());
 
