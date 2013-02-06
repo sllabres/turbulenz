@@ -27,7 +27,7 @@
 		equal(receivedTexture, expectedExpectedTexture);
 	});
 
-	test("When create called Then Draw2DSprite.create called with screen height", function() {		
+	test("When create called Then Draw2DSprite.create called with screen height of 100", function() {		
 		var expectedExpectedHeight = 100,
 			receivedHeight = 0,
 			graphicsDeviceStub = { height: expectedExpectedHeight },
@@ -39,7 +39,7 @@
 		equal(receivedHeight, expectedExpectedHeight);
 	});
 
-	test("When create called Then Draw2DSprite.create called with screen height", function() {		
+	test("When create called Then Draw2DSprite.create called with screen height of 50", function() {		
 		var expectedExpectedHeight = 50,
 			receivedHeight = 0,
 			graphicsDeviceStub = { height: expectedExpectedHeight },
