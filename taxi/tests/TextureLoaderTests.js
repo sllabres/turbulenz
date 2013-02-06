@@ -2,23 +2,11 @@
 (function () {
 	"use strict";
 	module("Given texture loader");
-	test("When load called Then TextureManager created", function() {
-		var textureManagerCreateCalled = false,
-			textureManagerMock = { create : function() { textureManagerCreateCalled = true; } },
-			textureLoader = new TextureLoader(textureManagerMock);
-
-		textureLoader.load();
-
-		ok(textureManagerCreateCalled);
-	});
-
-	test("When load called Then TextureManager created with GraphicsDevice", function() {
+	test("When initialised Then TextureManager created with GraphicsDevice", function() {
 		var expectedGraphicsDevice = "GraphicsDevice",
 			receivedGraphicsDevice = "",
 			textureManagerMock = { create: function(graphicsDevice) { receivedGraphicsDevice = graphicsDevice } },
-			textureLoader = new TextureLoader(textureManagerMock, expectedGraphicsDevice)
-
-		textureLoader.load();
+			textureLoader = new TextureLoader(textureManagerMock, expectedGraphicsDevice)	
 
 		equal(expectedGraphicsDevice, receivedGraphicsDevice);
 	});
@@ -35,10 +23,11 @@
 	});
 }());
 
-function TextureLoader(textureManager, graphicsDevice, requestHandler) {
+function TextureLoader(textureManagerFactory, graphicsDevice, requestHandler) {
 	"use strict";
+	textureManagerFactory.create(graphicsDevice, requestHandler);
 	function load() {
-		textureManager.create(graphicsDevice, requestHandler);
+		textureManagerFactory.create(graphicsDevice, requestHandler);
 	}
 
 	return { load : load };
