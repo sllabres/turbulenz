@@ -56,13 +56,13 @@
 
 		textureLoader.load();
 
-		equal(receivedTextureName, expectedTexture);		
+		equal(receivedTextureName, expectedTextureName);		
 	});
 
 	test("When load called Then TextureManager add called with returned texture", function() {
 		var expectedTexture = "texture",
 			receivedTexture = "",
-			textureManagerMock = { load : function(path, nomipmaps, onload) { onload(expectedTexture); }, add : function(texture) { receivedTexture = texture; } },
+			textureManagerMock = { load : function(path, nomipmaps, onload) { onload(expectedTexture); }, add : function(name, texture) { receivedTexture = texture; } },
 			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { return textureManagerMock; } },
 			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, { });
 
@@ -76,8 +76,8 @@ function TextureLoader(textureManagerFactory, graphicsDevice, requestHandler) {
 	"use strict";
 	var textureManager = textureManagerFactory.create(graphicsDevice, requestHandler);
 
-	function onload(texture) {
-		textureManager.add(texture);
+	function onload(texture) {		
+		textureManager.add(texture.name, texture);		
 	}
 
 	function load(path) {
