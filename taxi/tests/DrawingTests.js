@@ -9,8 +9,18 @@
 
 		ok(draw2dCreateCalled);
 	});
+
+	test("When constructed Then Draw2d created called with GraphicsDevice", function() {
+		var expectedGraphicsDevice = "expectedGraphicsDevice",
+			receievedGraphicsDevice = "",
+			draw2DFactoryMock = { create : function(parameters) { receievedGraphicsDevice = parameters.graphicsDevice; } },
+			drawing = new Drawing(draw2DFactoryMock, expectedGraphicsDevice);
+
+		equal(receievedGraphicsDevice, expectedGraphicsDevice);
+	});
+
 }());
 
-function Drawing(draw2DFactory) {
-	draw2DFactory.create();
+function Drawing(draw2DFactory, graphicsDevice) {
+	draw2DFactory.create( { graphicsDevice : graphicsDevice } );
 }
