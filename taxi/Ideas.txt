@@ -14,8 +14,8 @@ TextureLoader
 	For: Loads textures, adds them to texture manager
 	Dependencies: MappingTable, GraphicsDevice, RequestHandler, TextureManager (loads and stores textures)
 
-SpriteFactory (WIP)
-	For: creating sprites
+BackgroundSpriteFactory (WIP)
+	For: creating background sprites
 	Dependencies: Draw2DSprite, texture
 
 BackgroundDrawing (WIP)

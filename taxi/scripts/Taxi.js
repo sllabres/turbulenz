@@ -1,6 +1,6 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
-/*(function() {
+/*(function(TurbulenzEngine,TurbulenzServices, RequestHandler) {
 	var turbulenzGameLoader = new TurbulenzGameLoader(RequestHandler, TurbulenzEngine, TurbulenzServices);		
 	TurbulenzEngine.onload = function onload() {
 		//	turbulenzGameLoader.load();
