@@ -30,7 +30,19 @@
 	test("When create called Then Draw2DSprite.create called with screen height", function() {		
 		var expectedExpectedHeight = 100,
 			receivedHeight = 0,
-			graphicsDeviceStub = { height: 100 },
+			graphicsDeviceStub = { height: expectedExpectedHeight },
+			draw2dSpriteFactoryMock = { create : function(parameters) { receivedHeight = parameters.height; } },
+			backgroundSpriteFactory = new BackgroundSpriteFactory(draw2dSpriteFactoryMock, graphicsDeviceStub);			
+
+		backgroundSpriteFactory.create();
+
+		equal(receivedHeight, expectedExpectedHeight);
+	});
+
+	test("When create called Then Draw2DSprite.create called with screen height", function() {		
+		var expectedExpectedHeight = 50,
+			receivedHeight = 0,
+			graphicsDeviceStub = { height: expectedExpectedHeight },
 			draw2dSpriteFactoryMock = { create : function(parameters) { receivedHeight = parameters.height; } },
 			backgroundSpriteFactory = new BackgroundSpriteFactory(draw2dSpriteFactoryMock, graphicsDeviceStub);			
 
