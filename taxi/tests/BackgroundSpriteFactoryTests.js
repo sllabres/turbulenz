@@ -10,13 +10,24 @@
 		backgroundSpriteFactory.create();
 
 		ok(draw2dSpriteCreatedCalled);
-	});	
+	});
+
+	test("When create called Then Draw2DSprite.create called with origin [0,0]", function() {		
+		var expectedOrigin = [0,0],
+			receivedOrigin = null,
+			draw2dSpriteFactoryMock = { create : function(parameters) { receivedOrigin = parameters.origin; } },
+			backgroundSpriteFactory = new BackgroundSpriteFactory(draw2dSpriteFactoryMock);			
+
+		backgroundSpriteFactory.create();
+
+		equal(receivedOrigin[0], expectedOrigin[0]);
+	});
 }());
 
 function BackgroundSpriteFactory(draw2DSpriteFactory) {
 
 	function create() {
-		draw2DSpriteFactory.create();
+		draw2DSpriteFactory.create({ origin: [0,0] });
 	}
 
 	return { create : create };	
