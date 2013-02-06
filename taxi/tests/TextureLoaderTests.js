@@ -44,6 +44,21 @@
 		equal(receivedNoMipMaps, expectedNoMipMaps);
 	});
 
+	test("When load called Then TextureManager add called with texture name", function() {
+		var expectedTextureName = "textureName",
+			expectedTexture = { },
+			receivedTextureName = "",
+			textureManagerMock = { load : function(path, nomipmaps, onload) { onload(expectedTexture); }, add : function(name, texture) { receivedTextureName = name; } },
+			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { return textureManagerMock; } },
+			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, { });
+
+		expectedTexture.name = expectedTextureName;
+
+		textureLoader.load();
+
+		equal(receivedTextureName, expectedTexture);		
+	});
+
 	test("When load called Then TextureManager add called with returned texture", function() {
 		var expectedTexture = "texture",
 			receivedTexture = "",
