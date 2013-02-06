@@ -2,7 +2,7 @@
 (function () {
 	"use strict";
 	module("Given texture loader");
-	test("When initialised Then TextureManager created with GraphicsDevice", function() {
+	test("When constructed Then TextureManager created with GraphicsDevice", function() {
 		var expectedGraphicsDevice = "GraphicsDevice",
 			receivedGraphicsDevice = "",
 			textureManagerMock = { create: function(graphicsDevice) { receivedGraphicsDevice = graphicsDevice } },
