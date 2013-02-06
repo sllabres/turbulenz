@@ -8,7 +8,7 @@
 			textureManagerFactoryMock = { create : function(graphicsDevice) { receivedGraphicsDevice = graphicsDevice } },
 			textureLoader = new TextureLoader(textureManagerFactoryMock, expectedGraphicsDevice);
 
-		equal(expectedGraphicsDevice, receivedGraphicsDevice);
+		equal(receivedGraphicsDevice, expectedGraphicsDevice);
 	});
 
 	test("When constructed Then TextureManager created with RequestHandler", function() {
@@ -17,7 +17,7 @@
 			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { receivedRequestHandler = requestHandler } },
 			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, expectedRequestHandler);
 
-		equal(expectedRequestHandler, receivedRequestHandler);
+		equal(receivedRequestHandler, expectedRequestHandler);
 	});
 
 	test("When load called Then TextureManager load called", function() {
@@ -30,14 +30,26 @@
 
 		ok(textureManagerLoadCalled);
 	});
+
+	test("When load called with 'textures/Sky.jpg' Then TextureManager load called with 'textures/Sky.jpg'", function() {
+		var expectedPath = "textures/Sky.jpg",
+			receivedPath = "",
+			textureManagerMock = { load : function(path) { receivedPath = path; } },
+			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { return textureManagerMock; } },
+			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, { });
+
+		textureLoader.load(expectedPath);
+
+		equal(receivedPath, expectedPath);
+	});
 }());
 
 function TextureLoader(textureManagerFactory, graphicsDevice, requestHandler) {
 	"use strict";
 	var textureManager = textureManagerFactory.create(graphicsDevice, requestHandler);
 
-	function load() {
-		textureManager.load();
+	function load(path) {
+		textureManager.load(path);
 	}
 
 	return { load : load };
