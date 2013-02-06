@@ -19,7 +19,7 @@ Game (BackgroundDrawing)
 		drawBackGround
 
 TextureLoader
-	For: Loads textures
+	For: Loads textures, adds them to texture manager
 	Dependencies: MappingTable, GraphicsDevice, RequestHandler, TextureManager (loads and stores textures)
 
 
