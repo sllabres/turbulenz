@@ -11,12 +11,23 @@
 
 		ok(textureManagerCreateCalled);
 	});
+
+	test("When load called Then TextureManager created with GraphicsDevice", function() {
+		var expectedGraphicsDevice = "GraphicsDevice",
+			receivedGraphicsDevice = "",
+			textureManagerMock = { create: function(graphicsDevice) { receivedGraphicsDevice = graphicsDevice } },
+			textureLoader = new TextureLoader(textureManagerMock, expectedGraphicsDevice)
+
+		textureLoader.load();
+
+		equal(expectedGraphicsDevice, receivedGraphicsDevice);
+	});
 }());
 
-function TextureLoader(textureManager) {
+function TextureLoader(textureManager, graphicsDevice) {
 	"use strict";
 	function load() {
-		textureManager.create();
+		textureManager.create(graphicsDevice);
 	}
 
 	return { load : load };
