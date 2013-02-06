@@ -92,10 +92,8 @@ function TextureLoader(textureManagerFactory, graphicsDevice, requestHandler) {
 		loadComplete = null;
 
 	function onload(texture) {		
-		textureManager.add(texture.name, texture);
-		if(loadComplete != null) {
-			loadComplete();
-		}
+		textureManager.add(texture.name, texture);		
+		loadComplete();		
 	}
 
 	function load(path, textureLoadComplete) {
