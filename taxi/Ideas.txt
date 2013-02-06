@@ -20,7 +20,7 @@ Game (BackgroundDrawing)
 
 TextureLoader
 	For: Loads textures
-	Dependencies: MappingTable, GraphicsDevice, TextureManager
+	Dependencies: MappingTable, GraphicsDevice, TextureManager (loads and stores textures)
 
 
 ------------------------
