@@ -50,6 +50,18 @@
 
 		equal(receivedHeight, expectedExpectedHeight);
 	});
+
+	test("When create called Then Draw2DSprite.create called with screen height", function() {		
+		var expectedExpectedWidth = 100,
+			receivedWidth = 0,
+			graphicsDeviceStub = { width: expectedExpectedWidth },
+			draw2dSpriteFactoryMock = { create : function(parameters) { receivedWidth = parameters.width; } },
+			backgroundSpriteFactory = new BackgroundSpriteFactory(draw2dSpriteFactoryMock, graphicsDeviceStub);			
+
+		backgroundSpriteFactory.create();
+
+		equal(receivedWidth, expectedExpectedWidth);
+	});
 }());
 
 function BackgroundSpriteFactory(draw2DSpriteFactory, graphicsDevice) {
@@ -57,7 +69,8 @@ function BackgroundSpriteFactory(draw2DSpriteFactory, graphicsDevice) {
 	function create(texture) {
 		draw2DSpriteFactory.create({	origin: [0,0], 
 										texture: texture,
-										height: graphicsDevice.height });
+										height: graphicsDevice.height,
+										width: graphicsDevice.width });
 	}
 
 	return { create : create };	
