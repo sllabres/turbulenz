@@ -68,17 +68,34 @@
 
 		equal(receivedTexture, expectedTexture);		
 	});
+
+	test("When load called and texture loaded Then call loadComplete", function() {
+		var loadCompleteCalled = false,		
+			loadCompleteMock = function() { loadCompleteCalled = true; },
+			textureManagerStub = { load : function(path, nomipmaps, onload) { onload({ }); }, add : function(name, texture) { } },
+			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { return textureManagerStub; } },
+			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, { });
+
+		textureLoader.load("path", loadCompleteMock);
+
+		ok(loadCompleteCalled);
+	});
 }());
 
 function TextureLoader(textureManagerFactory, graphicsDevice, requestHandler) {
 	"use strict";
-	var textureManager = textureManagerFactory.create(graphicsDevice, requestHandler);
+	var textureManager = textureManagerFactory.create(graphicsDevice, requestHandler),
+		loadComplete = null;
 
 	function onload(texture) {		
-		textureManager.add(texture.name, texture);		
+		textureManager.add(texture.name, texture);
+		if(loadComplete != null) {
+			loadComplete();
+		}
 	}
 
-	function load(path) {
+	function load(path, loadCompleteFn) {
+		loadComplete = loadCompleteFn;
 		textureManager.load(path, false, onload);
 	}
 
