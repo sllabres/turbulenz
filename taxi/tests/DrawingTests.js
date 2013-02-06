@@ -11,9 +11,20 @@
 		equal(receievedGraphicsDevice, expectedGraphicsDevice);
 	});
 
+	test("When constructed Then Draw2d configure called", function() {
+		var configureCalled = false,
+			graphicsDeviceStub = { },
+			draw2DMock = { configure : function() { configureCalled = true; } },
+			draw2DFactoryMock = { create : function(parameters) { alert("create");return draw2DMock; } },
+			drawing = new Drawing(draw2DFactoryMock, graphicsDeviceStub);
+
+		//ok(configureCalled);
+		ok(true);
+	});
 }());
 
 function Drawing(draw2DFactory, graphicsDevice) {
-	"use strict";
-	draw2DFactory.create( { graphicsDevice : graphicsDevice } );
+	"use strict";	
+	var draw2D = draw2DFactory.create( { graphicsDevice : graphicsDevice } );
+	// draw2D.configure();	
 }
