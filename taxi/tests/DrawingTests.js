@@ -15,7 +15,7 @@
 		var configureCalled = false,
 			graphicsDeviceStub = { },
 			draw2DMock = { configure : function() { configureCalled = true; } },
-			draw2DFactoryMock = { create : function(parameters) { alert("create");return draw2DMock; } },
+			draw2DFactoryMock = { create : function(parameters) { return draw2DMock; } },
 			drawing = new Drawing(draw2DFactoryMock, graphicsDeviceStub);
 
 		//ok(configureCalled);
