@@ -94,8 +94,8 @@ function TextureLoader(textureManagerFactory, graphicsDevice, requestHandler) {
 		}
 	}
 
-	function load(path, loadCompleteFn) {
-		loadComplete = loadCompleteFn;
+	function load(path, textureLoadComplete) {
+		loadComplete = textureLoadComplete;
 		textureManager.load(path, false, onload);
 	}
 
