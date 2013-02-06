@@ -20,17 +20,6 @@
 		equal(receivedRequestHandler, expectedRequestHandler);
 	});
 
-	test("When load called Then TextureManager load called", function() {
-		var textureManagerLoadCalled = false,
-			textureManagerMock = { load : function() { textureManagerLoadCalled = true; } },
-			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { return textureManagerMock; } },
-			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, { });
-
-		textureLoader.load();
-
-		ok(textureManagerLoadCalled);
-	});
-
 	test("When load called with 'textures/Sky.jpg' Then TextureManager load called with 'textures/Sky.jpg'", function() {
 		var expectedPath = "textures/Sky.jpg",
 			receivedPath = "",
@@ -42,6 +31,19 @@
 
 		equal(receivedPath, expectedPath);
 	});
+
+	test("When load called Then TextureManager load called with nomipmaps set as false", function() {
+		var expectedNoMipMaps = false,
+			receivedNoMipMaps = null,
+			textureManagerMock = { load : function(path, nomipmaps) { receivedNoMipMaps = nomipmaps; } },
+			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { return textureManagerMock; } },
+			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, { });
+
+		textureLoader.load("");
+
+		equal(receivedNoMipMaps, expectedNoMipMaps);
+	});
+
 }());
 
 function TextureLoader(textureManagerFactory, graphicsDevice, requestHandler) {
@@ -49,7 +51,7 @@ function TextureLoader(textureManagerFactory, graphicsDevice, requestHandler) {
 	var textureManager = textureManagerFactory.create(graphicsDevice, requestHandler);
 
 	function load(path) {
-		textureManager.load(path);
+		textureManager.load(path, false);
 	}
 
 	return { load : load };
