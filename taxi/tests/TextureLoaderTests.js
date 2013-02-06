@@ -22,12 +22,23 @@
 
 		equal(expectedGraphicsDevice, receivedGraphicsDevice);
 	});
+
+	test("When load called Then TextureManager created with RequestHandler", function() {
+		var expectedRequestHandler = "RequestHandler",
+			receivedRequestHandler = "",
+			textureManagerMock = { create: function(graphicsDevice, requestHandler) { receivedRequestHandler = requestHandler } },
+			textureLoader = new TextureLoader(textureManagerMock, { }, expectedRequestHandler)
+
+		textureLoader.load();
+
+		equal(expectedRequestHandler, receivedRequestHandler);
+	});
 }());
 
-function TextureLoader(textureManager, graphicsDevice) {
+function TextureLoader(textureManager, graphicsDevice, requestHandler) {
 	"use strict";
 	function load() {
-		textureManager.create(graphicsDevice);
+		textureManager.create(graphicsDevice, requestHandler);
 	}
 
 	return { load : load };
