@@ -4,7 +4,7 @@
 	module("Given texture loader");
 	test("When constructed Then TextureManager created with GraphicsDevice", function() {
 		var expectedGraphicsDevice = "GraphicsDevice",
-			receivedGraphicsDevice = "",
+			receivedGraphicsDevice = "",			
 			textureManagerFactoryMock = { create : function(graphicsDevice) { receivedGraphicsDevice = graphicsDevice } },
 			textureLoader = new TextureLoader(textureManagerFactoryMock, expectedGraphicsDevice);
 
@@ -23,11 +23,12 @@
 	test("When load called with 'textures/Sky.jpg' Then TextureManager load called with 'textures/Sky.jpg'", function() {
 		var expectedPath = "textures/Sky.jpg",
 			receivedPath = "",
+			loadCompleteStub = function() { },
 			textureManagerMock = { load : function(path) { receivedPath = path; } },
 			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { return textureManagerMock; } },
 			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, { });
 
-		textureLoader.load(expectedPath);
+		textureLoader.load(expectedPath, loadCompleteStub);
 
 		equal(receivedPath, expectedPath);
 	});
@@ -35,11 +36,12 @@
 	test("When load called Then TextureManager load called with nomipmaps set as false", function() {
 		var expectedNoMipMaps = false,
 			receivedNoMipMaps = null,
+			loadCompleteStub = function() { },
 			textureManagerMock = { load : function(path, nomipmaps) { receivedNoMipMaps = nomipmaps; } },
 			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { return textureManagerMock; } },
 			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, { });
 
-		textureLoader.load();
+		textureLoader.load("path", loadCompleteStub);
 
 		equal(receivedNoMipMaps, expectedNoMipMaps);
 	});
@@ -48,11 +50,12 @@
 		var expectedTextureName = "textureName",
 			expectedTexture = { name : expectedTextureName },
 			receivedTextureName = "",
+			loadCompleteStub = function() { },
 			textureManagerMock = { load : function(path, nomipmaps, onload) { onload(expectedTexture); }, add : function(name, texture) { receivedTextureName = name; } },
 			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { return textureManagerMock; } },
 			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, { });		
 
-		textureLoader.load();
+		textureLoader.load("path", loadCompleteStub);
 
 		equal(receivedTextureName, expectedTextureName);		
 	});
@@ -60,11 +63,12 @@
 	test("When load called Then TextureManager add called with returned texture", function() {
 		var expectedTexture = "texture",
 			receivedTexture = "",
+			loadCompleteStub = function() { },
 			textureManagerMock = { load : function(path, nomipmaps, onload) { onload(expectedTexture); }, add : function(name, texture) { receivedTexture = texture; } },
 			textureManagerFactoryMock = { create : function(graphicsDevice, requestHandler) { return textureManagerMock; } },
 			textureLoader = new TextureLoader(textureManagerFactoryMock, { }, { });
 
-		textureLoader.load();
+		textureLoader.load("path", loadCompleteStub);
 
 		equal(receivedTexture, expectedTexture);		
 	});
