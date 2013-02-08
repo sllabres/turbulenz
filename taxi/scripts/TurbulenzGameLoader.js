@@ -8,10 +8,8 @@ function TurbulenzGameLoader(requestHandlerFactory, turbulenzEngine, turbulenzSe
 	}
 
 	function mappingTableCreated(table) {
-		// Three responsibilities here, use observer pattern and split out loading of objects
-		if(loadCompleteObserver !== undefined) {
-			loadCompleteObserver.notify(requestHandler, graphicsDevice, table);
-		}
+		// Three responsibilities here, use observer pattern and split out loading of objects		
+		loadCompleteObserver.notify(requestHandler, graphicsDevice, table);		
 	}
 
 	function load() {		
