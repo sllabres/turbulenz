@@ -129,4 +129,20 @@
 
 		equal(receivedRequestHandler, expectedRequestHandler);
 	});
+
+	test("When mappingTableCreated Then loadComplete called with graphicsDevice", function() {
+		var expectedGrapicsDevice = "graphicsDevice",
+			receivedGraphicsDevice = "",
+			loadCompleteObserverMock = { notify : function(requestHandler, graphicsDevice) {  receivedGraphicsDevice = graphicsDevice; } },
+			loadCompletedStub = function() { },
+			requestHandlerFactoryStub = { create : function() { } },						
+			turbulenzEngineStub = { createGraphicsDevice : function() { return expectedGrapicsDevice; } },
+			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
+										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesStub, loadCompleteObserverMock);
+
+		turbulenzGame.load(loadCompletedStub);
+
+		equal(receivedGraphicsDevice, expectedGrapicsDevice);
+	});
 }());
