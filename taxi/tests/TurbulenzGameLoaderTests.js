@@ -112,5 +112,21 @@
 		turbulenzGame.load(loadCompletedMock);
 
 		equal(receivedRequestHandler, expectedRequestHandler);
-	});	
+	});
+
+	test("When mappingTableCreated called Then loadCompleteObserver called with requestHandler", function() {
+		var expectedRequestHandler = "requestHandler",
+			receivedRequestHandler = "",
+			loadCompleteObserver = { notify : function(requestHandler) {  receivedRequestHandler = requestHandler; } },
+			requestHandlerFactoryMock = { create : function() { return expectedRequestHandler; } },			
+			loadCompletedMock = function(mappingTable, graphicsDevice, requestHandler) { receivedRequestHandler = requestHandler; },
+			turbulenzEngineStub = { createGraphicsDevice : function() { } },
+			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
+										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesStub, loadCompleteObserver);
+
+		turbulenzGame.load(loadCompletedMock);
+
+		equal(receivedRequestHandler, expectedRequestHandler);
+	});
 }());
