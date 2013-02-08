@@ -69,51 +69,6 @@
 		equal(receivedGameSession, expectedGameSession);
 	});
 
-	test("When mappingTableCreated Then loadComplete called with mappingTable", function() {
-		var expectedMappingTable = "mappingTable",
-			receivedMappingTable = "",
-			loadCompletedMock = function(mappingTable) { receivedMappingTable = mappingTable; },
-			requestHandlerFactoryStub = { create : function() { } },						
-			turbulenzEngineStub = { createGraphicsDevice : function() { } },
-			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
-										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(expectedMappingTable); } },
-			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesMock);
-
-		turbulenzGame.load(loadCompletedMock);
-
-		equal(receivedMappingTable, expectedMappingTable);
-	});
-
-	test("When mappingTableCreated Then loadComplete called with graphicsDevice", function() {
-		var expectedGrapicsDevice = "graphicsDevice",
-			receivedGraphicsDevice = "",
-			loadCompletedMock = function(mappingTable, graphicsDevice) { receivedGraphicsDevice = graphicsDevice; },
-			requestHandlerFactoryStub = { create : function() { } },						
-			turbulenzEngineStub = { createGraphicsDevice : function() { return expectedGrapicsDevice; } },
-			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
-										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
-			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesStub);
-
-		turbulenzGame.load(loadCompletedMock);
-
-		equal(receivedGraphicsDevice, expectedGrapicsDevice);
-	});
-
-	test("When mappingTableCreated called Then loadComplete called with requestHandler", function() {
-		var expectedRequestHandler = "requestHandler",
-			receivedRequestHandler = "",
-			requestHandlerFactoryMock = { create : function() { return expectedRequestHandler; } },			
-			loadCompletedMock = function(mappingTable, graphicsDevice, requestHandler) { receivedRequestHandler = requestHandler; },
-			turbulenzEngineStub = { createGraphicsDevice : function() { } },
-			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
-										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
-			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesStub);
-
-		turbulenzGame.load(loadCompletedMock);
-
-		equal(receivedRequestHandler, expectedRequestHandler);
-	});
-
 	test("When mappingTableCreated called Then loadCompleteObserver called with requestHandler", function() {
 		var expectedRequestHandler = "requestHandler",
 			receivedRequestHandler = "",

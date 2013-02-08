@@ -1,8 +1,7 @@
 function TurbulenzGameLoader(requestHandlerFactory, turbulenzEngine, turbulenzServices, loadCompleteObserver) {
 	"use strict";
 	var requestHandler = null,
-		graphicsDevice = null,
-		loadCompleted = null;
+		graphicsDevice = null;		
 
 	function sessionCreated(gameSession) {
 		turbulenzServices.createMappingTable(requestHandler, gameSession, mappingTableCreated);
@@ -10,15 +9,12 @@ function TurbulenzGameLoader(requestHandlerFactory, turbulenzEngine, turbulenzSe
 
 	function mappingTableCreated(table) {
 		// Three responsibilities here, use observer pattern and split out loading of objects
-		loadCompleted(table, graphicsDevice, requestHandler);
-
 		if(loadCompleteObserver !== undefined) {
 			loadCompleteObserver.notify(requestHandler, graphicsDevice, table);
 		}
 	}
 
-	function load(gameLoadCompleted) {
-		loadCompleted = gameLoadCompleted;
+	function load() {		
 		requestHandler = requestHandlerFactory.create({});
 		graphicsDevice = turbulenzEngine.createGraphicsDevice({});
 		turbulenzServices.createGameSession(requestHandler, sessionCreated);
