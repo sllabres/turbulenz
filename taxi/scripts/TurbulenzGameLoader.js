@@ -13,7 +13,7 @@ function TurbulenzGameLoader(requestHandlerFactory, turbulenzEngine, turbulenzSe
 		loadCompleted(table, graphicsDevice, requestHandler);
 
 		if(loadCompleteObserver !== undefined) {
-			loadCompleteObserver.notify(requestHandler, graphicsDevice);
+			loadCompleteObserver.notify(requestHandler, graphicsDevice, table);
 		}
 	}
 

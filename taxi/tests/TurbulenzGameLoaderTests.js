@@ -130,7 +130,7 @@
 		equal(receivedRequestHandler, expectedRequestHandler);
 	});
 
-	test("When mappingTableCreated Then loadComplete called with graphicsDevice", function() {
+	test("When mappingTableCreated Then loadCompleteObserver called with graphicsDevice", function() {
 		var expectedGrapicsDevice = "graphicsDevice",
 			receivedGraphicsDevice = "",
 			loadCompleteObserverMock = { notify : function(requestHandler, graphicsDevice) {  receivedGraphicsDevice = graphicsDevice; } },
@@ -144,5 +144,21 @@
 		turbulenzGame.load(loadCompletedStub);
 
 		equal(receivedGraphicsDevice, expectedGrapicsDevice);
+	});
+
+	test("When mappingTableCreated Then loadCompleteObserver called with mappingTable", function() {
+		var expectedMappingTable = "mappingTable",
+			receivedMappingTable = "",
+			loadCompleteObserverMock = { notify : function(requestHandler, graphicsDevice, mappingTable) {  receivedMappingTable = mappingTable; } },
+			loadCompletedStub = function() { },
+			requestHandlerFactoryStub = { create : function() { } },						
+			turbulenzEngineStub = { createGraphicsDevice : function() { } },
+			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
+										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(expectedMappingTable); } },
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesMock, loadCompleteObserverMock);
+
+		turbulenzGame.load(loadCompletedStub);
+
+		equal(receivedMappingTable, expectedMappingTable);
 	});
 }());
