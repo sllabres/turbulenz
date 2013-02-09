@@ -33,13 +33,12 @@
     draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });    
 
     function draw() {
-    	if (graphicsDevice.beginFrame()) {
-			
-			draw2D.begin('alpha');	
+    	draw2D.begin('alpha');	
 			draw2D.clear([0.3,0.3,0.3,1]);
 			draw2D.setBackBuffer();
+    	if (graphicsDevice.beginFrame()) {					
 					
-			//draw2D.drawSprite(background);
+			draw2D.drawSprite(background);
 			draw2D.end();
 			graphicsDevice.endFrame();
 		}
