@@ -33,14 +33,15 @@
 	test("When notified of event1 and multiple subscribers Then subcriber1 notified only", function() {
 		var subscriber1Notified = false,
 			subscriber2Notified = false,
+			expectedEvent = 'event1',
 			subscriber1 = { event : function() { subscriber1Notified = true; } },
 			subscriber2 = { event : function() { subscriber2Notified = true; } },
 			observer = new EventObserver();
 			
-			observer.subscribe('event1', subscriber1.event);
+			observer.subscribe(expectedEvent, subscriber1.event);
 			observer.subscribe('event2', subscriber2.event);
 
-			observer.notify('event1');
+			observer.notify(expectedEvent);
 
 		ok(subscriber1Notified);
 		ok(!subscriber2Notified);
