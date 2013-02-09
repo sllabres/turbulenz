@@ -53,10 +53,8 @@ function Drawing(graphicsDevice, draw2D) {
 
 	function draw() {
 		if(graphicsDevice.beginFrame()) {
-			draw2D.begin('alpha');
-			if(draw2D.clear != undefined) {
-				draw2D.clear();
-			}
+			draw2D.begin('alpha');			
+			draw2D.clear();			
 		}
 	}
 
