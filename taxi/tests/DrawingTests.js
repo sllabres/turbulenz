@@ -74,12 +74,16 @@
 function Drawing(graphicsDevice, draw2D) {
 	"use strict";
 
-	function draw(clearColour) {
+	function prepare(clearColour) {
 		if(graphicsDevice.beginFrame()) {
 			draw2D.begin('alpha');
 			draw2D.clear(clearColour);			
 			draw2D.setBackBuffer();			
 		}
+	}
+
+	function draw(clearColour) {
+		prepare(clearColour);		
 	}
 
 	return { draw : draw };
