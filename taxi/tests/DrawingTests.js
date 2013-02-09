@@ -95,15 +95,32 @@
 
 		equal(receievedClearAlphaValue, expectedClearAlphaValue);
 	});
+
+	test("When draw called with clearColour and graphicsDevice.BeginFrame returns true Then draw2D.clear called with passed in clearColour", function() {
+		var expectedClearColour = [0.3,0.3,0.3,1],
+			receievedClearClearColour = [],
+			graphicsDeviceStub = { beginFrame : function() { return true; } },
+			draw2DMock = { begin : function(argument) { }, clear : function(colour) { receievedClearClearColour = colour; } },
+			drawing = new Drawing(graphicsDeviceStub, draw2DMock);
+
+		drawing.draw(expectedClearColour);
+
+		equal(receievedClearClearColour, expectedClearColour);
+	});
 }());
 
 function Drawing(graphicsDevice, draw2D) {
 	"use strict";
 
-	function draw() {
+	function draw(clearColour) {
 		if(graphicsDevice.beginFrame()) {
-			draw2D.begin('alpha');			
-			draw2D.clear([0.3, 0.3, 0.3, 1]);			
+			draw2D.begin('alpha');
+			if(clearColour === undefined) {
+				draw2D.clear([0.3, 0.3, 0.3, 1]);
+			} else {
+				draw2D.clear(clearColour);
+			}
+
 		}
 	}
 
