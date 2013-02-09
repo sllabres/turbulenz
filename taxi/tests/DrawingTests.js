@@ -23,6 +23,18 @@
 
 		ok(draw2DBeginCalled);
 	});
+
+	test("When draw called and graphicsDevice.BeginFrame returns true Then draw2D.begin called with argument 'alpha'", function() {
+		var expectedArgument = "alpha",
+			receivedArgument = "",
+			graphicsDeviceStub = { beginFrame : function() { return true; } },
+			draw2DMock = { begin : function(argument) { receivedArgument = argument; } },
+			drawing = new Drawing(graphicsDeviceStub, draw2DMock);
+
+		drawing.draw();
+
+		equal(receivedArgument, expectedArgument);
+	});
 }());
 
 function Drawing(graphicsDevice, draw2D) {
@@ -30,7 +42,7 @@ function Drawing(graphicsDevice, draw2D) {
 
 	function draw() {
 		graphicsDevice.beginFrame();
-		draw2D.begin();		
+		draw2D.begin('alpha');		
 	}
 
 	return { draw : draw };
