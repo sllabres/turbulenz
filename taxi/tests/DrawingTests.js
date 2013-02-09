@@ -5,7 +5,8 @@
 	test("When draw called Then graphicsDevice.BeginFrame called", function() {
 		var beginFrameCalled = false,
 			graphicsDeviceMock = { beginFrame : function() { beginFrameCalled = true; } },
-			drawing = new Drawing(graphicsDeviceMock);
+			draw2DStub = { begin : function() { } },
+			drawing = new Drawing(graphicsDeviceMock, draw2DStub);
 
 		drawing.draw();
 
@@ -28,10 +29,8 @@ function Drawing(graphicsDevice, draw2D) {
 	"use strict";
 
 	function draw() {
-		graphicsDevice.beginFrame();	
-		if(draw2D != undefined) {
-			draw2D.begin();
-		}
+		graphicsDevice.beginFrame();
+		draw2D.begin();		
 	}
 
 	return { draw : draw };
