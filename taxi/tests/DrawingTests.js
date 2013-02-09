@@ -111,10 +111,7 @@ function Drawing(graphicsDevice, draw2D, drawingObserver) {
 			draw2D.begin('alpha');
 			draw2D.clear(clearColour);			
 			draw2D.setBackBuffer();
-			
-			if(drawingObserver.notify !== undefined) {
-				drawingObserver.notify("drawingPrepareComplete");
-			}
+			drawingObserver.notify("drawingPrepareComplete");			
 		}
 	}
 
