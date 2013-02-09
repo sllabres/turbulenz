@@ -10,9 +10,9 @@ function EventObserver() {
 		subscribers[type].push(subscriber);
 	}
 
-	function notify(type) {
+	function notify(type, parameters) {
 		for (var i = 0; i < subscribers[type].length; i++) {
-			subscribers[type][i]();
+			subscribers[type][i](parameters);
 		}
 	}
 

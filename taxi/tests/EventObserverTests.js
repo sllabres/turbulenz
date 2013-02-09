@@ -48,4 +48,18 @@
 		ok(subscriber1Notified);
 		ok(!subscriber2Notified);
 	});
+
+	test("When notified of event1 Then subcriber1 notified with parameters", function() {
+		var expectedParameters = "parameters",
+			receivedParameters = "",
+			subscribedEvent = 'event1',
+			subscriber1 = { event : function(parameters) { receivedParameters = parameters; } },
+			observer = new EventObserver();
+			
+			observer.subscribe(subscribedEvent, subscriber1.event);			
+
+			observer.notify(subscribedEvent, expectedParameters);
+
+		equal(receivedParameters, expectedParameters);
+	});
 }());
