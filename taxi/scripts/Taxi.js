@@ -36,11 +36,10 @@
     	draw2D.begin('alpha');	
 			draw2D.clear([0.3,0.3,0.3,1]);
 			draw2D.setBackBuffer();
-    	if (graphicsDevice.beginFrame()) {					
-					
-			draw2D.end();
-			draw2D.drawSprite(background);
+    	if (graphicsDevice.beginFrame()) {
 			
+			draw2D.drawSprite(background);
+			draw2D.end();			
 			graphicsDevice.endFrame();
 		}
     }
