@@ -18,11 +18,5 @@ function TurbulenzGameLoader(requestHandlerFactory, turbulenzEngine, turbulenzSe
 		turbulenzServices.createGameSession(requestHandler, sessionCreated);
 	}
 
-	function unload() {
-		requestHandler = null;
-		graphicsDevice = null;
-	}
-
-	return { load : load,
-			 unload : unload };
+	return { load : load };
 }
