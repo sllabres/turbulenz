@@ -115,11 +115,8 @@ function Drawing(graphicsDevice, draw2D, drawingObserver) {
 		}
 	}
 
-	function draw(clearColour) {
-		if(drawingObserver !== undefined) {
-			drawingObserver.subscribe('drawingPrepareComplete');
-		}
-
+	function draw(clearColour) {		
+		drawingObserver.subscribe('drawingPrepareComplete');
 		prepare(clearColour);
 	}
 
