@@ -5,7 +5,7 @@
 	test("When draw called and graphicsDevice.BeginFrame returns true Then draw2D.begin called", function() {
 		var draw2DBeginCalled = false,
 			graphicsDeviceStub = { beginFrame : function() { return true; } },
-			draw2DMock = { begin : function() { draw2DBeginCalled = true; } },
+			draw2DMock = { begin : function() { draw2DBeginCalled = true; }, clear : function() { } },
 			drawing = new Drawing(graphicsDeviceStub, draw2DMock);
 
 		drawing.draw();
@@ -16,7 +16,7 @@
 	test("When draw called and graphicsDevice.BeginFrame returns false Then draw2D.begin NOT called", function() {
 		var draw2DBeginCalled = false,
 			graphicsDeviceStub = { beginFrame : function() { return false; } },
-			draw2DMock = { begin : function() { draw2DBeginCalled = true; } },
+			draw2DMock = { begin : function() { draw2DBeginCalled = true; }, clear : function() { } },
 			drawing = new Drawing(graphicsDeviceStub, draw2DMock);
 
 		drawing.draw();
@@ -28,7 +28,7 @@
 		var expectedArgument = "alpha",
 			receivedArgument = "",
 			graphicsDeviceStub = { beginFrame : function() { return true; } },
-			draw2DMock = { begin : function(argument) { receivedArgument = argument; } },
+			draw2DMock = { begin : function(argument) { receivedArgument = argument; }, clear : function() { } },
 			drawing = new Drawing(graphicsDeviceStub, draw2DMock);
 
 		drawing.draw();
