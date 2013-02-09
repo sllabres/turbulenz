@@ -69,9 +69,22 @@
 
 		ok(setBackBufferCalled);
 	});
+
+	test("When draw called Then drawingPrepareComplete event subscribed to", function() {
+		var expectedEventSubscription = "drawingPrepareComplete",
+			receivedEventSubscription = "",
+			drawingObserverMock = { subscribe : function(type) { receivedEventSubscription = type; } },
+			graphicsDeviceStub = { beginFrame : function() { } },
+			draw2DStub = { begin : function(argument) { }, clear : function(colour) { }, setBackBuffer : function() { } },
+			drawing = new Drawing(graphicsDeviceStub, draw2DStub, drawingObserverMock);
+
+		drawing.draw({ });
+
+		equal(receivedEventSubscription, expectedEventSubscription);
+	});
 }());
 
-function Drawing(graphicsDevice, draw2D) {
+function Drawing(graphicsDevice, draw2D, drawingObserver) {
 	"use strict";
 
 	function prepare(clearColour) {
@@ -83,7 +96,11 @@ function Drawing(graphicsDevice, draw2D) {
 	}
 
 	function draw(clearColour) {
-		prepare(clearColour);		
+		if(drawingObserver !== undefined) {
+			drawingObserver.subscribe('drawingPrepareComplete');
+		}
+
+		prepare(clearColour);
 	}
 
 	return { draw : draw };
