@@ -38,8 +38,9 @@
 			draw2D.setBackBuffer();
     	if (graphicsDevice.beginFrame()) {					
 					
-			draw2D.drawSprite(background);
 			draw2D.end();
+			draw2D.drawSprite(background);
+			
 			graphicsDevice.endFrame();
 		}
     }
