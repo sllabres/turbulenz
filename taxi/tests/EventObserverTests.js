@@ -2,19 +2,19 @@
 (function () {
 	"use strict";
 	module("Given event observer");
-	test("When notified of event load Then subscriber called", function() {
-		var eventTriggered = false,
-			subscriber = { event : function() { eventTriggered = true } },
+	test("When notified of event load Then subscriber notified", function() {
+		var eventNotified = false,
+			subscriber = { event : function() { eventNotified = true } },
 			observer = new EventObserver();
 
 			observer.subscribe('event', subscriber.event);
 
 			observer.notify('event');
 
-		ok(eventTriggered);
+		ok(eventNotified);
 	});
 
-	test("When notified of event Then subcriber1 and subcriber2 called", function() {
+	test("When notified of event Then subcriber1 and subcriber2 notified", function() {
 		var subscriber1Notified = false,
 			subscriber2Notified = false,
 			subscriber1 = { event : function() { subscriber1Notified = true; } },
@@ -29,18 +29,38 @@
 		ok(subscriber1Notified);
 		ok(subscriber2Notified);
 	});
+
+	test("When notified of event1 and multiple subscribers Then subcriber1 notified only", function() {
+		var subscriber1Notified = false,
+			subscriber2Notified = false,
+			subscriber1 = { event : function() { subscriber1Notified = true; } },
+			subscriber2 = { event : function() { subscriber2Notified = true; } },
+			observer = new EventObserver();
+			
+			observer.subscribe('event1', subscriber1.event);
+			observer.subscribe('event2', subscriber2.event);
+
+			observer.notify('event1');
+
+		ok(subscriber1Notified);
+		ok(!subscriber2Notified);
+	});
 }());
 
 function EventObserver() {
 	var subscribers = [];
 
-	function subscribe(eventType, subscriber) {
-		subscribers.push(subscriber);
+	function subscribe(type, subscriber) {
+		if (subscribers[type] === undefined) {
+            subscribers[type] = [];
+        }
+
+		subscribers[type].push(subscriber);
 	}
 
-	function notify(eventType) {
-		for (var i = 0; i < subscribers.length; i++) {
-			subscribers[i]();
+	function notify(type) {
+		for (var i = 0; i < subscribers[type].length; i++) {
+			subscribers[type][i]();
 		}
 	}
 
