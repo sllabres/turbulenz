@@ -34,8 +34,9 @@
 
     function draw() {
     	if (graphicsDevice.beginFrame()) {
-			draw2D.setBackBuffer();
+			
 			draw2D.clear([0.3,0.3,0.3,1]);
+			draw2D.setBackBuffer();
 			draw2D.begin('alpha');			
 			draw2D.drawSprite(background);
 			draw2D.end();
