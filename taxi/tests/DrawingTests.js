@@ -2,29 +2,22 @@
 (function () {
 	"use strict";
 	module("Given drawing");
-	test("When constructed Then Draw2d created called with GraphicsDevice", function() {
-		var expectedGraphicsDevice = "expectedGraphicsDevice",
-			receievedGraphicsDevice = "",
-			draw2DFactoryMock = { create : function(parameters) { receievedGraphicsDevice = parameters.graphicsDevice; } },
-			drawing = new Drawing(draw2DFactoryMock, expectedGraphicsDevice);
+	test("When draw called Then graphicsDevice.BeginFrame called", function() {
+		var beginFrameCalled = false,
+			graphicsDeviceMock = { beginFrame : function() { beginFrameCalled = true; } },
+			drawing = new Drawing(graphicsDeviceMock);
 
-		equal(receievedGraphicsDevice, expectedGraphicsDevice);
-	});
+		drawing.draw();
 
-	test("When constructed Then Draw2d configure called", function() {
-		var configureCalled = false,
-			graphicsDeviceStub = { },
-			draw2DMock = { configure : function() { configureCalled = true; } },
-			draw2DFactoryMock = { create : function(parameters) { return draw2DMock; } },
-			drawing = new Drawing(draw2DFactoryMock, graphicsDeviceStub);
-
-		//ok(configureCalled);
-		ok(true);
+		ok(beginFrameCalled);
 	});
 }());
 
-function Drawing(draw2DFactory, graphicsDevice) {
-	"use strict";	
-	var draw2D = draw2DFactory.create( { graphicsDevice : graphicsDevice } );
-	// draw2D.configure();	
+function Drawing(graphicsDevice) {
+	"use strict";
+	function draw() {
+		graphicsDevice.beginFrame();	
+	}
+
+	return { draw : draw };
 }
