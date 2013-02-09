@@ -58,6 +58,17 @@
 
 		equal(receievedClearClearColour, expectedClearColour);
 	});
+
+	test("When draw called and graphicsDevice.BeginFrame returns true Then draw2D.setBackBuffer called", function() {
+		var setBackBufferCalled = false,
+			graphicsDeviceStub = { beginFrame : function() { return true; } },
+			draw2DMock = { begin : function(argument) { }, clear : function(colour) { }, setBackBuffer : function() { setBackBufferCalled = true; } },
+			drawing = new Drawing(graphicsDeviceStub, draw2DMock);
+
+		drawing.draw({ });
+
+		ok(setBackBufferCalled);
+	});
 }());
 
 function Drawing(graphicsDevice, draw2D) {
@@ -67,6 +78,9 @@ function Drawing(graphicsDevice, draw2D) {
 		if(graphicsDevice.beginFrame()) {
 			draw2D.begin('alpha');
 			draw2D.clear(clearColour);
+			if(draw2D.setBackBuffer !== undefined) {
+				draw2D.setBackBuffer();
+			}
 		}
 	}
 
