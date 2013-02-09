@@ -2,16 +2,30 @@
 (function () {
 	"use strict";
 	module("Given event observer");
-	test("When notified of gameSession load Then subscriber gameSessionLoaded called", function() {
-		var gameSessionLoadSubscriberCalled = false,
-			subscriber = { gameSessionLoaded : function() { gameSessionLoadSubscriberCalled = true } },
+	test("When notified of event load Then subscriber called", function() {
+		var eventTriggered = false,
+			subscriber = { event : function() { eventTriggered = true } },
 			observer = new EventObserver();
 
-			observer.subscribe('gameSessionLoaded', subscriber.gameSessionLoaded);
+			observer.subscribe('event', subscriber.event);
 
-			observer.notify('gameSessionLoaded');
+			observer.notify('event');
 
-		ok(gameSessionLoadSubscriberCalled);
+		ok(eventTriggered);
+	});
+
+	test("When notified of event Then subcriber2 called", function() {
+		var eventTriggered = false,
+			subscriber1 = { event : function() { } },
+			subscriber2 = { event : function() { eventTriggered = true; } },
+			observer = new EventObserver();
+
+			observer.subscribe('event', subscriber1.event);
+			observer.subscribe('event', subscriber2.event);
+			
+			observer.notify('event');
+
+		ok(eventTriggered);
 	});
 }());
 
