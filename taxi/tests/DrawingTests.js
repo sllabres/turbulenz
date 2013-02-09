@@ -35,6 +35,17 @@
 
 		equal(receivedArgument, expectedArgument);
 	});
+
+	test("When draw called and graphicsDevice.BeginFrame returns true Then draw2D.clear called", function() {
+		var draw2DClearCalled = false,			
+			graphicsDeviceStub = { beginFrame : function() { return true; } },
+			draw2DMock = { begin : function(argument) { }, clear : function() { draw2DClearCalled = true; } },
+			drawing = new Drawing(graphicsDeviceStub, draw2DMock);
+
+		drawing.draw();
+
+		ok(draw2DClearCalled);
+	});	
 }());
 
 function Drawing(graphicsDevice, draw2D) {
@@ -42,7 +53,10 @@ function Drawing(graphicsDevice, draw2D) {
 
 	function draw() {
 		if(graphicsDevice.beginFrame()) {
-			draw2D.begin('alpha');		
+			draw2D.begin('alpha');
+			if(draw2D.clear != undefined) {
+				draw2D.clear();
+			}
 		}
 	}
 
