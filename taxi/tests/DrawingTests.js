@@ -45,7 +45,20 @@
 		drawing.draw();
 
 		ok(draw2DClearCalled);
-	});	
+	});
+
+	// 0.3,0.3,0.3,1
+	test("When draw called and graphicsDevice.BeginFrame returns true Then draw2D.clear called with red value of 0.3", function() {
+		var expectedClearRedValue = 0.3,
+			receievedClearRedValue = 0,
+			graphicsDeviceStub = { beginFrame : function() { return true; } },
+			draw2DMock = { begin : function(argument) { }, clear : function(colour) { receievedClearRedValue = colour[0]; } },
+			drawing = new Drawing(graphicsDeviceStub, draw2DMock);
+
+		drawing.draw();
+
+		equal(receievedClearRedValue, expectedClearRedValue);
+	});
 }());
 
 function Drawing(graphicsDevice, draw2D) {
@@ -54,7 +67,7 @@ function Drawing(graphicsDevice, draw2D) {
 	function draw() {
 		if(graphicsDevice.beginFrame()) {
 			draw2D.begin('alpha');			
-			draw2D.clear();			
+			draw2D.clear([0.3]);			
 		}
 	}
 
