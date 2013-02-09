@@ -83,6 +83,18 @@
 
 		equal(receievedClearBlueValue, expectedClearBlueValue);
 	});
+
+	test("When draw called and graphicsDevice.BeginFrame returns true Then draw2D.clear called with alpha value of 1", function() {
+		var expectedClearAlphaValue = 1,
+			receievedClearAlphaValue = 0,
+			graphicsDeviceStub = { beginFrame : function() { return true; } },
+			draw2DMock = { begin : function(argument) { }, clear : function(colour) { receievedClearAlphaValue = colour[3]; } },
+			drawing = new Drawing(graphicsDeviceStub, draw2DMock);
+
+		drawing.draw();
+
+		equal(receievedClearAlphaValue, expectedClearAlphaValue);
+	});
 }());
 
 function Drawing(graphicsDevice, draw2D) {
@@ -91,7 +103,7 @@ function Drawing(graphicsDevice, draw2D) {
 	function draw() {
 		if(graphicsDevice.beginFrame()) {
 			draw2D.begin('alpha');			
-			draw2D.clear([0.3, 0.3, 0.3]);			
+			draw2D.clear([0.3, 0.3, 0.3, 1]);			
 		}
 	}
 
