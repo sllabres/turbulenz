@@ -14,30 +14,34 @@
 		ok(eventTriggered);
 	});
 
-	test("When notified of event Then subcriber2 called", function() {
-		var eventTriggered = false,
-			subscriber1 = { event : function() { } },
-			subscriber2 = { event : function() { eventTriggered = true; } },
+	test("When notified of event Then subcriber1 and subcriber2 called", function() {
+		var subscriber1Notified = false,
+			subscriber2Notified = false,
+			subscriber1 = { event : function() { subscriber1Notified = true; } },
+			subscriber2 = { event : function() { subscriber2Notified = true; } },
 			observer = new EventObserver();
-
+			
 			observer.subscribe('event', subscriber1.event);
 			observer.subscribe('event', subscriber2.event);
-			
+
 			observer.notify('event');
 
-		ok(eventTriggered);
+		ok(subscriber1Notified);
+		ok(subscriber2Notified);
 	});
 }());
 
 function EventObserver() {
-	var subscribers;
+	var subscribers = [];
 
 	function subscribe(eventType, subscriber) {
-		subscribers = subscriber;
+		subscribers.push(subscriber);
 	}
 
-	function notify(eventType) {		
-		subscribers();
+	function notify(eventType) {
+		for (var i = 0; i < subscribers.length; i++) {
+			subscribers[i]();
+		}
 	}
 
 	return { subscribe : subscribe,
