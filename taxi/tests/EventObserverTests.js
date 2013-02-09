@@ -17,14 +17,15 @@
 	test("When notified of event Then subcriber1 and subcriber2 notified", function() {
 		var subscriber1Notified = false,
 			subscriber2Notified = false,
+			expectedEvent = 'event',
 			subscriber1 = { event : function() { subscriber1Notified = true; } },
 			subscriber2 = { event : function() { subscriber2Notified = true; } },
 			observer = new EventObserver();
 			
-			observer.subscribe('event', subscriber1.event);
-			observer.subscribe('event', subscriber2.event);
+			observer.subscribe(expectedEvent, subscriber1.event);
+			observer.subscribe(expectedEvent, subscriber2.event);
 
-			observer.notify('event');
+			observer.notify(expectedEvent);
 
 		ok(subscriber1Notified);
 		ok(subscriber2Notified);
