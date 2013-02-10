@@ -34,7 +34,7 @@
 			draw2DMock = { begin : function(argument) { receivedArgument = argument; }, clear : function() { }, setBackBuffer : function() { } },
 			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.prepare();
+		drawing.draw();
 
 		equal(receivedArgument, expectedArgument);
 	});
@@ -46,7 +46,7 @@
 			draw2DMock = { begin : function(argument) { }, clear : function() { draw2DClearCalled = true; }, setBackBuffer : function() { } },
 			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.prepare();
+		drawing.draw();
 
 		ok(draw2DClearCalled);
 	});
@@ -59,7 +59,7 @@
 			draw2DMock = { begin : function(argument) { }, clear : function(colour) { receievedClearClearColour = colour; }, setBackBuffer : function() { } },
 			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.prepare(expectedClearColour);
+		drawing.draw(expectedClearColour);
 
 		equal(receievedClearClearColour, expectedClearColour);
 	});
@@ -71,7 +71,7 @@
 			draw2DMock = { begin : function(argument) { }, clear : function(colour) { }, setBackBuffer : function() { setBackBufferCalled = true; } },
 			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.prepare({ });
+		drawing.draw({ });
 
 		ok(setBackBufferCalled);
 	});
@@ -84,7 +84,7 @@
 			draw2DMock = { begin : function(argument) { }, clear : function(colour) { }, setBackBuffer : function() { } },
 			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverMock);
 
-		drawing.prepare({ });
+		drawing.draw({ });
 
 		ok(receivedNotifcation, expectedNotification);
 	});
