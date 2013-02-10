@@ -96,7 +96,7 @@
 			draw2DStub = { end : function() { } },		
 			graphiscDeviceStub = { endFrame : function() { } },
 			observerMock = { subscribe : function(type) { if(type == "drawSpriteComplete") { receivedEventSubscribe = type; } } },
-			drawingComplete = new Drawing(graphiscDeviceStub, draw2DStub, observerMock);		
+			drawing = new Drawing(graphiscDeviceStub, draw2DStub, observerMock);		
 
 		equal(receivedEventSubscribe, expectedEventSubscribe);
 	});
@@ -107,7 +107,7 @@
 			draw2DMock = { end : function() { endCalled = true; } },
 			graphiscDeviceStub = { endFrame : function() { } },
 			observerMock = { subscribe : function(type, subscriber) { if(type == "drawSpriteComplete") { subscriberObject = subscriber; } } },
-			drawingComplete = new Drawing(graphiscDeviceStub, draw2DMock, observerMock);
+			drawing = new Drawing(graphiscDeviceStub, draw2DMock, observerMock);
 			
 			subscriberObject();
 
@@ -120,7 +120,7 @@
 			draw2DStub = { end : function() { } },
 			graphiscDeviceMock = { endFrame : function() { endFrameCalled = true; } },
 			observerMock = { subscribe : function(type, subscriber) { if(type == "drawSpriteComplete") { subscriberObject = subscriber; } } },
-			drawingComplete = new Drawing(graphiscDeviceMock, draw2DStub, observerMock);
+			drawing = new Drawing(graphiscDeviceMock, draw2DStub, observerMock);
 			
 			subscriberObject();
 
@@ -132,7 +132,7 @@
 		var expectedEventSubscribe = "drawingPrepareComplete",
 			receivedEventSubscribe = "",			
 			observerMock = { subscribe : function(type) { if(type == "drawingPrepareComplete") { receivedEventSubscribe = type; } } },
-			drawingComplete = new Drawing({ }, { }, observerMock);		
+			drawing = new Drawing({ }, { }, observerMock);		
 
 		equal(receivedEventSubscribe, expectedEventSubscribe);
 	});
@@ -142,7 +142,7 @@
 			subscriberObject = null,
 			draw2DMock = { drawSprite : function() { drawSpriteCalled = true; } },			
 			observerMock = { subscribe : function(type, subscriber) { if(type == "drawingPrepareComplete") { subscriberObject = subscriber; } }, notify : function(type) { } },
-			drawingComplete = new Drawing({ }, draw2DMock, observerMock);
+			drawing = new Drawing({ }, draw2DMock, observerMock);
 
 		subscriberObject();
 
@@ -155,10 +155,25 @@
 			drawObject = null,
 			draw2DMock = { drawSprite : function() { } },			
 			observerMock = { subscribe : function(type, subscriber) { if(type == "drawingPrepareComplete") { drawObject = subscriber; } }, notify : function(type) { receivedNotification = type; } },
-			drawingComplete = new Drawing({ }, draw2DMock, observerMock);
+			drawing = new Drawing({ }, draw2DMock, observerMock);
 
 		drawObject();
 
 		equal(receivedNotification, expectedNotification);
+	});
+
+	test("When draw called with sprite Then drawSprite called with sprite", function() {		
+		var expectedSprite = "expectedSprite",
+			receivedSprite = "",
+			drawObject = null,			
+			graphicsDeviceStub = { beginFrame : function() { return true; } },
+			draw2DMock = { drawSprite : function(sprite) { receivedSprite = sprite; }, begin : function() { }, clear : function() { }, setBackBuffer : function() { } },			
+			observerMock = { subscribe : function(type, subscriber) { if(type == "drawingPrepareComplete") { drawObject = subscriber; } }, notify : function(type) { } },
+			drawing = new Drawing(graphicsDeviceStub, draw2DMock, observerMock);
+		
+		drawing.draw("", expectedSprite);
+		drawObject();
+
+		equal(receivedSprite, expectedSprite);
 	});
 }());

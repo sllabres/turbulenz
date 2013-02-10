@@ -1,5 +1,7 @@
 function Drawing(graphicsDevice, draw2D, observer) {
-	"use strict";		
+	"use strict";
+	var spriteLocal = null;
+
 	observer.subscribe("drawingPrepareComplete", drawSprite);
 	observer.subscribe("drawSpriteComplete", complete);
 
@@ -13,7 +15,7 @@ function Drawing(graphicsDevice, draw2D, observer) {
 	}
 
 	function drawSprite() {
-		draw2D.drawSprite();
+		draw2D.drawSprite(spriteLocal);
 		observer.notify("drawSpriteComplete");		
 	}
 
@@ -22,8 +24,9 @@ function Drawing(graphicsDevice, draw2D, observer) {
 		graphicsDevice.endFrame();		
 	}
 
-	function draw(clearColour) {
+	function draw(clearColour, sprite) {
 		prepare(clearColour);
+		spriteLocal = sprite;
 	}
 
 	return { draw : draw };
