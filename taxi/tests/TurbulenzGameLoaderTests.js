@@ -5,11 +5,10 @@
 
 	test("When load called Then call createGameSession with requestHandler", function() {
 		var expectedRequestHandler = "requestHandler",
-			receivedRequestHandler = "",			
-			requestHandlerFactoryMock = { create : function() { return expectedRequestHandler; } },
+			receivedRequestHandler = "",
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesMock = { createGameSession : function(requestHandler) { receivedRequestHandler = requestHandler; } },
-			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesMock);
+			turbulenzGame = new TurbulenzGameLoader(expectedRequestHandler, turbulenzEngineStub, turbulenzServicesMock);
 
 		turbulenzGame.load();
 
@@ -19,11 +18,10 @@
 	test("When game session created and createMappingTable called Then createMappingTable called with requestHandler ", function() {
 		var expectedRequestHandler = "requestHandler",
 			receivedRequestHandler = "",
-			requestHandlerFactoryMock = { create : function() { return expectedRequestHandler; } },
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
 										createMappingTable : function(requestHandler) { receivedRequestHandler = requestHandler; } },
-			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesMock);
+			turbulenzGame = new TurbulenzGameLoader(expectedRequestHandler, turbulenzEngineStub, turbulenzServicesMock);
 
 		turbulenzGame.load();
 
@@ -33,37 +31,20 @@
 	test("When game session created and createMappingTable called Then createMappingTable called with gameSession", function() {
 		var expectedGameSession = "gameSession",
 			receivedGameSession = "",
-			requestHandlerFactoryMock = { create : function() { } },			
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(expectedGameSession); },
 										createMappingTable : function(requestHandler, gameSession) { receivedGameSession = gameSession; } },
-			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesMock);
+			turbulenzGame = new TurbulenzGameLoader({ }, turbulenzEngineStub, turbulenzServicesMock);
 
 		turbulenzGame.load();
 
 		equal(receivedGameSession, expectedGameSession);
 	});
 
-	test("When mappingTableCreated called Then loadCompleteObserver called with requestHandler", function() {
-		var expectedRequestHandler = "requestHandler",
-			receivedRequestHandler = "",
-			loadCompleteObserverMock = { notify : function(requestHandler) {  receivedRequestHandler = requestHandler; } },
-			requestHandlerFactoryMock = { create : function() { return expectedRequestHandler; } },			
-			loadCompletedStub = function() { },
-			turbulenzEngineStub = { createGraphicsDevice : function() { } },
-			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
-										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
-			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesStub, loadCompleteObserverMock);
-
-		turbulenzGame.load(loadCompletedStub);
-
-		equal(receivedRequestHandler, expectedRequestHandler);
-	});
-
 	test("When mappingTableCreated Then loadCompleteObserver called with graphicsDevice", function() {
 		var expectedGrapicsDevice = "graphicsDevice",
 			receivedGraphicsDevice = "",
-			loadCompleteObserverMock = { notify : function(requestHandler, graphicsDevice) {  receivedGraphicsDevice = graphicsDevice; } },
+			loadCompleteObserverMock = { notify : function(graphicsDevice) {  receivedGraphicsDevice = graphicsDevice; } },
 			loadCompletedStub = function() { },
 			requestHandlerFactoryStub = { create : function() { } },						
 			turbulenzEngineStub = { createGraphicsDevice : function() { return expectedGrapicsDevice; } },
@@ -79,7 +60,7 @@
 	test("When mappingTableCreated Then loadCompleteObserver called with mappingTable", function() {
 		var expectedMappingTable = "mappingTable",
 			receivedMappingTable = "",
-			loadCompleteObserverMock = { notify : function(requestHandler, graphicsDevice, mappingTable) {  receivedMappingTable = mappingTable; } },
+			loadCompleteObserverMock = { notify : function(graphicsDevice, mappingTable) {  receivedMappingTable = mappingTable; } },
 			loadCompletedStub = function() { },
 			requestHandlerFactoryStub = { create : function() { } },						
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
