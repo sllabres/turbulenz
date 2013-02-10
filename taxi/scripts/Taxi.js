@@ -2,8 +2,8 @@
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
 (function() {	
 	
-	requestHandler = requestHandlerFactory.create({});
-	graphicsDevice = turbulenzEngine.createGraphicsDevice({});
+	requestHandler = RequestHandler.create({});
+	graphicsDevice = TurbulenzEngine.createGraphicsDevice({});
 	var game = new Game(requestHandler, graphicsDevice, Draw2DSprite);
 	
 	TurbulenzEngine.onload = function onload() { 		
