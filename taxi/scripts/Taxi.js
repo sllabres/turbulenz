@@ -1,7 +1,11 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
 (function() {	
-	var game = new Game(RequestHandler, TurbulenzEngine, Draw2DSprite);
+	
+	requestHandler = requestHandlerFactory.create({});
+	graphicsDevice = turbulenzEngine.createGraphicsDevice({});
+	var game = new Game(requestHandler, graphicsDevice, Draw2DSprite);
+	
 	TurbulenzEngine.onload = function onload() { 		
 		game.load();
 	};

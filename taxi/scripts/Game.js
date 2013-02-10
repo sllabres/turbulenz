@@ -1,8 +1,6 @@
-function Game(requestHandlerFactory, turbulenzEngine, draw2DSprite) {
+function Game(requestHandler, graphicsDevice, draw2DSprite) {
 	"use strict";
-	var requestHandler = null,
-		graphicsDevice = null,
-		mappingTableLoader = null,
+	var mappingTableLoader = null,
 		eventObserver = new EventObserver(),
 		draw2D = null,
 		textureLoader = null,
@@ -12,9 +10,7 @@ function Game(requestHandlerFactory, turbulenzEngine, draw2DSprite) {
 		sprite = null;
 
 	function load() {
-		eventObserver.subscribe('mappingTableLoaded', mappingTableLoaded);
-		requestHandler = requestHandlerFactory.create({});
-		graphicsDevice = turbulenzEngine.createGraphicsDevice({});
+		eventObserver.subscribe('mappingTableLoaded', mappingTableLoaded);		
 		mappingTableLoader = new mappingTableLoader(requestHandler, graphicsDevice, eventObserver);
 		draw2D = Draw2D.create({ graphicsDevice : graphicsDevice });
 		draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });
