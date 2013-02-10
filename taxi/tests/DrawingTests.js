@@ -7,9 +7,9 @@
 			drawingObserverStub = { subscribe : function(type) { }, notify : function(type) { } },
 			graphicsDeviceStub = { beginFrame : function() { return true; } },
 			draw2DMock = { begin : function() { draw2DBeginCalled = true; }, clear : function() { }, setBackBuffer : function() { } },
-			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
+			drawing = new DrawingPrepare(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.draw();
+		drawing.prepare();
 
 		ok(draw2DBeginCalled);
 	});
@@ -19,9 +19,9 @@
 			drawingObserverStub = { subscribe : function(type) { }, notify : function(type) { } },
 			graphicsDeviceStub = { beginFrame : function() { return false; } },
 			draw2DMock = { begin : function() { draw2DBeginCalled = true; }, clear : function() { }, setBackBuffer : function() { } },
-			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
+			drawing = new DrawingPrepare(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.draw();
+		drawing.prepare();
 
 		ok(!draw2DBeginCalled);
 	});
@@ -32,9 +32,9 @@
 			drawingObserverStub = { subscribe : function(type) { }, notify : function(type) { } },
 			graphicsDeviceStub = { beginFrame : function() { return true; } },
 			draw2DMock = { begin : function(argument) { receivedArgument = argument; }, clear : function() { }, setBackBuffer : function() { } },
-			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
+			drawing = new DrawingPrepare(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.draw();
+		drawing.prepare();
 
 		equal(receivedArgument, expectedArgument);
 	});
@@ -44,9 +44,9 @@
 			drawingObserverStub = { subscribe : function(type) { }, notify : function(type) { } },
 			graphicsDeviceStub = { beginFrame : function() { return true; } },
 			draw2DMock = { begin : function(argument) { }, clear : function() { draw2DClearCalled = true; }, setBackBuffer : function() { } },
-			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
+			drawing = new DrawingPrepare(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.draw();
+		drawing.prepare();
 
 		ok(draw2DClearCalled);
 	});
@@ -57,9 +57,9 @@
 			drawingObserverStub = { subscribe : function(type) { }, notify : function(type) { } },
 			graphicsDeviceStub = { beginFrame : function() { return true; } },
 			draw2DMock = { begin : function(argument) { }, clear : function(colour) { receievedClearClearColour = colour; }, setBackBuffer : function() { } },
-			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
+			drawing = new DrawingPrepare(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.draw(expectedClearColour);
+		drawing.prepare(expectedClearColour);
 
 		equal(receievedClearClearColour, expectedClearColour);
 	});
@@ -69,9 +69,9 @@
 			drawingObserverStub = { subscribe : function(type) { }, notify : function(type) { } },
 			graphicsDeviceStub = { beginFrame : function() { return true; } },
 			draw2DMock = { begin : function(argument) { }, clear : function(colour) { }, setBackBuffer : function() { setBackBufferCalled = true; } },
-			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
+			drawing = new DrawingPrepare(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.draw({ });
+		drawing.prepare({ });
 
 		ok(setBackBufferCalled);
 	});
@@ -82,28 +82,15 @@
 			drawingObserverMock = { subscribe : function(type) { }, notify : function(type) { receivedNotifcation = type; } },
 			graphicsDeviceStub = { beginFrame : function() { return true; } },
 			draw2DMock = { begin : function(argument) { }, clear : function(colour) { }, setBackBuffer : function() { } },
-			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverMock);
+			drawing = new DrawingPrepare(graphicsDeviceStub, draw2DMock, drawingObserverMock);
 
-		drawing.draw({ });
+		drawing.prepare({ });
 
 		ok(receivedNotifcation, expectedNotification);
 	});
-
-	test("When draw called Then drawingPrepareComplete event subscribed to", function() {
-		var expectedEventSubscription = "drawingPrepareComplete",
-			receivedEventSubscription = "",
-			drawingObserverMock = { subscribe : function(type) { receivedEventSubscription = type; }, notify : function(type) { } },
-			graphicsDeviceStub = { beginFrame : function() { } },
-			draw2DStub = { begin : function(argument) { }, clear : function(colour) { }, setBackBuffer : function() { } },
-			drawing = new Drawing(graphicsDeviceStub, draw2DStub, drawingObserverMock);
-
-		drawing.draw({ });
-
-		equal(receivedEventSubscription, expectedEventSubscription);
-	});
 }());
 
-function Drawing(graphicsDevice, draw2D, drawingObserver) {
+function DrawingPrepare(graphicsDevice, draw2D, drawingObserver) {
 	"use strict";
 	function prepare(clearColour) {
 		if(graphicsDevice.beginFrame()) {
@@ -114,10 +101,5 @@ function Drawing(graphicsDevice, draw2D, drawingObserver) {
 		}
 	}
 
-	function draw(clearColour) {		
-		drawingObserver.subscribe('drawingPrepareComplete');
-		prepare(clearColour);
-	}
-
-	return { draw : draw };
+	return { prepare : prepare };
 }
