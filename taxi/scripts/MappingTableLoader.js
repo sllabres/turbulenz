@@ -1,4 +1,4 @@
-function MappingTableLoader(requestHandler, turbulenzServices, loadCompleteObserver) {
+function MappingTableLoader(requestHandler, turbulenzServices, observer) {
 	"use strict";	
 
 	function sessionCreated(gameSession) {
@@ -6,7 +6,7 @@ function MappingTableLoader(requestHandler, turbulenzServices, loadCompleteObser
 	}
 
 	function mappingTableCreated(table) {		
-		loadCompleteObserver.notify('mappingTableLoaded', table);		
+		observer.notify('mappingTableLoaded', table);
 	}
 
 	function load() {
