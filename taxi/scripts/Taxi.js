@@ -6,8 +6,8 @@
 		graphicsDevice = TurbulenzEngine.createGraphicsDevice({});
 		draw2D = Draw2D.create({ graphicsDevice : graphicsDevice });
 		draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });		
-		mappingTableLoader = new MappingTableLoader(requestHandler, turbulenzServices, eventObserver);
-		textureLoader = new TextureLoader(textureManager, graphicsDevice, requestHandler);				
+		mappingTableLoader = new MappingTableLoader(requestHandler, TurbulenzServices, eventObserver);
+		textureLoader = new TextureLoader(TextureManager, graphicsDevice, requestHandler);				
 		backgroundSpriteFactory = new BackgroundSpriteFactory(Draw2DSprite, graphicsDevice);
 		drawing = new Drawing(graphicsDevice, draw2D, eventObserver);
 
