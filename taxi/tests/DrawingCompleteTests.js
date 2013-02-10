@@ -2,7 +2,7 @@
 (function () {
 	"use strict";
 	module("Given drawing complete");
-	test("When setup called then subscribes to drawSpriteComplete event type", function() {
+	test("When instantiated then subscribes to drawSpriteComplete event type", function() {
 		var expectedEventSubscribe = "drawSpriteComplete",
 			receivedEventSubscribe = "",			
 			observerMock = { subscribe : function(type) { receivedEventSubscribe = type; } },
