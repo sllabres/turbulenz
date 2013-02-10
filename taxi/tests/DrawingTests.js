@@ -10,4 +10,16 @@
 
 		equal(receivedEventSubscribe, expectedEventSubscribe);
 	});
+
+	test("When drawingPrepareComplete event triggered then draw2D.drawSprite called", function() {
+		var drawSpriteCalled = false,
+			subscriberObject = null,
+			draw2DMock = { drawSprite : function() { drawSpriteCalled = true; } },			
+			observerMock = { subscribe : function(type, subscriber) { subscriberObject = subscriber; } },
+			drawingComplete = new Drawing(observerMock, draw2DMock);
+
+		subscriberObject();
+
+		ok(drawSpriteCalled);
+	});
 }());
