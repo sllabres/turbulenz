@@ -15,7 +15,7 @@
 		
 		draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });		
 
-		var game = new Game(mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing);
+		var game = new Game(eventObserver, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing);
 
 		game.load();
 	};
