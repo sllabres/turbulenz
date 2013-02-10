@@ -6,9 +6,7 @@
 		var expectedEventSubscribe = "drawSpriteComplete",
 			receivedEventSubscribe = "",			
 			observerMock = { subscribe : function(type) { receivedEventSubscribe = type; } },
-			drawingComplete = new DrawingComplete(observerMock);
-
-		drawingComplete.setup();
+			drawingComplete = new DrawingComplete(observerMock);		
 
 		equal(receivedEventSubscribe, expectedEventSubscribe);
 	});
@@ -20,8 +18,7 @@
 			graphiscDeviceStub = { endFrame : function() { } },
 			observerMock = { subscribe : function(type, subscriber) { subscriberObject = subscriber; } },
 			drawingComplete = new DrawingComplete(observerMock, draw2DMock, graphiscDeviceStub);
-
-			drawingComplete.setup();
+			
 			subscriberObject();
 
 		ok(endCalled);
@@ -34,8 +31,7 @@
 			graphiscDeviceMock = { endFrame : function() { endFrameCalled = true; } },
 			observerMock = { subscribe : function(type, subscriber) { subscriberObject = subscriber; } },
 			drawingComplete = new DrawingComplete(observerMock, draw2DStub, graphiscDeviceMock);
-
-			drawingComplete.setup();
+			
 			subscriberObject();
 
 		ok(endFrameCalled);
