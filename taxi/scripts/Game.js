@@ -22,7 +22,6 @@ function Game(requestHandler, graphicsDevice, draw2DSprite, turbulenzServices, t
 
 	function mappingTableLoaded(table) {
 		mappingTable = table;
-		alert(table.getURL("textures/Sky.jpg"));
 		textureLoader.load(table.getURL("textures/Sky.jpg"), textureLoadComplete);
 	}
 
@@ -32,7 +31,7 @@ function Game(requestHandler, graphicsDevice, draw2DSprite, turbulenzServices, t
 	}
 
 	function update() {
-		drawing.draw(sprite);
+		drawing.draw([0.3,0.3,0.3,1], sprite);
 	}
 
 	return { load : load };
