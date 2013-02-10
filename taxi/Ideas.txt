@@ -23,6 +23,9 @@ Drawing (WIP)
 	Dependencies: GraphicsDevice, Draw2d
 	Draw: Accepts sprite
 
+DrawingMediator
+	Subscribes to PrepareComplete and DrawComplete
+
 ------------------------
 
 Once turbulenz game objects loaded then insantiate game with observed events
