@@ -28,8 +28,7 @@
 
 	test("When game session created and createMappingTable called Then createMappingTable called with gameSession", function() {
 		var expectedGameSession = "gameSession",
-			receivedGameSession = "",
-			turbulenzEngineStub = { createGraphicsDevice : function() { } },
+			receivedGameSession = "",			
 			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(expectedGameSession); },
 										createMappingTable : function(requestHandler, gameSession) { receivedGameSession = gameSession; } },
 			turbulenzGame = new TurbulenzGameLoader({ }, turbulenzServicesMock);
@@ -44,8 +43,7 @@
 			receivedMappingTable = "",
 			loadCompleteObserverMock = { notify : function(graphicsDevice, mappingTable) {  receivedMappingTable = mappingTable; } },
 			loadCompletedStub = function() { },
-			requestHandlerFactoryStub = { create : function() { } },						
-			turbulenzEngineStub = { createGraphicsDevice : function() { } },
+			requestHandlerFactoryStub = { create : function() { } },									
 			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
 										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(expectedMappingTable); } },
 			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzServicesMock, loadCompleteObserverMock);
@@ -61,8 +59,7 @@
 			receivedEventType = "",
 			loadCompleteObserverMock = { notify : function(type, mappingTable) {  receivedEventType = type; } },
 			loadCompletedStub = function() { },
-			requestHandlerFactoryStub = { create : function() { } },						
-			turbulenzEngineStub = { createGraphicsDevice : function() { } },
+			requestHandlerFactoryStub = { create : function() { } },									
 			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
 										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(mappingTableStub); } },
 			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzServicesMock, loadCompleteObserverMock);
