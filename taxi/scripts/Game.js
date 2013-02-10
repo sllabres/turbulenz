@@ -1,7 +1,5 @@
-function Game(mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing) {
+function Game(eventObserver, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing) {
 	"use strict";
-	var eventObserver = new EventObserver();
-
 	function load() {
 		eventObserver.subscribe('mappingTableLoaded', mappingTableLoaded);				
 		mappingTableLoader.load();
