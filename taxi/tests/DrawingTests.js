@@ -23,14 +23,3 @@
 		equal(receivedSprite, expectedSprite);
 	});
 }());
-
-//draw2D.drawSprite(background);
-
-function Drawing(draw2D) {
-
-	function draw(sprite) {
-		draw2D.drawSprite(sprite);
-	}
-
-	return { draw : draw };
-}
