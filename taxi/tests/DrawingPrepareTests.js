@@ -95,7 +95,7 @@
 			receivedEventSubscribe = "",	
 			draw2DStub = { end : function() { } },		
 			graphiscDeviceStub = { endFrame : function() { } },
-			observerMock = { subscribe : function(type) { receivedEventSubscribe = type; } },
+			observerMock = { subscribe : function(type) { if(type == "drawSpriteComplete") { receivedEventSubscribe = type; } } },
 			drawingComplete = new DrawingPrepare(graphiscDeviceStub, draw2DStub, observerMock);		
 
 		equal(receivedEventSubscribe, expectedEventSubscribe);
@@ -106,7 +106,7 @@
 			subscriberObject = null,
 			draw2DMock = { end : function() { endCalled = true; } },
 			graphiscDeviceStub = { endFrame : function() { } },
-			observerMock = { subscribe : function(type, subscriber) { subscriberObject = subscriber; } },
+			observerMock = { subscribe : function(type, subscriber) { if(type == "drawSpriteComplete") { subscriberObject = subscriber; } } },
 			drawingComplete = new DrawingPrepare(graphiscDeviceStub, draw2DMock, observerMock);
 			
 			subscriberObject();
@@ -119,11 +119,33 @@
 			subscriberObject = null,
 			draw2DStub = { end : function() { } },
 			graphiscDeviceMock = { endFrame : function() { endFrameCalled = true; } },
-			observerMock = { subscribe : function(type, subscriber) { subscriberObject = subscriber; } },
+			observerMock = { subscribe : function(type, subscriber) { if(type == "drawSpriteComplete") { subscriberObject = subscriber; } } },
 			drawingComplete = new DrawingPrepare(graphiscDeviceMock, draw2DStub, observerMock);
 			
 			subscriberObject();
 
 		ok(endFrameCalled);
+	});
+
+	module("Given drawing");
+	test("When instantiated then subscribes to drawingPrepareComplete event type", function() {
+		var expectedEventSubscribe = "drawingPrepareComplete",
+			receivedEventSubscribe = "",			
+			observerMock = { subscribe : function(type) { if(type == "drawingPrepareComplete") { receivedEventSubscribe = type; } } },
+			drawingComplete = new DrawingPrepare({ }, { }, observerMock);		
+
+		equal(receivedEventSubscribe, expectedEventSubscribe);
+	});
+
+	test("When drawingPrepareComplete event triggered then draw2D.drawSprite called", function() {
+		var drawSpriteCalled = false,
+			subscriberObject = null,
+			draw2DMock = { drawSprite : function() { drawSpriteCalled = true; } },			
+			observerMock = { subscribe : function(type, subscriber) { if(type == "drawingPrepareComplete") { subscriberObject = subscriber; } } },
+			drawingComplete = new DrawingPrepare({ }, draw2DMock, observerMock);
+
+		subscriberObject();
+
+		ok(drawSpriteCalled);
 	});
 }());

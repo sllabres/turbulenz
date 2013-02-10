@@ -1,7 +1,8 @@
 function DrawingPrepare(graphicsDevice, draw2D, observer) {
-	"use strict";
-	observer.subscribe("drawSpriteComplete", complete);	
-	
+	"use strict";		
+	observer.subscribe("drawingPrepareComplete", draw);
+	observer.subscribe("drawSpriteComplete", complete);
+
 	function prepare(clearColour) {
 		if(graphicsDevice.beginFrame()) {
 			draw2D.begin('alpha');
@@ -9,6 +10,10 @@ function DrawingPrepare(graphicsDevice, draw2D, observer) {
 			draw2D.setBackBuffer();
 			observer.notify("drawingPrepareComplete");			
 		}
+	}
+
+	function draw() {
+		draw2D.drawSprite();
 	}
 
 	function complete() {
