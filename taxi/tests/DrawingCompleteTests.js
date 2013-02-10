@@ -42,6 +42,7 @@
 }());
 
 function DrawingComplete(observer, draw2D, graphicsDevice) {
+	"use strict";
 	function setup() {
 		observer.subscribe("drawSpriteComplete", complete);
 	}
