@@ -11,14 +11,25 @@
 
 		ok(drawSpriteCalled);
 	});
+
+	test("When calling draw Then draw2D.drawSprite called with sprite", function() {
+		var expectedSprite = "expectedSprite",
+			receivedSprite = "",
+			draw2DMock = { drawSprite : function(sprite) { receivedSprite = sprite; } },
+			drawing = new Drawing(draw2DMock);
+
+		drawing.draw(expectedSprite);
+
+		equal(receivedSprite, expectedSprite);
+	});
 }());
 
 //draw2D.drawSprite(background);
 
-function Drawing(draw2D) { 
+function Drawing(draw2D) {
 
-	function draw() {
-		draw2D.drawSprite();
+	function draw(sprite) {
+		draw2D.drawSprite(sprite);
 	}
 
 	return { draw : draw };
