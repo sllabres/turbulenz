@@ -11,7 +11,7 @@ function TurbulenzGameLoader(requestHandler, turbulenzEngine, turbulenzServices,
 	}
 
 	function load() {
-		graphicsDevice = turbulenzEngine.createGraphicsDevice({});
+		//graphicsDevice = turbulenzEngine.createGraphicsDevice({});
 		turbulenzServices.createGameSession(requestHandler, sessionCreated);
 	}
 

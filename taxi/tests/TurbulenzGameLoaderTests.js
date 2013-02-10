@@ -6,9 +6,9 @@
 	test("When load called Then call createGameSession with requestHandler", function() {
 		var expectedRequestHandler = "requestHandler",
 			receivedRequestHandler = "",
-			turbulenzEngineStub = { createGraphicsDevice : function() { } },
+			graphicsDeviceStub = {},
 			turbulenzServicesMock = { createGameSession : function(requestHandler) { receivedRequestHandler = requestHandler; } },
-			turbulenzGame = new TurbulenzGameLoader(expectedRequestHandler, turbulenzEngineStub, turbulenzServicesMock);
+			turbulenzGame = new TurbulenzGameLoader(expectedRequestHandler, graphicsDeviceStub, turbulenzServicesMock);
 
 		turbulenzGame.load();
 
