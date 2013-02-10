@@ -25,15 +25,32 @@
 
 		ok(endCalled);
 	});
+
+	test("When drawSpriteComplete event triggered then graphicsDevice.endFrame called", function() {
+		var endFrameCalled = false,
+			subscriberObject = null,
+			draw2DStub = { end : function() { } },
+			graphiscDeviceMock = { endFrame : function() { endFrameCalled = true; } },
+			observerMock = { subscribe : function(type, subscriber) { subscriberObject = subscriber; } },
+			drawingComplete = new DrawingComplete(observerMock, draw2DStub, graphiscDeviceMock);
+
+			drawingComplete.setup();
+			subscriberObject();
+
+		ok(endFrameCalled);
+	});
 }());
 
-function DrawingComplete(observer, draw2D) {
+function DrawingComplete(observer, draw2D, graphicsDevice) {
 	function setup() {
 		observer.subscribe("drawSpriteComplete", complete);
 	}
 
 	function complete() {
 		draw2D.end();
+		if(graphicsDevice !== undefined) {
+			graphicsDevice.endFrame();
+		}		
 	}
 
 	return { setup : setup };
