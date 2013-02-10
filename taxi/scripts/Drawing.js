@@ -22,5 +22,10 @@ function Drawing(graphicsDevice, draw2D, observer) {
 		graphicsDevice.endFrame();		
 	}
 
-	return { prepare : prepare };
+	function draw(clearColour) {
+		prepare(clearColour);
+	}
+
+	return { prepare : prepare,
+			 draw : draw };
 }
