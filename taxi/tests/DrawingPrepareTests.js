@@ -1,7 +1,7 @@
 /*global module, equal, test*/
 (function () {
 	"use strict";
-	module("Given drawing");
+	module("Given drawing prepare");
 	test("When draw called and graphicsDevice.BeginFrame returns true Then draw2D.begin called", function() {
 		var draw2DBeginCalled = false,
 			drawingObserverStub = { subscribe : function(type) { }, notify : function(type) { } },
