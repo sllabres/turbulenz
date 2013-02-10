@@ -4,7 +4,7 @@
 	TurbulenzEngine.onload = function onload() { 		
 		requestHandler = RequestHandler.create({});
 		graphicsDevice = TurbulenzEngine.createGraphicsDevice({});
-		var game = new Game(requestHandler, graphicsDevice, Draw2DSprite, TurbulenzServices);
+		var game = new Game(requestHandler, graphicsDevice, Draw2DSprite, TurbulenzServices, TextureManager);
 		game.load();
 	};
 }());
