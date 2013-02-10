@@ -4,6 +4,7 @@
 	TurbulenzEngine.onload = function onload() { 				
 		
 		var requestHandler = RequestHandler.create({}),
+			draw2D = Draw2D.create({ graphicsDevice : graphicsDevice }),
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			eventObserver = new EventObserver(),
 			mappingTableLoader = new MappingTableLoader(requestHandler, TurbulenzServices, eventObserver),
@@ -11,7 +12,7 @@
 			backgroundSpriteFactory = new BackgroundSpriteFactory(Draw2DSprite, graphicsDevice),
 			drawing = new Drawing(graphicsDevice, draw2D, eventObserver);
 
-		draw2D = Draw2D.create({ graphicsDevice : graphicsDevice });
+		
 		draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });		
 
 		var game = new Game(mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing);
