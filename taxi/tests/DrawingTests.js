@@ -5,7 +5,8 @@
 	test("When calling draw Then draw2D.drawSprite called", function() {
 		var drawSpriteCalled = false,
 			draw2DMock = { drawSprite : function() { drawSpriteCalled = true; } },
-			drawing = new Drawing(draw2DMock);
+			notifierStub = { notify : function() { } },
+			drawing = new Drawing(draw2DMock, notifierStub);
 
 		drawing.draw();
 
@@ -16,7 +17,8 @@
 		var expectedSprite = "expectedSprite",
 			receivedSprite = "",
 			draw2DMock = { drawSprite : function(sprite) { receivedSprite = sprite; } },
-			drawing = new Drawing(draw2DMock);
+			notifierStub = { notify : function() { } },
+			drawing = new Drawing(draw2DMock, notifierStub);
 
 		drawing.draw(expectedSprite);
 
