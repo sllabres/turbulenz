@@ -88,4 +88,42 @@
 
 		ok(receivedNotifcation, expectedNotification);
 	});
+
+	module("Given drawing complete");
+	test("When instantiated then subscribes to drawSpriteComplete event type", function() {
+		var expectedEventSubscribe = "drawSpriteComplete",
+			receivedEventSubscribe = "",	
+			draw2DStub = { end : function() { } },		
+			graphiscDeviceStub = { endFrame : function() { } },
+			observerMock = { subscribe : function(type) { receivedEventSubscribe = type; } },
+			drawingComplete = new DrawingPrepare(graphiscDeviceStub, draw2DStub, observerMock);		
+
+		equal(receivedEventSubscribe, expectedEventSubscribe);
+	});
+
+	test("When drawSpriteComplete event triggered then draw2D.end called", function() {
+		var endCalled = false,
+			subscriberObject = null,
+			draw2DMock = { end : function() { endCalled = true; } },
+			graphiscDeviceStub = { endFrame : function() { } },
+			observerMock = { subscribe : function(type, subscriber) { subscriberObject = subscriber; } },
+			drawingComplete = new DrawingPrepare(graphiscDeviceStub, draw2DMock, observerMock);
+			
+			subscriberObject();
+
+		ok(endCalled);
+	});
+
+	test("When drawSpriteComplete event triggered then graphicsDevice.endFrame called", function() {
+		var endFrameCalled = false,
+			subscriberObject = null,
+			draw2DStub = { end : function() { } },
+			graphiscDeviceMock = { endFrame : function() { endFrameCalled = true; } },
+			observerMock = { subscribe : function(type, subscriber) { subscriberObject = subscriber; } },
+			drawingComplete = new DrawingPrepare(graphiscDeviceMock, draw2DStub, observerMock);
+			
+			subscriberObject();
+
+		ok(endFrameCalled);
+	});
 }());
