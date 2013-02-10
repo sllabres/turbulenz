@@ -6,9 +6,8 @@ function TurbulenzGameLoader(requestHandler, turbulenzEngine, turbulenzServices,
 		turbulenzServices.createMappingTable(requestHandler, gameSession, mappingTableCreated);
 	}
 
-	function mappingTableCreated(table) {
-		// need to implement proper observer pattern and split out responsibilities (create request handler, graphics device, game session and mapping table)
-		loadCompleteObserver.notify(graphicsDevice, table);		
+	function mappingTableCreated(table) {		
+		loadCompleteObserver.notify('mappingTableLoaded', table);		
 	}
 
 	function load() {

@@ -41,22 +41,6 @@
 		equal(receivedGameSession, expectedGameSession);
 	});
 
-	test("When mappingTableCreated Then loadCompleteObserver called with graphicsDevice", function() {
-		var expectedGrapicsDevice = "graphicsDevice",
-			receivedGraphicsDevice = "",
-			loadCompleteObserverMock = { notify : function(graphicsDevice) {  receivedGraphicsDevice = graphicsDevice; } },
-			loadCompletedStub = function() { },
-			requestHandlerFactoryStub = { create : function() { } },						
-			turbulenzEngineStub = { createGraphicsDevice : function() { return expectedGrapicsDevice; } },
-			turbulenzServicesStub = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
-										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(); } },
-			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesStub, loadCompleteObserverMock);
-
-		turbulenzGame.load(loadCompletedStub);
-
-		equal(receivedGraphicsDevice, expectedGrapicsDevice);
-	});
-
 	test("When mappingTableCreated Then loadCompleteObserver called with mappingTable", function() {
 		var expectedMappingTable = "mappingTable",
 			receivedMappingTable = "",
@@ -71,5 +55,22 @@
 		turbulenzGame.load(loadCompletedStub);
 
 		equal(receivedMappingTable, expectedMappingTable);
+	});
+
+	test("When mappingTableCreated Then loadCompleteObserver called with mappingTable event type 'mappingTableLoaded'", function() {
+		var expectedMappingEventType = "mappingTableLoaded",
+			mappingTableStub = "",
+			receivedEventType = "",
+			loadCompleteObserverMock = { notify : function(type, mappingTable) {  receivedEventType = type; } },
+			loadCompletedStub = function() { },
+			requestHandlerFactoryStub = { create : function() { } },						
+			turbulenzEngineStub = { createGraphicsDevice : function() { } },
+			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
+										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(mappingTableStub); } },
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesMock, loadCompleteObserverMock);
+
+		turbulenzGame.load(loadCompletedStub);
+
+		equal(receivedEventType, expectedMappingEventType);
 	});
 }());
