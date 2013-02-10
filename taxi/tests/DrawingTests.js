@@ -105,7 +105,6 @@
 
 function Drawing(graphicsDevice, draw2D, drawingObserver) {
 	"use strict";
-
 	function prepare(clearColour) {
 		if(graphicsDevice.beginFrame()) {
 			draw2D.begin('alpha');
