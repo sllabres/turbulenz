@@ -9,7 +9,7 @@
 			draw2DMock = { begin : function() { draw2DBeginCalled = true; }, clear : function() { }, setBackBuffer : function() { } },
 			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.prepare();
+		drawing.draw();
 
 		ok(draw2DBeginCalled);
 	});
@@ -21,7 +21,7 @@
 			draw2DMock = { begin : function() { draw2DBeginCalled = true; }, clear : function() { }, setBackBuffer : function() { } },
 			drawing = new Drawing(graphicsDeviceStub, draw2DMock, drawingObserverStub);
 
-		drawing.prepare();
+		drawing.draw();
 
 		ok(!draw2DBeginCalled);
 	});
