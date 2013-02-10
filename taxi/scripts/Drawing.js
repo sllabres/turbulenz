@@ -26,6 +26,5 @@ function Drawing(graphicsDevice, draw2D, observer) {
 		prepare(clearColour);
 	}
 
-	return { prepare : prepare,
-			 draw : draw };
+	return { draw : draw };
 }
