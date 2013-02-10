@@ -148,4 +148,17 @@
 
 		ok(drawSpriteCalled);
 	});
+
+	test("When draw complete Then drawSpriteComplete notification sent", function() {		
+		var expectedNotification = "drawSpriteComplete",
+			receivedNotification = "",
+			drawObject = null,
+			draw2DMock = { drawSprite : function() { } },			
+			observerMock = { subscribe : function(type, subscriber) { if(type == "drawingPrepareComplete") { drawObject = subscriber; } }, notify : function(type) { receivedNotification = type; } },
+			drawingComplete = new DrawingPrepare({ }, draw2DMock, observerMock);
+
+		drawObject();
+
+		equal(receivedNotification, expectedNotification);
+	});
 }());

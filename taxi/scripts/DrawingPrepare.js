@@ -14,6 +14,9 @@ function DrawingPrepare(graphicsDevice, draw2D, observer) {
 
 	function draw() {
 		draw2D.drawSprite();
+		if(observer.notify !== undefined) {
+			observer.notify("drawSpriteComplete");
+		}
 	}
 
 	function complete() {
