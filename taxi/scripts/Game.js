@@ -5,7 +5,7 @@ function Game(requestHandlerFactory, turbulenzEngine, draw2DSprite) {
 		mappingTableLoader = null,
 		eventObserver = new EventObserver(),
 		draw2D = null,
-		textureLoader = new TextureLoader(),
+		textureLoader = null,
 		mappingTable = null,
 		backgroundSpriteFactory = null,
 		drawing = null,
