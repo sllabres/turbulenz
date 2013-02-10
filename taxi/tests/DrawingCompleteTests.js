@@ -17,8 +17,9 @@
 		var endCalled = false,
 			subscriberObject = null,
 			draw2DMock = { end : function() { endCalled = true; } },
+			graphiscDeviceStub = { endFrame : function() { } },
 			observerMock = { subscribe : function(type, subscriber) { subscriberObject = subscriber; } },
-			drawingComplete = new DrawingComplete(observerMock, draw2DMock);
+			drawingComplete = new DrawingComplete(observerMock, draw2DMock, graphiscDeviceStub);
 
 			drawingComplete.setup();
 			subscriberObject();
@@ -48,10 +49,8 @@ function DrawingComplete(observer, draw2D, graphicsDevice) {
 	}
 
 	function complete() {
-		draw2D.end();
-		if(graphicsDevice !== undefined) {
-			graphicsDevice.endFrame();
-		}		
+		draw2D.end();		
+		graphicsDevice.endFrame();		
 	}
 
 	return { setup : setup };
