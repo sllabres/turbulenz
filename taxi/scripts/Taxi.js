@@ -1,9 +1,9 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
-(function(turbulenzEngine,turbulenzServices, requestHandler) {
-	var game = new Game(requestHandler, turbulenzEngine);
+(function(turbulenzEngine,turbulenzServices, requestHandler, draw2DSprite) {
+	var game = new Game(requestHandler, turbulenzEngine, draw2DSprite);
 	turbulenzEngine.onload = game.load;	
-}(TurbulenzEngine, TurbulenzServices, RequestHandler));
+}(TurbulenzEngine, TurbulenzServices, RequestHandler, Draw2DSprite));
 
 /*
  function Game(backgroundDrawing) {
