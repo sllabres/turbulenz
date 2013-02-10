@@ -8,7 +8,7 @@
 			requestHandlerFactoryMock = { create : function(parameters) { passedParameters = parameters; } },
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesStub = { createGameSession : function() { } },
-			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryMock, turbulenzEngineStub, turbulenzServicesStub);
+			turbulenzGame = new Game(requestHandlerFactoryMock);
 
 		turbulenzGame.load();
 
@@ -35,7 +35,7 @@ function Game(requestHandlerFactory) {
 		graphicsDevice = null;
 
 	function load() {		
-		//requestHandler = requestHandlerFactory.create({});
+		requestHandler = requestHandlerFactory.create({});
 		//graphicsDevice = turbulenzEngine.createGraphicsDevice({});
 	}
 
