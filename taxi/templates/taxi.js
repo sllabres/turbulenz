@@ -18,5 +18,5 @@
 /*{{ javascript("scripts/EventObserver.js") }}*/
 /*{{ javascript("scripts/TextureLoader.js") }}*/
 /*{{ javascript("scripts/Game.js") }}*/
-/*{{ javascript("scripts/Taxi.js") }}*/
 /*{{ javascript("scripts/MappingTableLoader.js") }}*/
+/*{{ javascript("scripts/Taxi.js") }}*/
