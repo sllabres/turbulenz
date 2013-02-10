@@ -1,19 +1,9 @@
-function Game(requestHandler, graphicsDevice, draw2DSprite, turbulenzServices, textureManager, draw2D) {
+function Game(mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing) {
 	"use strict";
-	var mappingTableLoader = null,
-		eventObserver = new EventObserver(),
-		textureLoader = null,
-		mappingTable = null,
-		backgroundSpriteFactory = null,
-		drawing = null,
-		sprite = null;
+	var eventObserver = new EventObserver();
 
 	function load() {
-		eventObserver.subscribe('mappingTableLoaded', mappingTableLoaded);		
-		mappingTableLoader = new MappingTableLoader(requestHandler, turbulenzServices, eventObserver);
-		textureLoader = new TextureLoader(textureManager, graphicsDevice, requestHandler);				
-		backgroundSpriteFactory = new BackgroundSpriteFactory(draw2DSprite, graphicsDevice);
-		drawing = new Drawing(graphicsDevice, draw2D, eventObserver);
+		eventObserver.subscribe('mappingTableLoaded', mappingTableLoaded);				
 		mappingTableLoader.load();
 	}
 

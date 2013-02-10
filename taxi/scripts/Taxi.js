@@ -5,8 +5,14 @@
 		requestHandler = RequestHandler.create({});
 		graphicsDevice = TurbulenzEngine.createGraphicsDevice({});
 		draw2D = Draw2D.create({ graphicsDevice : graphicsDevice });
-		draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });
-		var game = new Game(requestHandler, graphicsDevice, Draw2DSprite, TurbulenzServices, TextureManager, draw2D);
+		draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });		
+		mappingTableLoader = new MappingTableLoader(requestHandler, turbulenzServices, eventObserver);
+		textureLoader = new TextureLoader(textureManager, graphicsDevice, requestHandler);				
+		backgroundSpriteFactory = new BackgroundSpriteFactory(Draw2DSprite, graphicsDevice);
+		drawing = new Drawing(graphicsDevice, draw2D, eventObserver);
+
+		var game = new Game(mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing);
+
 		game.load();
 	};
 }());
