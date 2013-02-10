@@ -2,6 +2,7 @@
 (function () {
 	"use strict";
 	module("Given turbulenz game loader");
+
 	test("When load called Then call createGameSession with requestHandler", function() {
 		var expectedRequestHandler = "requestHandler",
 			receivedRequestHandler = "",			
