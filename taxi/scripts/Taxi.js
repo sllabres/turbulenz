@@ -4,8 +4,8 @@
 	TurbulenzEngine.onload = function onload() { 				
 		
 		var requestHandler = RequestHandler.create({}),
-			draw2D = Draw2D.create({ graphicsDevice : graphicsDevice }),
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
+			draw2D = Draw2D.create({ graphicsDevice : graphicsDevice }),			
 			eventObserver = new EventObserver(),
 			mappingTableLoader = new MappingTableLoader(requestHandler, TurbulenzServices, eventObserver),
 			textureLoader = new TextureLoader(TextureManager, graphicsDevice, requestHandler),
