@@ -2,7 +2,9 @@
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
 (function(turbulenzEngine,turbulenzServices, requestHandler, draw2DSprite) {
 	var game = new Game(requestHandler, turbulenzEngine, draw2DSprite);
-	turbulenzEngine.onload = game.load;	
+	turbulenzEngine.onload = function onload() { 
+		game.load();
+	};
 }(TurbulenzEngine, TurbulenzServices, RequestHandler, Draw2DSprite));
 
 /*
