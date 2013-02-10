@@ -22,4 +22,16 @@
 
 		equal(receivedSprite, expectedSprite);
 	});
+
+	test("When calling draw Then drawComplete event type notification sent", function() {
+		var expectedNotification = "drawSpriteComplete",
+			receivedNotification = "",
+			draw2DStub = { drawSprite : function() { } },
+			notifierMock = { notify : function(type) { receivedNotification = type; } },
+			drawing = new Drawing(draw2DStub, notifierMock);
+
+		drawing.draw("");
+
+		equal(receivedNotification, expectedNotification);
+	});
 }());
