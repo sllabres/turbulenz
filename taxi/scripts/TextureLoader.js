@@ -5,7 +5,7 @@ function TextureLoader(textureManagerFactory, graphicsDevice, requestHandler) {
 
 	function onload(texture) {		
 		textureManager.add(texture.name, texture);		
-		loadComplete();		
+		loadComplete(texture);		
 	}
 
 	function load(path, textureLoadComplete) {

@@ -5,6 +5,7 @@ function Game(requestHandlerFactory, turbulenzEngine) {
 		mappingTableLoader = null,
 		eventObserver = new EventObserver(),
 		draw2D = null,
+		textureLoader = new TextureLoader(),
 		mappingTable = null;
 
 	function load() {
@@ -18,6 +19,11 @@ function Game(requestHandlerFactory, turbulenzEngine) {
 
 	function mappingTableLoaded(table) {
 		mappingTable = table;
+		textureLoader.load(table.getURL("textures/Sky.jpg"), textureLoadComplete);
+	}
+
+	function textureLoadComplete(texture) {
+
 	}
 
 	return { load : load };
