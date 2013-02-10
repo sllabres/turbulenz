@@ -1,12 +1,11 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
-/*(function(TurbulenzEngine,TurbulenzServices, RequestHandler) {
-	var turbulenzGameLoader = new TurbulenzGameLoader(RequestHandler, TurbulenzEngine, TurbulenzServices);		
-	TurbulenzEngine.onload = function onload() {
-		//	turbulenzGameLoader.load();
-	};
-}());*/
+(function(turbulenzEngine,turbulenzServices, requestHandler) {
+	var game = new Game(requestHandler, turbulenzEngine);
+	turbulenzEngine.onload = game.load;	
+}(TurbulenzEngine, TurbulenzServices, RequestHandler));
 
+/*
  function Game(backgroundDrawing) {
 	"use strict";
 	function update() {
@@ -50,10 +49,10 @@
     return { draw: draw,
     		 setBackground : setBackground };
 }
-
+*/
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices*/
-(function() {	
+/*(function() {	
 	TurbulenzEngine.onload = function onload() {
 
 		var requestHandler = RequestHandler.create({}),
@@ -85,4 +84,4 @@
 				});
 		}			
 	};
-}());
+}());*/

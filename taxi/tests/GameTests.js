@@ -1,5 +1,5 @@
 /*global module, equal, test*/
-(function () {
+/*(function () {
 	"use strict";
 	module("Given game");
 	test("When load called Then create RequestHandler with empty parameters", function() {
@@ -27,4 +27,4 @@
 
 		ok(Object.keys(passedParameters).length === expectedPropertiesCount);
 	});
-}());
+}());*/
