@@ -11,7 +11,7 @@ function Game(requestHandler, graphicsDevice, draw2DSprite, turbulenzServices, t
 	function load() {
 		eventObserver.subscribe('mappingTableLoaded', mappingTableLoaded);		
 		mappingTableLoader = new MappingTableLoader(requestHandler, turbulenzServices, eventObserver);
-		textureLoader = TextureLoader(textureManager, graphicsDevice, requestHandler);				
+		textureLoader = new TextureLoader(textureManager, graphicsDevice, requestHandler);				
 		backgroundSpriteFactory = new BackgroundSpriteFactory(draw2DSprite, graphicsDevice);
 		drawing = new Drawing(graphicsDevice, draw2D, eventObserver);
 		mappingTableLoader.load();
