@@ -1,7 +1,6 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
-(function() {
-	alert('test');
+(function() {	
 	var game = new Game(RequestHandler, TurbulenzEngine, Draw2DSprite);
 	TurbulenzEngine.onload = function onload() { 		
 		game.load();
