@@ -1,12 +1,10 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
-(function() {	
-	
-	requestHandler = RequestHandler.create({});
-	graphicsDevice = TurbulenzEngine.createGraphicsDevice({});
-	var game = new Game(requestHandler, graphicsDevice, Draw2DSprite);
-	
+(function() {
 	TurbulenzEngine.onload = function onload() { 		
+		requestHandler = RequestHandler.create({});
+		graphicsDevice = TurbulenzEngine.createGraphicsDevice({});
+		var game = new Game(requestHandler, graphicsDevice, Draw2DSprite);
 		game.load();
 	};
 }());
