@@ -141,7 +141,7 @@
 		var drawSpriteCalled = false,
 			subscriberObject = null,
 			draw2DMock = { drawSprite : function() { drawSpriteCalled = true; } },			
-			observerMock = { subscribe : function(type, subscriber) { if(type == "drawingPrepareComplete") { subscriberObject = subscriber; } } },
+			observerMock = { subscribe : function(type, subscriber) { if(type == "drawingPrepareComplete") { subscriberObject = subscriber; } }, notify : function(type) { } },
 			drawingComplete = new DrawingPrepare({ }, draw2DMock, observerMock);
 
 		subscriberObject();
