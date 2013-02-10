@@ -1,6 +1,6 @@
 function DrawingPrepare(graphicsDevice, draw2D, observer) {
 	"use strict";		
-	observer.subscribe("drawingPrepareComplete", draw);
+	observer.subscribe("drawingPrepareComplete", drawSprite);
 	observer.subscribe("drawSpriteComplete", complete);
 
 	function prepare(clearColour) {
@@ -12,7 +12,7 @@ function DrawingPrepare(graphicsDevice, draw2D, observer) {
 		}
 	}
 
-	function draw() {
+	function drawSprite() {
 		draw2D.drawSprite();
 		observer.notify("drawSpriteComplete");		
 	}
