@@ -1,6 +1,5 @@
-function TurbulenzGameLoader(requestHandler, turbulenzEngine, turbulenzServices, loadCompleteObserver) {
-	"use strict";
-	var graphicsDevice = null;		
+function TurbulenzGameLoader(requestHandler, turbulenzServices, loadCompleteObserver) {
+	"use strict";	
 
 	function sessionCreated(gameSession) {
 		turbulenzServices.createMappingTable(requestHandler, gameSession, mappingTableCreated);
@@ -11,7 +10,6 @@ function TurbulenzGameLoader(requestHandler, turbulenzEngine, turbulenzServices,
 	}
 
 	function load() {
-		//graphicsDevice = turbulenzEngine.createGraphicsDevice({});
 		turbulenzServices.createGameSession(requestHandler, sessionCreated);
 	}
 

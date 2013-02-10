@@ -6,9 +6,8 @@
 	test("When load called Then call createGameSession with requestHandler", function() {
 		var expectedRequestHandler = "requestHandler",
 			receivedRequestHandler = "",
-			graphicsDeviceStub = {},
 			turbulenzServicesMock = { createGameSession : function(requestHandler) { receivedRequestHandler = requestHandler; } },
-			turbulenzGame = new TurbulenzGameLoader(expectedRequestHandler, graphicsDeviceStub, turbulenzServicesMock);
+			turbulenzGame = new TurbulenzGameLoader(expectedRequestHandler, turbulenzServicesMock);
 
 		turbulenzGame.load();
 
@@ -17,11 +16,10 @@
 
 	test("When game session created and createMappingTable called Then createMappingTable called with requestHandler ", function() {
 		var expectedRequestHandler = "requestHandler",
-			receivedRequestHandler = "",
-			turbulenzEngineStub = { createGraphicsDevice : function() { } },
+			receivedRequestHandler = "",			
 			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
 										createMappingTable : function(requestHandler) { receivedRequestHandler = requestHandler; } },
-			turbulenzGame = new TurbulenzGameLoader(expectedRequestHandler, turbulenzEngineStub, turbulenzServicesMock);
+			turbulenzGame = new TurbulenzGameLoader(expectedRequestHandler, turbulenzServicesMock);
 
 		turbulenzGame.load();
 
@@ -34,7 +32,7 @@
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(expectedGameSession); },
 										createMappingTable : function(requestHandler, gameSession) { receivedGameSession = gameSession; } },
-			turbulenzGame = new TurbulenzGameLoader({ }, turbulenzEngineStub, turbulenzServicesMock);
+			turbulenzGame = new TurbulenzGameLoader({ }, turbulenzServicesMock);
 
 		turbulenzGame.load();
 
@@ -50,7 +48,7 @@
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
 										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(expectedMappingTable); } },
-			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesMock, loadCompleteObserverMock);
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzServicesMock, loadCompleteObserverMock);
 
 		turbulenzGame.load(loadCompletedStub);
 
@@ -67,7 +65,7 @@
 			turbulenzEngineStub = { createGraphicsDevice : function() { } },
 			turbulenzServicesMock = {	createGameSession : function(requestHandler, sessionCreated) { sessionCreated(); },
 										createMappingTable : function(requestHandler, gameSession, mappingTableCreated) { mappingTableCreated(mappingTableStub); } },
-			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzEngineStub, turbulenzServicesMock, loadCompleteObserverMock);
+			turbulenzGame = new TurbulenzGameLoader(requestHandlerFactoryStub, turbulenzServicesMock, loadCompleteObserverMock);
 
 		turbulenzGame.load(loadCompletedStub);
 
