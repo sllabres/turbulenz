@@ -1,8 +1,8 @@
-function Drawing(draw2D, drawCompleteNotifier) {
+function Drawing(draw2D, observer) {
 	"use strict";
 	function draw(sprite) {
 		draw2D.drawSprite(sprite);
-		drawCompleteNotifier.notify("drawSpriteComplete");
+		observer.notify("drawSpriteComplete");
 	}
 
 	return { draw : draw };

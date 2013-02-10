@@ -2,7 +2,7 @@
 (function () {
 	"use strict";
 	module("Given drawing complete");
-	test("", function() {
+	test("When instantiating then subscribes to drawingComplete event type", function() {
 		ok(true);
 	});
 }());
