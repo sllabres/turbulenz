@@ -13,7 +13,7 @@
 			textureLoader = new TextureLoader(TextureManager, graphicsDevice, requestHandler),
 			backgroundSpriteFactory = new BackgroundSpriteFactory(Draw2DSprite, graphicsDevice),
 			drawing = new Drawing(graphicsDevice, draw2D),
-			loadingScreen = LoadingScreen.create(graphicsDevice, null, { assetTracker : assetTracker });
+			loadingScreen = LoadingScreen.create(graphicsDevice, TurbulenzEngine.createMathDevice({}), { assetTracker : assetTracker });
 
 		requestHandler.addEventListener('eventOnload', assetTracker.eventOnLoadHandler);
 
