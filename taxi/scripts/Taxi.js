@@ -17,8 +17,13 @@
 		var game = new TurbulenzStarter(eventObserver, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing);
 
 		game.load();
-	};
+	};	
 }());
+
+
+function TurbulenzReadyReady() {
+
+}
 
 function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing) {
 	"use strict";
@@ -34,12 +39,13 @@ function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroun
 
 	function textureLoadComplete(texture) {
 		sprite = backgroundSpriteFactory.create(texture);
-		TurbulenzEngine.setInterval(update, 1000 / 60);
+		TurbulenzEngine.setInterval(game.update, 1000 / 60);
 	}
 
 	function update() {
 		drawing.draw([0.3,0.3,0.3,1], sprite);
 	}
 
-	return { load : load };
+	return { load : load,
+			 update : update };
 }
