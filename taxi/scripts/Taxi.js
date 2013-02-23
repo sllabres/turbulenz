@@ -29,11 +29,15 @@ function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroun
 
 	function mappingTableLoaded(table) {		
 		loadTextures(table);
+
+		//textureLoader.load(table.getURL("textures/Sky.jpg"), textureLoadComplete);
 	}
 
-	function loadTextures(urlMapping) {
+	function loadTextures(table) {
 		for(var key in table.urlMapping) {
 			if(key.indexOf("textures")) {
+				console.log(key);
+				console.log(table.getURL(key));
 				textureLoader.load(table.getURL(key), textureLoadComplete);				
 			}
 		}
