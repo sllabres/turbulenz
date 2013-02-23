@@ -1,10 +1,11 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
 (function() {
+	var ASSET_COUNT = 3;
 	TurbulenzEngine.onload = function onload() { 				
 		
 		var requestHandler = RequestHandler.create({}),
-			assetTracker = AssetTracker.create(3, true),			
+			assetTracker = AssetTracker.create(ASSET_COUNT, true),			
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			draw2D = Draw2D.create({ graphicsDevice : graphicsDevice }),			
 			eventObserver = new EventObserver(),
