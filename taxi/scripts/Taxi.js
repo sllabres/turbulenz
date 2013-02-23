@@ -12,7 +12,8 @@
 			mappingTableLoader = new MappingTableLoader(requestHandler, TurbulenzServices, eventObserver),
 			textureLoader = new TextureLoader(TextureManager, graphicsDevice, requestHandler),
 			backgroundSpriteFactory = new BackgroundSpriteFactory(Draw2DSprite, graphicsDevice),
-			drawing = new Drawing(graphicsDevice, draw2D);
+			drawing = new Drawing(graphicsDevice, draw2D),
+			loadingScreen = LoadingScreen.create(graphicsDevice, mathDevice, { assetTracker : assetTracker });
 
 		requestHandler.addEventListener('eventOnload', assetTracker.eventOnLoadHandler);
 
@@ -24,11 +25,6 @@
 
 		game.load();
 	};
-
-	function assetLoaded() {
-		console.log(this.loadingProgress);
-	}
-
 }());
 
 function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing) {
@@ -52,7 +48,7 @@ function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroun
 
 	function textureLoadComplete(texture) {
 		sprite = backgroundSpriteFactory.create(texture);
-		TurbulenzEngine.setInterval(update, 1000 / 60);
+		//TurbulenzEngine.setInterval(update, 1000 / 60);
 	}
 
 	function update() {
