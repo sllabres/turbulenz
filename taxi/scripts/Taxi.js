@@ -1,7 +1,7 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
 (function() {
-	var ASSET_COUNT = 3;
+	var ASSET_COUNT = 4;
 	TurbulenzEngine.onload = function onload() { 				
 		
 		var requestHandler = RequestHandler.create({}),
