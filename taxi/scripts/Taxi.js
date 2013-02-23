@@ -27,8 +27,7 @@ function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroun
 		mappingTableLoader.load();
 	}
 
-	function mappingTableLoaded(table) {
-		alert(table.urlMapping[0]);
+	function mappingTableLoaded(table) {		
 		mappingTable = table;
 		textureLoader.load(table.getURL("textures/Sky.jpg"), textureLoadComplete);
 	}
