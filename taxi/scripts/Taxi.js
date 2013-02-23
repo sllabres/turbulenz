@@ -28,18 +28,13 @@ function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroun
 	}
 
 	function mappingTableLoaded(table) {		
-		loadTextures(table);
-
-		//textureLoader.load(table.getURL("textures/Sky.jpg"), textureLoadComplete);
+		loadTextures(table.urlMapping);
 	}
 
-	function loadTextures(table) {
-		for(var key in table.urlMapping) {
-			if(key.indexOf("textures") !== -1) {
-				console.log(key);
-				console.log(table.getURL(key));
-				console.log(table.urlMapping[key]);
-				textureLoader.load(table.getURL(key), textureLoadComplete);				
+	function loadTextures(urlMapping) {
+		for(var key in urlMapping) {
+			if(key.indexOf("textures") !== -1) {				
+				textureLoader.load(urlMapping[key], textureLoadComplete);				
 			}
 		}
 	}
