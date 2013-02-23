@@ -33,7 +33,8 @@ function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroun
 	}
 
 	function textureLoadComplete(texture) {
-		sprite = backgroundSpriteFactory.create(texture);		
+		sprite = backgroundSpriteFactory.create(texture);
+		TurbulenzEngine.setInterval(update, 1000 / 60);
 	}
 
 	function update() {
