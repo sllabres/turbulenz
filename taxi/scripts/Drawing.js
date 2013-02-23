@@ -1,4 +1,4 @@
-function Drawing(graphicsDevice, draw2D, observer) {
+function Drawing(graphicsDevice, draw2D) {
 	"use strict";
 	var spriteLocal = null;
 
