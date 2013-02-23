@@ -2,6 +2,7 @@
 
 /*{{ javascript("jslib/texturemanager.js") }}*/
 /*{{ javascript('jslib/assettracker.js') }}*/
+/*{{ javascript('jslib/loadingscreen.js') }}*/
 /*{{ javascript("jslib/requesthandler.js") }}*/
 /*{{ javascript("jslib/services/mappingtable.js") }}*/
 /*{{ javascript("jslib/draw2d.js") }}*/
