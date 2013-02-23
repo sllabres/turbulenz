@@ -71,5 +71,6 @@ function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroun
 		drawing.draw([0.3,0.3,0.3,1], sprite);
 	}
 
-	return { load : load };
+	return { load : load,
+			update : update };
 }
