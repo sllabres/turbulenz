@@ -25,8 +25,8 @@
 		game.load();
 	};
 
-	function assetLoaded(test) {
-		console.log(test);
+	function assetLoaded() {
+		console.log(this.loadingProgress);
 	}
 
 }());
