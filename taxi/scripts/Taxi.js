@@ -16,7 +16,7 @@
 			mathDevice = TurbulenzEngine.createMathDevice({}),
 			loadingScreen = LoadingScreen.create(graphicsDevice, mathDevice, { 	backgroundColor : mathDevice.v4Build (1, 1, 1, 1),
 																			    barColor : mathDevice.v4Build (1, 1, 0, 1),
-																			    barCenter : {x : 10.5, y : 0.5},
+																			    barCenter : {x : 0.5, y : 1.5},
 																			    barBorderSize : 4,
 																			    barBackgroundColor : mathDevice.v4Build (0, 0, 1, 1),
 																			    barBackgroundHeight : 24,
