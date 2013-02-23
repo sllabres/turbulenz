@@ -4,7 +4,7 @@
 	TurbulenzEngine.onload = function onload() { 				
 		
 		var requestHandler = RequestHandler.create({}),
-			assetTracker = AssetTracker.create(1, true),
+			assetTracker = AssetTracker.create(1, true),			
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			draw2D = Draw2D.create({ graphicsDevice : graphicsDevice }),			
 			eventObserver = new EventObserver(),
@@ -12,6 +12,8 @@
 			textureLoader = new TextureLoader(TextureManager, graphicsDevice, requestHandler),
 			backgroundSpriteFactory = new BackgroundSpriteFactory(Draw2DSprite, graphicsDevice),
 			drawing = new Drawing(graphicsDevice, draw2D);
+
+		requestHandler.addEventListener('eventOnload', assetTracker.eventOnLoadHandler);
 		
 		draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });		
 
