@@ -38,6 +38,7 @@ function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroun
 			if(key.indexOf("textures") !== -1) {
 				console.log(key);
 				console.log(table.getURL(key));
+				console.log(table.urlMapping[key]);
 				textureLoader.load(table.getURL(key), textureLoadComplete);				
 			}
 		}
