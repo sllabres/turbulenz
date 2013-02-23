@@ -15,13 +15,20 @@
 			drawing = new Drawing(graphicsDevice, draw2D);
 
 		requestHandler.addEventListener('eventOnload', assetTracker.eventOnLoadHandler);
+
+		assetTracker.setCallback(assetLoaded);
 		
 		draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });		
 
 		var game = new TurbulenzStarter(eventObserver, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing);
 
 		game.load();
-	};	
+	};
+
+	function assetLoaded(test) {
+		console.log(test);
+	}
+
 }());
 
 function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing) {
