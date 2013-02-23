@@ -34,12 +34,14 @@
 
 		game.load();
 
-		function assetLoaded() {
+		function assetLoaded() {			
 			loadingScreen.render(1, 1);
-		}
-	};
 
-	
+			if(this.loadingProgress == 1) {
+				TurbulenzEngine.setInterval(game.update, 1000 / 60);
+			}
+		}
+	};	
 }());
 
 function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing) {
@@ -62,8 +64,7 @@ function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroun
 	}
 
 	function textureLoadComplete(texture) {
-		sprite = backgroundSpriteFactory.create(texture);
-		//TurbulenzEngine.setInterval(update, 1000 / 60);
+		sprite = backgroundSpriteFactory.create(texture);		
 	}
 
 	function update() {
