@@ -4,7 +4,7 @@
 	TurbulenzEngine.onload = function onload() { 				
 		
 		var requestHandler = RequestHandler.create({}),
-			assetTracker = AssetTracker.create(1, true),
+			assetTracker = AssetTracker.create(1, false),
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			draw2D = Draw2D.create({ graphicsDevice : graphicsDevice }),			
 			eventObserver = new EventObserver(),
