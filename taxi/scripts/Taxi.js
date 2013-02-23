@@ -16,8 +16,6 @@
 			loadingScreen = LoadingScreen.create(graphicsDevice, TurbulenzEngine.createMathDevice({}), { assetTracker : assetTracker });
 
 		requestHandler.addEventListener('eventOnload', assetTracker.eventOnLoadHandler);
-
-		assetTracker.setCallback(assetLoaded);
 		
 		draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });		
 
