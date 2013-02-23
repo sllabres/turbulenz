@@ -18,5 +18,4 @@
 /*{{ javascript("scripts/Drawing.js") }}*/
 /*{{ javascript("scripts/EventObserver.js") }}*/
 /*{{ javascript("scripts/TextureLoader.js") }}*/
-/*{{ javascript("scripts/Game.js") }}*/
 /*{{ javascript("scripts/MappingTableLoader.js") }}*/
