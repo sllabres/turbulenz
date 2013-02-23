@@ -32,11 +32,13 @@
 		var game = new TurbulenzStarter(eventObserver, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing);
 
 		game.load();
+
+		function assetLoaded() {
+			loadingScreen.render(1, 1);
+		}
 	};
 
-	function assetLoaded() {
-		loadingScreen.render(1, 1);
-	}
+	
 }());
 
 function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing) {
