@@ -14,8 +14,32 @@
 		
 		draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });		
 
-		var game = new Game(eventObserver, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing);
+		var game = new TurbulenzStarter(eventObserver, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing);
 
 		game.load();
 	};
 }());
+
+function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing) {
+	"use strict";
+	function load() {
+		listener.subscribe('mappingTableLoaded', mappingTableLoaded);				
+		mappingTableLoader.load();
+	}
+
+	function mappingTableLoaded(table) {
+		mappingTable = table;
+		textureLoader.load(table.getURL("textures/Sky.jpg"), textureLoadComplete);
+	}
+
+	function textureLoadComplete(texture) {
+		sprite = backgroundSpriteFactory.create(texture);
+		TurbulenzEngine.setInterval(update, 1000 / 60);
+	}
+
+	function update() {
+		drawing.draw([0.3,0.3,0.3,1], sprite);
+	}
+
+	return { load : load };
+}
