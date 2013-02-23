@@ -22,6 +22,7 @@
 																			    barBackgroundHeight : 24,
 																			    barBackgroundWidth : 540,
 																			    assetTracker : assetTracker });			
+		loadingScreen.render(1, 1);
 
 		assetTracker.setCallback(assetLoaded);
 
