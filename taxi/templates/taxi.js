@@ -1,6 +1,7 @@
 /*{# Copyright (c) 2010-2012 Turbulenz Limited #}*/
 
 /*{{ javascript("jslib/texturemanager.js") }}*/
+/*{{ javascript('jslib/assettracker.js') }}*/
 /*{{ javascript("jslib/requesthandler.js") }}*/
 /*{{ javascript("jslib/services/mappingtable.js") }}*/
 /*{{ javascript("jslib/draw2d.js") }}*/
