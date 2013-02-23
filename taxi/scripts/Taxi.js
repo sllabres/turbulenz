@@ -23,6 +23,8 @@
 																			    barBackgroundWidth : 540,
 																			    assetTracker : assetTracker });
 
+		loadingScreen.render(1, 1);
+
 		requestHandler.addEventListener('eventOnload', assetTracker.eventOnLoadHandler);
 		
 		draw2D.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });		
