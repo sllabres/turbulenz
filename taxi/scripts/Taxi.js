@@ -1,7 +1,7 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
 (function() {
-	var ASSET_COUNT = 4;
+	var ASSET_COUNT = 3;
 	TurbulenzEngine.onload = function onload() { 				
 		
 		var requestHandler = RequestHandler.create({}),
@@ -21,9 +21,9 @@
 																			    barBackgroundColor : mathDevice.v4Build (0, 0, 1, 1),
 																			    barBackgroundHeight : 24,
 																			    barBackgroundWidth : 540,
-																			    assetTracker : assetTracker });
+																			    assetTracker : assetTracker });			
 
-		loadingScreen.render(1, 1);
+		assetTracker.setCallback(assetLoaded);
 
 		requestHandler.addEventListener('eventOnload', assetTracker.eventOnLoadHandler);
 		
@@ -33,6 +33,10 @@
 
 		game.load();
 	};
+
+	function assetLoaded() {
+		loadingScreen.render(1, 1);
+	}
 }());
 
 function TurbulenzStarter(listener, mappingTableLoader, textureLoader, backgroundSpriteFactory, drawing) {
