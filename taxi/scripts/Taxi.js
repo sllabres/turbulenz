@@ -45,7 +45,7 @@ function SpriteLoaderService(graphicsDevice, requestHandler) {
 	function load(urlMapping) {
 		for(var key in urlMapping) {
 			if(key.indexOf("textures") !== -1) {				
-				textureManager.load(urlMapping[key], textureLoadComplete);				
+				textureManager.load(urlMapping[key], false, textureLoadComplete);				
 			}
 		}
 	}
