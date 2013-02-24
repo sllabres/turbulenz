@@ -21,4 +21,6 @@ function LoadingScreen(graphicsDevice, mathDevice) {
 				//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
 			// }
 	}
+
+	return { show : show };
 }
