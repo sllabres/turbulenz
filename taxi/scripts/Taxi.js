@@ -9,7 +9,7 @@
 			mappingTableLoader = new MappingTableLoader(requestHandler),
 			loadingScreen = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler);
 
-
+		mappingTableLoader.load();
 		loadingScreen.show();
 	};	
 }());
@@ -25,7 +25,9 @@ function MappingTableLoader(requestHandler, listener) {
 		// listener.notify('mappingTableLoaded', table);
 	}
 
-	function Load() {
+	function load() {
 		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
 	}
+
+	return { load : load };
 }
