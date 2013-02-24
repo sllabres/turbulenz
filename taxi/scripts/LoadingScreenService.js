@@ -1,4 +1,4 @@
-function LoadingScreenService(graphicsDevice, mathDevice) {	
+function LoadingScreenService(graphicsDevice, mathDevice, requestHandler) {	
 	var ASSET_COUNT = 3,
 		assetTracker = AssetTracker.create(ASSET_COUNT, true),
 		loadingScreen = LoadingScreen.create(graphicsDevice, mathDevice, { 	backgroundColor : mathDevice.v4Build (1, 1, 1, 1),
@@ -11,6 +11,7 @@ function LoadingScreenService(graphicsDevice, mathDevice) {
 																			    assetTracker : assetTracker });	
 
 	function show() {
+		requestHandler.addEventListener('eventOnload', assetTracker.eventOnLoadHandler);
 		assetTracker.setCallback(assetLoaded);
 	}
 

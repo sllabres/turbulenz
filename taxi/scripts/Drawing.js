@@ -8,7 +8,7 @@ function Drawing(graphicsDevice, draw2D) {
 		if(graphicsDevice.beginFrame()) {
 			drawing.begin('alpha');
 			drawing.clear(clearColour);			
-			draw2D.setBackBuffer();
+			drawing.setBackBuffer();
 			drawSprite();
 		}
 	}
