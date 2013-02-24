@@ -5,7 +5,7 @@
 	TurbulenzEngine.onload = function onload() {
 		var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			mathDevice = TurbulenzEngine.createMathDevice({}),
-			loadingScreen = new LoadingScreen(graphicsDevice, mathDevice);
+			loadingScreen = new LoadingScreenService(graphicsDevice, mathDevice);
 
 		loadingScreen.show();
 
