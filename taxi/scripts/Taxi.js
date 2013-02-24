@@ -13,16 +13,16 @@
 
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
 		turbulenzGame.load(loadComplete);	
+
+		function spriteLoaded(sprite) {
+			drawing.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
+		}
 	};
 
 	function loadComplete() {
 		//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
 		console.log("loading complete.");
-	}
-
-	function spriteLoaded(sprite) {
-		drawing.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
-	}
+	}	
 }());
 
 function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, listener) {
