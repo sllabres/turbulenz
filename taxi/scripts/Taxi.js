@@ -19,12 +19,10 @@
 function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice) {
 	"use strict";
 	var mappingTableLoader = new MappingTableService(requestHandler),
-		loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler),
-		loadCompleteCallback = null,
+		loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler),		
 		spriteLoaderService = new SpriteLoaderService(graphicsDevice, requestHandler);
 
-	function load(callback) {
-		loadCompleteCallback = callback;	
+	function load() {		
 		mappingTableLoader.load(mappingTableLoaded);
 		loadingScreenService.show();
 	}
