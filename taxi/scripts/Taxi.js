@@ -49,9 +49,9 @@ function SpriteLoaderService(graphicsDevice, requestHandler) {
 	}
 
 	function textureLoadComplete(texture) {
-		textureManager.add(texture.name, texture);
 		var sprite = Draw2DSprite.create( { texture : texture } );
-		spriteCollection.push( { sprite : sprite , name : texture.name } );
+		textureManager.add(texture.name, texture);
+		spriteCollection.push( { sprite : sprite , name : texture.name } );		
 	}
 
 	return { load : load };
