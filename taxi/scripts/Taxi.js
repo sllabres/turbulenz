@@ -40,7 +40,7 @@ function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, listene
 
 function SpriteLoaderService(graphicsDevice, requestHandler) {	
 	var textureManager = TextureManager.create(graphicsDevice, requestHandler),
-		spriteCollection = null;
+		spriteCollection = [];
 
 	function load(urlMapping) {
 		for(var key in urlMapping) {
