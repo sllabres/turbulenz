@@ -8,9 +8,11 @@ function LoadingScreen(graphicsDevice, mathDevice) {
 																			    barBackgroundColor : mathDevice.v4Build (0, 0, 1, 1),
 																			    barBackgroundHeight : 24,
 																			    barBackgroundWidth : 540,
-																			    assetTracker : assetTracker });
+																			    assetTracker : assetTracker });	
 
-	this.assetTracker.setCallback(assetLoaded);
+	function show() {
+		assetTracker.setCallback(assetLoaded);
+	}
 
 	function assetLoaded() {			
 			loadingScreen.render(1, 1);
