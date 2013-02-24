@@ -1,4 +1,6 @@
 function LoadingScreenService(graphicsDevice, mathDevice, requestHandler) {	
+	"use strict";
+	
 	var ASSET_COUNT = 3,
 		assetTracker = AssetTracker.create(ASSET_COUNT, true),
 		loadingScreen = LoadingScreen.create(graphicsDevice, mathDevice, { 	backgroundColor : mathDevice.v4Build (1, 1, 1, 1),
