@@ -1,28 +1,32 @@
 function Drawing(graphicsDevice, draw2D) {
 	"use strict";
-	var spriteLocal = null;
+	var sprites = [],
+		drawing = draw2D.create({ graphicsDevice : graphicsDevice });
+		drawing.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });		
 
 	function prepare(clearColour) {
 		if(graphicsDevice.beginFrame()) {
-			draw2D.begin('alpha');
-			draw2D.clear(clearColour);			
+			drawing.begin('alpha');
+			drawing.clear(clearColour);			
 			draw2D.setBackBuffer();
 			drawSprite();
 		}
 	}
 
 	function drawSprite() {
-		draw2D.drawSprite(spriteLocal);
+		for(var sprite in sprites) {
+			drawing.drawSprite(sprite);
+		}
 		complete();
 	}
 
 	function complete() {
-		draw2D.end();		
+		drawing.end();		
 		graphicsDevice.endFrame();		
 	}
 
-	function draw(clearColour, sprite) {
-		spriteLocal = sprite;
+	function draw(clearColour, spriteCollection) {
+		sprites = spriteCollection;
 		prepare(clearColour);		
 	}
 
