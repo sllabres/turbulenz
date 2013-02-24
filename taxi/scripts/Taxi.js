@@ -2,17 +2,26 @@
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
 (function() {	
 	TurbulenzEngine.onload = function onload() {
-		var requestHandler = RequestHandler.create({}),
+		turbulenzGame = new TurbulenzGame();
+		turbulenzGame.load();
+	};	
+}());
+
+function TurbulenzGame() {
+	var requestHandler = RequestHandler.create({}),
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			mathDevice = TurbulenzEngine.createMathDevice({}),
 			drawing = new Drawing(graphicsDevice, Draw2D),
 			mappingTableLoader = new MappingTableLoader(requestHandler),
-			loadingScreen = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler);
+			loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler);
 
+	function load() {
 		mappingTableLoader.load();
-		loadingScreen.show();
-	};	
-}());
+		loadingScreenService.show();
+	}
+
+	return { load : load };
+}
 
 function MappingTableLoader(requestHandler, listener) {
 	"use strict";
