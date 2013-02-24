@@ -6,7 +6,7 @@
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			mathDevice = TurbulenzEngine.createMathDevice({}),
 			drawing = new Drawing(graphicsDevice, Draw2D),
-			mappingTableLoader = new MappingTableLoader(requestHandler, TurbulenzServices),
+			mappingTableLoader = new MappingTableLoader(requestHandler),
 			loadingScreen = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler);
 
 
@@ -14,11 +14,11 @@
 	};	
 }());
 
-function MappingTableLoader(requestHandler, turbulenzServices, listener) {
+function MappingTableLoader(requestHandler, listener) {
 	"use strict";
 
 	function sessionCreate(gameSession) {
-		turbulenzServices.createMappingTable(requestHandler, gameSession, mappingTableCreated);
+		TurbulenzServices.createMappingTable(requestHandler, gameSession, mappingTableCreated);
 	}
 
 	function mappingTableCreated(table) {		
@@ -26,6 +26,6 @@ function MappingTableLoader(requestHandler, turbulenzServices, listener) {
 	}
 
 	function Load() {
-		turbulenzServices.createGameSession(requestHandler, sessionCreated);
+		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
 	}
 }
