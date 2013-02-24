@@ -16,7 +16,7 @@ function TurbulenzGame() {
 		loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler);
 
 	function load() {
-		mappingTableLoader.load();
+		mappingTableLoader.load(mappingTableLoaded);
 		loadingScreenService.show();
 	}
 
