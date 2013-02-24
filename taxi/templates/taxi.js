@@ -16,8 +16,7 @@
 /*{{ javascript('jslib/boxtree.js') }}*/
 
 /*{{ javascript("scripts/Taxi.js") }}*/
-/*{{ javascript("scripts/LoadingScreenService.js") }}*/
-/*{{ javascript("scripts/MappingTableService.js") }}*/
 /*{{ javascript("scripts/Drawing.js") }}*/
 /*{{ javascript("scripts/EventObserver.js") }}*/
-/*{{ javascript("scripts/Game.js") }}*/
+/*{{ javascript("scripts/LoadingScreenService.js") }}*/
+/*{{ javascript("scripts/MappingTableService.js") }}*/
