@@ -7,5 +7,7 @@
 			mathDevice = TurbulenzEngine.createMathDevice({}),
 			loadingScreen = new LoadingScreen(graphicsDevice, mathDevice);
 
+		loadingScreen.show();
+
 	};	
 }());
