@@ -15,9 +15,9 @@
 		turbulenzGame.load(loadComplete);	
 
 		function spriteLoaded(sprite) {
-			sprite.origin = [0,0]; 
-			sprite.height = graphicsDevice.height; 
-			sprite.width = graphicsDevice.width; 
+			sprite.sprite.origin = [0,0]; 
+			sprite.sprite.height = graphicsDevice.height; 
+			sprite.sprite.width = graphicsDevice.width; 
 
 			drawing.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
 		}
