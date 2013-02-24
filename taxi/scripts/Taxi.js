@@ -4,39 +4,33 @@
 	TurbulenzEngine.onload = function onload() {
 		turbulenzGame = new TurbulenzGame();
 		turbulenzGame.load();
-	};	
+	};
 }());
 
 function TurbulenzGame() {
 	"use strict";
 	var requestHandler = RequestHandler.create({}),
-			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-			mathDevice = TurbulenzEngine.createMathDevice({}),
-			drawing = new Drawing(graphicsDevice, Draw2D),
-			mappingTableLoader = new MappingTableLoader(requestHandler),
-			loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler);
+		graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
+		mathDevice = TurbulenzEngine.createMathDevice({}),		
+		mappingTableLoader = new MappingTableService(requestHandler),
+		loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler);
 
 	function load() {
 		mappingTableLoader.load();
 		loadingScreenService.show();
 	}
 
+	function mappingTableLoaded(table) {
+
+	}
+
 	return { load : load };
 }
 
-function MappingTableLoader(requestHandler, listener) {
-	"use strict";
+function TextureLoaderService(textureManager, graphicsDevice, requestHandler) {	
 
-	function sessionCreated(gameSession) {
-		TurbulenzServices.createMappingTable(requestHandler, gameSession, mappingTableCreated);
-	}
+	function load(table) {
 
-	function mappingTableCreated(table) {		
-		// listener.notify('mappingTableLoaded', table);
-	}
-
-	function load() {
-		TurbulenzServices.createGameSession(requestHandler, sessionCreated);
 	}
 
 	return { load : load };
