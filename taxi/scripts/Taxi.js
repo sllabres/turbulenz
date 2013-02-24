@@ -17,7 +17,7 @@
 function MappingTableLoader(requestHandler, listener) {
 	"use strict";
 
-	function sessionCreate(gameSession) {
+	function sessionCreated(gameSession) {
 		TurbulenzServices.createMappingTable(requestHandler, gameSession, mappingTableCreated);
 	}
 
