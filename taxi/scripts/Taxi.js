@@ -3,7 +3,9 @@
 (function() {
 	var ASSET_COUNT = 3;
 	TurbulenzEngine.onload = function onload() {
-		console.log("testing");
+		var graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
+			mathDevice = TurbulenzEngine.createMathDevice({}),
+			loadingScreen = new loadingScreen(graphicsDevice, mathDevice);
 
 	};	
 }());
