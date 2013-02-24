@@ -58,6 +58,7 @@ function SpriteLoaderService(graphicsDevice, requestHandler) {
 
 	function getName(textureName) {
 		var textureNameArray = textureName.split("/");
+		console.log(textureNameArray[textureNameArray.length - 1]);
 		return textureNameArray[textureNameArray.length - 1];
 	}
 
