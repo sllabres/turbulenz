@@ -2,17 +2,19 @@
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
 (function() {	
 	TurbulenzEngine.onload = function onload() {
-		turbulenzGame = new TurbulenzGame();
+		//drawing = new Drawing(graphicsDevice, Draw2D),
+		var requestHandler = RequestHandler.create({}),
+			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
+			mathDevice = TurbulenzEngine.createMathDevice({});
+
+		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice);
 		turbulenzGame.load();
 	};
 }());
 
-function TurbulenzGame() {
+function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice) {
 	"use strict";
-	var requestHandler = RequestHandler.create({}),
-		graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
-		mathDevice = TurbulenzEngine.createMathDevice({}),		
-		mappingTableLoader = new MappingTableService(requestHandler),
+	var mappingTableLoader = new MappingTableService(requestHandler),
 		loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler);
 
 	function load() {
