@@ -14,7 +14,7 @@ function LoadingScreenService(graphicsDevice, mathDevice) {
 		assetTracker.setCallback(assetLoaded);
 	}
 
-	function assetLoaded() {			
+	function assetLoaded() {
 			loadingScreen.render(1, 1);
 
 			// if(this.loadingProgress == 1) {
