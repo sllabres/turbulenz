@@ -20,7 +20,8 @@ function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice) {
 	"use strict";
 	var mappingTableLoader = new MappingTableService(requestHandler),
 		loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler),
-		loadCompleteCallback = null;
+		loadCompleteCallback = null,
+		spriteLoaderService = new SpriteLoaderService(graphicsDevice, requestHandler);
 
 	function load(callback) {
 		loadCompleteCallback = callback;	
@@ -29,7 +30,7 @@ function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice) {
 	}
 
 	function mappingTableLoaded(table) {
-
+		spriteLoaderService.load(table.urlMapping);
 	}
 
 	return { load : load };
@@ -39,16 +40,18 @@ function SpriteLoaderService(graphicsDevice, requestHandler) {
 	var textureManager = TextureManager.create(graphicsDevice, requestHandler),
 		spriteCollection = null;
 
-	function load(table) {
-		for(var key in table.urlMapping) {
+	function load(urlMapping) {
+		for(var key in urlMapping) {
 			if(key.indexOf("textures") !== -1) {				
-				textureLoader.load(urlMapping[key], textureLoadComplete);				
+				textureManager.load(urlMapping[key], textureLoadComplete);				
 			}
 		}
 	}
 
 	function textureLoadComplete(texture) {
-		spriteCollection.push(Draw2DSprite.create( { texture: texture } ));
+		textureManager.add(texture.name, texture);
+		var sprite = Draw2DSprite.create( { texture : texture } );
+		spriteCollection.push( { sprite : sprite , name : texture.name } );
 	}
 
 	return { load : load };
