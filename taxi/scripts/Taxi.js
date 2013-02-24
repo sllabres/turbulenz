@@ -1,6 +1,7 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
-(function() {	
+console.log("What");
+(function() {
 	TurbulenzEngine.onload = function onload() {
 		var requestHandler = RequestHandler.create({}),
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
