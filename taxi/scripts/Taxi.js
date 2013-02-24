@@ -8,16 +8,22 @@
 			mathDevice = TurbulenzEngine.createMathDevice({});
 
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice);
-		turbulenzGame.load();
+		turbulenzGame.load(loadComplete);
 	};
+
+	function loadComplete() {
+		console.log("loading complete.");
+	}
 }());
 
 function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice) {
 	"use strict";
 	var mappingTableLoader = new MappingTableService(requestHandler),
-		loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler);
+		loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler),
+		loadCompleteCallback = null;
 
-	function load() {
+	function load(callback) {
+		loadCompleteCallback = callback;	
 		mappingTableLoader.load(mappingTableLoaded);
 		loadingScreenService.show();
 	}
@@ -29,10 +35,20 @@ function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice) {
 	return { load : load };
 }
 
-function TextureLoaderService(textureManager, graphicsDevice, requestHandler) {	
+function SpriteLoaderService(graphicsDevice, requestHandler) {	
+	var textureManager = TextureManager.create(graphicsDevice, requestHandler),
+		spriteCollection = null;
 
 	function load(table) {
+		for(var key in table.urlMapping) {
+			if(key.indexOf("textures") !== -1) {				
+				textureLoader.load(urlMapping[key], textureLoadComplete);				
+			}
+		}
+	}
 
+	function textureLoadComplete(texture) {
+		spriteCollection.push(Draw2DSprite.create( { texture: texture } ));
 	}
 
 	return { load : load };
