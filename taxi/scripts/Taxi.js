@@ -21,7 +21,7 @@
 	}
 
 	function spriteLoaded(sprite) {
-		console.log("sprite loaded");
+		drawing.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
 	}
 }());
 
