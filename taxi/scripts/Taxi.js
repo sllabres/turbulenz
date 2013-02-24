@@ -12,6 +12,16 @@
 
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
 		turbulenzGame.load(loadComplete);
+
+		TurbulenzEngine.onunload = onunload;
+
+		function onunload() {
+			requestHandler = null;
+			graphicsDevice = null;
+			eventObserver = null;
+			mathDevice = null;
+			drawing = null;
+		}
 	};
 
 	function loadComplete() {
