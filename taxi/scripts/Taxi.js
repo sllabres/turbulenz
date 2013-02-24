@@ -9,24 +9,19 @@
 			drawing = new Drawing(graphicsDevice, Draw2D);
 
 		eventObserver.subscribe('loadComplete', loadComplete);
+		eventObserver.subscribe('spriteLoaded', spriteLoaded);
 
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
-		turbulenzGame.load(loadComplete);
-
-		TurbulenzEngine.onunload = onunload;
-
-		function onunload() {
-			requestHandler = null;
-			graphicsDevice = null;
-			eventObserver = null;
-			mathDevice = null;
-			drawing = null;
-		}
+		turbulenzGame.load(loadComplete);	
 	};
 
 	function loadComplete() {
 		//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
 		console.log("loading complete.");
+	}
+
+	function spriteLoaded(sprite) {
+		console.log("sprite loaded");
 	}
 }());
 
@@ -34,7 +29,7 @@ function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, listene
 	"use strict";
 	var mappingTableLoader = new MappingTableService(requestHandler),
 		loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler, listener),		
-		spriteLoaderService = new SpriteLoaderService(graphicsDevice, requestHandler);
+		spriteLoaderService = new SpriteLoaderService(graphicsDevice, requestHandler, listener);
 
 	function load() {		
 		mappingTableLoader.load(mappingTableLoaded);
@@ -48,7 +43,7 @@ function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, listene
 	return { load : load };
 }
 
-function SpriteLoaderService(graphicsDevice, requestHandler) {	
+function SpriteLoaderService(graphicsDevice, requestHandler, listener) {	
 	var textureManager = TextureManager.create(graphicsDevice, requestHandler),
 		spriteCollection = [];
 
@@ -63,7 +58,8 @@ function SpriteLoaderService(graphicsDevice, requestHandler) {
 	function textureLoadComplete(texture) {
 		var sprite = Draw2DSprite.create( { texture : texture } );
 		textureManager.add(texture.name, texture);
-		spriteCollection.push( { sprite : sprite , name : getName(texture.name) } );		
+		//spriteCollection.push( { sprite : sprite , name : getName(texture.name) } );		
+		listener.notify('spriteLoaded', { sprite : sprite , name : getName(texture.name) } );
 	}
 
 	function getName(textureName) {
