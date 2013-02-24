@@ -1,6 +1,5 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
-console.log("What");
 (function() {
 	TurbulenzEngine.onload = function onload() {
 		var requestHandler = RequestHandler.create({}),
@@ -22,7 +21,7 @@ console.log("What");
 
 	function loadComplete() {
 		//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
-		console.log("loading complete.");
+		//console.log("loading complete.");
 	}	
 }());
 
