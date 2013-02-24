@@ -1,12 +1,12 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
 (function() {	
-	TurbulenzEngine.onload = function onload() {
-		//drawing = new Drawing(graphicsDevice, Draw2D),
+	TurbulenzEngine.onload = function onload() {		
 		var requestHandler = RequestHandler.create({}),
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			eventObserver = new EventObserver(),
-			mathDevice = TurbulenzEngine.createMathDevice({});
+			mathDevice = TurbulenzEngine.createMathDevice({}),
+			drawing = new Drawing(graphicsDevice, Draw2D);
 
 		eventObserver.subscribe('loadComplete', loadComplete);
 
