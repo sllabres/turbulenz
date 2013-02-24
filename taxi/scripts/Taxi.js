@@ -2,6 +2,8 @@
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
 (function() {	
 	TurbulenzEngine.onload = function onload() {		
+		console.log("hello");
+		
 		var requestHandler = RequestHandler.create({}),
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			eventObserver = new EventObserver(),
@@ -15,7 +17,7 @@
 		turbulenzGame.load(loadComplete);	
 
 		function spriteLoaded(sprite) {
-			drawing.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
+			//drawing.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
 		}
 	};
 
