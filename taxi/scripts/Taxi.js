@@ -1,9 +1,8 @@
  /*jslint browser: true*/
 /*global TurbulenzEngine,TurbulenzServices, RequestHandler*/
 (function() {	
-	TurbulenzEngine.onload = function onload() {		
-		console.log("hello");
-		
+	console.log("hello");
+	TurbulenzEngine.onload = function onload() {
 		var requestHandler = RequestHandler.create({}),
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			eventObserver = new EventObserver(),
