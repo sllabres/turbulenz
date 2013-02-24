@@ -8,6 +8,7 @@
 }());
 
 function TurbulenzGame() {
+	"use strict";
 	var requestHandler = RequestHandler.create({}),
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			mathDevice = TurbulenzEngine.createMathDevice({}),
