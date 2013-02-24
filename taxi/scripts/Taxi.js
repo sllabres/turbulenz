@@ -15,10 +15,6 @@
 		turbulenzGame.load(loadComplete);	
 
 		function spriteLoaded(sprite) {
-			sprite.sprite.origin = [0,0]; 
-			sprite.sprite.height = graphicsDevice.height; 
-			sprite.sprite.width = graphicsDevice.width; 
-
 			drawing.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
 		}
 	};
@@ -60,9 +56,12 @@ function SpriteLoaderService(graphicsDevice, requestHandler, listener) {
 	}
 
 	function textureLoadComplete(texture) {
-		var sprite = Draw2DSprite.create( { texture : texture } );
-		textureManager.add(texture.name, texture);
-		//spriteCollection.push( { sprite : sprite , name : getName(texture.name) } );		
+		var sprite = Draw2DSprite.create({	origin: [0,0], 
+											texture: texture,
+											height: graphicsDevice.height,
+											width: graphicsDevice.width });
+
+		textureManager.add(texture.name, texture);		
 		listener.notify('spriteLoaded', { sprite : sprite , name : getName(texture.name) } );
 	}
 
