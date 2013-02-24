@@ -15,8 +15,10 @@
 /*{{ javascript('jslib/physics2ddebugdraw.js') }}*/
 /*{{ javascript('jslib/boxtree.js') }}*/
 
-/*{{ javascript("scripts/Taxi.js") }}*/
 /*{{ javascript("scripts/Drawing.js") }}*/
 /*{{ javascript("scripts/EventObserver.js") }}*/
 /*{{ javascript("scripts/LoadingScreenService.js") }}*/
 /*{{ javascript("scripts/MappingTableService.js") }}*/
+/*{{ javascript("scripts/TurbulenzGameLoader.js") }}*/
+/*{{ javascript("scripts/SpriteLoaderService.js") }}*/
+/*{{ javascript("scripts/Taxi.js") }}*/
