@@ -53,7 +53,12 @@ function SpriteLoaderService(graphicsDevice, requestHandler) {
 	function textureLoadComplete(texture) {
 		var sprite = Draw2DSprite.create( { texture : texture } );
 		textureManager.add(texture.name, texture);
-		spriteCollection.push( { sprite : sprite , name : texture.name } );		
+		spriteCollection.push( { sprite : sprite , name : getName(texture.name) } );		
+	}
+
+	function getName(textureName) {
+		var textureNameArray = textureName.split("/");
+		return textureNameArray[textureNameArray.length - 1];
 	}
 
 	return { load : load };
