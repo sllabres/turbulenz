@@ -14,8 +14,8 @@ function Drawing(graphicsDevice, draw2D) {
 	}
 
 	function drawSprite() {
-		for(var sprite in sprites) {
-			drawing.drawSprite(sprite);
+		for (var i = 0; i < sprites.length; i++) {
+			drawing.drawSprite(sprites[i]);
 		}
 		complete();
 	}

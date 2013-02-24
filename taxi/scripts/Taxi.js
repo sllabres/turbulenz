@@ -15,9 +15,7 @@
 		turbulenzGame.load(loadComplete);	
 
 		function spriteLoaded(sprite) {
-			var spriteCollection = [];
-			spriteCollection.push(sprite.sprite);
-			drawing.draw([0.3,0.3,0.3,1], spriteCollection);		
+			drawing.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
 		}
 	};
 
