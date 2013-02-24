@@ -1,6 +1,6 @@
-function LoadingScreenService(graphicsDevice, mathDevice, requestHandler) {	
+function LoadingScreenService(graphicsDevice, mathDevice, requestHandler, listener) {	
 	"use strict";
-	
+
 	var ASSET_COUNT = 3,
 		assetTracker = AssetTracker.create(ASSET_COUNT, true),
 		loadingScreen = LoadingScreen.create(graphicsDevice, mathDevice, { 	backgroundColor : mathDevice.v4Build (1, 1, 1, 1),
@@ -19,10 +19,9 @@ function LoadingScreenService(graphicsDevice, mathDevice, requestHandler) {
 
 	function assetLoaded() {
 			loadingScreen.render(1, 1);
-
-			// if(this.loadingProgress == 1) {
-				//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
-			// }
+			if(this.loadingProgress == 1) {
+				listener.notify('loadComplete');				
+			}
 	}
 
 	return { show : show };

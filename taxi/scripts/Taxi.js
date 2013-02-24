@@ -5,21 +5,25 @@
 		//drawing = new Drawing(graphicsDevice, Draw2D),
 		var requestHandler = RequestHandler.create({}),
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
+			eventObserver = new EventObserver(),
 			mathDevice = TurbulenzEngine.createMathDevice({});
 
-		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice);
+		eventObserver.subscribe('loadComplete', loadComplete);
+
+		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
 		turbulenzGame.load(loadComplete);
 	};
 
 	function loadComplete() {
+		//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
 		console.log("loading complete.");
 	}
 }());
 
-function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice) {
+function TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, listener) {
 	"use strict";
 	var mappingTableLoader = new MappingTableService(requestHandler),
-		loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler),		
+		loadingScreenService = new LoadingScreenService(graphicsDevice, mathDevice, requestHandler, listener),		
 		spriteLoaderService = new SpriteLoaderService(graphicsDevice, requestHandler);
 
 	function load() {		
