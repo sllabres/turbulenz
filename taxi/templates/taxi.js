@@ -15,7 +15,7 @@
 /*{{ javascript('jslib/physics2ddebugdraw.js') }}*/
 /*{{ javascript('jslib/boxtree.js') }}*/
 
-/*{{ javascript("scripts/Drawing.js") }}*/
+/*{{ javascript("scripts/DrawingService.js") }}*/
 /*{{ javascript("scripts/EventObserver.js") }}*/
 /*{{ javascript("scripts/LoadingScreenService.js") }}*/
 /*{{ javascript("scripts/MappingTableService.js") }}*/

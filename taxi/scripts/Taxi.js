@@ -6,7 +6,7 @@
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			eventObserver = new EventObserver(),
 			mathDevice = TurbulenzEngine.createMathDevice({}),
-			drawing = new Drawing(graphicsDevice, Draw2D);
+			drawingService = new DrawingService(graphicsDevice, Draw2D);
 
 		eventObserver.subscribe('loadComplete', loadComplete);
 		eventObserver.subscribe('spriteLoaded', spriteLoaded);
@@ -15,7 +15,7 @@
 		turbulenzGame.load(loadComplete);	
 
 		function spriteLoaded(sprite) {
-			drawing.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
+			drawingService.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
 		}
 	};
 
