@@ -12,7 +12,7 @@
 		eventObserver.subscribe('spriteLoaded', spriteLoaded);
 
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
-		turbulenzGame.load(loadComplete);	
+		turbulenzGame.load();	
 
 		function spriteLoaded(sprite) {
 		//	drawingService.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
