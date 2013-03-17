@@ -6,7 +6,7 @@ function EventObserver() {
 		if (subscribers[type] === undefined) {
             subscribers[type] = [];
         }
-                 
+
 		subscribers[type].push(subscriber);
 	}
 
