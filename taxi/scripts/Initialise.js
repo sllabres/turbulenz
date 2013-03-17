@@ -9,14 +9,14 @@
 			drawingService = new DrawingService(graphicsDevice, Draw2D);
 
 		eventObserver.subscribe('loadComplete', loadComplete);
-		//eventObserver.subscribe('spriteLoaded', spriteLoaded);
+		eventObserver.subscribe('spriteLoaded', spriteLoaded);
 
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
 		turbulenzGame.load(loadComplete);	
 
-		//function spriteLoaded(sprite) {
+		function spriteLoaded(sprite) {
 		//	drawingService.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
-		//}
+		}
 	};
 
 	function loadComplete() {
