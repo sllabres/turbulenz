@@ -15,10 +15,10 @@
 /*{{ javascript('jslib/physics2ddebugdraw.js') }}*/
 /*{{ javascript('jslib/boxtree.js') }}*/
 
-/*{{ javascript("scripts/DrawingService.js") }}*/
+/*{{ javascript("scripts/Turbulenz/DrawingService.js") }}*/
+/*{{ javascript("scripts/Turbulenz/LoadingScreenService.js") }}*/
+/*{{ javascript("scripts/Turbulenz/MappingTableService.js") }}*/
+/*{{ javascript("scripts/Turbulenz/TurbulenzGameLoader.js") }}*/
+/*{{ javascript("scripts/Turbulenz/SpriteLoaderService.js") }}*/
 /*{{ javascript("scripts/EventObserver.js") }}*/
-/*{{ javascript("scripts/LoadingScreenService.js") }}*/
-/*{{ javascript("scripts/MappingTableService.js") }}*/
-/*{{ javascript("scripts/TurbulenzGameLoader.js") }}*/
-/*{{ javascript("scripts/SpriteLoaderService.js") }}*/
 /*{{ javascript("scripts/Taxi.js") }}*/
