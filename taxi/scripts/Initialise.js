@@ -9,7 +9,7 @@
 			drawingService = new DrawingService(graphicsDevice, Draw2D);
 
 		eventObserver.subscribe('loadComplete', loadComplete);
-		eventObserver.subscribe('spriteLoaded', spriteLoaded);
+		//eventObserver.subscribe('spriteLoaded', spriteLoaded);
 
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
 		turbulenzGame.load(loadComplete);	
