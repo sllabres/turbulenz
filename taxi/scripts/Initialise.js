@@ -14,9 +14,9 @@
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
 		turbulenzGame.load(loadComplete);	
 
-		function spriteLoaded(sprite) {
-			drawingService.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
-		}
+		//function spriteLoaded(sprite) {
+		//	drawingService.draw([0.3,0.3,0.3,1], [sprite.sprite]);		
+		//}
 	};
 
 	function loadComplete() {
