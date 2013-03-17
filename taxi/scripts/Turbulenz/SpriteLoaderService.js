@@ -19,7 +19,7 @@ function SpriteLoaderService(graphicsDevice, requestHandler, listener) {
 		textureManager.add(texture.name, texture);		
 		listener.notify('spriteLoaded', { sprite : sprite , name : getName(texture.name) } );
 
-		console.log(texture.name);
+		console.log(getName(texture.name));
 	}
 
 	function getName(textureName) {
