@@ -18,11 +18,5 @@
 			//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
 			drawingService.draw([0.3,0.3,0.3,1], [sprite]);
 		}
-	};
-
-		
+	};		
 }());
-
-function Sprite(height, width, name) {
-	return { height : height, width : width, name : name };
-}
