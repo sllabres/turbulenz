@@ -2,7 +2,7 @@ function SpriteRepository(subscriber) {
 	var sprites = [];
 
 	function loaded(sprite) {
-		console.log("sprite" + sprite.sprite);
+		console.log("sprite" + sprite.name);
 		sprites[sprite.name] = sprite.sprite;
 	}
 
