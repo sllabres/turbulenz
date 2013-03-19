@@ -8,14 +8,15 @@
 			mathDevice = TurbulenzEngine.createMathDevice({}),
 			drawingService = new DrawingService(graphicsDevice, Draw2D, new SpriteRepository(eventObserver));
 
-		eventObserver.subscribe('loadComplete', loadComplete);		
+		eventObserver.subscribe('loadComplete', loadComplete);
 
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
 		turbulenzGame.load();
 
 		function loadComplete() {
 			//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
-			drawingService.draw([0.3,0.3,0.3,1], ["Sky.jpg"]);
+			//drawingService.draw([0.3,0.3,0.3,1], ["Sky.jpg"]);
+			console.log("load complete");
 		}
 	};
 
