@@ -15,7 +15,7 @@
 
 		function loadComplete() {
 			//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
-			//drawingService.draw([0.3,0.3,0.3,1], ["Sky.jpg"]);
+			drawingService.draw([0.3,0.3,0.3,1], ["Sky.jpg"]);
 			console.log("load complete");
 		}
 	};
