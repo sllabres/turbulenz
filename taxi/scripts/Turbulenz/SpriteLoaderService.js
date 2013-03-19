@@ -14,6 +14,9 @@ function SpriteLoaderService(graphicsDevice, requestHandler, listener) {
 		var sprite = Draw2DSprite.create({	origin: [0,0], 
 											texture: texture });
 
+		// height: graphicsDevice.height,
+		// width: graphicsDevice.width
+
 		textureManager.add(texture.name, texture);		
 		listener.notify('spriteLoaded', { sprite : sprite , name : getName(texture.name) } );
 	}
