@@ -11,7 +11,7 @@ function SpriteLoaderService(graphicsDevice, requestHandler, listener) {
 		}
 	}
 
-	function textureLoadComplete(texture) {
+	function textureLoadComplete(texture) {			
 		var sprite = Draw2DSprite.create({	origin: [0,0], 
 											texture: texture });
 
@@ -20,6 +20,7 @@ function SpriteLoaderService(graphicsDevice, requestHandler, listener) {
 
 		textureManager.add(texture.name, texture);		
 		listener.notify('spriteLoaded', { sprite : sprite , name : getName(texture.name) } );
+		console.log("load complete");
 	}
 
 	function getName(textureName) {
