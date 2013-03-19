@@ -10,18 +10,32 @@
 		equal(subscribedEvent, expectedSubcribeEventName);
 	});
 
-	// test("When calling getSpriteBy name Then sprite is returned", function() {
-	// 	var expectedSprite = "expectedSprite",
-	// 		eventObserver = { notify : function() { }, subscribe },
-	// 		spriteRepository = new SpriteRepository(eventObserver);
+	test("When calling getBy 'sprite' Then sprite is returned", function() {
+		var expectedSprite = "expectedSprite",
+			expectedSpriteName = "expectedSpriteName",
+			callbackFunction = null,
+			eventObserver = { subscribe : function(eventName, callback) { callbackFunction = callback; } },
+			spriteRepository = new SpriteRepository(eventObserver),
+			returnedSprite = "";
 
-	// 	listener.notify('spriteLoaded', { sprite : expectedSprite , name : "expectedSprite" } );
+		callbackFunction(expectedSprite, expectedSpriteName);
 
-	// 	equal(returnedSprite, expectedSprite);
-	// });
+		returnedSprite = spriteRepository.getBy(expectedSpriteName);
+
+		equal(returnedSprite, expectedSprite);
+	});
 }());
 
 function SpriteRepository(subscriber) {
-	subscriber.subscribe("spriteLoaded");
+	var sprites = [];
 
+	function loaded(sprite, spriteName) {
+		sprites[spriteName] = sprite;
+	}
+
+	function getBy(name) {
+		return sprites[name];
+	}
+
+	return { getBy : getBy };
 }
