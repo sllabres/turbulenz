@@ -12,15 +12,13 @@
 		eventObserver.subscribe('spriteLoaded', spriteLoaded);
 
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
-		turbulenzGame.load();			
+		turbulenzGame.load();
 
-		function spriteLoaded(sprite) {
+		function loadComplete() {
+			//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
 			drawingService.draw([0.3,0.3,0.3,1], ["Sky.jpg"]);
 		}
 	};
 
-	function loadComplete() {
-		//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
-		console.log("loading complete.");
-	}	
+		
 }());
