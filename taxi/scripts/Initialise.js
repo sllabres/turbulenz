@@ -14,7 +14,7 @@
 		turbulenzGame.load();
 
 		function loadComplete() {
-			//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
+			TurbulenzEngine.setInterval(loadComplete, 1000 / 60);
 			var drawable = new Drawable(graphicsDevice.height, graphicsDevice.width, "Sky.jpg");			
 			drawingService.draw([0.3,0.3,0.3,1], [drawable]);
 		}
