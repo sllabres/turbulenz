@@ -24,6 +24,23 @@
 
 		equal(returnedSprite, expectedSprite);
 	});
+
+
+	test("When calling getBy 'differentSprite' Then differentSprite is returned", function() {
+		var expectedSprite = "expectedDifferentSprite",
+			expectedSpriteName = "expectedDifferentSpriteName",
+			callbackFunction = null,
+			eventObserver = { subscribe : function(eventName, callback) { callbackFunction = callback; } },
+			spriteRepository = new SpriteRepository(eventObserver),
+			returnedSprite = "";
+
+		callbackFunction(expectedSprite, expectedSpriteName);
+
+		returnedSprite = spriteRepository.getBy(expectedSpriteName);
+
+		equal(returnedSprite, expectedSprite);
+	});
+
 }());
 
 function SpriteRepository(subscriber) {
@@ -36,7 +53,7 @@ function SpriteRepository(subscriber) {
 	function getBy(name) {
 		return sprites[name];
 	}
-	
+
 	subscriber.subscribe("spriteLoaded", loaded);
 
 	return { getBy : getBy };
