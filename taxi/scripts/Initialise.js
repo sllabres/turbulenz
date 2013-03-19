@@ -13,10 +13,12 @@
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
 		turbulenzGame.load();
 
-		var drawable = new Drawable(graphicsDevice.height, graphicsDevice.width, "Sky.jpg");			
-
 		function loadComplete() {
-			TurbulenzEngine.setInterval(loadComplete, 1000 / 60);			
+			TurbulenzEngine.setInterval(update, 1000 / 60);			
+		}
+
+		function update() {
+			var background = new Drawable(graphicsDevice.height, graphicsDevice.width, "Sky.jpg");
 			drawingService.draw([0.3,0.3,0.3,1], [drawable]);
 		}
 	};		
