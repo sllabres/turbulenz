@@ -18,6 +18,8 @@ function LoadingScreenService(graphicsDevice, mathDevice, requestHandler, listen
 	}
 
 	function assetLoaded() {
+		console.log("asset loaded");
+		
 			loadingScreen.render(1, 1);
 			if(this.loadingProgress == 1) {
 				listener.notify('loadComplete');				

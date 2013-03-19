@@ -4,7 +4,8 @@ function SpriteLoaderService(graphicsDevice, requestHandler, listener) {
 
 	function load(urlMapping) {
 		for(var key in urlMapping) {
-			if(key.indexOf("textures") !== -1) {				
+			if(key.indexOf("textures") !== -1) {	
+				console.log("load called");			
 				textureManager.load(urlMapping[key], false, textureLoadComplete);				
 			}
 		}
