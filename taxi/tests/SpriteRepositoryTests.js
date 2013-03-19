@@ -36,6 +36,8 @@ function SpriteRepository(subscriber) {
 	function getBy(name) {
 		return sprites[name];
 	}
+	
+	subscriber.subscribe("spriteLoaded", loaded);
 
 	return { getBy : getBy };
 }
