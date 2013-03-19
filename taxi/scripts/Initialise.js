@@ -6,9 +6,8 @@
 			graphicsDevice = TurbulenzEngine.createGraphicsDevice({}),
 			eventObserver = new EventObserver(),
 			mathDevice = TurbulenzEngine.createMathDevice({}),
-			drawingService = new DrawingService(graphicsDevice, Draw2D, new SpriteRepository(eventObserver));
-
-		var background = new Drawable(graphicsDevice.height, graphicsDevice.width, "Sky.jpg");
+			drawingService = new DrawingService(graphicsDevice, Draw2D, new SpriteRepository(eventObserver)),
+			game = new Game(drawingService, { height: graphicsDevice.height, width : graphicsDevice.width });
 
 		eventObserver.subscribe('loadComplete', loadComplete);
 
@@ -16,11 +15,7 @@
 		turbulenzGame.load();
 
 		function loadComplete() {
-			TurbulenzEngine.setInterval(update, 1000 / 60);			
-		}
-
-		function update() {			
-			drawingService.draw([0.3,0.3,0.3,1], [background]);
+			TurbulenzEngine.setInterval(game.update, 1000 / 60);			
 		}
 	};		
 }());
