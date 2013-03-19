@@ -15,6 +15,7 @@
 /*{{ javascript('jslib/physics2ddebugdraw.js') }}*/
 /*{{ javascript('jslib/boxtree.js') }}*/
 
+/*{{ javascript("scripts/Drawable.js") }}*/
 /*{{ javascript("scripts/Turbulenz/SpriteRepository.js") }}*/
 /*{{ javascript("scripts/Turbulenz/DrawingService.js") }}*/
 /*{{ javascript("scripts/Turbulenz/LoadingScreenService.js") }}*/

@@ -14,9 +14,9 @@
 		turbulenzGame.load();
 
 		function loadComplete() {
-			var sprite = new Sprite(graphicsDevice.height, graphicsDevice.width, "Sky.jpg");
 			//TurbulenzEngine.setInterval(starter.update, 1000 / 60);
-			drawingService.draw([0.3,0.3,0.3,1], [sprite]);
+			var drawable = new Drawable(graphicsDevice.height, graphicsDevice.width, "Sky.jpg");			
+			drawingService.draw([0.3,0.3,0.3,1], [drawable]);
 		}
 	};		
 }());
