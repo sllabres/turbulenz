@@ -8,6 +8,8 @@
 			mathDevice = TurbulenzEngine.createMathDevice({}),
 			drawingService = new DrawingService(graphicsDevice, Draw2D, new SpriteRepository(eventObserver));
 
+		var background = new Drawable(graphicsDevice.height, graphicsDevice.width, "Sky.jpg");
+
 		eventObserver.subscribe('loadComplete', loadComplete);
 
 		turbulenzGame = new TurbulenzGameLoader(requestHandler, graphicsDevice, mathDevice, eventObserver);
@@ -17,8 +19,7 @@
 			TurbulenzEngine.setInterval(update, 1000 / 60);			
 		}
 
-		function update() {
-			var background = new Drawable(graphicsDevice.height, graphicsDevice.width, "Sky.jpg");
+		function update() {			
 			drawingService.draw([0.3,0.3,0.3,1], [background]);
 		}
 	};		
