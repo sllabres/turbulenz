@@ -39,5 +39,4 @@
 
 		equal(returnedSprite, expectedSprite);
 	});
-
 }());
