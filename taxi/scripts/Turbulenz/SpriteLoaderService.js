@@ -4,8 +4,7 @@ function SpriteLoaderService(graphicsDevice, requestHandler, listener) {
 
 	function load(urlMapping) {
 		for(var key in urlMapping) {
-			if(key.indexOf("textures") !== -1) {	
-				console.log("load called");			
+			if(key.indexOf("textures") !== -1) {					
 				textureManager.load(urlMapping[key], false, textureLoadComplete);				
 			}
 		}
@@ -19,8 +18,7 @@ function SpriteLoaderService(graphicsDevice, requestHandler, listener) {
 		// width: graphicsDevice.width
 
 		textureManager.add(texture.name, texture);		
-		listener.notify('spriteLoaded', { sprite : sprite , name : getName(texture.name) } );
-		console.log("load complete");
+		listener.notify('spriteLoaded', { sprite : sprite , name : getName(texture.name) } );		
 	}
 
 	function getName(textureName) {

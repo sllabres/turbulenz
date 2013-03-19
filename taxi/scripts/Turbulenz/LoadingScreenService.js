@@ -14,12 +14,11 @@ function LoadingScreenService(graphicsDevice, mathDevice, requestHandler, listen
 
 	function show() {
 		requestHandler.addEventListener('eventOnload', assetTracker.eventOnLoadHandler);
+		// stupidly this callback is triggered purely on load being called, rather than load being completed!
 		assetTracker.setCallback(assetLoaded);
 	}
 
-	function assetLoaded() {
-		console.log("asset loaded");
-		
+	function assetLoaded() {		
 			loadingScreen.render(1, 1);
 			if(this.loadingProgress == 1) {
 				listener.notify('loadComplete');				
