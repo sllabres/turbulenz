@@ -1,8 +1,8 @@
 function SpriteRepository(subscriber) {
 	var sprites = [];
 
-	function loaded(sprite, spriteName) {
-		sprites[spriteName] = sprite;
+	function loaded(sprite) {
+		sprites[sprite.name] = sprite.sprite;
 	}
 
 	function getBy(name) {
