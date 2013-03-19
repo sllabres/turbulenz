@@ -25,7 +25,6 @@
 		equal(returnedSprite, expectedSprite);
 	});
 
-
 	test("When calling getBy 'differentSprite' Then differentSprite is returned", function() {
 		var expectedSprite = "expectedDifferentSprite",
 			expectedSpriteName = "expectedDifferentSpriteName",
