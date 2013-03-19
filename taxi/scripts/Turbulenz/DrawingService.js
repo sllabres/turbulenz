@@ -14,7 +14,10 @@ function DrawingService(graphicsDevice, draw2D, spriteRepository) {
 
 	function drawSprites(sprites) {
 		for (var i = 0; i < sprites.length; i++) {
-			drawing.drawSprite(spriteRepository.getBy(sprites[i].name));
+			var sprite = spriteRepository.getBy(sprites[i].name);
+			sprite.height = sprites[i].height;
+			sprite.width = sprites[i].width;
+			drawing.drawSprite(sprite);
 		}
 		complete();
 	}
