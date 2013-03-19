@@ -1,21 +1,20 @@
 function DrawingService(graphicsDevice, draw2D, spriteRepository) {
 	"use strict";
-	var sprites = [],
-		drawing = draw2D.create({ graphicsDevice : graphicsDevice });
+	var drawing = draw2D.create({ graphicsDevice : graphicsDevice });
 		drawing.configure({ viewportRectangle : [0, 0, graphicsDevice.width, graphicsDevice.height], scaleMode : 'scale' });		
 
-	function prepare(clearColour) {
+	function prepare(clearColour, spriteNames) {
 		if(graphicsDevice.beginFrame()) {
 			drawing.begin('alpha');
 			drawing.clear(clearColour);			
 			drawing.setBackBuffer();
-			drawSprite();
+			drawSprites(spriteNames);
 		}
 	}
 
-	function drawSprite() {
-		for (var i = 0; i < sprites.length; i++) {
-			drawing.drawSprite(spriteRepository.getBy(sprites[i]));
+	function drawSprites(spriteNames) {
+		for (var i = 0; i < spriteNames.length; i++) {
+			drawing.drawSprite(spriteRepository.getBy(sprites[i]).sprite);
 		}
 		complete();
 	}
@@ -25,9 +24,8 @@ function DrawingService(graphicsDevice, draw2D, spriteRepository) {
 		graphicsDevice.endFrame();		
 	}
 
-	function draw(clearColour, spriteCollection) {
-		sprites = spriteCollection;
-		prepare(clearColour);		
+	function draw(clearColour, spriteNames) {		
+		prepare(clearColour, spriteNames);		
 	}
 
 	return { draw : draw };
