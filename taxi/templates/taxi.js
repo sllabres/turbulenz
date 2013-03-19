@@ -24,3 +24,4 @@
 /*{{ javascript("scripts/Turbulenz/SpriteLoaderService.js") }}*/
 /*{{ javascript("scripts/EventObserver.js") }}*/
 /*{{ javascript("scripts/Initialise.js") }}*/
+/*{{ javascript("scripts/Game.js") }}*/

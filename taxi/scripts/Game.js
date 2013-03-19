@@ -1,4 +1,4 @@
-function Game(drawService, screenDimensions) {
+function Game(drawingService, screenDimensions) {
 	var background = new Drawable(screenDimensions.height, screenDimensions.width, "Sky.jpg");
 
 	function update() {
