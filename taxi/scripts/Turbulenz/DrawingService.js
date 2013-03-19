@@ -1,4 +1,4 @@
-function DrawingService(graphicsDevice, draw2D) {
+function DrawingService(graphicsDevice, draw2D, spriteRepository) {
 	"use strict";
 	var sprites = [],
 		drawing = draw2D.create({ graphicsDevice : graphicsDevice });
@@ -15,7 +15,7 @@ function DrawingService(graphicsDevice, draw2D) {
 
 	function drawSprite() {
 		for (var i = 0; i < sprites.length; i++) {
-			drawing.drawSprite(sprites[i]);
+			drawing.drawSprite(spriteRepository.getBy(sprites[i]));
 		}
 		complete();
 	}
