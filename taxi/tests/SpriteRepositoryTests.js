@@ -1,14 +1,6 @@
 (function () {
 	"use strict";
 	module("Given sprite repository");
-	test("When creating sprite repository Then subscribe to spriteLoaded event", function() {
-		var subscribed = false,
-			eventObserver = { subscribe : function() { subscribed = true; } },
-			spriteRepository = new SpriteRepository(eventObserver);
-
-		ok(subscribed);
-	});
-
 	test("When creating sprite repository Then subscribe to 'spriteLoaded' event", function() {
 		var expectedSubcribeEventName = "spriteLoaded",
 			subscribedEvent = "",
