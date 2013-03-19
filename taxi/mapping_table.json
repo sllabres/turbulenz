@@ -1,5 +1,6 @@
 {
 	"urnmapping" : { 		
-		"textures/Sky.jpg" : "Sky.jpg"
+		"textures/Sky.jpg" : "Sky.jpg",
+		"textures/Passenger.jpg" : "Passenger.jpg",
 	}
 }
