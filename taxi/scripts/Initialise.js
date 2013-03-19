@@ -19,7 +19,7 @@
 
 		function update() {
 			var background = new Drawable(graphicsDevice.height, graphicsDevice.width, "Sky.jpg");
-			drawingService.draw([0.3,0.3,0.3,1], [drawable]);
+			drawingService.draw([0.3,0.3,0.3,1], [background]);
 		}
 	};		
 }());
